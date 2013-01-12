@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- xsltproc -v -o ../README utilities/readme.xsl data/html.xml -->
+<!-- xsltproc -v -o ../README utilities/readme.xsl data/pages.xml -->
 
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -20,14 +20,14 @@ XSLT is being used as a preprocessor (using xsltproc) to output valid, well-form
 
 To process HTML, run the `./build` script in the same directory as this README file.
 
-To process individual files, open the `build` file and find the xsltproc command referring to the HTML file you would like to process and run the command.
+To process individual files, open the `workspace/build` file and find the xsltproc command referring to the HTML file you would like to process and run the command.
 
 ### Design Templates
 
 The page layouts can be viewed in a browser at the following URLs: 
 
 </xsl:text>
-<xsl:apply-templates select="data/html/page" />
+<xsl:apply-templates select="data/pages/page" />
 </xsl:template>
 
 <xsl:template match="page">

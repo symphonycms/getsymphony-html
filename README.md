@@ -10,9 +10,15 @@ XSLT is being used as a preprocessor (using xsltproc) to output valid, well-form
 
 To process HTML, run the `./build` script in the same directory as this README file.
 
-To process individual files, open the `build` file and find the xsltproc command referring to the HTML file you would like to process and run the command.
+To process individual files, open the `workspace/build` file and find the xsltproc command referring to the HTML file you would like to process and run the command.
 
 ### Design Templates
 
 The page layouts can be viewed in a browser at the following URLs: 
 
+* https://bauhouse.github.com/xslt-static-site-generator/
+* https://bauhouse.github.com/xslt-static-site-generator/news/
+* https://bauhouse.github.com/xslt-static-site-generator/events/
+* https://bauhouse.github.com/xslt-static-site-generator/services/
+* https://bauhouse.github.com/xslt-static-site-generator/about/
+* https://bauhouse.github.com/xslt-static-site-generator/contact/
