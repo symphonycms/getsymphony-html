@@ -1,8 +1,8 @@
-# Symphony Community Site
+# XSLT Static Site Generator
 
 ## HTML Templates
 
-This markup library contains the XML, XSLT and HTML used to build the Symphony community site design. It is being maintained as a [Git repository on GitHub](https://github.com/symphonycms/getsymphony-html).
+This markup library contains the XML, XSLT and HTML used to build a basic demo of an XSLT static site generator. It is being maintained as a [Git repository on GitHub](https://github.com/bauhouse/xslt-static-site-generator).
 
 ### Preprocessing HTML
 
