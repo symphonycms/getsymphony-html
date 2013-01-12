@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Generate the build script
+
+xsltproc -v -o build utilities/build.xsl data/pages.xml;
+
+# Create the README file
+
+xsltproc -v -o ../README.md utilities/readme.xsl data/pages.xml;
+
+# These commands will process HTML files with XSLT when you run `./build` inside the `workspace` directory.
+# This list is dynamically generated as you add more pages to the `data/pages.xml` file.
+
+xsltproc -v -o ../index.html pages/index.xsl pages-data/index.xml;
+xsltproc -v -o ../news/index.html pages/news.xsl pages-data/news.xml;
+xsltproc -v -o ../events/index.html pages/events.xsl pages-data/events.xml;
+xsltproc -v -o ../services/index.html pages/services.xsl pages-data/services.xml;
+xsltproc -v -o ../about/index.html pages/about.xsl pages-data/about.xml;
+xsltproc -v -o ../contact/index.html pages/contact.xsl pages-data/contact.xml;

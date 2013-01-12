@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <page-title>Home</page-title>
+    <current-page>home</current-page>
+    <root>./</root>
+  </params>
+</data>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <navigation>
+    <page handle="home" id="1">
+      <name>Home</name>
+    </page>
+    <page handle="services" id="2">
+      <name>Services</name>
+    </page>
+    <page handle="news" id="3">
+      <name>News</name>
+    </page>
+    <page handle="events" id="4">
+      <name>Events</name>
+    </page>
+    <page handle="about" id="5">
+      <name>About</name>
+    </page>
+    <page handle="contact" id="6">
+      <name>Contact</name>
+    </page>
+  </navigation>
+</data>
