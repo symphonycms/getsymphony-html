@@ -16,9 +16,9 @@ To process individual files, open the `workspace/build` file and find the xsltpr
 
 The page layouts can be viewed in a browser at the following URLs: 
 
-* https://bauhouse.github.com/xslt-static-site-generator/
-* https://bauhouse.github.com/xslt-static-site-generator/news/
-* https://bauhouse.github.com/xslt-static-site-generator/events/
-* https://bauhouse.github.com/xslt-static-site-generator/services/
-* https://bauhouse.github.com/xslt-static-site-generator/about/
-* https://bauhouse.github.com/xslt-static-site-generator/contact/
+* http://bauhouse.github.com/xslt-static-site-generator/
+* http://bauhouse.github.com/xslt-static-site-generator/news/
+* http://bauhouse.github.com/xslt-static-site-generator/events/
+* http://bauhouse.github.com/xslt-static-site-generator/services/
+* http://bauhouse.github.com/xslt-static-site-generator/about/
+* http://bauhouse.github.com/xslt-static-site-generator/contact/
