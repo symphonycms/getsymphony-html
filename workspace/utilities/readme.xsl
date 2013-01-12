@@ -32,7 +32,7 @@ The page layouts can be viewed in a browser at the following URLs:
 
 <xsl:template match="page">
   <xsl:text>* https://bauhouse.github.com/xslt-static-site-generator/</xsl:text>
-  <xsl:value-of select="substring-before(substring-after(@output, '../'), 'index.html')" />
+  <xsl:value-of select="substring-before(@output, 'index.html')" />
   <xsl:text>&#10;</xsl:text>
 </xsl:template>
 
