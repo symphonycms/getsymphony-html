@@ -24,8 +24,14 @@
 </xsl:template>
 
 <xsl:template match="data" mode="css">
-	<link rel="stylesheet" href="{$css}screen.css" />
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="{$theme}/css/codemirror.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="{$theme}/css/factory.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="{$theme}/docs/css/factory.docs.css" />
+  <!--
+  <link rel="stylesheet" type="text/css" media="screen" href="{$css}screen.css" />
   <xsl:comment><![CDATA[[if IE]> <link href="]]><xsl:value-of select="$css" /><![CDATA[ie.css" media="screen, projection" rel="stylesheet" type="text/css" /> <![endif]]]></xsl:comment>
+  -->
 </xsl:template>
 
 </xsl:stylesheet>
