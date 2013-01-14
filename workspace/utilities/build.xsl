@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- xsltproc -v -o build utilities/build.xsl data/pages.xml -->
+<!-- xsltproc -v -o build utilities/build.xsl data/_pages.xml -->
 
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -12,14 +12,14 @@
 
 # Generate the build script
 
-xsltproc -v -o build utilities/build.xsl data/pages.xml;
+xsltproc -v -o build utilities/build.xsl data/_pages.xml;
 
 # Create the README file
 
-xsltproc -v -o ../README.md utilities/readme.xsl data/pages.xml;
+xsltproc -v -o ../README.md utilities/readme.xsl data/_pages.xml;
 
 # These commands will process HTML files with XSLT when you run `./build` inside the `workspace` directory.
-# This list is dynamically generated as you add more pages to the `data/pages.xml` file.
+# This list is dynamically generated as you add more pages to the `data/_pages.xml` file.
 
 </xsl:text>
 <xsl:apply-templates select="data/pages/page" />

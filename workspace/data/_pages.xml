@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <pages>
+    <page output="index.html" xslt="pages/index.xsl" data-source="data/index.xml">
+      <title>Home</title>
+    </page>
+    <page output="community/index.html" xslt="pages/community.xsl" data-source="data/community.xml">
+      <title>Community</title>
+    </page>
+    <page output="community/post/index.html" xslt="pages/community_post.xsl" data-source="data/community_post.xml">
+      <title>Discussion</title>
+    </page>
+  </pages>
+</data>

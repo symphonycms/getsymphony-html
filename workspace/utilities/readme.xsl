@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- xsltproc -v -o ../README utilities/readme.xsl data/pages.xml -->
+<!-- xsltproc -v -o ../README utilities/readme.xsl data/_pages.xml -->
 
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <section-title>Community</section-title>
+    <page-title>Discussion</page-title>
+    <current-page>post</current-page>
+    <root-page>community</root-page>
+    <root>../../</root>
+    <current-path>community/post/</current-path>
+  </params>
+</data>
