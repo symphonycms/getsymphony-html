@@ -8,11 +8,11 @@
 <xsl:output method="text" />
 
 <xsl:template match="/">
-<xsl:text># XSLT Static Site Generator
+<xsl:text># Symphony Community Site
 
 ## HTML Templates
 
-This markup library contains the XML, XSLT and HTML used to build a basic demo of an XSLT static site generator. It is being maintained as a [Git repository on GitHub](https://github.com/bauhouse/xslt-static-site-generator).
+This markup library contains the XML, XSLT and HTML used to build the templates for the Symphony community site. It is being maintained as a [Git repository on GitHub](https://github.com/bauhouse/getsymphony-html).
 
 ### Preprocessing HTML
 
@@ -31,7 +31,7 @@ The page layouts can be viewed in a browser at the following URLs:
 </xsl:template>
 
 <xsl:template match="page">
-  <xsl:text>* http://bauhouse.github.com/xslt-static-site-generator/</xsl:text>
+  <xsl:text>* http://bauhouse.github.com/getsymphony-html/</xsl:text>
   <xsl:value-of select="substring-before(@output, 'index.html')" />
   <xsl:text>&#10;</xsl:text>
 </xsl:template>
