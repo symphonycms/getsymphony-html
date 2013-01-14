@@ -1,8 +1,8 @@
-# XSLT Static Site Generator
+# Symphony Community Site
 
 ## HTML Templates
 
-This markup library contains the XML, XSLT and HTML used to build a basic demo of an XSLT static site generator. It is being maintained as a [Git repository on GitHub](https://github.com/bauhouse/xslt-static-site-generator).
+This markup library contains the XML, XSLT and HTML used to build the templates for the Symphony community site. It is being maintained as a [Git repository on GitHub](https://github.com/bauhouse/getsymphony-html).
 
 ### Preprocessing HTML
 
@@ -16,9 +16,9 @@ To process individual files, open the `workspace/build` file and find the xsltpr
 
 The page layouts can be viewed in a browser at the following URLs: 
 
-* http://bauhouse.github.com/xslt-static-site-generator/
-* http://bauhouse.github.com/xslt-static-site-generator/news/
-* http://bauhouse.github.com/xslt-static-site-generator/events/
-* http://bauhouse.github.com/xslt-static-site-generator/services/
-* http://bauhouse.github.com/xslt-static-site-generator/about/
-* http://bauhouse.github.com/xslt-static-site-generator/contact/
+* http://bauhouse.github.com/getsymphony-html/
+* http://bauhouse.github.com/getsymphony-html/news/
+* http://bauhouse.github.com/getsymphony-html/events/
+* http://bauhouse.github.com/getsymphony-html/services/
+* http://bauhouse.github.com/getsymphony-html/about/
+* http://bauhouse.github.com/getsymphony-html/contact/
