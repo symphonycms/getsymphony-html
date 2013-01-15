@@ -4,7 +4,10 @@
 
 <xsl:template name="header">
 	<header class="site-header centered">
-		<!-- xsl:call-template name="site-header" / -->
+  	<h1>
+  		<span>Symphony</span>
+  	</h1>
+    <xsl:apply-templates select="$navigation/data" mode="navigation" />
 	</header>
 </xsl:template>
 

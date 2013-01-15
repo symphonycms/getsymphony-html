@@ -7,14 +7,14 @@
     <header class="network-toolbar collapsed">
       <div class="field">
         <h1 class="network-logo column one">
-          <a href="{$theme}/docs/about.xml">Symphony Network</a>
+          <a href="{$root}">Symphony Network</a>
         </h1>
         <nav class="network-nav column">
-          <a href="{$theme}/docs/examples/community.xml">Community</a>
-          <a href="{$theme}/docs/examples/documentation.xml">Documentation</a>
-          <a href="{$theme}/docs/examples/extensions.xml">Extensions</a>
-          <a href="{$theme}/docs/examples/ninjas.xml">Ninjas</a>
-          <a href="{$theme}/docs/examples/xpathr.xml">xPathr</a>
+          <a href="{$root}community/">Community</a>
+          <a href="#">Documentation</a>
+          <a href="#">Extensions</a>
+          <a href="#">Ninjas</a>
+          <a href="#">xpathr</a>
         </nav>
         <div id="user" class="network-user">
           <a href="http://getsymphony.com/get-involved/member/Allen/">
