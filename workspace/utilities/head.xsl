@@ -8,7 +8,7 @@
   <head>
     <meta name="description" content="{$website-name}" />
     <meta name="author" content="{$website-name}" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <xsl:apply-templates mode="page-title" />
     <xsl:apply-templates mode="css" />
     <xsl:apply-templates mode="js" />
