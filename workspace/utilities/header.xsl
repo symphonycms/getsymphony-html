@@ -3,13 +3,9 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template name="header">
-  <header class="main-header">
-    <h1 class="branding"><a href="{$root}"><xsl:value-of select="$website-name" /></a></h1>
-    <xsl:apply-templates select="$navigation/data" mode="navigation" />
-  </header>
-  <xsl:if test="$has-section-nav = true()">
-    <a class="skip-link" href="#section-nav">Skip To Page Navigation</a>	
-  </xsl:if>
+	<header class="site-header centered">
+		<!-- xsl:call-template name="site-header" / -->
+	</header>
 </xsl:template>
 
 <xsl:template match="data" mode="navigation">

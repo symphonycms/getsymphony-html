@@ -7,18 +7,18 @@
     <header class="network-toolbar collapsed">
       <div class="field">
         <h1 class="network-logo column one">
-          <a href="{$config/root}/docs/about.xml">Symphony Network</a>
+          <a href="{$theme}/docs/about.xml">Symphony Network</a>
         </h1>
         <nav class="network-nav column">
-          <a href="{$config/root}/docs/examples/community.xml">Community</a>
-          <a href="{$config/root}/docs/examples/documentation.xml">Documentation</a>
-          <a href="{$config/root}/docs/examples/extensions.xml">Extensions</a>
-          <a href="{$config/root}/docs/examples/ninjas.xml">Ninjas</a>
-          <a href="{$config/root}/docs/examples/xpathr.xml">xPathr</a>
+          <a href="{$theme}/docs/examples/community.xml">Community</a>
+          <a href="{$theme}/docs/examples/documentation.xml">Documentation</a>
+          <a href="{$theme}/docs/examples/extensions.xml">Extensions</a>
+          <a href="{$theme}/docs/examples/ninjas.xml">Ninjas</a>
+          <a href="{$theme}/docs/examples/xpathr.xml">xPathr</a>
         </nav>
         <div id="user" class="network-user">
           <a href="http://getsymphony.com/get-involved/member/Allen/">
-            <img src="{$config/root}/img/user.png" width="35" height="35" alt="Allen Chang" />
+            <img src="{$theme}/img/user.png" width="35" height="35" alt="Allen Chang" />
           </a>
           <p>
             <a href="http://getsymphony.com/get-involved/currently-online/" class="network-visitors">15</a>
@@ -33,7 +33,7 @@
       <form>
         <!-- Gravatar -->
         <div class="network-gravatar column one">
-          <img src="{$config/root}/img/user.png" width="174" height="174" alt="Allen Chang" />
+          <img src="{$theme}/img/user.png" width="174" height="174" alt="Allen Chang" />
           <p>Change your avatar at <a href="http://gravatar.com">Gravatar</a>.</p>
         </div>
         <!-- Information -->
