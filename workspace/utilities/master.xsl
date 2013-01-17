@@ -44,11 +44,11 @@
 <xsl:param name="theme" select="concat($assets, 'themes/factory')" />
 
 <xsl:template match="/">
-	<xsl:comment><![CDATA[[if lt IE 7]> <html class="ie ie6 lt-ie7 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
-	<xsl:comment><![CDATA[[if IE 7]>    <html class="ie ie7 lt-ie8 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
-	<xsl:comment><![CDATA[[if IE 8]>    <html class="ie ie8 lt-ie9 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
-	<xsl:comment><![CDATA[[if IE 9]>    <html class="ie ie9 lt-ie10 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
-	<xsl:comment><![CDATA[[if gt IE 9]><!]]></xsl:comment><html class="no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><xsl:comment><![CDATA[<![endif]]]></xsl:comment>
+  <xsl:comment><![CDATA[[if lt IE 7]> <html class="ie ie6 lt-ie7 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
+  <xsl:comment><![CDATA[[if IE 7]>    <html class="ie ie7 lt-ie8 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
+  <xsl:comment><![CDATA[[if IE 8]>    <html class="ie ie8 lt-ie9 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
+  <xsl:comment><![CDATA[[if IE 9]>    <html class="ie ie9 lt-ie10 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
+  <xsl:comment><![CDATA[[if gt IE 9]><!]]></xsl:comment><html class="no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><xsl:comment><![CDATA[<![endif]]]></xsl:comment>
     <xsl:apply-templates select="." mode="head" />
     <xsl:apply-templates select="." mode="body" />
   </html>

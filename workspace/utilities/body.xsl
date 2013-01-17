@@ -8,13 +8,13 @@
 
 <xsl:template match="/" mode="body">
   <body>
-		<!-- Symphony Network -->
-		<xsl:call-template name="network" />
-		<!-- Current page -->
-		<div id="site">
+    <!-- Symphony Network -->
+    <xsl:call-template name="network" />
+    <!-- Current page -->
+    <div id="site">
       <xsl:call-template name="header" />
       <xsl:apply-templates />
-		</div>
+    </div>
     <xsl:call-template name="footer" />
   </body>
 </xsl:template>
