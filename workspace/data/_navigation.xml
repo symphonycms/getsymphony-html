@@ -4,7 +4,7 @@
     <page handle="stream" type="index">
       <name>Stream</name>
     </page>
-    <page handle="discuss">
+    <page handle="discussions">
       <name>Discussions</name>
       <page handle="post">
         <name>Discussion</name>

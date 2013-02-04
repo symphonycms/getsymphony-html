@@ -12,5 +12,5 @@ xsltproc -v -o ../README.md utilities/readme.xsl data/_pages.xml;
 # This list is dynamically generated as you add more pages to the `data/_pages.xml` file.
 
 xsltproc -v -o ../index.html pages/index.xsl data/index.xml;
-xsltproc -v -o ../community/index.html pages/community.xsl data/community.xml;
-xsltproc -v -o ../community/post/index.html pages/community_post.xsl data/community_post.xml;
+xsltproc -v -o ../discussions/index.html pages/discussions.xsl data/discussions.xml;
+xsltproc -v -o ../discussions/post/index.html pages/discussions_post.xsl data/discussions_post.xml;

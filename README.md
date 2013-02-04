@@ -17,5 +17,5 @@ To process individual files, open the `workspace/build` file and find the xsltpr
 The page layouts can be viewed in a browser at the following URLs: 
 
 * http://bauhouse.github.com/getsymphony-html/
-* http://bauhouse.github.com/getsymphony-html/community/
-* http://bauhouse.github.com/getsymphony-html/community/post/
+* http://bauhouse.github.com/getsymphony-html/discussions/
+* http://bauhouse.github.com/getsymphony-html/discussions/post/
