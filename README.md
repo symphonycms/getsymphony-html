@@ -19,3 +19,8 @@ The page layouts can be viewed in a browser at the following URLs:
 * http://bauhouse.github.com/getsymphony-html/
 * http://bauhouse.github.com/getsymphony-html/discussions/
 * http://bauhouse.github.com/getsymphony-html/discussions/post/
+* http://bauhouse.github.com/getsymphony-html/questions/
+* http://bauhouse.github.com/getsymphony-html/blog/
+* http://bauhouse.github.com/getsymphony-html/showcase/
+* http://bauhouse.github.com/getsymphony-html/events/
+* http://bauhouse.github.com/getsymphony-html/about/

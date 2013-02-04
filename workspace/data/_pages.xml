@@ -10,5 +10,20 @@
     <page output="discussions/post/index.html" xslt="pages/discussions_post.xsl" data-source="data/discussions_post.xml">
       <title>Discussion</title>
     </page>
+    <page output="questions/index.html" xslt="pages/questions.xsl" data-source="data/questions.xml">
+      <title>Questions</title>
+    </page>
+    <page output="blog/index.html" xslt="pages/blog.xsl" data-source="data/blog.xml">
+      <title>Blog</title>
+    </page>
+    <page output="showcase/index.html" xslt="pages/showcase.xsl" data-source="data/showcase.xml">
+      <title>Showcase</title>
+    </page>
+    <page output="events/index.html" xslt="pages/events.xsl" data-source="data/events.xml">
+      <title>Events</title>
+    </page>
+    <page output="about/index.html" xslt="pages/about.xsl" data-source="data/about.xml">
+      <title>About</title>
+    </page>
   </pages>
 </data>
