@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <navigation>
-    <page handle="home" id="1">
-      <name>Home</name>
+    <page handle="stream" type="index">
+      <name>Stream</name>
     </page>
-    <page handle="community" id="2">
-      <name>Community</name>
-      <page handle="post" id="2">
+    <page handle="discuss">
+      <name>Discussions</name>
+      <page handle="post">
         <name>Discussion</name>
       </page>
+    </page>
+    <page handle="questions">
+      <name>Questions</name>
+    </page>
+    <page handle="blog">
+      <name>Blog</name>
+    </page>
+    <page handle="showcase">
+      <name>Showcase</name>
+    </page>
+    <page handle="events">
+      <name>Events</name>
+    </page>
+    <page handle="about">
+      <name>About</name>
     </page>
   </navigation>
 </data>
