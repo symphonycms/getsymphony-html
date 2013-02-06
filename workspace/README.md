@@ -1,8 +1,8 @@
 # Symphony Community Site - Workspace
 
-For the Symphony Community Site project, the first step I am taking is to deliver HTML, CSS and JavaScript for integration into Symphony. I have created a static site generator as a means of quickly prototyping web page layouts as static HTML files, while still being able to maintain all the features of the layout that we intended to deliver for the project, such as current classes on selected navigation items.
+For the Symphony Community Site project, the first step we are taking is to deliver HTML, CSS and JavaScript for integration into Symphony. We have created a static site generator as a means of quickly prototyping web page layouts as static HTML files, while still being able to maintain all the features of the layout that we intended to deliver for the project, such as current classes on selected navigation items.
 
-I am using the same basic directory structure as the Symphony `workspace` in order to make the work of integration as seamless as possible. The best way to deliver quality code for the project is to rely on the W3C standard for templating: XSLT. Rather than have to manually edit pages across the entire set of layouts, we run a series of commands on the command line to generate the pages for the site. Because these commands rely on `xsltproc`, which is already available out of the box in any UNIX-based system, including Mac and Linux, it is a great way to use XML and XSLT in the front end development process even before setting up the Symphony install.
+We are using the same basic directory structure as the Symphony `workspace` in order to make the work of integration as seamless as possible. The best way to deliver quality code for the project is to rely on XSLT, the W3C standard for templating. Rather than have to manually edit pages across the entire set of layouts, we run a series of commands on the command line to generate the pages for the site. Because these commands rely on `xsltproc`, which is already available out of the box in any UNIX-based system, including Mac and Linux, it is a great way to use XML and XSLT in the front end development process even before setting up the Symphony install.
 
 #### Directory Structure
 
@@ -11,9 +11,6 @@ The main difference between the directory structure of the [Symphony workspace](
 	site/
 	├── workspace/
 	│   ├── data/
-	│   │   ├── _config.xml
-	│   │   ├── _navigation.xml
-	│   │   ├── _pages.xml
 	|   |   ├── index.xml
 	│   ├── pages/
 	│   │   ├── index.xsl
@@ -52,7 +49,7 @@ Run the following command in the same directory as these files and the output wo
 
 ### Static Site Generation Files
 
-For the purposes of what I needed to accomplish, I only needed a small set of data to set specific properties.
+For the purposes of what we needed to accomplish, we only needed a small set of data to set specific properties.
 
 #### index.xml
 
@@ -155,14 +152,15 @@ The command will use the XSLT processor to process the `index.xml` file with the
 
 Now, the directory structure should look like this:
 
-	site/
-	├── index.html
-	├── index.xml
-	├── workspace/
-	│   ├── pages/
-	│   │   ├── index.xsl
-	│   ├── utilities/
-	│   │   ├── master.xsl
+    site/
+    ├── index.html
+    ├── workspace/
+    │   ├── data/
+    │   │   ├── index.xml
+    │   ├── pages/
+    │   │   ├── index.xsl
+    │   ├── utilities/
+    │   │   ├── master.xsl
 
 The `index.html` file was created by the XSLT processor. At this point, we don't have more than a single page, so we haven't considered data that is needed by all pages, so I haven't included the `data` directory yet.
 
@@ -170,13 +168,13 @@ The `index.html` file was created by the XSLT processor. At this point, we don't
 
 We can set up a simple shell script that allows the ability to run the XSLT processing command with a simple command.
 
-Create a file called `build` in the root directory with the following contents:
+Create a file called `build` in the `workspace` directory with the following contents:
 
     #!/bin/bash
     
-    xsltproc -v -o index.html workspace/pages/index.xsl index.xml;
+    xsltproc -v -o ../index.html pages/index.xsl index.xml;
 
-I have added a semicolon to the end of the command so we can run multiple commands when we eventually add more pages to the list.
+We have added a semicolon to the end of the command so we can run multiple commands when we eventually add more pages to the list.
 
 Make sure the file has the correct permissions to be able to execute the script:
 
@@ -277,8 +275,8 @@ In this case, the template collects data from the XML file in the form of page p
 - `$config`
 - `$website-name`
 - `$root`
-- `$workspace
-- `$assets
+- `$workspace`
+- `$assets`
 - `$page-title`
 - `$current-page`
 - `$parent-page`
@@ -401,7 +399,7 @@ The home page uses the `master.xsl` template and processes the `content` node of
 
 Each HTML page is built by processing many different templates that can be modified in one place. By building each page on these same templates, changes can be reflected across the entire set of HTML pages by running a `build` script that maintains a record of all the `xsltproc` commands to process each HTML file.
 
-The file structure currently looks something like this, although I have modified the page structure to be more generic, simpler and not quite as deeply nested:
+The file structure currently looks something like this, although we have modified the page structure to be more generic, simpler and not quite as deeply nested:
 
     site/
     ├── about/
@@ -548,7 +546,7 @@ From here, you can process XML files with XSLT to output HTML files by using xsl
 
   xsltproc -v -o ../index.html pages/index.xsl data/index.xml;
 
-So, you could run this command for each file, but I realized that I could automatically generate a shell script with XSLT that could be used to build the entire tree structure of the site. Then, all you would need to do is run the script on the command line:
+So, you could run this command for each file, but it's also possible to automatically generate a shell script with XSLT that could be used to build the entire tree structure of the site. Then, all you would need to do is run the script on the command line:
 
     ./build
 
