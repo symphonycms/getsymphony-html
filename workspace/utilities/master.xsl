@@ -41,7 +41,7 @@
 <xsl:param name="css" select="concat($assets, 'css/')" />
 <xsl:param name="scripts" select="concat($assets, 'js/')" />
 <xsl:param name="images" select="concat($assets, 'images/')" />
-<xsl:param name="theme" select="concat($assets, 'themes/factory')" />
+<xsl:param name="theme" select="concat($workspace, 'factory')" />
 
 <xsl:template match="/">
   <xsl:comment><![CDATA[[if lt IE 7]> <html class="ie ie6 lt-ie7 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
