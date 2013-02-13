@@ -19,7 +19,7 @@
 
 <xsl:template match="navigation/page">
   <a href="{$root}{@handle}/">
-    <xsl:if test="@handle = $root-page or (@type = 'index' and $current-page = 'stream')">
+    <xsl:if test="@handle = $root-page">
       <xsl:attribute name="class">active</xsl:attribute>
     </xsl:if>
     <xsl:if test="@type = 'index'">

@@ -10,7 +10,7 @@
           <a href="{$root}">Symphony Network</a>
         </h1>
         <nav class="network-nav column">
-          <a href="{$root}community/">Community</a>
+          <a href="{$root}stream/" class="active">Community</a>
           <a href="#">Documentation</a>
           <a href="#">Extensions</a>
           <a href="#">Ninjas</a>

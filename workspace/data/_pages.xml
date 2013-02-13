@@ -4,6 +4,9 @@
     <page output="index.html" xslt="pages/index.xsl" data-source="data/index.xml">
       <title>Home</title>
     </page>
+    <page output="stream/index.html" xslt="pages/stream.xsl" data-source="data/stream.xml">
+      <title>Stream</title>
+    </page>
     <page output="discussions/index.html" xslt="pages/discussions.xsl" data-source="data/discussions.xml">
       <title>Discussions</title>
     </page>
