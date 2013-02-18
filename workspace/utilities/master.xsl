@@ -16,6 +16,7 @@
 <!-- Page Parameters -->
 <xsl:param name="config" select="document('../data/_config.xml')" />
 <xsl:param name="website-name" select="$config/data/config/website-name" />
+<xsl:param name="site" select="/data/params/site" />
 <xsl:param name="root" select="/data/params/root" />
 <xsl:param name="workspace" select="concat($root, 'workspace/')" />
 <xsl:param name="assets" select="concat($workspace, 'assets/')" />
@@ -34,6 +35,7 @@
     </xsl:otherwise>
   </xsl:choose>
 </xsl:param>
+<xsl:param name="network" select="document('../data/_network.xml')" />
 <xsl:param name="navigation" select="document('../data/_navigation.xml')" />
 <xsl:param name="has-section-nav" select="false()" />
 
