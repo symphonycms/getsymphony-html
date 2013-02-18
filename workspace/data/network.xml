@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <params>
+    <site handle="community">Community</site>
     <page-title>Symphony Network</page-title>
     <current-page>network</current-page>
     <root>../</root>

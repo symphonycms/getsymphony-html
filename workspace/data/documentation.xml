@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <params>
+    <site handle="documentation">Documentation</site>
     <page-title>Documentation</page-title>
     <current-page>documentation</current-page>
     <root>../</root>

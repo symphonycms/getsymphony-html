@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <params>
+    <site handle="xpathr">xpathr</site>
     <page-title>xpathr</page-title>
     <current-page>xpathr</current-page>
     <root>../</root>
