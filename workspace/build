@@ -11,7 +11,12 @@ xsltproc -v -o ../README.md utilities/readme.xsl data/_pages.xml;
 # These commands will process HTML files with XSLT when you run `./build` inside the `workspace` directory.
 # This list is dynamically generated as you add more pages to the `data/_pages.xml` file.
 
+xsltproc -v -o ../network/index.html pages/network.xsl data/network.xml;
 xsltproc -v -o ../index.html pages/index.xsl data/index.xml;
+xsltproc -v -o ../documentation/index.html pages/documentation.xsl data/documentation.xml;
+xsltproc -v -o ../extensions/index.html pages/extensions.xsl data/extensions.xml;
+xsltproc -v -o ../ninjas/index.html pages/ninjas.xsl data/ninjas.xml;
+xsltproc -v -o ../xpathr/index.html pages/xpathr.xsl data/xpathr.xml;
 xsltproc -v -o ../stream/index.html pages/stream.xsl data/stream.xml;
 xsltproc -v -o ../discussions/index.html pages/discussions.xsl data/discussions.xml;
 xsltproc -v -o ../discussions/post/index.html pages/discussions_post.xsl data/discussions_post.xml;

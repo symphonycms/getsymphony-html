@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <pages>
+    <page output="network/index.html" xslt="pages/network.xsl" data-source="data/network.xml">
+      <title>Network</title>
+    </page>
     <page output="index.html" xslt="pages/index.xsl" data-source="data/index.xml">
-      <title>Home</title>
+      <title>Community</title>
+    </page>
+    <page output="documentation/index.html" xslt="pages/documentation.xsl" data-source="data/documentation.xml">
+      <title>Documentation</title>
+    </page>
+    <page output="extensions/index.html" xslt="pages/extensions.xsl" data-source="data/extensions.xml">
+      <title>Extensions</title>
+    </page>
+    <page output="ninjas/index.html" xslt="pages/ninjas.xsl" data-source="data/ninjas.xml">
+      <title>Ninjas</title>
+    </page>
+    <page output="xpathr/index.html" xslt="pages/xpathr.xsl" data-source="data/xpathr.xml">
+      <title>xpathr</title>
     </page>
     <page output="stream/index.html" xslt="pages/stream.xsl" data-source="data/stream.xml">
       <title>Stream</title>
