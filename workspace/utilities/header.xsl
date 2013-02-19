@@ -6,8 +6,10 @@
   <header class="site-header centered">
     <h1>
       <span>Symphony</span>
-      <xsl:text> </xsl:text>
-      <xsl:value-of select="$site[. != 'Community']" />
+      <xsl:if test="$site != 'Community'">
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$site" />
+      </xsl:if>
     </h1>
     <xsl:apply-templates select="$navigation/data" mode="navigation" />
   </header>
