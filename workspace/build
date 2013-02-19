@@ -13,8 +13,8 @@ xsltproc -v -o ../README.md utilities/readme.xsl data/_pages.xml;
 
 xsltproc -v -o ../network/index.html pages/network.xsl data/network.xml;
 xsltproc -v -o ../index.html pages/index.xsl data/index.xml;
-xsltproc -v -o ../documentation/index.html pages/documentation.xsl data/documentation.xml;
-xsltproc -v -o ../extensions/index.html pages/extensions.xsl data/extensions.xml;
+xsltproc -v -o ../docs/index.html pages/documentation.xsl data/documentation.xml;
+xsltproc -v -o ../ext/index.html pages/extensions.xsl data/extensions.xml;
 xsltproc -v -o ../ninjas/index.html pages/ninjas.xsl data/ninjas.xml;
 xsltproc -v -o ../xpathr/index.html pages/xpathr.xsl data/xpathr.xml;
 xsltproc -v -o ../stream/index.html pages/stream.xsl data/stream.xml;
