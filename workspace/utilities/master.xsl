@@ -17,6 +17,7 @@
 <xsl:param name="config" select="document('../data/_config.xml')" />
 <xsl:param name="website-name" select="$config/data/config/website-name" />
 <xsl:param name="site" select="/data/params/site" />
+<xsl:param name="site-name" select="$site/name" />
 <xsl:param name="root" select="/data/params/root" />
 <xsl:param name="workspace" select="concat($root, 'workspace/')" />
 <xsl:param name="assets" select="concat($workspace, 'assets/')" />

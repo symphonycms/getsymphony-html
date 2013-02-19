@@ -3,17 +3,20 @@
 
 <xsl:template match="data" mode="navigation">
   <nav>
-    <xsl:apply-templates select="navigation/page" />
+    <xsl:apply-templates select="navigation[@site = $site/@handle]/page" />
   </nav>
 </xsl:template>
 
 <xsl:template match="navigation/page">
-  <a href="{$root}{@handle}/">
+  <a href="{$root}{$site/@handle}/{@handle}/">
     <xsl:if test="@handle = $root-page">
       <xsl:attribute name="class">active</xsl:attribute>
     </xsl:if>
-    <xsl:if test="@type = 'index'">
-      <xsl:attribute name="href"><xsl:value-of select="$root" /></xsl:attribute>
+    <xsl:if test="../@type = 'primary'">
+      <xsl:attribute name="href"><xsl:value-of select="concat($root, @handle, '/')" /></xsl:attribute>
+      <xsl:if test="@type = 'index'">
+        <xsl:attribute name="href"><xsl:value-of select="$root" /></xsl:attribute>
+      </xsl:if>
     </xsl:if>
     <xsl:value-of select="name" />
   </a>
@@ -30,7 +33,7 @@
     <xsl:if test="@handle = $site/@handle">
       <xsl:attribute name="class">active</xsl:attribute>
     </xsl:if>
-    <xsl:if test="@type = 'index'">
+    <xsl:if test="@type = 'primary'">
       <xsl:attribute name="href"><xsl:value-of select="$root" /></xsl:attribute>
     </xsl:if>
     <xsl:value-of select="name" />
