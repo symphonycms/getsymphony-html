@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <navigation site="community" type="primary">
-    <page handle="stream">
+    <page handle="stream" type="index">
       <name>Stream</name>
     </page>
     <page handle="discussions">
@@ -26,7 +26,7 @@
       <name>About</name>
     </page>
   </navigation>
-  <navigation site="documentation">
+  <navigation site="docs">
     <page handle="guides">
       <name>Guides</name>
     </page>
@@ -46,7 +46,7 @@
       <name>API</name>
     </page>
   </navigation>
-  <navigation site="extensions">
+  <navigation site="ext">
     <page handle="extensions">
       <name>Browse Extensions</name>
     </page>

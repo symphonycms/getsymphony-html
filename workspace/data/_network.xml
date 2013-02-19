@@ -4,10 +4,10 @@
     <site handle="community" domain="getsymphony.com" type="primary">
       <name>Community</name>
     </site>
-    <site handle="documentation" domain="docs.getsymphony.com">
+    <site handle="docs" domain="docs.getsymphony.com">
       <name>Documentation</name>
     </site>
-    <site handle="extensions" domain="ext.getsymphony.com">
+    <site handle="ext" domain="ext.getsymphony.com">
       <name>Extensions</name>
     </site>
     <site handle="ninjas" domain="ninjas.getsymphony.com">
