@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
-  <navigation site="community">
+  <navigation site="community" type="primary">
     <page handle="stream">
       <name>Stream</name>
     </page>
