@@ -81,11 +81,11 @@
     <page handle="popular">
       <name>Popular</name>
     </page>
-    <page handle="categories">
-      <name>Categories</name>
-    </page>
     <page handle="recent">
       <name>Recent</name>
+    </page>
+    <page handle="categories">
+      <name>Categories</name>
     </page>
     <page handle="contributors">
       <name>Contributors</name>
