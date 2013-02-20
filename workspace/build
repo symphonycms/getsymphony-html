@@ -29,5 +29,8 @@ xsltproc -v -o ../docs/concepts/index.html pages/docs_concepts.xsl data/docs_con
 xsltproc -v -o ../docs/faq/index.html pages/docs_faq.xsl data/docs_faq.xml;
 xsltproc -v -o ../docs/api/index.html pages/docs_api.xsl data/docs_api.xml;
 xsltproc -v -o ../ext/index.html pages/ext.xsl data/ext.xml;
+xsltproc -v -o ../ext/extensions/index.html pages/ext_extensions.xsl data/ext_extensions.xml;
+xsltproc -v -o ../ext/matrix/index.html pages/ext_matrix.xsl data/ext_matrix.xml;
+xsltproc -v -o ../ext/articles/index.html pages/ext_articles.xsl data/ext_articles.xml;
 xsltproc -v -o ../ninjas/index.html pages/ninjas.xsl data/ninjas.xml;
 xsltproc -v -o ../xpathr/index.html pages/xpathr.xsl data/xpathr.xml;
