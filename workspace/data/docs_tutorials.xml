@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <site handle="docs">Documentation</site>
+    <page-title>Tutorials</page-title>
+    <current-page>tutorials</current-page>
+    <root-page>docs</root-page>
+    <root>../../</root>
+  </params>
+</data>

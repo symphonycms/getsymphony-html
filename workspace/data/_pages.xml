@@ -7,18 +7,6 @@
     <page output="index.html" xslt="pages/index.xsl" data-source="data/index.xml">
       <title>Community</title>
     </page>
-    <page output="docs/index.html" xslt="pages/documentation.xsl" data-source="data/documentation.xml">
-      <title>Documentation</title>
-    </page>
-    <page output="ext/index.html" xslt="pages/extensions.xsl" data-source="data/extensions.xml">
-      <title>Extensions</title>
-    </page>
-    <page output="ninjas/index.html" xslt="pages/ninjas.xsl" data-source="data/ninjas.xml">
-      <title>Ninjas</title>
-    </page>
-    <page output="xpathr/index.html" xslt="pages/xpathr.xsl" data-source="data/xpathr.xml">
-      <title>xpathr</title>
-    </page>
     <page output="stream/index.html" xslt="pages/stream.xsl" data-source="data/stream.xml">
       <title>Stream</title>
     </page>
@@ -42,6 +30,36 @@
     </page>
     <page output="about/index.html" xslt="pages/about.xsl" data-source="data/about.xml">
       <title>About</title>
+    </page>
+    <page output="docs/index.html" xslt="pages/docs.xsl" data-source="data/docs.xml">
+      <title>Documentation</title>
+    </page>
+    <page output="docs/guides/index.html" xslt="pages/docs_guides.xsl" data-source="data/docs_guides.xml">
+      <title>Guides</title>
+    </page>
+    <page output="docs/tutorials/index.html" xslt="pages/docs_tutorials.xsl" data-source="data/docs_tutorials.xml">
+      <title>Tutorials</title>
+    </page>
+    <page output="docs/articles/index.html" xslt="pages/docs_articles.xsl" data-source="data/docs_articles.xml">
+      <title>Articles</title>
+    </page>
+    <page output="docs/concepts/index.html" xslt="pages/docs_concepts.xsl" data-source="data/docs_concepts.xml">
+      <title>Concepts</title>
+    </page>
+    <page output="docs/faq/index.html" xslt="pages/docs_faq.xsl" data-source="data/docs_faq.xml">
+      <title>FAQ</title>
+    </page>
+    <page output="docs/api/index.html" xslt="pages/docs_api.xsl" data-source="data/docs_api.xml">
+      <title>API</title>
+    </page>
+    <page output="ext/index.html" xslt="pages/ext.xsl" data-source="data/ext.xml">
+      <title>Extensions</title>
+    </page>
+    <page output="ninjas/index.html" xslt="pages/ninjas.xsl" data-source="data/ninjas.xml">
+      <title>Ninjas</title>
+    </page>
+    <page output="xpathr/index.html" xslt="pages/xpathr.xsl" data-source="data/xpathr.xml">
+      <title>xpathr</title>
     </page>
   </pages>
 </data>
