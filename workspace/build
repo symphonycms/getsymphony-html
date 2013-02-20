@@ -37,3 +37,7 @@ xsltproc -v -o ../ninjas/interviews/index.html pages/ninjas_interviews.xsl data/
 xsltproc -v -o ../ninjas/directory/index.html pages/ninjas_directory.xsl data/ninjas_directory.xml;
 xsltproc -v -o ../ninjas/about/index.html pages/ninjas_about.xsl data/ninjas_about.xml;
 xsltproc -v -o ../xpathr/index.html pages/xpathr.xsl data/xpathr.xml;
+xsltproc -v -o ../xpathr/popular/index.html pages/xpathr_popular.xsl data/xpathr_popular.xml;
+xsltproc -v -o ../xpathr/recent/index.html pages/xpathr_recent.xsl data/xpathr_recent.xml;
+xsltproc -v -o ../xpathr/categories/index.html pages/xpathr_categories.xsl data/xpathr_categories.xml;
+xsltproc -v -o ../xpathr/contributors/index.html pages/xpathr_contributors.xsl data/xpathr_contributors.xml;

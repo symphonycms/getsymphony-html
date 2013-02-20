@@ -42,3 +42,7 @@ The page layouts can be viewed in a browser at the following URLs:
 * http://symphonycms.github.com/getsymphony-html/ninjas/directory/
 * http://symphonycms.github.com/getsymphony-html/ninjas/about/
 * http://symphonycms.github.com/getsymphony-html/xpathr/
+* http://symphonycms.github.com/getsymphony-html/xpathr/popular/
+* http://symphonycms.github.com/getsymphony-html/xpathr/recent/
+* http://symphonycms.github.com/getsymphony-html/xpathr/categories/
+* http://symphonycms.github.com/getsymphony-html/xpathr/contributors/
