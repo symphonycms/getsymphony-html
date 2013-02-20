@@ -79,5 +79,17 @@
     <page output="xpathr/index.html" xslt="pages/xpathr.xsl" data-source="data/xpathr.xml">
       <title>xpathr</title>
     </page>
+    <page output="xpathr/popular/index.html" xslt="pages/xpathr_popular.xsl" data-source="data/xpathr_popular.xml">
+      <title>Popular</title>
+    </page>
+    <page output="xpathr/recent/index.html" xslt="pages/xpathr_recent.xsl" data-source="data/xpathr_recent.xml">
+      <title>Recent</title>
+    </page>
+    <page output="xpathr/categories/index.html" xslt="pages/xpathr_categories.xsl" data-source="data/xpathr_categories.xml">
+      <title>Categories</title>
+    </page>
+    <page output="xpathr/contributors/index.html" xslt="pages/xpathr_contributors.xsl" data-source="data/xpathr_contributors.xml">
+      <title>Contributors</title>
+    </page>
   </pages>
 </data>
