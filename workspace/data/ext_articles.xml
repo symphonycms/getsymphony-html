@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <site handle="ext">Extensions</site>
+    <page-title>Articles and Tutorials</page-title>
+    <current-page>articles</current-page>
+    <root-page>ext</root-page>
+    <root>../../</root>
+  </params>
+</data>
