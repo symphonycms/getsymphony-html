@@ -33,4 +33,7 @@ xsltproc -v -o ../ext/extensions/index.html pages/ext_extensions.xsl data/ext_ex
 xsltproc -v -o ../ext/matrix/index.html pages/ext_matrix.xsl data/ext_matrix.xml;
 xsltproc -v -o ../ext/articles/index.html pages/ext_articles.xsl data/ext_articles.xml;
 xsltproc -v -o ../ninjas/index.html pages/ninjas.xsl data/ninjas.xml;
+xsltproc -v -o ../ninjas/interviews/index.html pages/ninjas_interviews.xsl data/ninjas_interviews.xml;
+xsltproc -v -o ../ninjas/directory/index.html pages/ninjas_directory.xsl data/ninjas_directory.xml;
+xsltproc -v -o ../ninjas/about/index.html pages/ninjas_about.xsl data/ninjas_about.xml;
 xsltproc -v -o ../xpathr/index.html pages/xpathr.xsl data/xpathr.xml;
