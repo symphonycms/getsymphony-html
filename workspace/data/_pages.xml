@@ -67,6 +67,15 @@
     <page output="ninjas/index.html" xslt="pages/ninjas.xsl" data-source="data/ninjas.xml">
       <title>Ninjas</title>
     </page>
+    <page output="ninjas/interviews/index.html" xslt="pages/ninjas_interviews.xsl" data-source="data/ninjas_interviews.xml">
+      <title>Interviews</title>
+    </page>
+    <page output="ninjas/directory/index.html" xslt="pages/ninjas_directory.xsl" data-source="data/ninjas_directory.xml">
+      <title>Directory</title>
+    </page>
+    <page output="ninjas/about/index.html" xslt="pages/ninjas_about.xsl" data-source="data/ninjas_about.xml">
+      <title>Learn More</title>
+    </page>
     <page output="xpathr/index.html" xslt="pages/xpathr.xsl" data-source="data/xpathr.xml">
       <title>xpathr</title>
     </page>
