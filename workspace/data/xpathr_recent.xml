@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <site handle="xpathr">xpathr</site>
+    <page-title>Recent</page-title>
+    <current-page>recent</current-page>
+    <root-page>xpathr</root-page>
+    <root>../../</root>
+  </params>
+</data>
