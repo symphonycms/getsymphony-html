@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <site handle="ninjas">Ninjas</site>
+    <page-title>Interviews</page-title>
+    <current-page>interviews</current-page>
+    <root-page>ninjas</root-page>
+    <root>../../</root>
+  </params>
+</data>
