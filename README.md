@@ -18,10 +18,6 @@ The page layouts can be viewed in a browser at the following URLs:
 
 * http://symphonycms.github.com/getsymphony-html/network/
 * http://symphonycms.github.com/getsymphony-html/
-* http://symphonycms.github.com/getsymphony-html/docs/
-* http://symphonycms.github.com/getsymphony-html/ext/
-* http://symphonycms.github.com/getsymphony-html/ninjas/
-* http://symphonycms.github.com/getsymphony-html/xpathr/
 * http://symphonycms.github.com/getsymphony-html/stream/
 * http://symphonycms.github.com/getsymphony-html/discussions/
 * http://symphonycms.github.com/getsymphony-html/discussions/post/
@@ -30,3 +26,13 @@ The page layouts can be viewed in a browser at the following URLs:
 * http://symphonycms.github.com/getsymphony-html/showcase/
 * http://symphonycms.github.com/getsymphony-html/events/
 * http://symphonycms.github.com/getsymphony-html/about/
+* http://symphonycms.github.com/getsymphony-html/docs/
+* http://symphonycms.github.com/getsymphony-html/docs/guides/
+* http://symphonycms.github.com/getsymphony-html/docs/tutorials/
+* http://symphonycms.github.com/getsymphony-html/docs/articles/
+* http://symphonycms.github.com/getsymphony-html/docs/concepts/
+* http://symphonycms.github.com/getsymphony-html/docs/faq/
+* http://symphonycms.github.com/getsymphony-html/docs/api/
+* http://symphonycms.github.com/getsymphony-html/ext/
+* http://symphonycms.github.com/getsymphony-html/ninjas/
+* http://symphonycms.github.com/getsymphony-html/xpathr/
