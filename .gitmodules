@@ -1,0 +1,3 @@
+[submodule "workspace/factory"]
+	path = workspace/factory
+	url = git://github.com/symphonycms/factory.git
