@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <network>
+    <site handle="community" domain="getsymphony.com" type="primary">
+      <name>Community</name>
+    </site>
+    <site handle="docs" domain="docs.getsymphony.com">
+      <name>Documentation</name>
+    </site>
+    <site handle="ext" domain="ext.getsymphony.com">
+      <name>Extensions</name>
+    </site>
+    <site handle="ninjas" domain="ninjas.getsymphony.com">
+      <name>Ninjas</name>
+    </site>
+    <site handle="xpathr" domain="xpathr.getsymphony.com">
+      <name>xpathr</name>
+    </site>
+  </network>
+</data>

@@ -6,27 +6,13 @@
   <header class="site-header centered">
     <h1>
       <span>Symphony</span>
+      <xsl:if test="$site != 'Community'">
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$site" />
+      </xsl:if>
     </h1>
     <xsl:apply-templates select="$navigation/data" mode="navigation" />
   </header>
-</xsl:template>
-
-<xsl:template match="data" mode="navigation">
-  <nav>
-    <xsl:apply-templates select="navigation/page" />
-  </nav>
-</xsl:template>
-
-<xsl:template match="navigation/page">
-  <a href="{$root}{@handle}/">
-    <xsl:if test="@handle = $root-page or (@type = 'index' and $current-page = 'stream')">
-      <xsl:attribute name="class">active</xsl:attribute>
-    </xsl:if>
-    <xsl:if test="@type = 'index'">
-      <xsl:attribute name="href"><xsl:value-of select="$root" /></xsl:attribute>
-    </xsl:if>
-    <xsl:value-of select="name" />
-  </a>
 </xsl:template>
 
 </xsl:stylesheet>

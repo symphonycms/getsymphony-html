@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <params>
+    <site handle="community">Community</site>
     <page-title>About</page-title>
     <current-page>about</current-page>
     <root>../</root>
