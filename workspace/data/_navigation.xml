@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
-  <navigation>
+  <navigation site="community" type="primary">
     <page handle="stream" type="index">
       <name>Stream</name>
     </page>
@@ -24,6 +24,59 @@
     </page>
     <page handle="about">
       <name>About</name>
+    </page>
+  </navigation>
+  <navigation site="docs">
+    <page handle="guides">
+      <name>Guides</name>
+    </page>
+    <page handle="tutorials">
+      <name>Tutorials</name>
+    </page>
+    <page handle="articles">
+      <name>Articles</name>
+    </page>
+    <page handle="concepts">
+      <name>Concepts</name>
+    </page>
+    <page handle="faq">
+      <name>FAQ</name>
+    </page>
+    <page handle="api">
+      <name>API</name>
+    </page>
+  </navigation>
+  <navigation site="ext">
+    <page handle="extensions">
+      <name>Browse Extensions</name>
+    </page>
+    <page handle="matrix">
+      <name>Compatibility Matrix</name>
+    </page>
+  </navigation>
+  <navigation site="ninjas">
+    <page handle="interviews">
+      <name>Interviews</name>
+    </page>
+    <page handle="directory">
+      <name>Directory</name>
+    </page>
+    <page handle="about">
+      <name>Learn More</name>
+    </page>
+  </navigation>
+  <navigation site="xpathr">
+    <page handle="popular">
+      <name>Popular</name>
+    </page>
+    <page handle="recent">
+      <name>Recent</name>
+    </page>
+    <page handle="categories">
+      <name>Categories</name>
+    </page>
+    <page handle="contributors">
+      <name>Contributors</name>
     </page>
   </navigation>
 </data>

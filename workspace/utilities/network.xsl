@@ -9,13 +9,7 @@
         <h1 class="network-logo column one">
           <a href="{$root}">Symphony Network</a>
         </h1>
-        <nav class="network-nav column">
-          <a href="{$root}community/">Community</a>
-          <a href="#">Documentation</a>
-          <a href="#">Extensions</a>
-          <a href="#">Ninjas</a>
-          <a href="#">xpathr</a>
-        </nav>
+        <xsl:apply-templates select="$network/data" mode="network-navigation" />
         <div id="user" class="network-user">
           <a href="http://getsymphony.com/get-involved/member/Allen/">
             <img src="{$theme}/img/user.png" width="35" height="35" alt="Allen Chang" />

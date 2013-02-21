@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <params>
+    <site handle="community">Community</site>
     <page-title>Stream</page-title>
     <current-page>stream</current-page>
     <root>./</root>
@@ -42,7 +43,7 @@
         <!-- Discussions -->
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">Who's online: how did you hear about Symphony?</a>
+            <a href="/discussions/post/" class="dark">Who's online: how did you hear about Symphony?</a>
           </h3>
           <p class="entry-author dimmed">Discussion by <a href="#" class="dark">bauhouse</a></p>
           <p class="entry-activity">
@@ -55,7 +56,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">System Date Fields</a>
+            <a href="/discussions/post/" class="dark">System Date Fields</a>
           </h3>
           <p class="entry-author dimmed">Extension by <a href="#" class="dark">designermonkey</a></p>
           <p class="entry-activity">
@@ -68,7 +69,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">ACE Editors</a>
+            <a href="/discussions/post/" class="dark">ACE Editors</a>
           </h3>
           <p class="entry-author dimmed">Discussion by <a href="#" class="dark">tonyarnold</a></p>
           <p class="entry-activity">
@@ -81,7 +82,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">APIPage</a>
+            <a href="/discussions/post/" class="dark">APIPage</a>
           </h3>
           <p class="entry-author dimmed">Extension by <a href="#" class="dark">iwyg</a></p>
           <p class="entry-activity">
@@ -94,7 +95,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">JIT Filter - Resize and fit "inside"</a>
+            <a href="/discussions/post/" class="dark">JIT Filter - Resize and fit "inside"</a>
           </h3>
           <p class="entry-author dimmed">Discussion by <a href="#" class="dark">germchaos</a></p>
           <p class="entry-activity">
@@ -107,7 +108,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">Encrypt field contents. Extension?</a>
+            <a href="/discussions/post/" class="dark">Encrypt field contents. Extension?</a>
           </h3>
           <p class="entry-author dimmed">Discussion by <a href="#" class="dark">Henry</a></p>
           <p class="entry-activity">
@@ -120,7 +121,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">Unsetting Checkbox from frontend form</a>
+            <a href="/discussions/post/" class="dark">Unsetting Checkbox from frontend form</a>
           </h3>
           <p class="entry-author dimmed">Discussion by <a href="#" class="dark">moonoo2</a></p>
           <p class="entry-activity">
@@ -133,7 +134,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">best way to access system date and author on section entrys?</a>
+            <a href="/discussions/post/" class="dark">best way to access system date and author on section entrys?</a>
           </h3>
           <p class="entry-author dimmed">Discussion by <a href="#" class="dark">jeffstrt</a></p>
           <p class="entry-activity">
@@ -146,7 +147,7 @@
         </article>
         <article class="entry-overview justified">
           <h3 class="entry-header">
-            <a href="./discuss/post/" class="dark">Multilevel Dropdown or Flyout Admin Nav</a>
+            <a href="/discussions/post/" class="dark">Multilevel Dropdown or Flyout Admin Nav</a>
           </h3>
           <p class="entry-author dimmed">Discussion by <a href="#" class="dark">heskethm</a></p>
           <p class="entry-activity">

@@ -4,6 +4,7 @@
 
 <xsl:import href="../utilities/network.xsl" />
 <xsl:import href="../utilities/header.xsl" />
+<xsl:import href="../utilities/navigation.xsl" />
 <xsl:import href="../utilities/footer.xsl" />
 
 <xsl:template match="/" mode="body">
