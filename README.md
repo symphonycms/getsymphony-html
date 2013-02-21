@@ -36,7 +36,6 @@ The page layouts can be viewed in a browser at the following URLs:
 * http://symphonycms.github.com/getsymphony-html/ext/
 * http://symphonycms.github.com/getsymphony-html/ext/extensions/
 * http://symphonycms.github.com/getsymphony-html/ext/matrix/
-* http://symphonycms.github.com/getsymphony-html/ext/articles/
 * http://symphonycms.github.com/getsymphony-html/ninjas/
 * http://symphonycms.github.com/getsymphony-html/ninjas/interviews/
 * http://symphonycms.github.com/getsymphony-html/ninjas/directory/

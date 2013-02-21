@@ -53,18 +53,6 @@
     <page handle="matrix">
       <name>Compatibility Matrix</name>
     </page>
-    <page handle="articles">
-      <name>Articles and Tutorials</name>
-    </page>
-    <link handle="rss">
-      <name>RSS</name>
-      <link handle="new">
-        <name>New</name>
-      </link>
-    </link>
-    <link uri="http://twitter.com/symextensions">
-      <name>@symextensions</name>
-    </link>
   </navigation>
   <navigation site="ninjas">
     <page handle="interviews">

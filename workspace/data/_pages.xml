@@ -61,9 +61,6 @@
     <page output="ext/matrix/index.html" xslt="pages/ext_matrix.xsl" data-source="data/ext_matrix.xml">
       <title>Compatibility Matrix</title>
     </page>
-    <page output="ext/articles/index.html" xslt="pages/ext_articles.xsl" data-source="data/ext_articles.xml">
-      <title>Articles and Tutorials</title>
-    </page>
     <page output="ninjas/index.html" xslt="pages/ninjas.xsl" data-source="data/ninjas.xml">
       <title>Ninjas</title>
     </page>
