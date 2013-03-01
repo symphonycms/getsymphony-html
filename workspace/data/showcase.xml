@@ -4,6 +4,6 @@
     <site handle="community">Community</site>
     <page-title>Showcase</page-title>
     <current-page>showcase</current-page>
-    <root>../</root>
+    <root>..</root>
   </params>
 </data>

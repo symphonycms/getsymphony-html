@@ -4,7 +4,7 @@
     <site handle="ninjas">Ninjas</site>
     <page-title>Ninjas</page-title>
     <current-page>ninjas</current-page>
-    <root>../</root>
+    <root>..</root>
   </params>
   <title id="Examples" mode="push">Ninjas</title>
   <content>

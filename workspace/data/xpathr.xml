@@ -4,7 +4,7 @@
     <site handle="xpathr">xpathr</site>
     <page-title>xpathr</page-title>
     <current-page>xpathr</current-page>
-    <root>../</root>
+    <root>..</root>
   </params>
   <title id="Examples" mode="push">xPathr</title>
   <content>

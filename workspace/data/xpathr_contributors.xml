@@ -5,6 +5,6 @@
     <page-title>Contributors</page-title>
     <current-page>contributors</current-page>
     <root-page>xpathr</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

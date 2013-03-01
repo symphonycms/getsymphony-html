@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
-  <params>
-    <site handle="community">Community</site>
-    <page-title>Blog</page-title>
-    <current-page>blog</current-page>
-    <root>../</root>
-  </params>
+    <params>
+        <site handle="community">Community</site>
+        <page-title>Blog</page-title>
+        <current-page>blog</current-page>
+        <root>..</root>
+    </params>
+    <blog>
+        <pagination total-entries="88" total-pages="11" entries-per-page="8" current-page="1" />
+        <section id="50" handle="blog">Blog</section>
+        <entry id="97169" comments="1">
+            <category>
+                <item handle="announcements">Announcements</item>
+            </category>
+            <created-by id="2143">bauhouse</created-by>
+            <date time="13:03" weekday="4">2013-01-31</date>
+            <intro mode="formatted"><p>Thank you to the community for your support of the <a href="http://getsymphony.com/discuss/thread/91734/">Symphony Factory</a> project, and to <a href="http://getsymphony.com/get-involved/member/Nils/">Nils</a> and <a href="http://getsymphony.com/get-involved/member/Johanna/">Johanna</a> Hörrmann for their work on the beautiful responsive web design. It has been wonderful to be able to follow the evolution of the design and to start working with the framework to test and refine the layout. Now that this work is mostly completed, the work to rebuild the Symphony community site with the <a href="http://symphonycms.github.com/factory/docs/about.xml">Symphony Factory</a> framework can begin. In fact, it is already in progress, although we're only in the early stages.</p></intro>
+            <title handle="rebuilding-the-symphony-site-with-factory">Rebuilding the Symphony Site with Factory</title>
+        </entry>
+        <entry id="94499" comments="4">
+            <category>
+                <item handle="announcements">Announcements</item>
+            </category>
+            <created-by id="2101">Allen</created-by>
+            <date time="05:41" weekday="2">2012-11-06</date>
+            <intro mode="formatted"><p>What does these four gentiles, <a href="http://getsymphony.com/get-involved/member/nickdunn/">Nick Dunn</a>, <a href="http://getsymphony.com/get-involved/member/brendo/">Brendan Abbott</a>, <a href="http://getsymphony.com/get-involved/member/ekoes/">Simone Economo</a> and <a href="http://en.wikipedia.org/wiki/George_R._R._Martin">George R. R. Martin</a> have in common? That's right, they're all accomplished males.</p>
+<p>Incidentally, 75% of the mentioned distinguished gentlemen have also authored epic stories about the adventure of Symphony development.</p></intro>
+            <title handle="articles-articles-articles">Articles, Articles, Articles</title>
+        </entry>
+        <entry id="94308" comments="2">
+            <category>
+                <item handle="announcements">Announcements</item>
+            </category>
+            <created-by id="2101">Allen</created-by>
+            <date time="03:22" weekday="3">2012-10-31</date>
+            <intro mode="formatted"><p>Hot off the heels of the version 2.3 release, the team got right back into adding a big list of updates and fixes. As a cryptic man would say, a minor version update, by name it may be so. But in spirit of the nomenclature, this is certainly not! Whatever the case, ignore this cryptic man, and just download the update already.</p></intro>
+            <title handle="symphony-231-released">Symphony 2.3.1 Released</title>
+        </entry>
+        <entry id="92291" comments="3">
+            <category>
+                <item handle="announcements">Announcements</item>
+            </category>
+            <created-by id="2101">Allen</created-by>
+            <date time="07:00" weekday="7">2012-09-02</date>
+            <intro mode="formatted"><p>Just over a week ago we sent out a newsletter to Symphony website members. It's not often that we take the effort to do mail-outs, but when we do, we make sure we've got important things to say. We thought that we should share our newsletter and survey results with the community.</p></intro>
+            <title handle="for-the-love-of-statistics">For the love of statistics</title>
+        </entry>
+        <entry id="91741" comments="2">
+            <category>
+                <item handle="announcements">Announcements</item>
+            </category>
+            <created-by id="2101">Allen</created-by>
+            <date time="03:59" weekday="5">2012-08-17</date>
+            <intro mode="formatted"><p>In a <a href="http://getsymphony.com/discuss/blog/entry/new-symphony-website-plans/">previous blog post</a>, I outlined Symphony's plans for the Symphony website and how spin-off projects from the community can congregate to become a family of networked sites. That plan starts with <a href="http://getsymphony.com/discuss/thread/91734/">Symphony Factory</a></p></intro>
+            <title handle="symphony-factory">Symphony Factory</title>
+        </entry>
+        <entry id="91387" comments="9">
+            <category>
+                <item handle="announcements">Announcements</item>
+            </category>
+            <created-by id="2101">Allen</created-by>
+            <date time="08:05" weekday="2">2012-08-07</date>
+            <intro mode="formatted"><p>Today is the day I get to proudly announce <a href="http://www.soario.com">Soario</a>, a company co-founded by yours truly, sewn from the seeds of Symphony CMS.</p></intro>
+            <title handle="introducing-soario-inc">Introducing Soario Inc.</title>
+        </entry>
+        <entry id="90395" comments="10">
+            <category>
+                <item handle="announcements">Announcements</item>
+            </category>
+            <created-by id="2101">Allen</created-by>
+            <date time="22:44" weekday="4">2012-07-05</date>
+            <intro mode="formatted"><p>The current design of the Symphony website is a couple years old now. We’ve had plans to overhaul it over a year ago that never really came into fruition. That is not to say that we haven’t been working on it, though. The challenge as it turned out was defining exactly it is that we wanted to achieve with our new website.</p>
+<p>The rest of the article examines the key requirements the new site and how we intent to go about implementing it. While I would've liked to have posted this article alongside a surprise launch of the new site, truth be told, we still have a little ways to go yet. Instead of keeping quiet about all the exciting plans for several more months, I thought it's better to lay it all out.</p></intro>
+            <title handle="new-symphony-website-plans">New Symphony website Plans </title>
+        </entry>
+        <entry id="85916" comments="6">
+            <category>
+                <item handle="development-notes">Development Notes</item>
+            </category>
+            <created-by id="9732">brendo</created-by>
+            <date time="17:00" weekday="1">2012-05-28</date>
+            <intro mode="formatted"><p>The Symphony 2.3 release opens up a whole new range of possibilities for developers to create awesome sites and applications. We've cleaned up a lot of the codebase and we are always looking at ways to make it leaner and more efficient. Because of this reason, we've decided that the Symphony 2.3 line will be the final releases that we test against PHP5.2.</p>
+<p>We feel that with the recent release of PHP 5.4, now is a good time to end our relationship and look forward to the new possibilities that developing with a PHP 5.3+ codebase brings. </p></intro>
+            <title handle="a-short-note-about-php52-support">A short note about PHP5.2 support</title>
+        </entry>
+    </blog>
 </data>

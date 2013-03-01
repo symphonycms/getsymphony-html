@@ -4,6 +4,6 @@
     <site handle="community">Community</site>
     <page-title>Symphony Network</page-title>
     <current-page>network</current-page>
-    <root>../</root>
+    <root>..</root>
   </params>
 </data>

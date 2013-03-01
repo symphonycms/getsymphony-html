@@ -5,6 +5,6 @@
     <page-title>Interviews</page-title>
     <current-page>interviews</current-page>
     <root-page>ninjas</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

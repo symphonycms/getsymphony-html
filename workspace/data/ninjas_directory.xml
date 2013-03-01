@@ -5,6 +5,6 @@
     <page-title>Directory</page-title>
     <current-page>directory</current-page>
     <root-page>ninjas</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

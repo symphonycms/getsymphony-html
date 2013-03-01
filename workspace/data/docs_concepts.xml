@@ -5,6 +5,6 @@
     <page-title>Concepts</page-title>
     <current-page>concepts</current-page>
     <root-page>docs</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

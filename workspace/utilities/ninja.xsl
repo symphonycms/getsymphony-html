@@ -94,7 +94,7 @@
 <xsl:template match="a[starts-with(@href,'/')]" mode="ninja" priority="1">
   <a>
     <xsl:apply-templates select="@*" mode="ninja"/>
-    <xsl:attribute name="href"><xsl:value-of select="concat($root, substring-after(@href,'/'))"/></xsl:attribute>
+    <xsl:attribute name="href"><xsl:value-of select="concat($root, @href)"/></xsl:attribute>
     <xsl:apply-templates select="* | text()" mode="ninja"/>
   </a>
 </xsl:template>
