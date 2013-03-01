@@ -63,7 +63,7 @@ I create an XML file that will serve as the data source for page-specific parame
         <website-name>Site Name</website-name>
         <page-title>Home</page-title>
         <current-page>home</current-page>
-        <root>./</root>
+        <root>.</root>
       </params>
     </data>
 
@@ -210,9 +210,10 @@ What makes XSLT really interesting is the ability to set variables and parameter
     <!-- Page Parameters -->
     <xsl:param name="config" select="document('../data/_config.xml')" />
     <xsl:param name="website-name" select="$config/data/config/website-name" />
+    <xsl:param name="site" select="/data/params/site" />
     <xsl:param name="root" select="/data/params/root" />
-    <xsl:param name="workspace" select="concat($root, 'workspace/')" />
-    <xsl:param name="assets" select="concat($workspace, 'assets/')" />
+    <xsl:param name="workspace" select="concat($root, '/workspace')" />
+    <xsl:param name="assets" select="concat($workspace, '/assets')" />
     <xsl:param name="page-title" select="/data/params/page-title" />
     <xsl:param name="current-page" select="/data/params/current-page" />
     <xsl:param name="parent-page" select="/data/params/parent-page" />
@@ -228,14 +229,15 @@ What makes XSLT really interesting is the ability to set variables and parameter
         </xsl:otherwise>
       </xsl:choose>
     </xsl:param>
+    <xsl:param name="network" select="document('../data/_network.xml')" />
     <xsl:param name="navigation" select="document('../data/_navigation.xml')" />
     <xsl:param name="has-section-nav" select="false()" />
     
     <!-- Directories -->
-    <xsl:param name="css" select="concat($assets, 'css/')" />
-    <xsl:param name="scripts" select="concat($assets, 'js/')" />
-    <xsl:param name="images" select="concat($assets, 'images/')" />
-    <xsl:param name="theme" select="concat($assets, 'themes/factory')" />
+    <xsl:param name="css" select="concat($assets, '/css')" />
+    <xsl:param name="scripts" select="concat($assets, '/js')" />
+    <xsl:param name="images" select="concat($assets, '/images')" />
+    <xsl:param name="theme" select="concat($workspace, '/factory')" />
     
     <xsl:template match="/">
       <xsl:comment><![CDATA[[if lt IE 7]> <html class="ie ie6 lt-ie7 no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]]]></xsl:comment>
