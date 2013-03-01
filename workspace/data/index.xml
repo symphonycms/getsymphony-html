@@ -4,7 +4,7 @@
     <site handle="community">Community</site>
     <page-title>Stream</page-title>
     <current-page>stream</current-page>
-    <root>./</root>
+    <root>.</root>
   </params>
   <content>
     <!-- Field with sidebar -->

@@ -5,6 +5,6 @@
     <page-title>Compatibility Matrix</page-title>
     <current-page>matrix</current-page>
     <root-page>ext</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

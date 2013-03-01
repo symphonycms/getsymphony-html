@@ -8,14 +8,14 @@
 </xsl:template>
 
 <xsl:template match="navigation/page">
-  <a href="{$root}{$site/@handle}/{@handle}/">
+  <a href="{$root}/{$site/@handle}/{@handle}/">
     <xsl:if test="@handle = $root-page or @handle = $current-page">
       <xsl:attribute name="class">active</xsl:attribute>
     </xsl:if>
     <xsl:if test="../@type = 'primary'">
-      <xsl:attribute name="href"><xsl:value-of select="concat($root, @handle, '/')" /></xsl:attribute>
+      <xsl:attribute name="href"><xsl:value-of select="concat($root, '/', @handle, '/')" /></xsl:attribute>
       <xsl:if test="@type = 'index'">
-        <xsl:attribute name="href"><xsl:value-of select="$root" /></xsl:attribute>
+        <xsl:attribute name="href"><xsl:value-of select="concat($root, '/')" /></xsl:attribute>
       </xsl:if>
     </xsl:if>
     <xsl:value-of select="name" />
@@ -29,12 +29,12 @@
 </xsl:template>
 
 <xsl:template match="network/site">
-  <a href="{$root}{@handle}/">
+  <a href="{$root}/{@handle}/">
     <xsl:if test="@handle = $site/@handle">
       <xsl:attribute name="class">active</xsl:attribute>
     </xsl:if>
     <xsl:if test="@type = 'primary'">
-      <xsl:attribute name="href"><xsl:value-of select="$root" /></xsl:attribute>
+      <xsl:attribute name="href"><xsl:value-of select="concat($root, '/')" /></xsl:attribute>
     </xsl:if>
     <xsl:value-of select="name" />
   </a>

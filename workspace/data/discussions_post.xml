@@ -6,7 +6,7 @@
     <page-title>Discussion</page-title>
     <current-page>post</current-page>
     <root-page>discussions</root-page>
-    <root>../../</root>
+    <root>../..</root>
     <current-path>community/post/</current-path>
   </params>
   <title id="Examples" mode="empty">Community</title>

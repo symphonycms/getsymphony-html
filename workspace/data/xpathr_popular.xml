@@ -5,6 +5,6 @@
     <page-title>Popular</page-title>
     <current-page>popular</current-page>
     <root-page>xpathr</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

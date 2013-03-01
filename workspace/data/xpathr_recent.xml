@@ -5,6 +5,6 @@
     <page-title>Recent</page-title>
     <current-page>recent</current-page>
     <root-page>xpathr</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

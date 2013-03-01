@@ -5,6 +5,6 @@
     <page-title>Categories</page-title>
     <current-page>categories</current-page>
     <root-page>xpathr</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

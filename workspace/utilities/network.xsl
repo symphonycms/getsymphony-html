@@ -7,7 +7,7 @@
     <header class="network-toolbar collapsed">
       <div class="field">
         <h1 class="network-logo column one">
-          <a href="{$root}">Symphony Network</a>
+          <a href="{$root}/">Symphony Network</a>
         </h1>
         <xsl:apply-templates select="$network/data" mode="network-navigation" />
         <div id="user" class="network-user">

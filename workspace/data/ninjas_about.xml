@@ -5,6 +5,6 @@
     <page-title>Learn More</page-title>
     <current-page>about</current-page>
     <root-page>ninjas</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>

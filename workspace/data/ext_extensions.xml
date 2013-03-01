@@ -5,6 +5,6 @@
     <page-title>Extensions</page-title>
     <current-page>extensions</current-page>
     <root-page>ext</root-page>
-    <root>../../</root>
+    <root>../..</root>
   </params>
 </data>
