@@ -19,7 +19,6 @@
 <xsl:param name="site" select="/data/params/site" />
 <xsl:param name="root" select="/data/params/root" />
 <xsl:param name="workspace" select="concat($root, '/workspace')" />
-<xsl:param name="assets" select="concat($workspace, '/assets')" />
 <xsl:param name="page-title" select="/data/params/page-title" />
 <xsl:param name="current-page" select="/data/params/current-page" />
 <xsl:param name="parent-page" select="/data/params/parent-page" />
@@ -40,6 +39,7 @@
 <xsl:param name="has-section-nav" select="false()" />
 
 <!-- Directories -->
+<xsl:param name="assets" select="concat($workspace, '/assets')" />
 <xsl:param name="css" select="concat($assets, '/css')" />
 <xsl:param name="scripts" select="concat($assets, '/js')" />
 <xsl:param name="images" select="concat($assets, '/images')" />
