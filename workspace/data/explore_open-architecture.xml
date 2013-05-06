@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <explore-feature-set>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33019" features="5" screenshots="3">
+            <description mode="formatted"><p>Symphony doesn&#8217;t tell you what kind of content to manage, or how. It doesn&#8217;t lock you into a rigid structure or dictate some silly URL schema. It just <em>gives you the tools</em> and stays out of your way. Trust us, you&#8217;ll like it.</p></description>
+            <name handle="open-architecture">Open Architecture</name>
+        </entry>
+    </explore-feature-set>
+    <explore-feature-sets>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33018" features="4" screenshots="3">
+            <description mode="formatted"><p>From the inside out, Symphony is rooted in the very same principles that you adhere to in your own work. Openness. Standards compliance. Flexibility. Symphony doesn&#8217;t just help you get the job done, it helps you get the job done <em>right</em>.</p></description>
+            <name handle="sound-principles">Sound Principles</name>
+        </entry>
+        <entry id="33019" features="5" screenshots="3">
+            <description mode="formatted"><p>Symphony doesn&#8217;t tell you what kind of content to manage, or how. It doesn&#8217;t lock you into a rigid structure or dictate some silly URL schema. It just <em>gives you the tools</em> and stays out of your way. Trust us, you&#8217;ll like it.</p></description>
+            <name handle="open-architecture">Open Architecture</name>
+        </entry>
+        <entry id="33020" features="4" screenshots="3">
+            <description mode="formatted"><p>Leveraging the full power of XSLT, Symphony gives you what few other templating systems can: the ability to publish in nearly <em>any</em> format, to control <em>every single</em> character you output, and to maintain a <em>complete</em> separation between content and presentation.</p></description>
+            <name handle="flexible-templating">Flexible Templating</name>
+        </entry>
+        <entry id="33021" features="5" screenshots="3">
+            <description mode="formatted"><p>The best interfaces are the ones you barely notice. Symphony&#8217;s back end is <em>all about workflow</em>, dispensing with the proverbial bells and whistles and focusing on helping you complete the task at hand.</p></description>
+            <name handle="elegant-interface">Elegant Interface</name>
+        </entry>
+        <entry id="33022" features="3" screenshots="0">
+            <description mode="formatted"><p>We <em>love</em> Symphony. And when you love something, <em>you take care of it</em>. Whether it&#8217;s the core team improving the system or writing documentation, or community members building extensions and helping newbies on the forum, the people here are generous, industrious, and quite often brilliant. You&#8217;ll be glad you joined us.</p></description>
+            <name handle="vibrant-support-system">Vibrant Support System</name>
+        </entry>
+    </explore-feature-sets>
+    <explore-features>
+        <section id="68" handle="features">Features</section>
+        <entry id="33027">
+            <description mode="formatted"><p>No more hacking. Symphony lets <em>you</em> define the structure of your content from the ground up, meaning your system is custom-built to handle <em>exactly the content you need to manage</em>. It also means you can develop rich, interconnected functionalities between your content, assets, and users.</p></description>
+            <headline mode="formatted"><p>Model your own content</p></headline>
+        </entry>
+        <entry id="33028">
+            <description mode="formatted"><p>There are no custom fields when every field is custom. In Symphony, you build your content types from scratch, one field at a time. You create data sources that fetch <em>only</em> the entries you want, and output <em>only</em> the fields you need. Symphony gives you <em>fine-grained control</em> over every aspect of your project, beginning with the most basic pieces.</p></description>
+            <headline mode="formatted"><p>Granular Building Blocks</p></headline>
+        </entry>
+        <entry id="33029">
+            <description mode="formatted"><p>Symphony&#8217;s native use of XML allows developers to <em>take advantage of the wealth of XML technologies</em> already available on the web. Want to pull your Twitter feed and mash it up with your entries? Need to integrate with other systems that have XML-based APIs? How about creating a dynamic Flash site using XML? Symphony can do all this, and more, without batting an eyelash.</p></description>
+            <headline mode="formatted"><p>XML-based data engine</p></headline>
+        </entry>
+        <entry id="33030">
+            <description mode="formatted"><p>Create clean and flexible URL structures that are not only search engine friendly but give you a <em>truly dynamic front end</em>. With URL parameters, one page can power an entire browsing interface, with filtering, pagination, and other values set on-the-fly in the URL. With Symphony, your interface designs can dictate how you want the system to behave, not the other way around.</p></description>
+            <headline mode="formatted"><p>Define your own URL schema</p></headline>
+        </entry>
+        <entry id="33031">
+            <description mode="formatted"><p>Symphony&#8217;s core is designed to allow extension developers to <em>easily access and manipulate</em> system processes on both the front end and the back end. The proof is in our ever-growing <a href="/download/extensions/">library of extensions</a>.</p></description>
+            <headline mode="formatted"><p>Designed to be extended</p></headline>
+        </entry>
+    </explore-features>
+    <explore-screenshots>
+        <section id="75" handle="screenshots">Screenshots</section>
+        <entry id="33050">
+            <caption mode="formatted"><p>Content modeling is completely open-ended. You build your sections field-by-field.</p></caption>
+            <image size="84 KB" path="/assets/images/backend" type="image/png">
+                <filename>section-editor-1338263346.png</filename>
+                <meta creation="2012-05-29T13:49:06+10:00" width="802" height="1345" />
+            </image>
+        </entry>
+        <entry id="33051">
+            <caption mode="formatted"><p>As you define your front-end pages, you have full control over your URL schema.</p></caption>
+            <image size="35 KB" path="/assets/images/backend" type="image/png">
+                <filename>page-editor-1338263326.png</filename>
+                <meta creation="2012-05-29T13:48:46+10:00" width="802" height="652" />
+            </image>
+        </entry>
+        <entry id="33055">
+            <caption mode="formatted"><p>Symphony can take external XML, like a Twitter feed, and work with it natively alongside your own data.</p></caption>
+            <image size="94 KB" path="/assets/images/backend" type="image/png">
+                <filename>ds-dynamic-1338263262.png</filename>
+                <meta creation="2012-05-29T13:47:41+10:00" width="800" height="628" />
+            </image>
+        </entry>
+    </explore-screenshots>
+</data>

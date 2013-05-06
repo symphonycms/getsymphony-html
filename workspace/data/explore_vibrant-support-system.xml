@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <explore-feature-set>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33022" features="3" screenshots="0">
+            <description mode="formatted"><p>We <em>love</em> Symphony. And when you love something, <em>you take care of it</em>. Whether it&#8217;s the core team improving the system or writing documentation, or community members building extensions and helping newbies on the forum, the people here are generous, industrious, and quite often brilliant. You&#8217;ll be glad you joined us.</p></description>
+            <name handle="vibrant-support-system">Vibrant Support System</name>
+        </entry>
+    </explore-feature-set>
+    <explore-feature-sets>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33018" features="4" screenshots="3">
+            <description mode="formatted"><p>From the inside out, Symphony is rooted in the very same principles that you adhere to in your own work. Openness. Standards compliance. Flexibility. Symphony doesn&#8217;t just help you get the job done, it helps you get the job done <em>right</em>.</p></description>
+            <name handle="sound-principles">Sound Principles</name>
+        </entry>
+        <entry id="33019" features="5" screenshots="3">
+            <description mode="formatted"><p>Symphony doesn&#8217;t tell you what kind of content to manage, or how. It doesn&#8217;t lock you into a rigid structure or dictate some silly URL schema. It just <em>gives you the tools</em> and stays out of your way. Trust us, you&#8217;ll like it.</p></description>
+            <name handle="open-architecture">Open Architecture</name>
+        </entry>
+        <entry id="33020" features="4" screenshots="3">
+            <description mode="formatted"><p>Leveraging the full power of XSLT, Symphony gives you what few other templating systems can: the ability to publish in nearly <em>any</em> format, to control <em>every single</em> character you output, and to maintain a <em>complete</em> separation between content and presentation.</p></description>
+            <name handle="flexible-templating">Flexible Templating</name>
+        </entry>
+        <entry id="33021" features="5" screenshots="3">
+            <description mode="formatted"><p>The best interfaces are the ones you barely notice. Symphony&#8217;s back end is <em>all about workflow</em>, dispensing with the proverbial bells and whistles and focusing on helping you complete the task at hand.</p></description>
+            <name handle="elegant-interface">Elegant Interface</name>
+        </entry>
+        <entry id="33022" features="3" screenshots="0">
+            <description mode="formatted"><p>We <em>love</em> Symphony. And when you love something, <em>you take care of it</em>. Whether it&#8217;s the core team improving the system or writing documentation, or community members building extensions and helping newbies on the forum, the people here are generous, industrious, and quite often brilliant. You&#8217;ll be glad you joined us.</p></description>
+            <name handle="vibrant-support-system">Vibrant Support System</name>
+        </entry>
+    </explore-feature-sets>
+    <explore-features>
+        <section id="68" handle="features">Features</section>
+        <entry id="33042">
+            <description mode="formatted"><p>With core team members in the United Kingdom, the United States and Australia, Symphony truly <em>spans the globe</em>. Wherever and whenever problems arise, we&#8217;ll be around to help. That&#8217;s peace of mind.</p></description>
+            <headline mode="formatted"><p>24/7 commercial support</p></headline>
+        </entry>
+        <entry id="33043">
+            <description mode="formatted"><p>Active. Knowledgeable. Creative. Friendly. These are <em>the kind of people that make software great</em>. Symphony&#8217;s community numbers more than 8,000 and is growing every day. Check out the forum and see for yourself.</p></description>
+            <headline mode="formatted"><p>The best community around</p></headline>
+        </entry>
+        <entry id="33044">
+            <description mode="formatted"><p>Symphony&#8217;s newly-overhauled documentation system is designed to accommodate a variety of learning styles, expertise levels, and usage scenarios. Featuring carefully edited guides, a growing library of tutorials and articles, a comprehensive system reference, and, of course, FAQs, <em>the answers you need</em> are never far away.</p></description>
+            <headline mode="formatted"><p>Robust documentation</p></headline>
+        </entry>
+    </explore-features>
+</data>

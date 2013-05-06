@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <explore-feature-set>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33018" features="4" screenshots="3">
+            <description mode="formatted"><p>From the inside out, Symphony is rooted in the very same principles that you adhere to in your own work. Openness. Standards compliance. Flexibility. Symphony doesn&#8217;t just help you get the job done, it helps you get the job done <em>right</em>.</p></description>
+            <name handle="sound-principles">Sound Principles</name>
+        </entry>
+    </explore-feature-set>
+    <explore-feature-sets>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33018" features="4" screenshots="3">
+            <description mode="formatted"><p>From the inside out, Symphony is rooted in the very same principles that you adhere to in your own work. Openness. Standards compliance. Flexibility. Symphony doesn&#8217;t just help you get the job done, it helps you get the job done <em>right</em>.</p></description>
+            <name handle="sound-principles">Sound Principles</name>
+        </entry>
+        <entry id="33019" features="5" screenshots="3">
+            <description mode="formatted"><p>Symphony doesn&#8217;t tell you what kind of content to manage, or how. It doesn&#8217;t lock you into a rigid structure or dictate some silly URL schema. It just <em>gives you the tools</em> and stays out of your way. Trust us, you&#8217;ll like it.</p></description>
+            <name handle="open-architecture">Open Architecture</name>
+        </entry>
+        <entry id="33020" features="4" screenshots="3">
+            <description mode="formatted"><p>Leveraging the full power of XSLT, Symphony gives you what few other templating systems can: the ability to publish in nearly <em>any</em> format, to control <em>every single</em> character you output, and to maintain a <em>complete</em> separation between content and presentation.</p></description>
+            <name handle="flexible-templating">Flexible Templating</name>
+        </entry>
+        <entry id="33021" features="5" screenshots="3">
+            <description mode="formatted"><p>The best interfaces are the ones you barely notice. Symphony&#8217;s back end is <em>all about workflow</em>, dispensing with the proverbial bells and whistles and focusing on helping you complete the task at hand.</p></description>
+            <name handle="elegant-interface">Elegant Interface</name>
+        </entry>
+        <entry id="33022" features="3" screenshots="0">
+            <description mode="formatted"><p>We <em>love</em> Symphony. And when you love something, <em>you take care of it</em>. Whether it&#8217;s the core team improving the system or writing documentation, or community members building extensions and helping newbies on the forum, the people here are generous, industrious, and quite often brilliant. You&#8217;ll be glad you joined us.</p></description>
+            <name handle="vibrant-support-system">Vibrant Support System</name>
+        </entry>
+    </explore-feature-sets>
+    <explore-features>
+        <section id="68" handle="features">Features</section>
+        <entry id="33023">
+            <description mode="formatted"><p>Stop learning proprietary languages and memorizing template tags. Symphony leverages <em>open standards</em> like XML and XSLT, and good old XHTML and CSS. Even the admin interface employs the widely-used jQuery library, so extension developers don&#8217;t have to learn a whole new framework when extending the back end.</p></description>
+            <headline mode="formatted"><p>Standards-Driven</p></headline>
+        </entry>
+        <entry id="33024">
+            <description mode="formatted"><p>Symphony is <em>open source software</em>, adopting the ultra-permissive MIT/X11 license. Anything you make with Symphony, or for Symphony, is entirely yours to sell, hoard, or donate. It’s your work, and we respect that.</p></description>
+            <headline mode="formatted"><p>Open source</p></headline>
+        </entry>
+        <entry id="33025">
+            <description mode="formatted"><p>Symphony is comprised of <em>discrete, fully-configurable components</em>. Its data, logic, and templating layers are all independent, meaning that whatever you implement can be modified, added, or removed with minimum effort.</p></description>
+            <headline mode="formatted"><p>Modular</p></headline>
+        </entry>
+        <entry id="33026">
+            <description mode="formatted"><p>If it&#8217;s not essential, it&#8217;s an extension. This keeps the system small, lean, and precise. Swiss Army knives are nice, but a surgeon wouldn&#8217;t operate with one. With Symphony, you <em>craft exactly the tool you need</em>.</p></description>
+            <headline mode="formatted"><p>Simple</p></headline>
+        </entry>
+    </explore-features>
+    <explore-screenshots>
+        <section id="75" handle="screenshots">Screenshots</section>
+        <entry id="33046">
+            <caption mode="formatted"><p>Symphony allows you to define the content types you'll manage.</p></caption>
+            <image size="24 KB" path="/assets/images/backend" type="image/png">
+                <filename>section-table-1338263451.png</filename>
+                <meta creation="2012-05-29T13:50:51+10:00" width="802" height="485" />
+            </image>
+        </entry>
+        <entry id="33047">
+            <caption mode="formatted"><p>Every point on your front-end interface is fully configurable.</p></caption>
+            <image size="50 KB" path="/assets/images/backend" type="image/png">
+                <filename>page-table-1338263438.png</filename>
+                <meta creation="2012-05-29T13:50:37+10:00" width="802" height="578" />
+            </image>
+        </entry>
+        <entry id="33049">
+            <caption mode="formatted"><p>Extensions help keep Symphony's core lean and mean.</p></caption>
+            <image size="38 KB" path="/assets/images/backend" type="image/png">
+                <filename>extensions-table-1338263170.png</filename>
+                <meta creation="2012-05-29T13:46:10+10:00" width="802" height="505" />
+            </image>
+        </entry>
+    </explore-screenshots>
+</data>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <explore-feature-set>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33021" features="5" screenshots="3">
+            <description mode="formatted"><p>The best interfaces are the ones you barely notice. Symphony&#8217;s back end is <em>all about workflow</em>, dispensing with the proverbial bells and whistles and focusing on helping you complete the task at hand.</p></description>
+            <name handle="elegant-interface">Elegant Interface</name>
+        </entry>
+    </explore-feature-set>
+    <explore-feature-sets>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33018" features="4" screenshots="3">
+            <description mode="formatted"><p>From the inside out, Symphony is rooted in the very same principles that you adhere to in your own work. Openness. Standards compliance. Flexibility. Symphony doesn&#8217;t just help you get the job done, it helps you get the job done <em>right</em>.</p></description>
+            <name handle="sound-principles">Sound Principles</name>
+        </entry>
+        <entry id="33019" features="5" screenshots="3">
+            <description mode="formatted"><p>Symphony doesn&#8217;t tell you what kind of content to manage, or how. It doesn&#8217;t lock you into a rigid structure or dictate some silly URL schema. It just <em>gives you the tools</em> and stays out of your way. Trust us, you&#8217;ll like it.</p></description>
+            <name handle="open-architecture">Open Architecture</name>
+        </entry>
+        <entry id="33020" features="4" screenshots="3">
+            <description mode="formatted"><p>Leveraging the full power of XSLT, Symphony gives you what few other templating systems can: the ability to publish in nearly <em>any</em> format, to control <em>every single</em> character you output, and to maintain a <em>complete</em> separation between content and presentation.</p></description>
+            <name handle="flexible-templating">Flexible Templating</name>
+        </entry>
+        <entry id="33021" features="5" screenshots="3">
+            <description mode="formatted"><p>The best interfaces are the ones you barely notice. Symphony&#8217;s back end is <em>all about workflow</em>, dispensing with the proverbial bells and whistles and focusing on helping you complete the task at hand.</p></description>
+            <name handle="elegant-interface">Elegant Interface</name>
+        </entry>
+        <entry id="33022" features="3" screenshots="0">
+            <description mode="formatted"><p>We <em>love</em> Symphony. And when you love something, <em>you take care of it</em>. Whether it&#8217;s the core team improving the system or writing documentation, or community members building extensions and helping newbies on the forum, the people here are generous, industrious, and quite often brilliant. You&#8217;ll be glad you joined us.</p></description>
+            <name handle="vibrant-support-system">Vibrant Support System</name>
+        </entry>
+    </explore-feature-sets>
+    <explore-features>
+        <section id="68" handle="features">Features</section>
+        <entry id="33037">
+            <description mode="formatted"><p>The clean, almost minimal design of Symphony&#8217;s admin interface keeps the focus on <em>your</em> work, not ours. Layouts and interactions are kept straightforward and consistent. <em>Easy to learn and easy to use</em>, the UI becomes second nature in no time at all.</p></description>
+            <headline mode="formatted"><p>Immanently Usable</p></headline>
+        </entry>
+        <entry id="33038">
+            <description mode="formatted"><p>Click on a row to select it. Drag and drop to easily reorder your pages. Add and reorder fields in place while modeling your content types. Symphony&#8217;s admin interface aims to make even the simplest tasks <em>a little bit simpler</em>.</p></description>
+            <headline mode="formatted"><p>Intuitive interactions</p></headline>
+        </entry>
+        <entry id="33039">
+            <description mode="formatted"><p><em>Work more efficiently</em> by managing multiple entries, sections, pages, or extensions right from the index view. Quickly change your entries&#8217; <code>checkbox</code> states or <code>select</code> values, install and uninstall extensions, and even delete items.</p></description>
+            <headline mode="formatted"><p>Bulk editing</p></headline>
+        </entry>
+        <entry id="33040">
+            <description mode="formatted"><p>Symphony puts an <em>entire suite of tools</em> at your fingertips for debugging front-end pages. Check source code (from XML to XSLT to output), dynamically test XPath selectors, review build and load statistics. You&#8217;ll wonder how you ever developed a website without it.</p></description>
+            <headline mode="formatted"><p>Front-end debugging</p></headline>
+        </entry>
+        <entry id="33041">
+            <description mode="formatted"><p>Symphony&#8217;s admin interface employs the widely-used jQuery library, making it a cinch for developers to <em>customize and extend</em>.</p></description>
+            <headline mode="formatted"><p>The power of jQuery</p></headline>
+        </entry>
+    </explore-features>
+    <explore-screenshots>
+        <section id="75" handle="screenshots">Screenshots</section>
+        <entry id="33056">
+            <caption mode="formatted"><p>Symphony's interface is simple and elegant.</p></caption>
+            <image size="79 KB" path="/assets/images/backend" type="image/png">
+                <filename>entry-list-1338263233.png</filename>
+                <meta creation="2012-05-29T13:47:13+10:00" width="802" height="470" />
+            </image>
+        </entry>
+        <entry id="33058">
+            <caption mode="formatted"><p>Symphony's bulk editing features will save you time.</p></caption>
+            <image size="69 KB" path="/assets/images/backend" type="image/png">
+                <filename>entry-bulk-editing-1338263206.png</filename>
+                <meta creation="2012-05-29T13:46:46+10:00" width="849" height="570" />
+            </image>
+        </entry>
+        <entry id="33059">
+            <caption mode="formatted"><p>Symphony gives you a powerful front-end debugging interface.</p></caption>
+            <image size="76 KB" path="/assets/images/backend" type="image/png">
+                <filename>devkit-combo-1338263191.png</filename>
+                <meta creation="2012-05-29T13:46:31+10:00" width="807" height="562" />
+            </image>
+        </entry>
+    </explore-screenshots>
+</data>

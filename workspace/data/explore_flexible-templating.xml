@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <explore-feature-set>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33020" features="4" screenshots="3">
+            <description mode="formatted"><p>Leveraging the full power of XSLT, Symphony gives you what few other templating systems can: the ability to publish in nearly <em>any</em> format, to control <em>every single</em> character you output, and to maintain a <em>complete</em> separation between content and presentation.</p></description>
+            <name handle="flexible-templating">Flexible Templating</name>
+        </entry>
+    </explore-feature-set>
+    <explore-feature-sets>
+        <section id="69" handle="feature-sets">Feature Sets</section>
+        <entry id="33018" features="4" screenshots="3">
+            <description mode="formatted"><p>From the inside out, Symphony is rooted in the very same principles that you adhere to in your own work. Openness. Standards compliance. Flexibility. Symphony doesn&#8217;t just help you get the job done, it helps you get the job done <em>right</em>.</p></description>
+            <name handle="sound-principles">Sound Principles</name>
+        </entry>
+        <entry id="33019" features="5" screenshots="3">
+            <description mode="formatted"><p>Symphony doesn&#8217;t tell you what kind of content to manage, or how. It doesn&#8217;t lock you into a rigid structure or dictate some silly URL schema. It just <em>gives you the tools</em> and stays out of your way. Trust us, you&#8217;ll like it.</p></description>
+            <name handle="open-architecture">Open Architecture</name>
+        </entry>
+        <entry id="33020" features="4" screenshots="3">
+            <description mode="formatted"><p>Leveraging the full power of XSLT, Symphony gives you what few other templating systems can: the ability to publish in nearly <em>any</em> format, to control <em>every single</em> character you output, and to maintain a <em>complete</em> separation between content and presentation.</p></description>
+            <name handle="flexible-templating">Flexible Templating</name>
+        </entry>
+        <entry id="33021" features="5" screenshots="3">
+            <description mode="formatted"><p>The best interfaces are the ones you barely notice. Symphony&#8217;s back end is <em>all about workflow</em>, dispensing with the proverbial bells and whistles and focusing on helping you complete the task at hand.</p></description>
+            <name handle="elegant-interface">Elegant Interface</name>
+        </entry>
+        <entry id="33022" features="3" screenshots="0">
+            <description mode="formatted"><p>We <em>love</em> Symphony. And when you love something, <em>you take care of it</em>. Whether it&#8217;s the core team improving the system or writing documentation, or community members building extensions and helping newbies on the forum, the people here are generous, industrious, and quite often brilliant. You&#8217;ll be glad you joined us.</p></description>
+            <name handle="vibrant-support-system">Vibrant Support System</name>
+        </entry>
+    </explore-feature-sets>
+    <explore-features>
+        <section id="68" handle="features">Features</section>
+        <entry id="33033">
+            <description mode="formatted"><p>Inclusion. Conditionals. Parameters. Functions. Recursion. XSLT is a remarkably <em>robust templating language</em> that allows you to keep all your presentational logic right where it belongs. And it&#8217;s a widely-used open standard, meaning resources are plentiful and knowledge is not tied to any platform.</p></description>
+            <headline mode="formatted"><p>Harness the power of XSLT</p></headline>
+        </entry>
+        <entry id="33034">
+            <description mode="formatted"><p>XSLT makes it possible to output much more than just web pages. Generate dynamic CSS and JavaScript. Offer RSS and Atom feeds. Whip up PDFs, SVGs, or spreadsheets. Set up an entire XML/JSON API. <em>Virtually any data format</em> is just a template away.</p></description>
+            <headline mode="formatted"><p>Output anything</p></headline>
+        </entry>
+        <entry id="33035">
+            <description mode="formatted"><p>XSLT is rule-based, like CSS. The beauty of rules is that you can <em>write modular, reusable code</em>, which makes maintenance a breeze and allows for rapid prototyping. Reusable bits of XSLT, called Utilities, can be shared throughout a project, and our website has a growing library of XSLT Utilities that you can use right now.</p></description>
+            <headline mode="formatted"><p>Keep your code lean and DRY</p></headline>
+        </entry>
+        <entry id="33036">
+            <description mode="formatted"><p>Dynamically generate resized or cropped versions of your images simply by using a specially-formed <code>src</code> URL. Need a 100x100 thumbnail? <code>&lt;img src="/image/1/100/100/path/to/image.jpg" /&gt;</code>. Need to bump it to 150 a few weeks later? <em>Just change the URL and Symphony does the rest</em>, including caching. Oh, and it works on external images too.</p></description>
+            <headline mode="formatted"><p>Manipulate images on the fly</p></headline>
+        </entry>
+    </explore-features>
+    <explore-screenshots>
+        <section id="75" handle="screenshots">Screenshots</section>
+        <entry id="33052">
+            <caption mode="formatted"><p>Page templates harness the power of XSLT and can include reusable snippets called utilities.</p></caption>
+            <image size="65 KB" path="/assets/images/backend" type="image/png">
+                <filename>page-template-editor-1338263947.png</filename>
+                <meta creation="2012-05-29T13:59:07+10:00" width="957" height="682" />
+            </image>
+        </entry>
+        <entry id="33053">
+            <caption mode="formatted"><p>Utilities are reusable XSLT stylesheets that can be shared throughout your project.</p></caption>
+            <image size="56 KB" path="/assets/images/backend" type="image/png">
+                <filename>utility-editor-1338263963.png</filename>
+                <meta creation="2012-05-29T13:59:23+10:00" width="957" height="683" />
+            </image>
+        </entry>
+        <entry id="33057">
+            <caption mode="formatted"><p>Publishing entries is dead simple.</p></caption>
+            <image size="19 KB" path="/assets/images/backend" type="image/png">
+                <filename>publish-1338263220.png</filename>
+                <meta creation="2012-05-29T13:47:00+10:00" width="802" height="658" />
+            </image>
+        </entry>
+    </explore-screenshots>
+</data>
