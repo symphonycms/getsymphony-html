@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="36368" tutorial-steps="6">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author handle="nickdunn">nickdunn</author>
+            <concepts>
+                <item id="33144" handle="field-types" section-handle="concepts" section-name="Concepts">Field Types</item>
+                <item id="33073" handle="data-source-filters" section-handle="concepts" section-name="Concepts">Data Source Filters</item>
+                <item id="33066" handle="pages" section-handle="concepts" section-name="Concepts">Pages</item>
+                <item id="33065" handle="fields" section-handle="concepts" section-name="Concepts">Fields</item>
+            </concepts>
+            <conclusion mode="formatted"><p>This tutorial has covered in depth how to build simple &#8220;find my nearest&#8221; functionality in the form of a store locator using the Map Location Field in Symphony 2.</p>
+<p>We have seen how to install the Map Location Field, how to use its drag/drop and geocoding functionality, how to use data source filtering to search by radius, and how to interact with this data source from a page.</p>
+<p>I hope it&#8217;s given you a good idea about the possibilities now available to you, and how you can use this functionality in your own websites.</p></conclusion>
+            <date-modified time="16:08" weekday="1">2010-01-04</date-modified>
+            <date-published time="16:08" weekday="1">2010-01-04</date-published>
+            <introduction mode="formatted"><p>This tutorial will provide a complete walkthrough of how to implement &#8220;find my nearest&#8221; functionality on your website, most commonly used for store locator searches. Since it is a complete tutorial (with full supporting code) this is intermediate level.</p>
+<p>Google Maps makes it easier than ever to build a spatial aspect into our websites. For several years now Symphony has had a Map Location field which displays a Google Map in the backend and allows your authors to drop a marker pin onto a specific location. Version 3 of this field released in January 2010 adds some amazing new features which make a &#8220;find my nearest&#8221; search a joy to implement.</p>
+<p>By the end of this tutorial you will have:</p>
+<ul>
+<li>installed the Map Location Field and learned how to use its main functionality</li>
+<li>created a Data Source filter to perform a radius search on a given location</li>
+<li>built a frontend to allow users to search and sort entries based on their location</li>
+</ul>
+<p><img src="http://symphony-cms.com/workspace/assets/learn/Screen-shot-2010-01-05-at-10.06.4-1262686039.png" alt="Store Locator" /></p></introduction>
+            <summary mode="formatted"><p>An in-depth tutorial on how to implement &#8220;find my nearest&#8221; in Symphony.</p></summary>
+            <title handle="building-a-store-locator-using-the-map-location-field">Building a store locator using the Map Location Field</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="36370">
+            <concepts>
+                <item id="33064" handle="sections" section-handle="concepts" section-name="Concepts">Sections</item>
+            </concepts>
+            <description mode="formatted"><p>We need to build a section to contain our &#8220;store&#8221; information such as Name, Address, Postcode and most importantly, Location (Map Location Field).</p>
+<p>Create a new section (Blueprints > Sections) called <code>Stores</code> and add Text Input fields labelled <code>Name</code> and <code>Address</code>. Adjust validation rules to taste.</p>
+<p>Then add a Map Location Field and name is <code>Location</code>. Change the <strong>Placement</strong> dropdown to <code>Sidebar</code>. You will see two extra options for this field:</p>
+<p><strong>Default Marker Location</strong> is the default location that the marker will be placed when you create a new entry. This value can be as broad as an entire continent or country e.g. <code>United Kingdom</code> or as specific as an address or postcode e.g. <code>Buckingham Palace, London</code> or <code>WD3 1HH</code>. Leave this value blank for now, so the default of <code>London, England</code> will be added for you.</p>
+<p><strong>Default Zoom Level</strong> is the default level of zoom for the map when you create a new entry. The value should be a number between <code>1</code> (world-view) or <code>15</code> (building/street level). Again, leave this blank and the default of <code>3</code> will be used.</p>
+<p>Click the <strong>Create Section</strong> button and you&#8217;re done.</p></description>
+            <name handle="build-your-section">Build your Section</name>
+            <resources>
+                <item id="33401" handle="section-index" section-handle="resources" section-name="Resources">Section Index</item>
+                <item id="33125" handle="section-editor" section-handle="resources" section-name="Resources">Section Editor</item>
+                <item id="33126" handle="adding-fields-to-a-section" section-handle="resources" section-name="Resources">Adding Fields to a Section</item>
+            </resources>
+            <step-number>2</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="33401" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="35 KB" path="/assets/learn" type="image/png">
+                    <filename>section-table-1259446013.png</filename>
+                    <meta creation="2009-11-29T08:06:53+10:00" width="765" height="470" />
+                </image>
+                <note mode="formatted"><p>The section index in an example install of Symphony.</p></note>
+                <title handle="section-index">Section Index</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33125" tutorials="0" tutorial-steps="2">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="31 KB" path="/assets/learn" type="image/png">
+                    <filename>sections-new-1258686376.png</filename>
+                    <meta creation="2009-11-27T22:59:29+10:00" width="1024" height="626" />
+                </image>
+                <note mode="formatted"><p>The default screen when creating a new section.</p></note>
+                <title handle="section-editor">Section Editor</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33126" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="54 KB" path="/assets/learn" type="image/png">
+                    <filename>sections-new-add-field-1258686620.png</filename>
+                    <meta creation="2009-11-27T22:59:29+10:00" width="1026" height="650" />
+                </image>
+                <note mode="formatted"><p>Adding fields to a section. Begin by selecting the desired field type from the dropdown, then click &#8220;Add Item.&#8221;</p></note>
+                <title handle="adding-fields-to-a-section">Adding Fields to a Section</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="36369">
+            <name handle="install-the-map-location-field">Install the Map Location Field</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="36370">
+            <name handle="build-your-section">Build your Section</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="36371">
+            <name handle="populate-the-data">Populate the data</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="36372">
+            <name handle="select-entries-with-a-data-source">Select Entries with a Data Source</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="36373">
+            <name handle="displaying-entries-on-a-page">Displaying Entries on a Page</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="36374">
+            <name handle="testing-and-tweaking">Testing and Tweaking</name>
+            <step-number>6</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

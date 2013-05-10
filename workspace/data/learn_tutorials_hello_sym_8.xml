@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Before we end the tutorial, let's add a few finishing flourishes, shall we?</p>
+<p>Open your "master.xsl" utility (you should know where it is by now), and in the root template (<code>&lt;xsl:template match="/"&gt;</code>), after <code>&lt;xsl:apply-templates /&gt;</code>, add the following:</p>
+<pre><code>&lt;p id="site-info"&gt;Psst&amp;#8230; Are you in love with Symphony yet?&lt;/p&gt;
+</code></pre>
+<p>That'll give your site a nice little footer.</p>
+<p>Finally, if you've got a Twitter account, <a href="http://bit.ly/hm8Gio">click here</a> to add your tweet to the #HelloSymphony stream. After about two minutes, reload your home page and you should see your tweet in the "Tweetings" list.</p>
+<p>Now exhale. You're done!</p>
+<p>You've just whipped up a pretty full-featured website. Give yourself a pat on the back. There's no sequel to this tutorial, so feel free to tinker away with the site you've built. Here are a few suggestions:</p>
+<ul><li>Extend your Greetings section even further, and then pull the new content through to your various front-end views. Don't forget to update your submission form.</li>
+<li>Create a view that allows you to browse greetings by language</li>
+<li>Pull in another external feed... maybe your Flickr photos or the latest <a href="http://www.getsymphony.com/get-involved/feeds/tutorials/">Symphony tutorials</a></li>
+</ul></conclusion>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <introduction mode="formatted"><p>In the <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">Hello World</a> tutorial, you got a peek at the most basic of Symphony workflows. Here, we'll expand on that, introducing you to the system more thoroughly and demonstrating some of its most useful features.</p>
+<p>We'll be building on top of the simple site we created in the previous tutorial, so if you haven't completed that yet, take a few minutes to <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">do that now</a>. Little by little, we'll enhance that site to show you some of the key features and workflows you'll need to understand in order to use Symphony for your own projects.</p>
+<p>By the time we're done, you'll have a feature-packed site—with intelligent and dynamic templating, error handling, front-end submission, RSS output, Twitter integration, and more.</p>
+<p>Excited yet?</p></introduction>
+            <resources>
+                <item id="38030" handle="hello-symphony-final-product" section-handle="resources" section-name="Resources">Hello Symphony: Final Product</item>
+            </resources>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38030" tutorials="1" tutorial-steps="0">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="104 KB" path="/assets/learn" type="image/png">
+                    <filename>finished-product-1264827790.png</filename>
+                    <meta creation="2010-01-30T15:03:10+10:00" width="1007" height="1156" />
+                </image>
+                <link-text handle="the-final-product">The Final Product</link-text>
+                <note mode="formatted"><p>The final product of the Hello Symphony tutorial.</p></note>
+                <title handle="hello-symphony-final-product">Hello Symphony: Final Product</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38038">
+            <description mode="formatted"><p>Our last task is to pull in data from a Twitter feed and integrate it into our layout. Symphony's dynamic data sources make this a trivial task.</p>
+<h5>8.1. Create your Twitter Data Source</h5>
+<p>Go to <strong>Blueprints > Data Sources</strong> and click the green <strong>Create New</strong> button. Name your data source <code>Tweetings</code>, and in the Source dropdown select "Dynamic XML". You'll see the data source editor change based on your selection.</p>
+<p>In the Dynamic XML section, in the URL field enter:</p>
+<pre><code>http://search.twitter.com/search.atom?q=%23symphonycms
+</code></pre>
+<p><em>Note that you can use parameters in this field too, to make bits of the URL dynamic—something that we'll leave aside for now.</em></p>
+<p>Let's change the cache time to 2 (you'll see why later), and leave the rest of the fields at their default values and click <strong>Create Data Source.</strong></p>
+<p>Now let's attach the new DS to our index page. Go to <strong>Blueprints > Pages</strong> and click "View Greetings". Select the "Tweetings" data source in the Data Sources multiselect and click <strong>Save Changes</strong> (careful not to deselect the already-selected data sources).</p>
+<p>Now let's head to the home page to see if the data's coming through. Go to <code>http://your-site.com/?debug</code>. Scroll down the XML source and you should see something like this:</p>
+<p><img src="hello-symphony-twitter-xml"/></p>
+<p>Just like that, we've pulled a Twitter feed into our home page. </p>
+<h5>8.2. Resolve Atom Namespace Conflict</h5>
+<p>There's a slight hitch though. If you look very closely, you'll see that the Atom feed provided by Twitter uses the default namespace:</p>
+<pre><code>&lt;feed ... xmlns="http://www.w3.org/2005/Atom" ... &gt;
+</code></pre>
+<p>All the other namespace declarations on the feed element use prefixes (<code>xmlns:google</code>, <code>xmlns:twitter</code>), but Atom takes the default namespace (no prefix). This will cause a conflict when we try to address the elements in the feed from our template. To get around this, we just have to make a minor adjustment to our template. Go to <strong>Blueprints > Pages</strong> and click "home.xsl" in the Template column. At the top of your stylesheet, you'll see this:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+</code></pre>
+<p>Here, our stylesheet declares the xsl namespace prefix. It's what allows us to use elements like <code>&lt;xsl:template&gt;</code>. What we have to do is assign a namespace to the elements in our Atom feed in order to resolve the default namespace conflict. Add the atom namespace as shown below:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+</code></pre>
+<p>Now we'll be able to address elements inside the Atom feed. Instead of <code>/data/tweetings//entry</code> (which wouldn't work because of the conflict), we can now use <code>/data/tweetings//atom:entry</code>.</p>
+<h5>8.3. Add the Twitter Feed Content to your Template</h5>
+<p>Ok now let's get those tweets onto into our layout. In the data template (<code>&lt;xsl:template match="data"&gt;</code>), after the existing <code>&lt;ul&gt;</code>, add the following:</p>
+<pre><code>&lt;div id="tweets-list"&gt;
+    &lt;h3&gt;&lt;del&gt;Gr&lt;/del&gt;Tweetings&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;xsl:apply-templates select="tweetings//atom:entry"/&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Then, at the bottom of our page template, just above <code>&lt;/xsl:stylesheet&gt;</code>, add a matching template for our atom entries:</p>
+<pre><code>&lt;xsl:template match="tweetings//atom:entry"&gt;
+    &lt;li&gt;
+        &lt;p&gt;&lt;xsl:value-of select="atom:content" disable-output-escaping="yes"/&gt;&lt;/p&gt;
+        &lt;p class="meta"&gt;
+            &lt;a href="{atom:author/atom:uri}"&gt;&lt;xsl:value-of select="substring-before(atom:author/atom:name, ' (')" /&gt;&lt;/a&gt;
+            &lt;xsl:text&gt; &lt;/xsl:text&gt;
+            &lt;xsl:call-template name="format-date"&gt;
+                &lt;xsl:with-param name="date" select="substring-before(atom:published, 'T')"/&gt;
+                &lt;xsl:with-param name="format" select="'x M Y'"/&gt;
+            &lt;/xsl:call-template&gt;
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>This template creates a list item (<code>&lt;li&gt;</code>) for each entry in the atom feed. The list item contains two paragraphs. The first outputs the value of the entry's <code>&lt;content&gt;</code> node. We've added the <code>disable-output-escaping</code> attribute so that our page will actually get unescaped HTML to render (instead of stuff like <code>&amp;lt;a&amp;gt;</code>). Then we do some finagling to trim the author name and date for our meta paragraph. We're able to pass the modified date right into our <code>format-date</code> template from Step 2. Your final <code>home.xsl</code> template should look like <a href="/learn/resource/38907/" class="colorbox" title="Your Twitter-Enabled Home Page Template">this</a>.</p>
+<p>Save your changes and Voila! The Twitter feed is now integrated right into your homepage alongside the rest of your content. Go see for yourself:</p>
+<p><img src="hello-symphony-full-home-page"/></p></description>
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <resources>
+                <item id="38907" handle="hello-symphony-final-home-page-template" section-handle="resources" section-name="Resources">Hello Symphony: Final Home Page Template</item>
+                <item id="38029" handle="hello-symphony-full-home-page" section-handle="resources" section-name="Resources">Hello Symphony: Full Home Page</item>
+                <item id="38028" handle="hello-symphony-twitter-xml" section-handle="resources" section-name="Resources">Hello Symphony: Twitter XML</item>
+            </resources>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38028" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="53 KB" path="/assets/learn" type="image/png">
+                    <filename>12-twitter-source-1264827669.png</filename>
+                    <meta creation="2010-01-30T15:01:09+10:00" width="684" height="494" />
+                </image>
+                <link-text handle="twitter-feed">Twitter Feed</link-text>
+                <note mode="formatted"><p>A Dynamic Data Source pulls the Twitter feed right into your page&#8217;s source XML.</p></note>
+                <title handle="hello-symphony-twitter-xml">Hello Symphony: Twitter XML</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="38029" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="100 KB" path="/assets/learn" type="image/png">
+                    <filename>13-full-home-page-1264827748.png</filename>
+                    <meta creation="2010-01-30T15:02:28+10:00" width="1007" height="1095" />
+                </image>
+                <link-text handle="your-complete-home-page">Your Complete Home Page</link-text>
+                <note mode="formatted"><p>Integrating the Twitter feed completes your home page.</p></note>
+                <title handle="hello-symphony-full-home-page">Hello Symphony: Full Home Page</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+        <type handle="code-sample" value="Code Sample">
+            <entry id="38907" tutorials="0" tutorial-steps="1">
+                <code mode="formatted"><p>&lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&gt;
+&lt;xsl:stylesheet version=&amp;quot;1.0&amp;quot;
+    xmlns:xsl=&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;
+    xmlns:atom=&amp;quot;http://www.w3.org/2005/Atom&amp;quot;&gt;</p>
+<p>&lt;xsl:include href=&amp;quot;../utilities/master.xsl&amp;quot;/&gt;</p>
+<p>&lt;xsl:template match=&amp;quot;data&amp;quot;&gt;
+    &lt;ul id=&amp;quot;greetings-list&amp;quot; class=&amp;quot;content&amp;quot;&gt;
+        &lt;xsl:apply-templates select=&amp;quot;greetings/entry&amp;quot;/&gt;
+    &lt;/ul&gt;
+    &lt;div id=&amp;quot;tweets-list&amp;quot;&gt;
+        &lt;h3&gt;&lt;del&gt;Gr&lt;/del&gt;Tweetings&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;xsl:apply-templates select=&amp;quot;tweetings//atom:entry&amp;quot;/&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/xsl:template&gt;</p>
+<p>&lt;xsl:template match=&amp;quot;greetings/entry&amp;quot;&gt;
+    &lt;li&gt;
+        &lt;h3&gt;&lt;a href=&amp;quot;{$root}/greetings/{greeting-title/@handle}&amp;quot;&gt;&lt;xsl:value-of select=&amp;quot;greeting-title&amp;quot;/&gt;&lt;/a&gt;&lt;/h3&gt;
+        &lt;ul class=&amp;quot;meta&amp;quot;&gt;
+            &lt;li class=&amp;quot;date&amp;quot;&gt;
+                &lt;xsl:call-template name=&amp;quot;format-date&amp;quot;&gt;
+                    &lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;date&amp;quot;/&gt;
+                    &lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;&#8217;x M Y&#8217;&amp;quot;/&gt;
+                &lt;/xsl:call-template&gt;
+            &lt;/li&gt;
+            &lt;li class=&amp;quot;language&amp;quot;&gt;&lt;xsl:value-of select=&amp;quot;language&amp;quot;/&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;xsl:copy-of select=&amp;quot;greeting-content/node()&amp;quot; mode=&amp;quot;formatted&amp;quot;/&gt;
+    &lt;/li&gt;
+&lt;/xsl:template&gt;</p>
+<p>&lt;xsl:template match=&amp;quot;tweetings//atom:entry&amp;quot;&gt;
+    &lt;li&gt;
+        &lt;p&gt;&lt;xsl:value-of select=&amp;quot;atom:content&amp;quot; disable-output-escaping=&amp;quot;yes&amp;quot;/&gt;&lt;/p&gt;
+        &lt;p class=&amp;quot;meta&amp;quot;&gt;
+            &lt;a href=&amp;quot;{atom:author/atom:uri}&amp;quot;&gt;&lt;xsl:value-of select=&amp;quot;substring-before(atom:author/atom:name, &#8217; (&#8216;)&amp;quot; /&gt;&lt;/a&gt;
+            &lt;xsl:text&gt; &lt;/xsl:text&gt;
+            &lt;xsl:call-template name=&amp;quot;format-date&amp;quot;&gt;
+                &lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;substring-before(atom:published, &#8216;T&#8217;)&amp;quot;/&gt;
+                &lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;&#8217;x M Y&#8217;&amp;quot;/&gt;
+            &lt;/xsl:call-template&gt;
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/xsl:template&gt;</p>
+<p>&lt;/xsl:stylesheet&gt;</p></code>
+                <hide>No</hide>
+                <link-text handle="your-twitter-enabled-page-template">Your Twitter-Enabled Page Template</link-text>
+                <note mode="formatted" />
+                <title handle="hello-symphony-final-home-page-template">Hello Symphony: Final Home Page Template</title>
+                <type>
+                    <item handle="code-sample">Code Sample</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="38032">
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="38033">
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="38034">
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="38035">
+            <name handle="optimize-page-handling">Optimize Page Handling</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="38036">
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <step-number>6</step-number>
+        </entry>
+        <entry id="38037">
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <step-number>7</step-number>
+        </entry>
+        <entry id="38038">
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

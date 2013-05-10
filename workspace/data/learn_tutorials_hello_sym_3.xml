@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Before we end the tutorial, let's add a few finishing flourishes, shall we?</p>
+<p>Open your "master.xsl" utility (you should know where it is by now), and in the root template (<code>&lt;xsl:template match="/"&gt;</code>), after <code>&lt;xsl:apply-templates /&gt;</code>, add the following:</p>
+<pre><code>&lt;p id="site-info"&gt;Psst&amp;#8230; Are you in love with Symphony yet?&lt;/p&gt;
+</code></pre>
+<p>That'll give your site a nice little footer.</p>
+<p>Finally, if you've got a Twitter account, <a href="http://bit.ly/hm8Gio">click here</a> to add your tweet to the #HelloSymphony stream. After about two minutes, reload your home page and you should see your tweet in the "Tweetings" list.</p>
+<p>Now exhale. You're done!</p>
+<p>You've just whipped up a pretty full-featured website. Give yourself a pat on the back. There's no sequel to this tutorial, so feel free to tinker away with the site you've built. Here are a few suggestions:</p>
+<ul><li>Extend your Greetings section even further, and then pull the new content through to your various front-end views. Don't forget to update your submission form.</li>
+<li>Create a view that allows you to browse greetings by language</li>
+<li>Pull in another external feed... maybe your Flickr photos or the latest <a href="http://www.getsymphony.com/get-involved/feeds/tutorials/">Symphony tutorials</a></li>
+</ul></conclusion>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <introduction mode="formatted"><p>In the <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">Hello World</a> tutorial, you got a peek at the most basic of Symphony workflows. Here, we'll expand on that, introducing you to the system more thoroughly and demonstrating some of its most useful features.</p>
+<p>We'll be building on top of the simple site we created in the previous tutorial, so if you haven't completed that yet, take a few minutes to <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">do that now</a>. Little by little, we'll enhance that site to show you some of the key features and workflows you'll need to understand in order to use Symphony for your own projects.</p>
+<p>By the time we're done, you'll have a feature-packed site—with intelligent and dynamic templating, error handling, front-end submission, RSS output, Twitter integration, and more.</p>
+<p>Excited yet?</p></introduction>
+            <resources>
+                <item id="38030" handle="hello-symphony-final-product" section-handle="resources" section-name="Resources">Hello Symphony: Final Product</item>
+            </resources>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38030" tutorials="1" tutorial-steps="0">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="104 KB" path="/assets/learn" type="image/png">
+                    <filename>finished-product-1264827790.png</filename>
+                    <meta creation="2010-01-30T15:03:10+10:00" width="1007" height="1156" />
+                </image>
+                <link-text handle="the-final-product">The Final Product</link-text>
+                <note mode="formatted"><p>The final product of the Hello Symphony tutorial.</p></note>
+                <title handle="hello-symphony-final-product">Hello Symphony: Final Product</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38033">
+            <description mode="formatted"><p>Your site will need a simple navigation menu to allow visitors to browse around the various pages we'll be creating. Building one manually would be a pain, but luckily Symphony has a special type of data source built-in for just this task. A <a rel="concept" href="data-sources#system-generated-data-sources">navigation data source</a> queries your project's page structure, and we can use that XML to build our menu.</p>
+<h5>3.1. Rename Your Existing Home Page</h5>
+<p>Before we start, let's change our existing page's title to something a little more descriptive. Go to <strong>Blueprints > Pages</strong> and click "Home". In the Title field, enter <code>View Greetings</code>. Don't worry about changing the URL Handle field because this is our index page and it's available at our site root. Click <strong>Save Changes</strong>.</p>
+<h5>3.2. Create a Navigation Data Source and Attach it to your Page</h5>
+<p>Creating our navigation data source is simple. Go to <strong>Blueprints > Data Sources</strong>, and click the green <strong>Create New</strong> button. In the Name field, enter <code>Navigation</code> and from the Source dropdown, choose "Navigation". You can leave the filtering and other options alone. Click <strong>Create Data Source</strong>.</p>
+<p>Now, in order to access the navigation data in our templates, we'll need to attach the data source to our page. Go to <strong>Blueprints > Pages</strong>, click "View Greetings," and in the page editor select "Navigation" in the Data Sources multiselect at the bottom right. <em>Do not deselect</em> the "Greetings" data source; both "Greetings" and "Navigation" should be selected. Click <strong>Save Changes</strong>.</p>
+<h5>3.3 Add the Menu to Your Master Layout</h5>
+<p>Go back to your front end and access the debug interface: <code>http://your-site.com?debug</code>. Scroll down. You should see the output from our new navigation data source in your page's XML:</p>
+<pre><code>&lt;navigation&gt;
+    &lt;page handle="home" id="1"&gt;
+        &lt;name&gt;View Greetings&lt;/name&gt;
+        &lt;types&gt;
+            &lt;type&gt;index&lt;/type&gt;
+        &lt;/types&gt;
+    &lt;/page&gt;
+&lt;/navigation&gt;
+</code></pre>
+<p>Now we've got a list of our pages—perfect for building a menu. </p>
+<p>Go back to your master layout (<strong>Blueprints > Utilities</strong> and click "master.xsl"). Add the following just above <code>&lt;xsl:apply-templates /&gt;</code>:</p>
+<pre><code> &lt;xsl:apply-templates select="data/navigation"/&gt;
+</code></pre>
+<p>This will cause our menu will be rendered, sitewide, just above any page-specific content. Now let's write the templates for it. Below our existing <code>&lt;xsl:template&gt;</code>, add a new one:</p>
+<pre><code>&lt;xsl:template match="navigation"&gt;
+    &lt;ul id="nav"&gt;
+        &lt;xsl:apply-templates select="page"/&gt;
+    &lt;/ul&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>This template is going to match our XML's <code>navigation</code> node and create an unordered list. Then it'll apply templates to each <code>page</code> element found inside of <code>navigation</code>. </p>
+<p>Let's add the template for the <code>page</code> nodes:</p>
+<pre><code>&lt;xsl:template match="navigation/page"&gt;
+    &lt;li&gt;
+        &lt;a&gt;
+            &lt;xsl:choose&gt;
+                &lt;xsl:when test="types/type = 'index'"&gt;
+                    &lt;xsl:attribute name="href"&gt;&lt;xsl:value-of select="$root"/&gt;/&lt;/xsl:attribute&gt;
+                &lt;/xsl:when&gt;
+                &lt;xsl:otherwise&gt;
+                    &lt;xsl:attribute name="href"&gt;&lt;xsl:value-of select="$root"/&gt;/&lt;xsl:value-of select="@handle"/&gt;&lt;/xsl:attribute&gt;
+                &lt;/xsl:otherwise&gt;
+            &lt;/xsl:choose&gt;
+            &lt;xsl:if test="@handle = $current-page"&gt;
+                &lt;xsl:attribute name="class"&gt;current&lt;/xsl:attribute&gt;
+            &lt;/xsl:if&gt;
+            &lt;xsl:value-of select="name"/&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>This template builds each menu item. Let's quickly walk through what's going on here. A menu item will consist of a list item, <code>&lt;li&gt;</code>, with an anchor, <code>&lt;a&gt;</code>, nested inside. In the anchor element, we've included a bit of logic:</p>
+<ul>
+<li>First, an <code>&lt;xsl:choose&gt;</code> (which works like <code>if ... else</code>) helps us build the menu links. When applied to the index page, the template sets the <code>href</code> to just the site's root URL (using <code>$root</code>, a <a rel="concept" href="parameters#system-parameters">system parameter</a>). Otherwise, it appends the page's <code>handle</code> attribute to the root URL to form the <code>href</code>. </li>
+<li>After that, an <code>&lt;xsl:if&gt;</code> tests if the page it's templating is actually the page we're currently on (<code>$current-page</code>, another system parameter). If so, it adds a <code>class="current"</code> attribute to the anchor.</li>
+<li>Finally, it uses the page's name for the anchor's text.</li>
+</ul>
+<p>That's all we need to do. Save your changes, and visit your front end. You should see the new menu in your layout.</p>
+<h5>3.4. Test Your New Menu</h5>
+<p>Let's add a second page to make sure all this is working. Go to <strong>Blueprints > Pages</strong> and click the green <strong>Create New</strong> button. Title  your new page <code>Add a Greeting</code>, and give it a URL Handle of <code>add</code>. In the Data Sources multiselect, select "Navigation". Leave the remainder of the fields untouched. Click <strong>Create Page</strong>.</p>
+<p>Now, if you revisit your front end, you should see the new page in your menu:</p>
+<p><img src="hello-symphony-navigation"/></p>
+<p>If you click "Add a Greeting," you'll get an XSLT error. Don't worry about that for now. It just means we haven't set up that page's template yet. We'll come back to that in Step 6. First, let's work on creating a view for individual greetings.</p></description>
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <resources>
+                <item id="38021" handle="hello-symphony-navigation" section-handle="resources" section-name="Resources">Hello Symphony: Navigation</item>
+            </resources>
+            <step-number>3</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38021" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="71 KB" path="/assets/learn" type="image/png">
+                    <filename>05-navigation-1265921458.png</filename>
+                    <meta creation="2010-02-12T06:50:58+10:00" width="1024" height="768" />
+                </image>
+                <link-text handle="our-new-dynamic-navigation">Our New Dynamic Navigation</link-text>
+                <note mode="formatted"><p>We&#8217;ve added a dynamically-generated menu to our site.</p></note>
+                <title handle="hello-symphony-navigation">Hello Symphony: Navigation</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="38032">
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="38033">
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="38034">
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="38035">
+            <name handle="optimize-page-handling">Optimize Page Handling</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="38036">
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <step-number>6</step-number>
+        </entry>
+        <entry id="38037">
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <step-number>7</step-number>
+        </entry>
+        <entry id="38038">
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

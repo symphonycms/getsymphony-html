@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Before we end the tutorial, let's add a few finishing flourishes, shall we?</p>
+<p>Open your "master.xsl" utility (you should know where it is by now), and in the root template (<code>&lt;xsl:template match="/"&gt;</code>), after <code>&lt;xsl:apply-templates /&gt;</code>, add the following:</p>
+<pre><code>&lt;p id="site-info"&gt;Psst&amp;#8230; Are you in love with Symphony yet?&lt;/p&gt;
+</code></pre>
+<p>That'll give your site a nice little footer.</p>
+<p>Finally, if you've got a Twitter account, <a href="http://bit.ly/hm8Gio">click here</a> to add your tweet to the #HelloSymphony stream. After about two minutes, reload your home page and you should see your tweet in the "Tweetings" list.</p>
+<p>Now exhale. You're done!</p>
+<p>You've just whipped up a pretty full-featured website. Give yourself a pat on the back. There's no sequel to this tutorial, so feel free to tinker away with the site you've built. Here are a few suggestions:</p>
+<ul><li>Extend your Greetings section even further, and then pull the new content through to your various front-end views. Don't forget to update your submission form.</li>
+<li>Create a view that allows you to browse greetings by language</li>
+<li>Pull in another external feed... maybe your Flickr photos or the latest <a href="http://www.getsymphony.com/get-involved/feeds/tutorials/">Symphony tutorials</a></li>
+</ul></conclusion>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <introduction mode="formatted"><p>In the <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">Hello World</a> tutorial, you got a peek at the most basic of Symphony workflows. Here, we'll expand on that, introducing you to the system more thoroughly and demonstrating some of its most useful features.</p>
+<p>We'll be building on top of the simple site we created in the previous tutorial, so if you haven't completed that yet, take a few minutes to <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">do that now</a>. Little by little, we'll enhance that site to show you some of the key features and workflows you'll need to understand in order to use Symphony for your own projects.</p>
+<p>By the time we're done, you'll have a feature-packed site—with intelligent and dynamic templating, error handling, front-end submission, RSS output, Twitter integration, and more.</p>
+<p>Excited yet?</p></introduction>
+            <resources>
+                <item id="38030" handle="hello-symphony-final-product" section-handle="resources" section-name="Resources">Hello Symphony: Final Product</item>
+            </resources>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38030" tutorials="1" tutorial-steps="0">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="104 KB" path="/assets/learn" type="image/png">
+                    <filename>finished-product-1264827790.png</filename>
+                    <meta creation="2010-01-30T15:03:10+10:00" width="1007" height="1156" />
+                </image>
+                <link-text handle="the-final-product">The Final Product</link-text>
+                <note mode="formatted"><p>The final product of the Hello Symphony tutorial.</p></note>
+                <title handle="hello-symphony-final-product">Hello Symphony: Final Product</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38037">
+            <description mode="formatted"><p>Now that your website's visitors can submit greetings from the front end, you'll probably want to keep track of new greetings as they come in. An RSS feed would do the trick. Symphony allows you to output anything you want with your pages: XHTML, XML, even JavaScript or CSS. Here we'll set up a page that outputs RSS-formatted XML, ready to be consumed by your favorite feed reader.</p>
+<h5>7.1. Create a Data Source for your Feed</h5>
+<p>First, we'll need to create a data source that will deliver the entries we need for our RSS feed. Go to <strong>Blueprints > Data Sources</strong> and click the green <strong>Create New</strong> button. We'll Name our new data source <code>Greetings Feed</code>, and select "Greetings" as its Source. We don't need to filter it, but let's set it to Sort By our "Date" field. The rest of the defaults are fine, so let's select our output elements:</p>
+<ul>
+<li>greeting-title</li>
+<li>greeting-content: formatted</li>
+<li>date</li>
+<li>language</li>
+</ul>
+<p>Now, because this is going to be pure XML output, let's tick "HTML-encode text". This will escape any HTML elements that aren't allowed in an RSS feed.</p>
+<h5>7.2. Create your Feeds Page</h5>
+<p>Go to <strong>Blueprints > Pages</strong> and click the green <strong>Create New</strong> button. We'll Title our page <code>Feed</code> and give it a URL Handle of <code>feed</code>. For Page Type, click both "XML" and "hidden".  Attach the "Greetings Feed" data source and click the Create button.</p>
+<p>Now, if you visit the new feed page's debug interface (<code>http://your-site.com/feed?debug</code>), you'll see our data source's output. Notice that instead of outputting <code>&lt;p&gt;</code> tags in the greeting content, it gives us the escaped equivalent: <code>&amp;lt;p&amp;gt;</code>.</p>
+<p>Go back to <strong>Blueprints > Pages</strong> and in the Template column click "feed.xsl". Since we want pure XML output, this page won't use our master template. We can start with the default template Symphony's generated for us.</p>
+<p>First thing we want to do is include our date-time utility to help us output valid RFC-822 date-times. After the <code>&lt;xsl:output&gt;</code> element and before the <code>&lt;xsl:template&gt;</code>, add:</p>
+<pre><code>&lt;xsl:include href="../utilities/date-time.xsl"/&gt;
+</code></pre>
+<p>Now, inside the <code>&lt;xsl:template&gt;</code> element, paste the following:</p>
+<pre><code>&lt;rss version="2.0"&gt;
+    &lt;channel&gt;
+        &lt;title&gt;&lt;xsl:value-of select="$website-name"/&gt;&lt;/title&gt;
+        &lt;link&gt;&lt;xsl:value-of select="$root"/&gt;&lt;/link&gt;
+        &lt;description&gt;All your greetings are belong to us&lt;/description&gt;
+        &lt;generator&gt;Symphony&lt;/generator&gt;
+    &lt;/channel&gt;
+&lt;/rss&gt;
+</code></pre>
+<p>This is the skeleton of an RSS feed. We use the Symphony system parameters <code>$website-name</code> and <code>$root</code> to populate the <code>&lt;title&gt;</code> and <code>&lt;link&gt;</code> elements.</p>
+<p>Now, what we've done elsewhere in this tutorial is use <code>&lt;xsl:apply-templates&gt;</code> along with matching templates to iterate over entries. We'll take this opportunity to demonstrate an alternative method, using <code>&lt;xsl:for-each&gt;</code>. After the <code>&lt;generator&gt;</code> element, but still inside the <code>&lt;channel&gt;</code> element, add the following:</p>
+<pre><code>&lt;xsl:for-each select="data/greetings-feed/entry"&gt;
+    &lt;item&gt;
+        &lt;title&gt;&lt;xsl:value-of select="greeting-title"/&gt;&lt;/title&gt;
+        &lt;link&gt;&lt;xsl:value-of select="$root"/&gt;/greetings/&lt;xsl:value-of select="greeting-title/@handle"/&gt;&lt;/link&gt;
+        &lt;description&gt;&lt;xsl:value-of select="greeting-content"/&gt;&lt;/description&gt;
+        &lt;pubDate&gt;
+            &lt;xsl:call-template name="format-date"&gt;
+                &lt;xsl:with-param name="date" select="date"/&gt;
+                &lt;xsl:with-param name="format" select="'w, d m Y T'"/&gt;
+            &lt;/xsl:call-template&gt;
+            &lt;xsl:text&gt;:00 &lt;/xsl:text&gt;
+            &lt;xsl:value-of select="translate($timezone,':','')"/&gt;
+        &lt;/pubDate&gt;
+        &lt;guid&gt;&lt;xsl:value-of select="$root"/&gt;/greetings/&lt;xsl:value-of select="greeting-title/@handle"/&gt;&lt;/guid&gt;
+    &lt;/item&gt;
+&lt;/xsl:for-each&gt;
+</code></pre>
+<p>For each entry in the greetings-feed XML being returned by our data source, we're outputting an RSS <code>&lt;item&gt;</code> element with all its requisite children. Most of this should look fairly familiar to you by now, since we've used similar code elsewhere in the tutorial. You'll notice we had to do a bit more finagling of the date format to get it to comply with the RSS spec. Don't worry too much about the details there. Here's the <a href="/learn/resource/38905/" class="colorbox" title="Your Feed page's final template">final page template</a>.</p>
+<p>Save your changes and point your browser to <code>http://your-site.com/feed</code> and your RSS feed should be displayed. If your browser doesn't display the XML directly, you can always go to <code>http://your-site.com/feed/?debug=result</code> to verify the output. It should look something like this:</p>
+<p><img src="hello-symphony-feed-output"/></p>
+<h5>7.3. Apply some Finishing Touches</h5>
+<p>Create a folder in your workspace called <code>/images</code>. Then grab <a href="http://www.feedicons.com/images/feed-icon-28x28.png">this feed icon</a> and save it in the new directory. Go to <strong>Blueprints > Utilities</strong> and click on "master.xsl".</p>
+<p>In the <code>&lt;head&gt;</code> of our template, after the CSS <code>&lt;link&gt;</code>, add:</p>
+<pre><code>&lt;link rel="alternate" href="{$root}/feed" title="Greetings Feed" type="application/rss+xml" /&gt;
+</code></pre>
+<p>And in the <code>&lt;body&gt;</code>, after the <code>&lt;h1&gt;</code> and <code>&lt;h5&gt;</code>, add:</p>
+<pre><code>&lt;a href="{$root}/feed" id="feed"&gt;&lt;img src="{$workspace}/images/feed-icon-28x28.png" alt="Feed Icon"/&gt;&lt;/a&gt;
+</code></pre>
+<p>Save your changes and head back to your front end. Your browser should now recognize that there's a feed available on the site, and the spiffy little feed icon should be added to your layout.</p></description>
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <resources>
+                <item id="38027" handle="hello-symphony-feed-output" section-handle="resources" section-name="Resources">Hello Symphony: Feed Output</item>
+                <item id="38905" handle="hello-symphony-feed-page-template" section-handle="resources" section-name="Resources">Hello Symphony: Feed Page Template</item>
+            </resources>
+            <step-number>7</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="code-sample" value="Code Sample">
+            <entry id="38905" tutorials="0" tutorial-steps="1">
+                <code mode="formatted"><p>&lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&gt;
+&lt;xsl:stylesheet version=&amp;quot;1.0&amp;quot;
+    xmlns:xsl=&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&gt;</p>
+<p>&lt;xsl:output method=&amp;quot;xml&amp;quot;
+    doctype-public=&amp;quot;-//W3C//DTD XHTML 1.0 Strict//EN&amp;quot;
+    doctype-system=&amp;quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;quot;
+    omit-xml-declaration=&amp;quot;yes&amp;quot;
+    encoding=&amp;quot;UTF-8&amp;quot;
+    indent=&amp;quot;yes&amp;quot; /&gt;</p>
+<p>&lt;xsl:include href=&amp;quot;../utilities/date-time.xsl&amp;quot;/&gt;</p>
+<p>&lt;xsl:template match=&amp;quot;/&amp;quot;&gt;
+    &lt;rss version=&amp;quot;2.0&amp;quot;&gt;
+        &lt;channel&gt;
+            &lt;title&gt;&lt;xsl:value-of select=&amp;quot;$website-name&amp;quot;/&gt;&lt;/title&gt;
+            &lt;link&gt;&lt;xsl:value-of select=&amp;quot;$root&amp;quot;/&gt;&lt;/link&gt;
+            &lt;description&gt;All your greetings are belong to us&lt;/description&gt;
+            &lt;generator&gt;Symphony&lt;/generator&gt;
+            &lt;xsl:for-each select=&amp;quot;data/greetings-feed/entry&amp;quot;&gt;
+                &lt;item&gt;
+                    &lt;title&gt;&lt;xsl:value-of select=&amp;quot;greeting-title&amp;quot;/&gt;&lt;/title&gt;
+                    &lt;link&gt;&lt;xsl:value-of select=&amp;quot;$root&amp;quot;/&gt;/greetings/&lt;xsl:value-of select=&amp;quot;greeting-title/@handle&amp;quot;/&gt;&lt;/link&gt;
+                    &lt;description&gt;&lt;xsl:value-of select=&amp;quot;greeting-content&amp;quot;/&gt;&lt;/description&gt;
+                    &lt;pubDate&gt;
+                        &lt;xsl:call-template name=&amp;quot;format-date&amp;quot;&gt;
+                            &lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;date&amp;quot;/&gt;
+                            &lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;&#8217;w, d m Y T&#8217;&amp;quot;/&gt;
+                        &lt;/xsl:call-template&gt;
+                        &lt;xsl:text&gt;:00 &lt;/xsl:text&gt;
+                        &lt;xsl:value-of select=&amp;quot;translate($timezone,&#8217;:&#8217;,&#8221;)&amp;quot;/&gt;
+                    &lt;/pubDate&gt;
+                    &lt;guid&gt;&lt;xsl:value-of select=&amp;quot;$root&amp;quot;/&gt;/greetings/&lt;xsl:value-of select=&amp;quot;greeting-title/@handle&amp;quot;/&gt;&lt;/guid&gt;
+                &lt;/item&gt;
+            &lt;/xsl:for-each&gt;
+        &lt;/channel&gt;
+    &lt;/rss&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</p></code>
+                <hide>No</hide>
+                <link-text handle="feed-page-template">Feed Page Template</link-text>
+                <note mode="formatted" />
+                <title handle="hello-symphony-feed-page-template">Hello Symphony: Feed Page Template</title>
+                <type>
+                    <item handle="code-sample">Code Sample</item>
+                </type>
+            </entry>
+        </type>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38027" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="74 KB" path="/assets/learn" type="image/png">
+                    <filename>11-feed-output-1264827511.png</filename>
+                    <meta creation="2010-01-30T14:58:31+10:00" width="1029" height="623" />
+                </image>
+                <link-text handle="your-feed-pages-output">Your Feed Page's Output</link-text>
+                <note mode="formatted"><p>The Debug Devkit allows us to check the raw output of our page.</p></note>
+                <title handle="hello-symphony-feed-output">Hello Symphony: Feed Output</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="38032">
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="38033">
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="38034">
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="38035">
+            <name handle="optimize-page-handling">Optimize Page Handling</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="38036">
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <step-number>6</step-number>
+        </entry>
+        <entry id="38037">
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <step-number>7</step-number>
+        </entry>
+        <entry id="38038">
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="33078" tutorial-steps="5">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="developers">Developers</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Congratulations, you've just installed Symphony! Before you jump out of your chair for a celebratory dance, we've got a little cleaning up to do:</p>
+<ol><li>First, delete the (<code>/install</code>) folder. If you used an FTP client to upload your files, just select the file and delete it. If you used the command line, `cd` to the root of your Symphony installation and do: <code>rm install.php</code>.</li>
+<li>Second, be sure to tighten up the folder permissions you adjusted in Step 3. Exact settings will depend on your server environment, but the permissions on your root directory and your <code>symphony/</code> directory should be fairly restrictive (try something like 755). Then set <code>manifest/</code> and <code>workspace/</code> to 775 (make the <code>workspace/</code> permissions recursive, so they apply to its subdirectories as well).
+<pre><code>chmod 755 symphony .
+chmod -R 775 manifest
+chmod -R 775 workspace</code></pre></li>
+</ol><p><em>Now</em> you can dance (try not to embarrass yourself too badly). When you're finished, log into your Symphony <a>admin interface</a> (<code>http://yourdomain.com/symphony</code>) and look around. The real fun is about to begin...</p>
+<h5>What to do Next</h5>
+<ul><li>Check out the <a href="/learn/beginners">Beginner's Guide</a>, which will point you directly to the resources that are most helpful for those just getting to know the system.</li>
+<li><a href="/get-involved/member/new/">Join the community</a> so you can ask questions and get help from other Symphonists.</li>
+<li>Beef up your installation with Symphony <a href="/downloads/extensions">extensions</a></li>
+</ul></conclusion>
+            <date-modified time="09:35" weekday="3">2009-10-21</date-modified>
+            <date-published time="09:35" weekday="3">2009-10-21</date-published>
+            <introduction mode="formatted"><p>Installing Symphony is a fairly simple and straightforward process. This tutorial will walk you through the options available during installation and show you how to get the system up and running in no time.</p>
+<p>The first thing we'll do is make sure your server's got everything it needs to run Symphony smoothly. Then we'll talk about the two available installation methods—package-based and Git-based—and outline the benefits of each. Once you've chosen a method, we'll show you how to get Symphony onto your server, and we'll finish preparing for the installation by creating a database. Finally we'll run the install script, do a little cleanup, and point you toward a few additional resources.</p>
+<p>Ready?</p></introduction>
+            <summary mode="formatted"><p>A quick, easy guide to help you get Symphony up and running in just a few minutes.</p></summary>
+            <title handle="install-symphony">Install Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <error>No records found.</error>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33100">
+            <name handle="check-server-requirements">Check Server Requirements</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="33215">
+            <name handle="review-installation-options">Review Installation Options</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="33216">
+            <name handle="get-symphony-onto-your-server">Get Symphony onto Your Server</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="33218">
+            <name handle="create-a-database">Create a Database</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="33217">
+            <name handle="run-the-install-script">Run the Install Script</name>
+            <step-number>5</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

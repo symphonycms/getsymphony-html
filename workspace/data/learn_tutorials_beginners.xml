@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorials-pinned>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="33078" tutorial-steps="5">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="developers">Developers</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <date-modified time="09:35" weekday="3">2009-10-21</date-modified>
+            <date-published time="09:35" weekday="3">2009-10-21</date-published>
+            <summary mode="formatted"><p>A quick, easy guide to help you get Symphony up and running in just a few minutes.</p></summary>
+            <title handle="install-symphony">Install Symphony</title>
+        </entry>
+        <entry id="33102" tutorial-steps="4">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+            </audiences>
+            <date-modified time="11:42" weekday="6">2009-11-21</date-modified>
+            <date-published time="11:42" weekday="6">2009-11-21</date-published>
+            <summary mode="formatted"><p>The &#8220;Hello World&#8221; tutorial introduces you to the most basic Symphony workflow: creating content and displaying it on the front end.</p></summary>
+            <title handle="say-hello-to-the-world">Say Hello to the World</title>
+        </entry>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+        <entry id="59169" tutorial-steps="5">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author handle="jonasd">jonasd</author>
+            <date-modified time="12:38" weekday="1">2011-01-10</date-modified>
+            <date-published time="12:38" weekday="1">2011-01-10</date-published>
+            <summary mode="formatted"><p>One-up your favorite CMS in five easy steps.</p></summary>
+            <title handle="upgrade-symphony">Upgrade Symphony</title>
+        </entry>
+    </learn-tutorials-pinned>
+</data>

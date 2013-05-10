@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Before we end the tutorial, let's add a few finishing flourishes, shall we?</p>
+<p>Open your "master.xsl" utility (you should know where it is by now), and in the root template (<code>&lt;xsl:template match="/"&gt;</code>), after <code>&lt;xsl:apply-templates /&gt;</code>, add the following:</p>
+<pre><code>&lt;p id="site-info"&gt;Psst&amp;#8230; Are you in love with Symphony yet?&lt;/p&gt;
+</code></pre>
+<p>That'll give your site a nice little footer.</p>
+<p>Finally, if you've got a Twitter account, <a href="http://bit.ly/hm8Gio">click here</a> to add your tweet to the #HelloSymphony stream. After about two minutes, reload your home page and you should see your tweet in the "Tweetings" list.</p>
+<p>Now exhale. You're done!</p>
+<p>You've just whipped up a pretty full-featured website. Give yourself a pat on the back. There's no sequel to this tutorial, so feel free to tinker away with the site you've built. Here are a few suggestions:</p>
+<ul><li>Extend your Greetings section even further, and then pull the new content through to your various front-end views. Don't forget to update your submission form.</li>
+<li>Create a view that allows you to browse greetings by language</li>
+<li>Pull in another external feed... maybe your Flickr photos or the latest <a href="http://www.getsymphony.com/get-involved/feeds/tutorials/">Symphony tutorials</a></li>
+</ul></conclusion>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <introduction mode="formatted"><p>In the <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">Hello World</a> tutorial, you got a peek at the most basic of Symphony workflows. Here, we'll expand on that, introducing you to the system more thoroughly and demonstrating some of its most useful features.</p>
+<p>We'll be building on top of the simple site we created in the previous tutorial, so if you haven't completed that yet, take a few minutes to <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">do that now</a>. Little by little, we'll enhance that site to show you some of the key features and workflows you'll need to understand in order to use Symphony for your own projects.</p>
+<p>By the time we're done, you'll have a feature-packed site—with intelligent and dynamic templating, error handling, front-end submission, RSS output, Twitter integration, and more.</p>
+<p>Excited yet?</p></introduction>
+            <resources>
+                <item id="38030" handle="hello-symphony-final-product" section-handle="resources" section-name="Resources">Hello Symphony: Final Product</item>
+            </resources>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38030" tutorials="1" tutorial-steps="0">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="104 KB" path="/assets/learn" type="image/png">
+                    <filename>finished-product-1264827790.png</filename>
+                    <meta creation="2010-01-30T15:03:10+10:00" width="1007" height="1156" />
+                </image>
+                <link-text handle="the-final-product">The Final Product</link-text>
+                <note mode="formatted"><p>The final product of the Hello Symphony tutorial.</p></note>
+                <title handle="hello-symphony-final-product">Hello Symphony: Final Product</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38032">
+            <description mode="formatted"><p>Most content-managed websites have a master template, a common XHTML wrapper within which each page's specific contents are displayed. In this step, we'll use <a rel="concept">Utilities</a> to create a master layout of our own, which we'll include on all our pages. We'll also add a helpful date formatting utility that we can call sitewide whenever we need to format a date.</p>
+<h5>2.1. Create Your Master Utility</h5>
+<p>Go to <strong>Blueprints > Utilities</strong> and in the top right click the green <strong>Create New</strong> button. You'll see Symphony's <a rel="concept" href="utilities#utility-editor">utility editor</a>.</p>
+<p>In the Name field, enter <code>master.xsl</code>. In the Body, we'll need to do a few things...</p>
+<p>First, since this utility is going to be responsible for building every page's XHTML head, we need to set our output options. Between the <code>&lt;xsl:stylesheet&gt;</code> opening tag and the <code>&lt;xsl:template&gt;</code> opening tag, add the following:</p>
+<pre><code>&lt;xsl:output method="xml"
+    doctype-public="-W3CDTD XHTML 1.0 Strict//EN"
+    doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+    omit-xml-declaration="yes"
+    encoding="UTF-8"
+    indent="yes" /&gt;
+</code></pre>
+<p>This will set our pages' doctype, content-type and so forth. </p>
+<p>Next, change <code>&lt;xsl:template name=""&gt;</code> to <code>&lt;xsl:template match="/"&gt;</code>. That changes our template from one that needs to be called by name to one that will apply itself to the XML root of each page.</p>
+<p>Now, inside the <code>&lt;xsl:template match="/"&gt;</code> element, let's add the shell of our layout:</p>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;
+        &lt;title&gt;Hello World!&lt;/title&gt;
+        &lt;link href="{$workspace}/styles/main.css" rel="stylesheet" type="text/css" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="layout"&gt;
+            &lt;h1&gt;Symphony Greets the World&lt;/h1&gt;
+            &lt;h5 id="powered"&gt;&lt;a href="http://www.getsymphony.com"&gt;&lt;span&gt;&amp;#9835;&lt;/span&gt;A Symphony Site&lt;/a&gt;&lt;/h5&gt;
+            &lt;xsl:apply-templates /&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Here's the <a href="/learn/resource/38074/" class="colorbox">full code</a>. When our pages are built, this template will be invoked first because it matches our XML's root. It will create the simple XHTML structure you see here, and then use the generic <code>&lt;xsl:apply-templates /&gt;</code> to apply page-specific template rules within that structure.</p>
+<p>You'll notice that we referenced a CSS file in the head. It's attached <a href="/workspace/assets/learn/main.css-1265734695.zip">here</a> in .ZIP format. Download it, extract it, and drop <code>main.css</code> into your Symphony <a rel="concept">workspace</a> folder at <code>/workspace/styles</code>. (The <code>styles</code> folder doesn't exist, so create it).</p>
+<p><em>You'll also notice some interesting syntax in the path we used to include the CSS. Because the location of your workspace folder is available as a <a rel="concept" href="parameters#system-parameters">system parameter</a>, we can reference it in the <code>href</code> attribute using XPath's attribute value template, like this: <code>{$workspace}</code>. XPath will evaluate this expression and replace it with the actual path stored in the parameter.</em></p>
+<h5>2.2. Update Your Page Template</h5>
+<p>Now let's update the home page template to accommodate your new master layout utility. Go to <strong>Blueprints > Pages</strong>, and click "home.xsl". The first thing we need to to is include the utility we've just created. Before any <code>&lt;xsl:template&gt;</code> declarations, add:</p>
+<pre><code>&lt;xsl:include href="../utilities/master.xsl"/&gt;
+</code></pre>
+<p>We'll need do that for every page that will use our master layout. We no longer need the <code>&lt;xsl:output&gt;</code> element because our master utility is taking care of that, so let's delete it.</p>
+<p>Change <code>&lt;xsl:template match="/"&gt;</code> to <code>&lt;xsl:template match="data"&gt;</code>. You'll recall that above we had the master utility match the XML root element, <code>/</code>. Here, we tell the page's template to match the next element in the XML hierarchy, <code>&lt;data&gt;</code>. This ensures that our rules will cascade correctly, from the universal master utility down to our specific page template.</p>
+<p>Empty the template's content, leaving only:</p>
+<pre><code>&lt;xsl:template match="data"&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>Now, what we want to do in this template is render this page's specific content. Go to <code>http://your-site.com/?debug</code> and review the page's XML source. The content we've got is a list of Greetings, so let's create the markup for a greetings list. Add the following inside <code>&lt;xsl:template match="data"&gt;</code>:</p>
+<pre><code>&lt;ul id="greetings-list" class="content"&gt;
+    &lt;xsl:apply-templates select="greetings/entry"/&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>We already have a template for each individual greeting entry. Let's update it to accommodate our new content structure:</p>
+<pre><code>&lt;xsl:template match="greetings/entry"&gt;
+    &lt;li&gt;
+        &lt;h3&gt;&lt;xsl:value-of select="greeting-title"/&gt;&lt;/h3&gt;
+        &lt;ul class="meta"&gt;
+            &lt;li class="date"&gt;&lt;xsl:value-of select="date"/&gt;&lt;/li&gt;
+            &lt;li class="language"&gt;&lt;xsl:value-of select="language"/&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;xsl:copy-of select="greeting-content/node()"/&gt;
+    &lt;/li&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>Your final page template should look like <a href="/learn/resource/38075/" class="colorbox">this</a>. Now if you go to your front end, you'll see we've managed to pull our updated content into this new page layout:</p>
+<p><img src="hello-symphony-new-layout"/></p>
+<p>Nice work. Your keen eye will notice, though, that the dates on our home page aren't in the most friendly format. Utilities can help us here too. We'll use <a href="/get-involved/member/allen">Allen Chang</a>'s handy date formatting utility to take care of this.</p>
+<h5>2.3. Create A Helper Utility for Formatting Dates</h5>
+<p>Go to <strong>Blueprints > Utilities</strong> and click the <strong>Create New</strong> button. In the Name field, enter <code>date-time.xsl</code>. In the Body, paste in <a href="/learn/resource/38076/" class="colorbox">this XSLT stylesheet</a> (replacing what's there). Click the <strong>Create</strong> button to save the new utility. </p>
+<p>Now, let's include it from our master template, so that we can call it sitewide whenever we need to. In the Utilities list on the right side of the screen, click "master.xsl". In the master utility, after the <code>&lt;xsl:output&gt;</code> element and before the <code>&lt;xsl:template&gt;</code> element, paste:</p>
+<pre><code>&lt;xsl:include href="date-time.xsl"/&gt;
+</code></pre>
+<p>This will make the date formatting template available to all pages that use our master layout.</p>
+<p>Now let's prettify those dates on the home page. Go back to the home page template (<strong>Blueprints > Pages</strong> and click "home.xsl"), and replace this line:</p>
+<pre><code>&lt;li class="date"&gt;&lt;xsl:value-of select="date"/&gt;&lt;/li&gt;
+</code></pre>
+<p>With this:</p>
+<pre><code>&lt;li class="date"&gt;
+    &lt;xsl:call-template name="format-date"&gt;
+        &lt;xsl:with-param name="date" select="date"/&gt;
+        &lt;xsl:with-param name="format" select="'x M Y'"/&gt;
+    &lt;/xsl:call-template&gt;
+&lt;/li&gt;
+</code></pre>
+<p>Here, instead of just spitting out the text value of the date node, we're calling a named template, <code>format-date</code>, from the "date-time.xsl" utility we've just added. We pass it the greeting's <code>date</code> node and a format string as parameters, and it formats our date for us. Now go back to your home page and you should see much nicer dates. </p></description>
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <resources>
+                <item id="38723" handle="hello-symphony-css-file" section-handle="resources" section-name="Resources">Hello Symphony: CSS File</item>
+                <item id="38076" handle="hello-symphony-date-time-utility" section-handle="resources" section-name="Resources">Hello Symphony: Date Time Utility</item>
+                <item id="38018" handle="hello-symphony-new-layout" section-handle="resources" section-name="Resources">Hello Symphony: New Layout</item>
+                <item id="38074" handle="hello-symphony-original-master-layout" section-handle="resources" section-name="Resources">Hello Symphony: Original Master Layout</item>
+                <item id="38075" handle="hello-symphony-original-page-template" section-handle="resources" section-name="Resources">Hello Symphony: Original Page Template</item>
+            </resources>
+            <step-number>2</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="code-sample" value="Code Sample">
+            <entry id="38075" tutorials="0" tutorial-steps="1">
+                <code mode="formatted"><p>&lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&gt;
+&lt;xsl:stylesheet version=&amp;quot;1.0&amp;quot;
+    xmlns:xsl=&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&gt;</p>
+<p>&lt;xsl:include href=&amp;quot;../utilities/master.xsl&amp;quot;/&gt;</p>
+<p>&lt;xsl:template match=&amp;quot;data&amp;quot;&gt;
+    &lt;ul id=&amp;quot;greetings-list&amp;quot;&gt;
+        &lt;xsl:apply-templates select=&amp;quot;greetings/entry&amp;quot;/&gt;
+    &lt;/ul&gt;
+&lt;/xsl:template&gt;</p>
+<p>&lt;xsl:template match=&amp;quot;greetings/entry&amp;quot;&gt;
+    &lt;li&gt;
+        &lt;h3&gt;&lt;xsl:value-of select=&amp;quot;greeting-title&amp;quot;/&gt;&lt;/h3&gt;
+        &lt;ul class=&amp;quot;meta&amp;quot;&gt;
+            &lt;li class=&amp;quot;date&amp;quot;&gt;&lt;xsl:value-of select=&amp;quot;date&amp;quot;/&gt;&lt;/li&gt;
+            &lt;li class=&amp;quot;language&amp;quot;&gt;&lt;xsl:value-of select=&amp;quot;language&amp;quot;/&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;xsl:copy-of select=&amp;quot;greeting-content/node()&amp;quot; mode=&amp;quot;formatted&amp;quot;/&gt;
+    &lt;/li&gt;
+&lt;/xsl:template&gt;</p>
+<p>&lt;/xsl:stylesheet&gt;</p></code>
+                <hide>No</hide>
+                <link-text handle="your-updated-page-template">Your Updated Page Template</link-text>
+                <note mode="formatted" />
+                <title handle="hello-symphony-original-page-template">Hello Symphony: Original Page Template</title>
+                <type>
+                    <item handle="code-sample">Code Sample</item>
+                </type>
+            </entry>
+            <entry id="38074" tutorials="0" tutorial-steps="1">
+                <code mode="formatted"><p>&lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&gt;
+&lt;xsl:stylesheet version=&amp;quot;1.0&amp;quot;
+    xmlns:xsl=&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&gt;</p>
+<p>&lt;xsl:output method=&amp;quot;xml&amp;quot;
+    doctype-public=&amp;quot;-W3CDTD XHTML 1.0 Strict//EN&amp;quot;
+    doctype-system=&amp;quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;quot;
+    omit-xml-declaration=&amp;quot;yes&amp;quot;
+    encoding=&amp;quot;UTF-8&amp;quot;
+    indent=&amp;quot;yes&amp;quot; /&gt;</p>
+<p>&lt;xsl:template match=&amp;quot;/&amp;quot;&gt;
+    &lt;html&gt;</p>
+<pre><code>    &amp;lt;head&amp;gt;
+        &amp;lt;meta http-equiv=&amp;quot;Content-Type&amp;quot; content=&amp;quot;text/html; charset=UTF-8&amp;quot; /&amp;gt;
+        &amp;lt;title&amp;gt;Hello World!&amp;lt;/title&amp;gt;
+        &amp;lt;link href=&amp;quot;{$workspace}/styles/main.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;div id=&amp;quot;layout&amp;quot;&amp;gt;
+            &amp;lt;h1&amp;gt;Symphony Greets the World&amp;lt;/h1&amp;gt;
+            &amp;lt;h5 id=&amp;quot;powered&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://symphony-cms.com&amp;quot;&amp;gt;&amp;lt;span&amp;gt;&amp;amp;#9835;&amp;lt;/span&amp;gt;A Symphony Site&amp;lt;/a&amp;gt;&amp;lt;/h5&amp;gt;
+            &amp;lt;xsl:apply-templates /&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+</code></pre>
+<p>&lt;/xsl:template&gt;</p>
+<p>&lt;/xsl:stylesheet&gt;</p></code>
+                <hide>No</hide>
+                <link-text handle="your-master-layout-utility">Your Master Layout Utility</link-text>
+                <note mode="formatted" />
+                <title handle="hello-symphony-original-master-layout">Hello Symphony: Original Master Layout</title>
+                <type>
+                    <item handle="code-sample">Code Sample</item>
+                </type>
+            </entry>
+            <entry id="38076" tutorials="0" tutorial-steps="1">
+                <code mode="formatted"><p>&lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&gt;
+&lt;xsl:stylesheet version=&amp;quot;1.0&amp;quot; xmlns:xsl=&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&gt;</p>
+<pre><code>&amp;lt;!--
+Description:
+This is a date formatting utility. The named template &amp;quot;format-date&amp;quot; takes 2 parameters:
+1. date - [required] takes an ISO date (2005-12-01)
+2. format - [optional] takes a format string.
+Format options:
+Y - year in 4 digits e.g. 1981, 1992, 2008
+y - year in 2 digits e.g. 81, 92, 08
+M - month as a full word e.g. January, March, September
+m - month in 3 letters e.g. Jan, Mar, Sep
+N - month in digits without leading zero
+n - month in digits with leading zero
+D - day with suffix and no leading zero e.g. 1st, 23rd
+d - day in digits with leading zero e.g. 01, 09, 12, 25
+x - day in digits with no leading zero e.g. 1, 9, 12, 25
+T - time in 24-hours e.g. 18:30
+t - time in 12-hours e.g. 6:30pm
+W - weekday as a full word e.g. Monday, Tuesday
+w - weekday in 3 letters e.g. Mon, Tue, Wed
+Examples:
+M       =&amp;gt; January
+d M     =&amp;gt; 21 September
+m D, y  =&amp;gt; Sep 21st, 81
+n-d-y   =&amp;gt; 09-21-81
+d/n/y   =&amp;gt; 21/09/81
+d/n/y t =&amp;gt; 21/09/81 6:30pm
+--&amp;gt;
+&amp;lt;xsl:template name=&amp;quot;format-date&amp;quot;&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;date&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;format&amp;quot; select=&amp;quot;'D M, Y'&amp;quot;/&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;string-length($format) &amp;amp;lt;= 10&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;date-controller&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;$date&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$format&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:otherwise&amp;gt;
+            &amp;lt;xsl:text&amp;gt;Error: format parameter is not correctly set. You have: &amp;lt;/xsl:text&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;string-length($format)&amp;quot;/&amp;gt;
+            &amp;lt;xsl:text&amp;gt;.&amp;lt;/xsl:text&amp;gt;
+        &amp;lt;/xsl:otherwise&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+&amp;lt;/xsl:template&amp;gt;
+&amp;lt;xsl:template name=&amp;quot;date-controller&amp;quot;&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;date&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;format&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;letter&amp;quot; select=&amp;quot;substring($format,1,1)&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;tletter&amp;quot; select=&amp;quot;translate($letter,'DMNYTW','dmnytw')&amp;quot;/&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$tletter = 'y'&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;format-year&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;$date&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$letter&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$tletter = 'm'&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;format-month&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;$date&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$letter&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$tletter = 'n'&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;format-month&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;$date&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$letter&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$tletter = 'd'&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;format-day&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;$date&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$letter&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$tletter = 'x'&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;format-day&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;$date&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$letter&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$tletter = 't'&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;format-time&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;time&amp;quot; select=&amp;quot;$date/@time&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$letter&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$tletter = 'w'&amp;quot;&amp;gt;
+            &amp;lt;xsl:call-template name=&amp;quot;format-weekday&amp;quot;&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;weekday&amp;quot; select=&amp;quot;$date/@weekday&amp;quot;/&amp;gt;
+                &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;$letter&amp;quot;/&amp;gt;
+            &amp;lt;/xsl:call-template&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:otherwise&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;$letter&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:otherwise&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+    &amp;lt;xsl:if test=&amp;quot;$letter = not('')&amp;quot;&amp;gt;
+        &amp;lt;xsl:call-template name=&amp;quot;date-controller&amp;quot;&amp;gt;
+            &amp;lt;xsl:with-param name=&amp;quot;date&amp;quot; select=&amp;quot;$date&amp;quot;/&amp;gt;
+            &amp;lt;xsl:with-param name=&amp;quot;format&amp;quot; select=&amp;quot;substring($format,2)&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:call-template&amp;gt;
+    &amp;lt;/xsl:if&amp;gt;
+&amp;lt;/xsl:template&amp;gt;
+&amp;lt;xsl:template name=&amp;quot;format-year&amp;quot;&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;date&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;year&amp;quot; select=&amp;quot;substring($date,1,4)&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;format&amp;quot; select=&amp;quot;'y'&amp;quot;/&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'y'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;substring($year,3)&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'Y'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;$year&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+&amp;lt;/xsl:template&amp;gt;
+&amp;lt;xsl:template name=&amp;quot;format-month&amp;quot;&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;date&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;month&amp;quot; select=&amp;quot;format-number(substring($date,6,2), '##')&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;format&amp;quot; select=&amp;quot;'m'&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;month-word&amp;quot;&amp;gt;
+        &amp;lt;xsl:choose&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 01&amp;quot;&amp;gt;January&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 02&amp;quot;&amp;gt;February&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 03&amp;quot;&amp;gt;March&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 04&amp;quot;&amp;gt;April&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 05&amp;quot;&amp;gt;May&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 06&amp;quot;&amp;gt;June&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 07&amp;quot;&amp;gt;July&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 08&amp;quot;&amp;gt;August&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 09&amp;quot;&amp;gt;September&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 10&amp;quot;&amp;gt;October&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 11&amp;quot;&amp;gt;November&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;$month = 12&amp;quot;&amp;gt;December&amp;lt;/xsl:when&amp;gt;
+        &amp;lt;/xsl:choose&amp;gt;
+    &amp;lt;/xsl:param&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'm'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;substring($month-word, 1,3)&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'M'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;$month-word&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'n'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;format-number($month, '00')&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'N'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;format-number($month, '0')&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+&amp;lt;/xsl:template&amp;gt;
+&amp;lt;xsl:template name=&amp;quot;format-day&amp;quot;&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;date&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;day&amp;quot; select=&amp;quot;format-number(substring($date,9,2),'00')&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;format&amp;quot; select=&amp;quot;'d'&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;suffix&amp;quot;&amp;gt;
+        &amp;lt;xsl:choose&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;(substring($day,2) = 1) and not(substring($day,1,1) = 1)&amp;quot;&amp;gt;st&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;(substring($day,2) = 2) and not(substring($day,1,1) = 1)&amp;quot;&amp;gt;nd&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:when test=&amp;quot;(substring($day,2) = 3) and not(substring($day,1,1) = 1)&amp;quot;&amp;gt;rd&amp;lt;/xsl:when&amp;gt;
+            &amp;lt;xsl:otherwise&amp;gt;th&amp;lt;/xsl:otherwise&amp;gt;
+        &amp;lt;/xsl:choose&amp;gt;
+    &amp;lt;/xsl:param&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'd'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;$day&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'x'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;format-number($day,'0')&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'D'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;format-number($day,'0')&amp;quot;/&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;$suffix&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+&amp;lt;/xsl:template&amp;gt;
+&amp;lt;xsl:template name=&amp;quot;format-time&amp;quot;&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;time&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;hour&amp;quot; select=&amp;quot;substring-before($time, ':')&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;minute&amp;quot; select=&amp;quot;substring-after($time, ':')&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;format&amp;quot; select=&amp;quot;'T'&amp;quot;/&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'T'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;$time&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 't'&amp;quot;&amp;gt;
+            &amp;lt;xsl:choose&amp;gt;
+                &amp;lt;xsl:when test=&amp;quot;$hour mod 12 = 0&amp;quot;&amp;gt;12&amp;lt;/xsl:when&amp;gt;
+                &amp;lt;xsl:otherwise&amp;gt;&amp;lt;xsl:value-of select=&amp;quot;($hour mod 12)&amp;quot;/&amp;gt;&amp;lt;/xsl:otherwise&amp;gt;
+            &amp;lt;/xsl:choose&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;concat(':',$minute)&amp;quot;/&amp;gt;
+            &amp;lt;xsl:choose&amp;gt;
+                &amp;lt;xsl:when test=&amp;quot;$hour &amp;amp;lt; 12&amp;quot;&amp;gt;am&amp;lt;/xsl:when&amp;gt;
+                &amp;lt;xsl:otherwise&amp;gt;pm&amp;lt;/xsl:otherwise&amp;gt;
+            &amp;lt;/xsl:choose&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+&amp;lt;/xsl:template&amp;gt;
+&amp;lt;xsl:template name=&amp;quot;format-weekday&amp;quot;&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;weekday&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;format&amp;quot; select=&amp;quot;'w'&amp;quot;/&amp;gt;
+    &amp;lt;xsl:param name=&amp;quot;result&amp;quot;&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$weekday = 1&amp;quot;&amp;gt;Monday&amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$weekday = 2&amp;quot;&amp;gt;Tuesday&amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$weekday = 3&amp;quot;&amp;gt;Wednesday&amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$weekday = 4&amp;quot;&amp;gt;Thursday&amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$weekday = 5&amp;quot;&amp;gt;Friday&amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$weekday = 6&amp;quot;&amp;gt;Saturday&amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$weekday = 7&amp;quot;&amp;gt;Sunday&amp;lt;/xsl:when&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+    &amp;lt;/xsl:param&amp;gt;
+    &amp;lt;xsl:choose&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'W'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;$result&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+        &amp;lt;xsl:when test=&amp;quot;$format = 'w'&amp;quot;&amp;gt;
+            &amp;lt;xsl:value-of select=&amp;quot;substring($result,1,3)&amp;quot;/&amp;gt;
+        &amp;lt;/xsl:when&amp;gt;
+    &amp;lt;/xsl:choose&amp;gt;
+&amp;lt;/xsl:template&amp;gt;
+</code></pre>
+<p>&lt;/xsl:stylesheet&gt;</p></code>
+                <hide>No</hide>
+                <link-text handle="date-time-utility">Date Time Utility</link-text>
+                <note mode="formatted" />
+                <title handle="hello-symphony-date-time-utility">Hello Symphony: Date Time Utility</title>
+                <type>
+                    <item handle="code-sample">Code Sample</item>
+                </type>
+            </entry>
+        </type>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38018" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="64 KB" path="/assets/learn" type="image/png">
+                    <filename>04-new-content-structure-1264825932.png</filename>
+                    <meta creation="2010-01-30T14:32:12+10:00" width="1007" height="798" />
+                </image>
+                <link-text handle="our-updated-layout">Our Updated Layout</link-text>
+                <note mode="formatted"><p>Our front end, with a new master layout and better markup.</p></note>
+                <title handle="hello-symphony-new-layout">Hello Symphony: New Layout</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+        <type handle="file-attachment" value="File Attachment">
+            <entry id="38723" tutorials="0" tutorial-steps="1">
+                <attachment size="1 KB" path="/assets/learn" type="application/zip">
+                    <filename>main.css-1265734695.zip</filename>
+                    <meta creation="2010-02-10T02:58:15+10:00" />
+                </attachment>
+                <code mode="formatted" />
+                <hide>No</hide>
+                <link-text handle="css-stylesheet">CSS Stylesheet</link-text>
+                <note mode="formatted" />
+                <title handle="hello-symphony-css-file">Hello Symphony: CSS File</title>
+                <type>
+                    <item handle="file-attachment">File Attachment</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="38032">
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="38033">
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="38034">
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="38035">
+            <name handle="optimize-page-handling">Optimize Page Handling</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="38036">
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <step-number>6</step-number>
+        </entry>
+        <entry id="38037">
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <step-number>7</step-number>
+        </entry>
+        <entry id="38038">
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Before we end the tutorial, let's add a few finishing flourishes, shall we?</p>
+<p>Open your "master.xsl" utility (you should know where it is by now), and in the root template (<code>&lt;xsl:template match="/"&gt;</code>), after <code>&lt;xsl:apply-templates /&gt;</code>, add the following:</p>
+<pre><code>&lt;p id="site-info"&gt;Psst&amp;#8230; Are you in love with Symphony yet?&lt;/p&gt;
+</code></pre>
+<p>That'll give your site a nice little footer.</p>
+<p>Finally, if you've got a Twitter account, <a href="http://bit.ly/hm8Gio">click here</a> to add your tweet to the #HelloSymphony stream. After about two minutes, reload your home page and you should see your tweet in the "Tweetings" list.</p>
+<p>Now exhale. You're done!</p>
+<p>You've just whipped up a pretty full-featured website. Give yourself a pat on the back. There's no sequel to this tutorial, so feel free to tinker away with the site you've built. Here are a few suggestions:</p>
+<ul><li>Extend your Greetings section even further, and then pull the new content through to your various front-end views. Don't forget to update your submission form.</li>
+<li>Create a view that allows you to browse greetings by language</li>
+<li>Pull in another external feed... maybe your Flickr photos or the latest <a href="http://www.getsymphony.com/get-involved/feeds/tutorials/">Symphony tutorials</a></li>
+</ul></conclusion>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <introduction mode="formatted"><p>In the <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">Hello World</a> tutorial, you got a peek at the most basic of Symphony workflows. Here, we'll expand on that, introducing you to the system more thoroughly and demonstrating some of its most useful features.</p>
+<p>We'll be building on top of the simple site we created in the previous tutorial, so if you haven't completed that yet, take a few minutes to <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">do that now</a>. Little by little, we'll enhance that site to show you some of the key features and workflows you'll need to understand in order to use Symphony for your own projects.</p>
+<p>By the time we're done, you'll have a feature-packed site—with intelligent and dynamic templating, error handling, front-end submission, RSS output, Twitter integration, and more.</p>
+<p>Excited yet?</p></introduction>
+            <resources>
+                <item id="38030" handle="hello-symphony-final-product" section-handle="resources" section-name="Resources">Hello Symphony: Final Product</item>
+            </resources>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38030" tutorials="1" tutorial-steps="0">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="104 KB" path="/assets/learn" type="image/png">
+                    <filename>finished-product-1264827790.png</filename>
+                    <meta creation="2010-01-30T15:03:10+10:00" width="1007" height="1156" />
+                </image>
+                <link-text handle="the-final-product">The Final Product</link-text>
+                <note mode="formatted"><p>The final product of the Hello Symphony tutorial.</p></note>
+                <title handle="hello-symphony-final-product">Hello Symphony: Final Product</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <description mode="formatted"><p>For this site we're going to build, we want to have more interesting content to work with than simple one-line greetings. Taking a moment to extend our old Greetings section is a good first step because content modeling is often where Symphony projects begin. Below, we'll use the <a rel="concept" href="sections#section-editor">section editor</a> to restructure and add some new fields to our section.</p>
+<h5>1.1. Rename the Existing Field</h5>
+<p>In the <a rel="concept">admin interface</a>, navigate to <strong>Blueprints > Sections</strong> and click "Greetings". Look at the "Fields" section. Right now, we've only got a single field called "Greeting Text". We'll want to keep that field intact, but have it serve as more of a <em>title</em> for each Greeting entry, so let's change its Label to <code>Greeting Title</code>.</p>
+<h5>1.2 Add Content, Date, and Language Fields</h5>
+<p>Next we'll add three new fields to make our entries more interesting:</p>
+<ol>
+<li><p>First, a field to hold textual content. From the <a href="/workspace/assets/learn/sections-new-add-field-1258686620.png" class="colorbox" title="Use the field type selector to add new fields to a section">field type selector</a>, choose <strong>Textarea</strong> and click "Add item". A new field settings panel will appear. Enter <code>Greeting Content</code> as the Label, and enable <a href="http://daringfireball.net/projects/markdown/">Markdown</a> in the field by choosing "Markdown Text Formatter" in the Text Formatter field. </p>
+<p><em>Enabling the formatter will help ensure that our content is clean and well-formed for HTML. If the Markdown option is not available, you'll need to first <a href="/learn/tasks/view/install-an-extension/#enable-the-extension">enable it</a>.</em></p></li>
+<li><p>Next, a simple date field. From the field type selector, choose <strong>Date</strong> and click "Add item". We'll simply Label it <code>Date</code> and choose "Sidebar" from the Placement dropdown.</p>
+<p><em>Placing certain fields in the sidebar helps keep our backend forms visually organized.</em></p></li>
+<li><p>Finally, since we've got greetings in multiple languages, let's add a language field. From the field type selector, choose <strong>Select Box</strong>. Enter <code>Language</code> as the Label, and choose "Sidebar" as its Placement. We'll use Static Options to populate the options for our language select box, so enter this (comma-delimited) list of the world's twenty most widely-spoken languages:</p>
+<p><code>Chinese, Spanish, English, Hindi, Arabic, Bengali, Portuguese, Russian, Japanese, German, Javanese, Punjabi, Wu, Telugu, Vietnamese, Marathi, French, Korean, Tamil, Italian</code></p>
+<p>Tick the Show Column box, so that we'll see our entries' languages when browsing our Greetings index in the back end.</p></li>
+</ol>
+<p>That'll do for now. Your section editor screen should look like <a rel="figure" href="hello-symphony-expanded-section">Figure 1</a>. Click <strong>Save Changes</strong>.</p>
+<h5>1.3. Update Your Entries</h5>
+<p>Now let's go back to our entries. Navigate to your Greetings index (<strong>Content > Greetings</strong>). Click on "Hello World!" Your entry editor has changed:</p>
+<p><img src="hello-symphony-entry-editor"/></p>
+<p>You'll notice that the two fields whose placement was "Sidebar" now appear on the right side of your screen. The Date field is autopopulated with today's date, and the Language field has pre-selected the first available option. </p>
+<p>Set the language to <strong>English</strong>, and paste this text into the Greeting Content field:</p>
+<pre><code>Here is Edward Bear, coming downstairs now—bump, bump, bump—on the back of his head, behind Christopher Robin. It is, as far as he knows, the only way of coming downstairs, but sometimes he feels that there really is another way, if only he could stop bumping for a moment and think of it.
+</code></pre>
+<p><strong>Save your changes</strong>.</p>
+<p>Now go back to the Greetings index and click "G'day World!" Let's take advantage of our new language field. Change the Greeting Title to <code>Hola Mundo!</code> (sorry, Aussies) and set the Language to <strong>Spanish</strong>. Paste the following text into Greeting Content:</p>
+<pre><code>He aquí al Oso Eduardo bajando las escaleras con la cabeza—plom, plom, plom—de la mano de Christopher Robin. Es la única manera que él conoce de bajar las escaleras, aunque a veces piensa que deber haber otra forma mejor que seguramente la descubriría si pudiera dejar de darse golpes en la cabeza y pararse a pensar.
+</code></pre>
+<p><strong>Save your changes</strong>. One more to go. </p>
+<p>From the Greetings index, click "Hallo Welt!" Choose <strong>German</strong> from the <strong>Language</strong> dropdown, and paste the following into Greeting Content:</p>
+<pre><code>Hier kommt nun Eduard Bär die Treppe herunter, rumpel-dipumpel, auf dem Hinterkopf, hinter Christopher Robin. Es ist dies, soweit er weiß, die einzige Art, treppab zu gehen, aber manchmal hat er das GefühI, als gäbe es in Wirklichkeit noch eine andere Art, wenn er nur mal einen Augenblick lang mit dem Gerumpel aufhören und darüber nachdenken könnte. Und dann hat er das Gefühl, daß es vielleicht keine andere Art gibt.
+</code></pre>
+<p><strong>Save your changes</strong>. Now we've got some more interesting content to work with.</p>
+<h5>1.4 Update Your "Greetings" Data Source</h5>
+<p>One last thing before we move on. We've got to update our <a rel="concept" href="data-sources">data source</a> to make sure the new field content gets piped through to the front end. </p>
+<p>Go to <strong>Blueprints > Data Sources</strong> and click "Greetings". At the bottom right, under XML Output, Included Elements, select the following fields:</p>
+<ul>
+<li>greeting-title</li>
+<li>greeting-content: formatted</li>
+<li>date</li>
+<li>language</li>
+</ul>
+<p><strong>Save your changes</strong>. Now that our content entries are much more robust, let's see about updating the front end.</p></description>
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <resources>
+                <item id="38016" handle="hello-symphony-entry-editor" section-handle="resources" section-name="Resources">Hello Symphony: Entry Editor</item>
+                <item id="38015" handle="hello-symphony-expanded-section" section-handle="resources" section-name="Resources">Hello Symphony: Expanded Section</item>
+            </resources>
+            <step-number>1</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38015" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="81 KB" path="/assets/learn" type="image/png">
+                    <filename>01-section-editor-1265914194.png</filename>
+                    <meta creation="2010-02-12T04:49:54+10:00" width="1007" height="1380" />
+                </image>
+                <link-text handle="your-expanded-section">Your Expanded Section</link-text>
+                <note mode="formatted"><p>We&#8217;ve beefed up our Greetings section with new fields.</p></note>
+                <title handle="hello-symphony-expanded-section">Hello Symphony: Expanded Section</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="38016" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="21 KB" path="/assets/learn" type="image/png">
+                    <filename>02-entry-editor-1264825599.png</filename>
+                    <meta creation="2010-01-30T14:26:39+10:00" width="1007" height="616" />
+                </image>
+                <link-text handle="your-updated-entry-editor">Your Updated Entry Editor</link-text>
+                <note mode="formatted"><p>Your entry editor reflects the fields we&#8217;ve added.</p></note>
+                <title handle="hello-symphony-entry-editor">Hello Symphony: Entry Editor</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="38032">
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="38033">
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="38034">
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="38035">
+            <name handle="optimize-page-handling">Optimize Page Handling</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="38036">
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <step-number>6</step-number>
+        </entry>
+        <entry id="38037">
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <step-number>7</step-number>
+        </entry>
+        <entry id="38038">
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

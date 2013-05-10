@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="33102" tutorial-steps="4">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Congratulations! In just a few short minutes you&#8217;ve managed to model a content type, whip up some sample entries, create a front-end page, deliver your entries to the front end, and write a template to turn your data into XHTML. Hopefully in the process you also got a sense of how powerful and flexible the system can be once you&#8217;ve truly mastered all of the basics.</p>
+<p>In the next tutorial, <a rel="tutorial" href="say-hello-to-symphony">&#8220;Say Hello to Symphony&#8221;</a>, you&#8217;ll begin to unlock some of that potential with <a rel="concept">data source filters</a>, <a rel="concept">parameters</a>, <a rel="concept">events</a>, <a rel="concept">utilities</a>, and much more.</p></conclusion>
+            <date-modified time="11:42" weekday="6">2009-11-21</date-modified>
+            <date-published time="11:42" weekday="6">2009-11-21</date-published>
+            <introduction mode="formatted"><p>Here it is, folks. The obligatory &#8220;Hello World&#8221; tutorial. In it, you&#8217;ll be introduced to the most fundamental Symphony workflow: modeling data and channeling it to your front end. That&#8217;s it. No bells and whistles. Four simple steps. Just enough to whet your appetite. A follow-up tutorial will pick up where this one leaves off, demonstrating a few more advanced techniques.</p>
+<p>This tutorial assumes you&#8217;ve already got a clean install of Symphony up and running. If you haven&#8217;t, go ahead and <a rel="tutorial" href="install-symphony">install it now</a> (don&#8217;t include the default workspace).</p>
+<p>Now log in to the <a rel="concept">admin interface</a>. You there? Ok let&#8217;s go&#8230;</p></introduction>
+            <summary mode="formatted"><p>The &#8220;Hello World&#8221; tutorial introduces you to the most basic Symphony workflow: creating content and displaying it on the front end.</p></summary>
+            <title handle="say-hello-to-the-world">Say Hello to the World</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33330">
+            <description mode="formatted"><p><a rel="concept">Data sources</a> fetch and organize content from the system and deliver to pages. We'll need to create one in order to display your greetings on the Home page. Navigate to <strong>Blueprints > Data Sources</strong> and click the green <strong>Create New</strong> button.</p>
+<p>This is the data source editor. In the Essentials section, let's give our data source an obvious Name: <code>Greetings</code>. Under Source, the Greetings section will be pre-selected, since it's the only one we've created. Let's leave the Filter Results and Sorting and Limiting sections alone for now. The default values will do just fine. You'll learn a bit more about these options in the follow-up to this tutorial. Here, the only other thing we need to do is tell our data source what we need it to output. Under XML Output, in the Included Elements select box, click <code>greeting-text</code>. That's the only field we added to our section, so it's the only one we need to return. Leave the rest of the values in this section at their default. Your form should look like Figure 1:</p>
+<p><img src="hello-world-data-source-creation"/></p>
+<p>Click "Create Data Source".</p>
+<p>Now we need to attach our data source to the Home page. Navigate to <strong>Blueprints > Pages</strong> and click "Home". In the Page Resources section of your home page's configuration, you'll now see your new data source listed in the Data Sources field (<a rel="figure" href="hello-world-add-ds-to-page">Figure 2</a>). Click to select it, and then click the <strong>Save Changes</strong> button.</p>
+<p>We're going to use Symphony's awesome <a rel="concept" href="devkits#debug-devkit">debug devkit</a> to make sure our data's made it through to the front end. It comes packaged with Symphony by default, so all you've got to do is enable it. Navigate to <strong>System > Extensions</strong>, click the "Debug Devkit" row to select it, choose "Install/Enable" from the With Selected menu at the bottom right of the table, and hit "Apply". Now open a new browser tab and point it to your front end, but add <code>?debug</code> to the end of the URL. You should see something like Figure 3:</p>
+<p><img src="hello-world-check-ds-output"/></p>
+<p>Our Greetings entries have made it through to the front end. Now all we've got to do is whip up a quick template to display them.</p></description>
+            <name handle="grab-the-data">Grab the Data</name>
+            <resources>
+                <item id="33329" handle="hello-world-add-ds-to-page" section-handle="resources" section-name="Resources">Hello World: Add DS to Page</item>
+                <item id="33331" handle="hello-world-check-ds-output" section-handle="resources" section-name="Resources">Hello World: Check DS Output</item>
+                <item id="33328" handle="hello-world-data-source-creation" section-handle="resources" section-name="Resources">Hello World: Data Source Creation</item>
+            </resources>
+            <step-number>3</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="33328" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="82 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-7-1258935881.png</filename>
+                    <meta creation="2009-11-23T10:24:41+10:00" width="1009" height="998" />
+                </image>
+                <link-text handle="your-greetings-data-source">Your Greetings Data Source</link-text>
+                <note mode="formatted"><p>Symphony&#8217;s data source editor.</p></note>
+                <title handle="hello-world-data-source-creation">Hello World: Data Source Creation</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33331" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="43 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-9-1258936604.png</filename>
+                    <meta creation="2009-11-23T10:36:44+10:00" width="1024" height="653" />
+                </image>
+                <link-text handle="check-the-xml-output">Check the XML Output</link-text>
+                <note mode="formatted"><p>Symphony&#8217;s Debug Devkit enables us to check the XML our data sources are outputting.</p></note>
+                <title handle="hello-world-check-ds-output">Hello World: Check DS Output</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33329" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>Yes</hide>
+                <image size="34 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-8-1258936010.png</filename>
+                    <meta creation="2009-11-23T10:26:50+10:00" width="1009" height="653" />
+                </image>
+                <note mode="formatted"><p>Once you&#8217;ve created a data source, you&#8217;ll be able to attach it to your page.</p></note>
+                <title handle="hello-world-add-ds-to-page">Hello World: Add DS to Page</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33320">
+            <name handle="model-the-content">Model the Content</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="33325">
+            <name handle="set-up-the-front-end">Set up the Front End</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="33330">
+            <name handle="grab-the-data">Grab the Data</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="51185">
+            <name handle="build-the-template">Build the Template</name>
+            <step-number>4</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="59169" tutorial-steps="5">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author handle="jonasd">jonasd</author>
+            <conclusion mode="formatted" />
+            <date-modified time="12:38" weekday="1">2011-01-10</date-modified>
+            <date-published time="12:38" weekday="1">2011-01-10</date-published>
+            <introduction mode="formatted"><p>Your site might be humming along just fine, but nobody likes an outdated Symphony (excepting Beethoven fans.) For the best security and stability, you need to be running the newest release available. </p>
+<p>Upgrading is generally quite simple, but your particular approach depends on how you installed Symphony, and what you’ve done with it since. </p></introduction>
+            <summary mode="formatted"><p>One-up your favorite CMS in five easy steps.</p></summary>
+            <title handle="upgrade-symphony">Upgrade Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="59172">
+            <concepts>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+                <item id="33158" handle="git" section-handle="concepts" section-name="Concepts">Git</item>
+            </concepts>
+            <description mode="formatted"><h4>Package-based upgrade</h4>
+<p>The package-based upgrade is just like the package-based <a href="http://getsymphony.com/learn/tutorials/view/install-symphony/2/">installation</a>, except you'll need to avoid overwriting your customizations. Let's begin by <a href="http://getsymphony.com/download/">downloading the current release</a>, and be sure to have an FTP client handy. When you're ready to go, login to your Symphony website as an administrator.</p>
+<p>Now extract the new release's zip package and overwrite your site's <code>symphony</code> folder by uploading the new <code>symphony</code> folder. Do the same for <code>update.php</code> and <code>index.php</code>. Can't find <code>update.php</code>? Congratulations, you must be updating to the 2.3 branch of Symphony, which means you'll need to overwrite <code>index.php</code> and bring in the <code>install</code> folder. Last, you will need to overwrite Symphony's core extensions with the new versions, but don't overwrite the whole <code>extensions</code> folder, since you probably have some custom extensions you want to keep.</p>
+<p>You may also overwrite any custom extensions with new versions, which is optional unless the Symphony upgrade breaks compatibility with the extension(s) you're running. </p>
+<h4>Git-based upgrade</h4>
+<p>Using Git can make the upgrade process completely painless! In the most basic scenario, you can simply SSH into your site's host, and issue the following commands:</p>
+<pre><code>cd /path/to/your/site
+git pull
+</code></pre>
+<p>this will update the Symphony core files for you automatically. Follow this up with:</p>
+<pre><code>git submodule update
+</code></pre>
+<p>and you should be ready to go. </p>
+<h5>Handling conflicts</h5>
+<p>It's common to get stuck with conflicts, due to deviations between your site's files and those in the Symphony repository. If you run into a submodule error during the <code>git pull</code> step, you'll need to stash your changes:</p>
+<pre><code>git stash
+git pull origin master
+git stash apply
+</code></pre>
+<p>Note that you may have to individually resolve conflicts with <code>git add</code> or <code>git rm</code> during the <code>git stash apply</code> step.</p></description>
+            <name handle="update-files">Update Files</name>
+            <step-number>3</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="59170">
+            <name handle="backup-and-prepare">Backup and Prepare</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="59171">
+            <name handle="determine-upgrade-method">Determine Upgrade Method</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="59172">
+            <name handle="update-files">Update Files</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="59173">
+            <name handle="run-the-updater">Run the updater</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="59174">
+            <name handle="test">Test!</name>
+            <step-number>5</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

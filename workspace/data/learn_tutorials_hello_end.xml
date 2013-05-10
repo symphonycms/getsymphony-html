@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="33102" tutorial-steps="4">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Congratulations! In just a few short minutes you&#8217;ve managed to model a content type, whip up some sample entries, create a front-end page, deliver your entries to the front end, and write a template to turn your data into XHTML. Hopefully in the process you also got a sense of how powerful and flexible the system can be once you&#8217;ve truly mastered all of the basics.</p>
+<p>In the next tutorial, <a rel="tutorial" href="say-hello-to-symphony">&#8220;Say Hello to Symphony&#8221;</a>, you&#8217;ll begin to unlock some of that potential with <a rel="concept">data source filters</a>, <a rel="concept">parameters</a>, <a rel="concept">events</a>, <a rel="concept">utilities</a>, and much more.</p></conclusion>
+            <date-modified time="11:42" weekday="6">2009-11-21</date-modified>
+            <date-published time="11:42" weekday="6">2009-11-21</date-published>
+            <introduction mode="formatted"><p>Here it is, folks. The obligatory &#8220;Hello World&#8221; tutorial. In it, you&#8217;ll be introduced to the most fundamental Symphony workflow: modeling data and channeling it to your front end. That&#8217;s it. No bells and whistles. Four simple steps. Just enough to whet your appetite. A follow-up tutorial will pick up where this one leaves off, demonstrating a few more advanced techniques.</p>
+<p>This tutorial assumes you&#8217;ve already got a clean install of Symphony up and running. If you haven&#8217;t, go ahead and <a rel="tutorial" href="install-symphony">install it now</a> (don&#8217;t include the default workspace).</p>
+<p>Now log in to the <a rel="concept">admin interface</a>. You there? Ok let&#8217;s go&#8230;</p></introduction>
+            <summary mode="formatted"><p>The &#8220;Hello World&#8221; tutorial introduces you to the most basic Symphony workflow: creating content and displaying it on the front end.</p></summary>
+            <title handle="say-hello-to-the-world">Say Hello to the World</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <error>No records found.</error>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33320">
+            <name handle="model-the-content">Model the Content</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="33325">
+            <name handle="set-up-the-front-end">Set up the Front End</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="33330">
+            <name handle="grab-the-data">Grab the Data</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="51185">
+            <name handle="build-the-template">Build the Template</name>
+            <step-number>4</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

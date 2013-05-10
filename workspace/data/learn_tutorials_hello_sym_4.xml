@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Before we end the tutorial, let's add a few finishing flourishes, shall we?</p>
+<p>Open your "master.xsl" utility (you should know where it is by now), and in the root template (<code>&lt;xsl:template match="/"&gt;</code>), after <code>&lt;xsl:apply-templates /&gt;</code>, add the following:</p>
+<pre><code>&lt;p id="site-info"&gt;Psst&amp;#8230; Are you in love with Symphony yet?&lt;/p&gt;
+</code></pre>
+<p>That'll give your site a nice little footer.</p>
+<p>Finally, if you've got a Twitter account, <a href="http://bit.ly/hm8Gio">click here</a> to add your tweet to the #HelloSymphony stream. After about two minutes, reload your home page and you should see your tweet in the "Tweetings" list.</p>
+<p>Now exhale. You're done!</p>
+<p>You've just whipped up a pretty full-featured website. Give yourself a pat on the back. There's no sequel to this tutorial, so feel free to tinker away with the site you've built. Here are a few suggestions:</p>
+<ul><li>Extend your Greetings section even further, and then pull the new content through to your various front-end views. Don't forget to update your submission form.</li>
+<li>Create a view that allows you to browse greetings by language</li>
+<li>Pull in another external feed... maybe your Flickr photos or the latest <a href="http://www.getsymphony.com/get-involved/feeds/tutorials/">Symphony tutorials</a></li>
+</ul></conclusion>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <introduction mode="formatted"><p>In the <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">Hello World</a> tutorial, you got a peek at the most basic of Symphony workflows. Here, we'll expand on that, introducing you to the system more thoroughly and demonstrating some of its most useful features.</p>
+<p>We'll be building on top of the simple site we created in the previous tutorial, so if you haven't completed that yet, take a few minutes to <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">do that now</a>. Little by little, we'll enhance that site to show you some of the key features and workflows you'll need to understand in order to use Symphony for your own projects.</p>
+<p>By the time we're done, you'll have a feature-packed site—with intelligent and dynamic templating, error handling, front-end submission, RSS output, Twitter integration, and more.</p>
+<p>Excited yet?</p></introduction>
+            <resources>
+                <item id="38030" handle="hello-symphony-final-product" section-handle="resources" section-name="Resources">Hello Symphony: Final Product</item>
+            </resources>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38030" tutorials="1" tutorial-steps="0">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="104 KB" path="/assets/learn" type="image/png">
+                    <filename>finished-product-1264827790.png</filename>
+                    <meta creation="2010-01-30T15:03:10+10:00" width="1007" height="1156" />
+                </image>
+                <link-text handle="the-final-product">The Final Product</link-text>
+                <note mode="formatted"><p>The final product of the Hello Symphony tutorial.</p></note>
+                <title handle="hello-symphony-final-product">Hello Symphony: Final Product</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38034">
+            <description mode="formatted"><p>Alright, so we've spiced up our layout a bit and created a dynamic navigation menu. Here, we'll use <a rel="concept">URL parameters</a> to add the ability to view greeting entries individually, as one might view a blog post or an article. </p>
+<h5>4.1. Create a Greeting Entry Page</h5>
+<p>The first thing we'll need is a page that will handle the view. Go to <strong>Blueprints > Pages</strong> and click the green <strong>Create New</strong> button. Give your new page the Title <code>Greeting Entry</code>, and the URL Handle <code>greetings</code>. Now, in the URL Parameters field, enter <code>title</code>. In the Data Sources multiselect, select the "Navigation" data source we created earlier. Click <strong>Create Page</strong>.</p>
+<p>What you've done here is create a page that will respond to the URL <code>http://your-site.com/greetings</code>, and will populate a parameter called <code>$title</code> with input provided as a segment in its URL. So, for example, if you were to load <code>http://your-site.com/greetings/hello-world</code>, the page would create a parameter called $title and set its value to <code>hello-world</code>. </p>
+<p>You can test this by going to <code>http://your-site.com/greetings/hello-world?debug=params</code>. Near the bottom of the page's parameters list you should see <code>$title</code> is set to <code>hello-world</code> (<a rel="figure" href="hello-symphony-params">Figure 6</a>). In your browser's URL bar, change <code>hello-world</code> to something else, and hit enter. You'll see the value of the <code>$title</code> parameter change.</p>
+<h5>4.2. Create a Greeting Entry Data Source</h5>
+<p>Now that our page is set up to dynamically set parameters using URL input, let's create the data source that will fetch our greetings.</p>
+<p>Go to <strong>Blueprints > Data Sources</strong> and click the green <strong>Create New</strong> button in the top right. For Name, enter <code>Greeting Entry</code>. For Source, select "Greetings."</p>
+<p>Next, we add a filter so that the data source will only return the entry whose Greeting Title matches whatever <code>$title</code> is passed in the URL Parameter. In the Filter Results section, select the "Greeting Title" text input field and click <strong>Add Item</strong>. A filter value input will be dynamically added to the form. Enter <code>{$title}</code>.</p>
+<p>What that does is tells the data source: "I want you to return entries where the content of the Greeting Title field matches the value of the parameter <code>$title</code>." The parameter is enclosed in curly-braces so that the system knows it needs to evaluate what's inside.</p>
+<p>Under Sorting and Limiting, we don't need to specify any sorting options because we'll only be returning one entry at a time. Enter <code>1</code> in the "Paginate results, limiting to..." field.</p>
+<p>In the Required URL Parameter field, enter <code>$title</code> (note that we don't use the curly braces here because this doesn't need to be evaluated, the system needs the actual parameter name). Tick the "Redirect to 404 page..." checkbox. What we've done here is let the data source know that we don't want any results if no <code>$title</code> has been set in the URL, and then whenever there are no results, we want to redirect to a 404 rather than displaying an empty page.</p>
+<p>Under XML Output, select the following elements to include:</p>
+<ul>
+<li>greeting-title</li>
+<li>greeting-content: formatted</li>
+<li>date</li>
+<li>language</li>
+</ul>
+<p>Your data source editor should look like <a rel="figure" href="hello-symphony-entry-ds">Figure 7</a>. Click <strong>Create Data Source.</strong></p>
+<p>Don't forget to attach the data source to your new page. Go to <strong>Blueprints > Pages</strong> and click to edit the "Greeting Entry" page. Under Data Sources, add the new "Greeting Entry" datasource to your selection (don't deselect "Navigation"). Save your changes.</p>
+<h5>4.3. Build Your Greeting Entry Template</h5>
+<p>In the front end, go back to <code>http://your-site.com/greetings/hello-world?debug</code></p>
+<p>Now you should see your greeting entry in the source XML. Replace <code>hello-world</code> in your browser's URL bar with <code>hallo-welt</code>, and hit enter. You should now see the German greeting in your source XML.</p>
+<p><em>What's happening here is that Symphony is using dynamic input in the URL to populate a parameter set by our page, and then using that parameter in turn to filter the data being returned.</em></p>
+<p>We see that the data's there, so all that's left to do is template the page. Back in the admin interface, go to <strong>Blueprints > Pages</strong> and in the Template column click "greetings.xsl".</p>
+<p>As before, let's first delete the <code>&lt;xsl:output&gt;</code> element. In its place, include our master stylesheet:</p>
+<pre><code>    &lt;xsl:include href="../utilities/master.xsl"/&gt;
+</code></pre>
+<p>As we did in Step 2, change <code>&lt;xsl:template match="/"&gt;</code> to <code>&lt;xsl:template match="data"&gt;</code>, so that our template rules will cascade properly from the general master stylesheet to our page-specific stylesheet.</p>
+<p>Now let's work on grabbing the data we want. Take a look at the front-end debug screen again. You'll see that the path to our entry is <code>/data/greeting-entry/entry</code>. You can test this by entering it into the XPath tester at the top of the screen (replace the <code>//*</code>). Hit enter and the entry element should be highlighted. That's what we want.</p>
+<p>Switch back to your template editor. The template we're starting with is matching the data element, so that's our context. From there, the entry is at: <code>greeting-entry/entry</code>. So inside the template add the following:</p>
+<pre><code> &lt;xsl:apply-templates select="greeting-entry/entry"/&gt;
+</code></pre>
+<p>Now, left as-is, XSLT will simply spit out whatever it finds in the greeting entry, because we haven't written a template for it yet. You can test if you like, by visiting <code>http://your-site.com/greetings/hello-world</code>. You should see a bunch of unformatted text.</p>
+<p>Return to your template editor, and let's add a simple template for entries:</p>
+<pre><code>&lt;xsl:template match="greeting-entry/entry"&gt;
+    &lt;div id="greeting-entry" class="content"&gt;
+        &lt;h2&gt;&lt;xsl:value-of select="greeting-title"/&gt;&lt;/h2&gt;
+        &lt;ul class="meta"&gt;
+            &lt;li class="date"&gt;
+                &lt;xsl:call-template name="format-date"&gt;
+                    &lt;xsl:with-param name="date" select="date"/&gt;
+                    &lt;xsl:with-param name="format" select="'x M Y'"/&gt;
+                &lt;/xsl:call-template&gt;
+            &lt;/li&gt;
+            &lt;li class="language"&gt;&lt;xsl:value-of select="language"/&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;xsl:copy-of select="greeting-content/node()"/&gt;
+    &lt;/div&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>Save your changes and go back to <code>http://your-site.com/greetings/hello-world</code>. You should see a nicely formatted entry.</p>
+<h5>4.4. Link Listed Entries to their Individual View</h5>
+<p>Let's link the entries on the View Greetings page to their individual views. If you look at the URL above, it uses a sanitized version of the entry's title. Luckily, Symphony provides these for all text fields; they're called <a rel="concept">handles</a>. If you go to <code>http://your-site.com/?debug</code> you'll see that each greeting entry's <code>greeting-title</code> element has a <code>handle</code> attribute. We'll use these handles to link each entry listed on the home page.</p>
+<p>Go to <strong>Blueprints > Pages</strong> and, in the Templates column, click "home.xsl". In our <code>greetings/entry</code> template (<code>&lt;xsl:template match="greetings/entry"/&gt;</code>), we'll add an anchor to our existing <code>&lt;h3&gt;</code> element:</p>
+<pre><code>&lt;h3&gt;&lt;a href="{$root}/greetings/{greeting-title/@handle}"&gt;&lt;xsl:value-of select="greeting-title"/&gt;&lt;/a&gt;&lt;/h3&gt;
+</code></pre>
+<p>The anchor's <code>href</code> attribute is part static and part dynamic. The dynamic part is wrapped in curly braces. This is called an "attribute value template" and XPath will evaluate the expression. So for each entry, we'll end up with <code>href="/greetings/whatever-the-handle-is"</code>. Save the changes and reload your home page. Now each entry's title should be linked, and clicking it should take you to its individual view.</p>
+<p>But you've probably noticed one pesky thing while you're admiring your handywork on the front end. Our "Greeting Entry" page has been added to the navigation, and that doesn't make much sense. Let's address that now.</p></description>
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <resources>
+                <item id="38023" handle="hello-symphony-entry-ds" section-handle="resources" section-name="Resources">Hello Symphony: Entry DS</item>
+                <item id="38022" handle="hello-symphony-params" section-handle="resources" section-name="Resources">Hello Symphony: Params</item>
+            </resources>
+            <step-number>4</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38022" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="42 KB" path="/assets/learn" type="image/png">
+                    <filename>06-url-param-1264826653.png</filename>
+                    <meta creation="2010-01-30T14:44:13+10:00" width="1029" height="623" />
+                </image>
+                <link-text handle="inspecting-parameters">Inspecting Parameters</link-text>
+                <note mode="formatted"><p>The Debug Devkit allows us to inspect the parameters available to a page.</p></note>
+                <title handle="hello-symphony-params">Hello Symphony: Params</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="38023" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="129 KB" path="/assets/learn" type="image/png">
+                    <filename>07-entry-ds-1344224737.png</filename>
+                    <meta creation="2012-08-06T13:45:37+10:00" width="882" height="1088" />
+                </image>
+                <link-text handle="your-greeting-entry-data-source">Your Greeting Entry Data Source</link-text>
+                <note mode="formatted"><p>Your fully-configured Greetings Entry data source.</p></note>
+                <title handle="hello-symphony-entry-ds">Hello Symphony: Entry DS</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="38032">
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="38033">
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="38034">
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="38035">
+            <name handle="optimize-page-handling">Optimize Page Handling</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="38036">
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <step-number>6</step-number>
+        </entry>
+        <entry id="38037">
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <step-number>7</step-number>
+        </entry>
+        <entry id="38038">
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

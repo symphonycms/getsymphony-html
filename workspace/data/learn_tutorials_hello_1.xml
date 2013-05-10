@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="33102" tutorial-steps="4">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Congratulations! In just a few short minutes you&#8217;ve managed to model a content type, whip up some sample entries, create a front-end page, deliver your entries to the front end, and write a template to turn your data into XHTML. Hopefully in the process you also got a sense of how powerful and flexible the system can be once you&#8217;ve truly mastered all of the basics.</p>
+<p>In the next tutorial, <a rel="tutorial" href="say-hello-to-symphony">&#8220;Say Hello to Symphony&#8221;</a>, you&#8217;ll begin to unlock some of that potential with <a rel="concept">data source filters</a>, <a rel="concept">parameters</a>, <a rel="concept">events</a>, <a rel="concept">utilities</a>, and much more.</p></conclusion>
+            <date-modified time="11:42" weekday="6">2009-11-21</date-modified>
+            <date-published time="11:42" weekday="6">2009-11-21</date-published>
+            <introduction mode="formatted"><p>Here it is, folks. The obligatory &#8220;Hello World&#8221; tutorial. In it, you&#8217;ll be introduced to the most fundamental Symphony workflow: modeling data and channeling it to your front end. That&#8217;s it. No bells and whistles. Four simple steps. Just enough to whet your appetite. A follow-up tutorial will pick up where this one leaves off, demonstrating a few more advanced techniques.</p>
+<p>This tutorial assumes you&#8217;ve already got a clean install of Symphony up and running. If you haven&#8217;t, go ahead and <a rel="tutorial" href="install-symphony">install it now</a> (don&#8217;t include the default workspace).</p>
+<p>Now log in to the <a rel="concept">admin interface</a>. You there? Ok let&#8217;s go&#8230;</p></introduction>
+            <summary mode="formatted"><p>The &#8220;Hello World&#8221; tutorial introduces you to the most basic Symphony workflow: creating content and displaying it on the front end.</p></summary>
+            <title handle="say-hello-to-the-world">Say Hello to the World</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33320">
+            <concepts>
+                <item id="33144" handle="field-types" section-handle="concepts" section-name="Concepts">Field Types</item>
+                <item id="33065" handle="fields" section-handle="concepts" section-name="Concepts">Fields</item>
+                <item id="33074" handle="navigation-groups" section-handle="concepts" section-name="Concepts">Navigation Groups</item>
+                <item id="33064" handle="sections" section-handle="concepts" section-name="Concepts">Sections</item>
+            </concepts>
+            <description mode="formatted"><p>In Symphony, you create <a rel="concept">sections</a> to define and model the content you're going to be managing. When you log in, you'll be looking at an empty sections index (<a rel="figure" href="hello-world-sections-index">Figure 1</a>), because there aren't any content types defined yet. Let's remedy that.</p>
+<p>Click the green <strong>Create New</strong> button in the top right corner of the page. You'll be taken to the section editor (<a rel="figure" href="section-editor">Figure 2</a>).</p>
+<p>Let's start with the first subsection, labeled Essentials. Since we're going to be saying "Hello" to the world, let's call our section "Greetings". Enter <code>Greetings</code> into the Name field. The default Navigation Group, <code>Content</code>, is fine for the time being. </p>
+<p>Below that is a subsection labeled Fields. If you click the select menu you'll see a list of core <a rel="concept">field types</a> that you can add to a section to model your content. For now, all we want to manage is simple greetings, so let's add a basic text field. Select "Text Input" and click <strong>Add Item.</strong></p>
+<p>A text input field has been dynamically added to your section, and you can now configure its settings. Let's give the field a Label of <code>Greeting Text</code>, and tick the "Make this a required field" box, to prevent empty entries. the rest of the settings can keep their default values. Click <strong>Create Section</strong>.</p>
+<p>You'll see a screen that looks like Figure 3:</p>
+<p><img src="hello-world-section-created"/></p>
+<p>Note that you've got a new item in your menu, called "Content." This is taken from your section's <a rel="concept" href="navigation-groups">navigation group</a> setting. If you hover over the menu item, you'll see your new Greetings section listed. This is where you manage your section's entries. Click it.</p>
+<p>Let's very quickly create a couple of test entries. Click the green "Create New" button at the top right corner of the page. You'll see a very simple entry form containing the Greeting Text field we set up (<a rel="figure" href="hello-world-entry-creation">Figure 4</a>). Enter <code>Hello World!</code> and click <strong>Create Entry</strong>. A green status message will appear at the top of your screen telling you that your entry's been saved. Click the <strong>Create Another</strong> link. As a tribute to Symphony's Australian roots, enter <code>G'day World!</code> and click <strong>Create Entry</strong>.</p>
+<p>Navigate back out to <strong>Content > Greetings</strong>. You should see your two entries listed there (<a rel="figure" href="hello-world-entries-created">Figure 5</a>). Now that we've got some content in the system, let's see about getting it to the front end.</p></description>
+            <name handle="model-the-content">Model the Content</name>
+            <resources>
+                <item id="33125" handle="section-editor" section-handle="resources" section-name="Resources">Section Editor</item>
+                <item id="33321" handle="hello-world-sections-index" section-handle="resources" section-name="Resources">Hello World: Sections Index</item>
+                <item id="33322" handle="hello-world-section-created" section-handle="resources" section-name="Resources">Hello World: Section Created</item>
+                <item id="33323" handle="hello-world-entry-creation" section-handle="resources" section-name="Resources">Hello World: Entry Creation</item>
+                <item id="33324" handle="hello-world-entries-created" section-handle="resources" section-name="Resources">Hello World: Entries Created</item>
+            </resources>
+            <step-number>1</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="33125" tutorials="0" tutorial-steps="2">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="31 KB" path="/assets/learn" type="image/png">
+                    <filename>sections-new-1258686376.png</filename>
+                    <meta creation="2009-11-27T22:59:29+10:00" width="1024" height="626" />
+                </image>
+                <note mode="formatted"><p>The default screen when creating a new section.</p></note>
+                <title handle="section-editor">Section Editor</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33321" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>Yes</hide>
+                <image size="23 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-1-1258917797.png</filename>
+                    <meta creation="2009-11-23T05:23:17+10:00" width="1024" height="625" />
+                </image>
+                <note mode="formatted"><p>A clean install of Symphony has no predefined content types. You get a blank slate.</p></note>
+                <title handle="hello-world-sections-index">Hello World: Sections Index</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33322" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="52 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-2-1258930485.png</filename>
+                    <meta creation="2009-11-23T09:12:50+10:00" width="1008" height="649" />
+                </image>
+                <link-text handle="your-new-greetings-section">Your New Greetings Section</link-text>
+                <note mode="formatted"><p>After successfully creating your Greetings section, it is added to your menu under the appropriate navigation group.</p></note>
+                <title handle="hello-world-section-created">Hello World: Section Created</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33323" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>Yes</hide>
+                <image size="19 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-3-1258930868.png</filename>
+                    <meta creation="2009-11-23T09:01:08+10:00" width="1024" height="708" />
+                </image>
+                <note mode="formatted"><p>The entry editor for your Greetings section contains only the Greeting Text field you added when you created the section.</p></note>
+                <title handle="hello-world-entry-creation">Hello World: Entry Creation</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33324" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>Yes</hide>
+                <image size="24 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-4-1258930947.png</filename>
+                    <meta creation="2009-11-23T09:02:27+10:00" width="1024" height="708" />
+                </image>
+                <note mode="formatted"><p>Your Greetings section index now has some entries in it.</p></note>
+                <title handle="hello-world-entries-created">Hello World: Entries Created</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33320">
+            <name handle="model-the-content">Model the Content</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="33325">
+            <name handle="set-up-the-front-end">Set up the Front End</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="33330">
+            <name handle="grab-the-data">Grab the Data</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="51185">
+            <name handle="build-the-template">Build the Template</name>
+            <step-number>4</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

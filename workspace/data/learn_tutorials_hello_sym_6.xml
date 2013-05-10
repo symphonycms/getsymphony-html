@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="38013" tutorial-steps="8">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Before we end the tutorial, let's add a few finishing flourishes, shall we?</p>
+<p>Open your "master.xsl" utility (you should know where it is by now), and in the root template (<code>&lt;xsl:template match="/"&gt;</code>), after <code>&lt;xsl:apply-templates /&gt;</code>, add the following:</p>
+<pre><code>&lt;p id="site-info"&gt;Psst&amp;#8230; Are you in love with Symphony yet?&lt;/p&gt;
+</code></pre>
+<p>That'll give your site a nice little footer.</p>
+<p>Finally, if you've got a Twitter account, <a href="http://bit.ly/hm8Gio">click here</a> to add your tweet to the #HelloSymphony stream. After about two minutes, reload your home page and you should see your tweet in the "Tweetings" list.</p>
+<p>Now exhale. You're done!</p>
+<p>You've just whipped up a pretty full-featured website. Give yourself a pat on the back. There's no sequel to this tutorial, so feel free to tinker away with the site you've built. Here are a few suggestions:</p>
+<ul><li>Extend your Greetings section even further, and then pull the new content through to your various front-end views. Don't forget to update your submission form.</li>
+<li>Create a view that allows you to browse greetings by language</li>
+<li>Pull in another external feed... maybe your Flickr photos or the latest <a href="http://www.getsymphony.com/get-involved/feeds/tutorials/">Symphony tutorials</a></li>
+</ul></conclusion>
+            <date-modified time="21:12" weekday="3">2010-02-10</date-modified>
+            <date-published time="21:12" weekday="3">2010-02-10</date-published>
+            <introduction mode="formatted"><p>In the <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">Hello World</a> tutorial, you got a peek at the most basic of Symphony workflows. Here, we'll expand on that, introducing you to the system more thoroughly and demonstrating some of its most useful features.</p>
+<p>We'll be building on top of the simple site we created in the previous tutorial, so if you haven't completed that yet, take a few minutes to <a href="http://www.getsymphony.com/learn/tutorials/view/say-hello-to-the-world/">do that now</a>. Little by little, we'll enhance that site to show you some of the key features and workflows you'll need to understand in order to use Symphony for your own projects.</p>
+<p>By the time we're done, you'll have a feature-packed site—with intelligent and dynamic templating, error handling, front-end submission, RSS output, Twitter integration, and more.</p>
+<p>Excited yet?</p></introduction>
+            <resources>
+                <item id="38030" handle="hello-symphony-final-product" section-handle="resources" section-name="Resources">Hello Symphony: Final Product</item>
+            </resources>
+            <summary mode="formatted"><p>In this "Hello World" follow-up, we build out a full-featured site, with front-end submission, an RSS feed, Twitter integration, and more.</p></summary>
+            <title handle="say-hello-to-symphony">Say Hello to Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38030" tutorials="1" tutorial-steps="0">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="104 KB" path="/assets/learn" type="image/png">
+                    <filename>finished-product-1264827790.png</filename>
+                    <meta creation="2010-01-30T15:03:10+10:00" width="1007" height="1156" />
+                </image>
+                <link-text handle="the-final-product">The Final Product</link-text>
+                <note mode="formatted"><p>The final product of the Hello Symphony tutorial.</p></note>
+                <title handle="hello-symphony-final-product">Hello Symphony: Final Product</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38036">
+            <description mode="formatted"><p>Front-end submission is a common requirement for websites small and large, from simple contact forms to blog comments. With Symphony, you can use <a rel="concept">events</a> to allow visitors to submit to <em>any</em> section. What we want to do here is enable the submission of new greetings from our "Add a Greeting" page.</p>
+<h5>6.1. Create Your Greeting Submission Event</h5>
+<p>Go to <strong>Blueprints > Events</strong> and click the green <strong>Create New</strong> button. You'll be taken to Symphony's <a rel="concept" href="events#event-editor">event editor</a>. Let's Name our event <code>Submit Greeting</code>, and select "Greetings" as the source. We don't need to bother with filters right now, but you can learn more about <a rel="concept">event filters</a> if you're interested. Click <strong>Create Event</strong>.</p>
+<p>Once your new event is created, Symphony outputs a whole bunch of information intended to help you set up your event on the front end (<a rel="figure" href="hello-symphony-event-editor">Figure 9</a>). It shows you what XML the event will output (whether it executes successfully or results in failure), and even provides example front-end form markup. We'll use this information to craft our greeting submission form.</p>
+<h5>6.2. Add Submission Form Markup to your Page Template</h5>
+<p>Go to <strong>Blueprints > Pages</strong> and in the Template column, click "add.xsl". Replace the existing Body content with this stylesheet:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:include href="../utilities/master.xsl" /&gt;
+&lt;xsl:template match="data"&gt;
+    &lt;form method="post" action="" enctype="multipart/form-data"&gt;
+        &lt;input name="MAX_FILE_SIZE" type="hidden" value="5242880" /&gt;
+        &lt;h2&gt;Leave Your Greeting Here&lt;/h2&gt;
+        &lt;xsl:apply-templates select="events/submit-greeting"/&gt;
+        &lt;label&gt;Greeting Title&lt;/label&gt;
+        &lt;input name="fields[greeting-title]" type="text" /&gt;
+        &lt;label&gt;Language&lt;/label&gt;
+        &lt;select name="fields[language]"&gt;
+            &lt;option value="Chinese"&gt;Chinese&lt;/option&gt;
+            &lt;option value="Spanish"&gt;Spanish&lt;/option&gt;
+            &lt;option value="English"&gt;English&lt;/option&gt;
+            &lt;option value="Arabic"&gt;Arabic&lt;/option&gt;
+            &lt;option value="Hindi"&gt;Hindi&lt;/option&gt;
+            &lt;option value="Bengali"&gt;Bengali&lt;/option&gt;
+            &lt;option value="Portuguese"&gt;Portuguese&lt;/option&gt;
+            &lt;option value="Russian"&gt;Russian&lt;/option&gt;
+            &lt;option value="Japanese"&gt;Japanese&lt;/option&gt;
+            &lt;option value="German"&gt;German&lt;/option&gt;
+            &lt;option value="Javanese"&gt;Javanese&lt;/option&gt;
+            &lt;option value="Punjabi"&gt;Punjabi&lt;/option&gt;
+            &lt;option value="Wu"&gt;Wu&lt;/option&gt;
+            &lt;option value="Telugu"&gt;Telugu&lt;/option&gt;
+            &lt;option value="Vietnamese"&gt;Vietnamese&lt;/option&gt;
+            &lt;option value="Marathi"&gt;Marathi&lt;/option&gt;
+            &lt;option value="French"&gt;French&lt;/option&gt;
+            &lt;option value="Korean"&gt;Korean&lt;/option&gt;
+            &lt;option value="Tamil"&gt;Tamil&lt;/option&gt;
+            &lt;option value="Italian"&gt;Italian&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label&gt;Greeting Content&lt;/label&gt;
+        &lt;textarea name="fields[greeting-content]" rows="15" cols="50"&gt;&lt;/textarea&gt;
+        &lt;input name="fields[date]" type="hidden" value="{$today} {$current-time}" /&gt;
+        &lt;input name="action[submit-greeting]" type="submit" id="submit" value="Submit" /&gt;
+    &lt;/form&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template match="events/submit-greeting"&gt;
+    &lt;p&gt;
+        &lt;xsl:attribute name="class"&gt;&lt;xsl:value-of select="@result"/&gt;&lt;/xsl:attribute&gt;
+        &lt;xsl:value-of select="message"/&gt;
+    &lt;/p&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+<p>We're using a slightly modified version of the form markup Symphony suggested for us. One thing we've added here is:</p>
+<pre><code>&lt;xsl:apply-templates select="events/submit-greeting"/&gt;
+</code></pre>
+<p>This, along with the corresponding <code>&lt;xsl:template&gt;</code> at the bottom, will take the event XML returned by Symphony when our form is submitted and format the result message as a paragraph, giving users some indication of how their submission went. The other thing we've done is hidden the date field, and used some of Symphony's internal system parameters to autopopulate it (<code>value="{$today} {$current-time}"</code>). This will save our users the extra step of entering a date.</p>
+<p>Save your changes and visit <code>http://your-site.com/add</code>. You should see our simple form. Before we can test it, though, we'll just have to attach the "Submit Greeting" event we created above to our page. Back in the template editor, click the blue <strong>Edit Configuration</strong> button at the top right. In the Events multiselect, select our "Submit Greeting" event and save your changes.</p>
+<h5>6.3. Test by Adding a New Greeting from the Front End</h5>
+<p>Now we can test our form out. Go to your "Add a Greeting" page (<code>http://your-site.com/add</code>). In the form, enter the Title <code>Salut le Monde!</code>, choose "French" from the language dropdown, and paste the following into the Greeting Content textarea:</p>
+<pre><code>Je vous présente Eduoard, qui à l'instant descend les escaliers, tac, tac, tac, sur sa tête, derrière Jean-Christophe. C'est, d'autant qu'il s'en souvienne, la seule manière de descendre les escaliers, bien qu'il ait parfois l'impression qu'il y a une autre manière, si il pouvait arrêter de faire tacoter pour bien y réfléchir.
+</code></pre>
+<p>Click "Submit". You should see a paragraph telling you that your entry has been created successfully:</p>
+<p><img src="hello-symphony-form-submission"/></p>
+<p>Click "View Greetings" and you should see your new greeting on the home page. You're now able to accept entry submissions from your front end!</p></description>
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <resources>
+                <item id="38025" handle="hello-symphony-event-editor" section-handle="resources" section-name="Resources">Hello Symphony: Event Editor</item>
+                <item id="38026" handle="hello-symphony-form-submission" section-handle="resources" section-name="Resources">Hello Symphony: Form Submission</item>
+            </resources>
+            <step-number>6</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="38026" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="37 KB" path="/assets/learn" type="image/png">
+                    <filename>10-post-event-1264827457.png</filename>
+                    <meta creation="2010-01-30T14:57:37+10:00" width="1178" height="815" />
+                </image>
+                <link-text handle="your-working-front-end-form">Your Working Front-end Form</link-text>
+                <note mode="formatted"><p>When the form is submitted, the event status XML is captured and displayed.</p></note>
+                <title handle="hello-symphony-form-submission">Hello Symphony: Form Submission</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="38025" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="98 KB" path="/assets/learn" type="image/png">
+                    <filename>09-event-editor-1264826920.png</filename>
+                    <meta creation="2010-01-30T14:48:40+10:00" width="1007" height="1623" />
+                </image>
+                <link-text handle="your-submit-greeting-event">Your Submit Greeting Event</link-text>
+                <note mode="formatted"><p>After creating your event, Symphony gives you lots of information to help you set it up on the front end.</p></note>
+                <title handle="hello-symphony-event-editor">Hello Symphony: Event Editor</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="38031">
+            <name handle="extend-your-greetings-section">Extend Your Greetings Section</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="38032">
+            <name handle="create-a-master-layout-utility">Create a Master Layout Utility</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="38033">
+            <name handle="add-a-dynamic-navigation-menu">Add a Dynamic Navigation Menu</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="38034">
+            <name handle="create-an-individual-entry-view">Create an Individual Entry View</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="38035">
+            <name handle="optimize-page-handling">Optimize Page Handling</name>
+            <step-number>5</step-number>
+        </entry>
+        <entry id="38036">
+            <name handle="enable-front-end-submission">Enable Front-End Submission</name>
+            <step-number>6</step-number>
+        </entry>
+        <entry id="38037">
+            <name handle="create-an-rss-feed">Create an RSS Feed</name>
+            <step-number>7</step-number>
+        </entry>
+        <entry id="38038">
+            <name handle="integrate-a-twitter-feed">Integrate a Twitter Feed</name>
+            <step-number>8</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

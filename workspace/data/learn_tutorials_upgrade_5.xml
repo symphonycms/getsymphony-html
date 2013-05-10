@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="59169" tutorial-steps="5">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author handle="jonasd">jonasd</author>
+            <conclusion mode="formatted" />
+            <date-modified time="12:38" weekday="1">2011-01-10</date-modified>
+            <date-published time="12:38" weekday="1">2011-01-10</date-published>
+            <introduction mode="formatted"><p>Your site might be humming along just fine, but nobody likes an outdated Symphony (excepting Beethoven fans.) For the best security and stability, you need to be running the newest release available. </p>
+<p>Upgrading is generally quite simple, but your particular approach depends on how you installed Symphony, and what you’ve done with it since. </p></introduction>
+            <summary mode="formatted"><p>One-up your favorite CMS in five easy steps.</p></summary>
+            <title handle="upgrade-symphony">Upgrade Symphony</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="59174">
+            <description mode="formatted"><p>Post-upgrade, Symphony may report additional notes or instructions about your site's status — make a note of this if anything appears out of the ordinary. Otherwise, have a look around your site and see if anything is amiss, and report any problems or questions in <a href="http://getsymphony.com/discuss/">the forum</a>. Happy upgrading!</p></description>
+            <name handle="test">Test!</name>
+            <step-number>5</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="59170">
+            <name handle="backup-and-prepare">Backup and Prepare</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="59171">
+            <name handle="determine-upgrade-method">Determine Upgrade Method</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="59172">
+            <name handle="update-files">Update Files</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="59173">
+            <name handle="run-the-updater">Run the updater</name>
+            <step-number>4</step-number>
+        </entry>
+        <entry id="59174">
+            <name handle="test">Test!</name>
+            <step-number>5</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>

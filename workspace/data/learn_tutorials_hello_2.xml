@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-tutorial-view>
+        <section id="59" handle="tutorials">Tutorials</section>
+        <entry id="33102" tutorial-steps="4">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+            </audiences>
+            <conclusion mode="formatted"><p>Congratulations! In just a few short minutes you&#8217;ve managed to model a content type, whip up some sample entries, create a front-end page, deliver your entries to the front end, and write a template to turn your data into XHTML. Hopefully in the process you also got a sense of how powerful and flexible the system can be once you&#8217;ve truly mastered all of the basics.</p>
+<p>In the next tutorial, <a rel="tutorial" href="say-hello-to-symphony">&#8220;Say Hello to Symphony&#8221;</a>, you&#8217;ll begin to unlock some of that potential with <a rel="concept">data source filters</a>, <a rel="concept">parameters</a>, <a rel="concept">events</a>, <a rel="concept">utilities</a>, and much more.</p></conclusion>
+            <date-modified time="11:42" weekday="6">2009-11-21</date-modified>
+            <date-published time="11:42" weekday="6">2009-11-21</date-published>
+            <introduction mode="formatted"><p>Here it is, folks. The obligatory &#8220;Hello World&#8221; tutorial. In it, you&#8217;ll be introduced to the most fundamental Symphony workflow: modeling data and channeling it to your front end. That&#8217;s it. No bells and whistles. Four simple steps. Just enough to whet your appetite. A follow-up tutorial will pick up where this one leaves off, demonstrating a few more advanced techniques.</p>
+<p>This tutorial assumes you&#8217;ve already got a clean install of Symphony up and running. If you haven&#8217;t, go ahead and <a rel="tutorial" href="install-symphony">install it now</a> (don&#8217;t include the default workspace).</p>
+<p>Now log in to the <a rel="concept">admin interface</a>. You there? Ok let&#8217;s go&#8230;</p></introduction>
+            <summary mode="formatted"><p>The &#8220;Hello World&#8221; tutorial introduces you to the most basic Symphony workflow: creating content and displaying it on the front end.</p></summary>
+            <title handle="say-hello-to-the-world">Say Hello to the World</title>
+        </entry>
+    </learn-tutorial-view>
+    <learn-tutorial-resources>
+        <section id="64" handle="resources">Resources</section>
+        <error>No records found.</error>
+    </learn-tutorial-resources>
+    <learn-tutorial-step>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33325">
+            <description mode="formatted"><p>Your Symphony project hasn't got a front end yet. If you try to point your browser to the location where you've installed it, you'll see a generic "Page Not Found" error. Let's fix that. </p>
+<p>In the main menu, go to <strong>Blueprints > Pages</strong>. You'll see an empty page index (<a rel="figure" href="hello-world-empty-pages-index">Figure 1</a>). Click the green <strong>Create New</strong> button in the top right corner of the screen. You'll be taken to the <a rel="concept" href="pages#page-editor">page editor</a>.</p>
+<p>We'll set up a simple home page. Enter <code>Home</code> in the Title field and <code>home</code> as the URL Handle. Leave URL Parameters blank, and skip the Parent Page field too. Under Page Type, click "index". This will populate the field automatically for us. Giving our page the <code>index</code> field type means it will be served as our site's home or index page. Here's what our page setup looks like:</p>
+<p><img src="hello-world-home-page-configuration"/></p>
+<p>Got it? Ok, click "Create Page." Now, if you try to visit your front end, you'll see that the "Page Not Found" error is gone, but there's an XSLT Processing Error in its place. Don't worry, it just means that Symphony is trying to serve your Home page, but it's got no data and no template to work with.</p>
+<p>Let's go create a <a rel="concept" href="data-sources">data source</a> to deliver some content to our page.</p></description>
+            <name handle="set-up-the-front-end">Set up the Front End</name>
+            <resources>
+                <item id="33326" handle="hello-world-empty-pages-index" section-handle="resources" section-name="Resources">Hello World: Empty Pages Index</item>
+                <item id="33327" handle="hello-world-home-page-configuration" section-handle="resources" section-name="Resources">Hello World: Home Page Configuration</item>
+            </resources>
+            <step-number>2</step-number>
+        </entry>
+    </learn-tutorial-step>
+    <learn-tutorial-step-resources>
+        <section id="64" handle="resources">Resources</section>
+        <type handle="screenshot" value="Screenshot">
+            <entry id="33327" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>No</hide>
+                <image size="32 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-6-1258935033.png</filename>
+                    <meta creation="2009-11-23T10:10:33+10:00" width="1009" height="652" />
+                </image>
+                <link-text handle="your-home-page-configuration">Your Home Page Configuration</link-text>
+                <note mode="formatted"><p>Configuration settings for a very simple home page.</p></note>
+                <title handle="hello-world-home-page-configuration">Hello World: Home Page Configuration</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+            <entry id="33326" tutorials="0" tutorial-steps="1">
+                <code mode="formatted" />
+                <hide>Yes</hide>
+                <image size="22 KB" path="/assets/learn" type="image/png">
+                    <filename>hello-world-5-1258934920.png</filename>
+                    <meta creation="2009-11-23T10:08:40+10:00" width="1024" height="626" />
+                </image>
+                <note mode="formatted"><p>A clean install of Symphony doesn&#8217;t have any front-end pages defined.</p></note>
+                <title handle="hello-world-empty-pages-index">Hello World: Empty Pages Index</title>
+                <type>
+                    <item handle="screenshot">Screenshot</item>
+                </type>
+            </entry>
+        </type>
+    </learn-tutorial-step-resources>
+    <learn-tutorial-steps>
+        <section id="60" handle="tutorial-steps">Tutorial Steps</section>
+        <entry id="33320">
+            <name handle="model-the-content">Model the Content</name>
+            <step-number>1</step-number>
+        </entry>
+        <entry id="33325">
+            <name handle="set-up-the-front-end">Set up the Front End</name>
+            <step-number>2</step-number>
+        </entry>
+        <entry id="33330">
+            <name handle="grab-the-data">Grab the Data</name>
+            <step-number>3</step-number>
+        </entry>
+        <entry id="51185">
+            <name handle="build-the-template">Build the Template</name>
+            <step-number>4</step-number>
+        </entry>
+    </learn-tutorial-steps>
+</data>
