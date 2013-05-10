@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-faqs>
+        <section id="65" handle="faqs">FAQs</section>
+        <category handle="about-symphony" value="About Symphony">
+            <entry id="33362">
+                <answer mode="formatted"><p>A key principle in Symphony&#8217;s <a href="/learn/articles/view/the-tao-of-symphony/">development philosophy</a> is simplicity. We leave all non-essential functions out of the core system, allowing them to be re-integrated as extensions. This keeps Symphony development agile, makes the system as flexible as possible, and benefits the broadest number of users.</p>
+<p>If the feature you&#8217;re looking for can&#8217;t be found in our <a href="/download/extensions/">extensions library</a>, you can find out in the <a href="/discuss/">forum</a> if anyone is working on it. If not, maybe <em>you</em> can build it!</p></answer>
+                <category>
+                    <item handle="about-symphony">About Symphony</item>
+                </category>
+                <question handle="why-doesnt-symphony-include-such-and-such-feature">Why doesn't Symphony include such-and-such feature?</question>
+            </entry>
+            <entry id="33367">
+                <answer mode="formatted"><p>Symphony is frequently used for enterprise-class systems, from Government properties to broadcast-critical infrastructure delivering millions of large-object requests/hour.</p></answer>
+                <category>
+                    <item handle="about-symphony">About Symphony</item>
+                </category>
+                <question handle="is-symphony-viable-for-very-large-high-demand-projects">Is Symphony viable for very large, high-demand projects?</question>
+            </entry>
+        </category>
+        <category handle="installation" value="Installation">
+            <entry id="33363">
+                <answer mode="formatted"><p>We&#8217;ve got an <a href="/learn/tutorials/view/install-symphony">excellent tutorial</a> that will walk your through the process step-by-step.</p></answer>
+                <category>
+                    <item handle="installation">Installation</item>
+                </category>
+                <question handle="how-do-i-install-symphony">How do I install Symphony?</question>
+            </entry>
+            <entry id="33134">
+                <answer mode="formatted"><p>Unfortunately not. The database structure, and Symphony&#8217;s XML structure and XSLT implementation, have all undergone significant changes which make these two versions incompatible.</p>
+<p>If Symphony 2 offers substantial reasons for you to upgrade, it might be worthwhile creating a new website with S2 and then manually importing your old data with an SQL export. This could take a lot of work, but in future we might be able to offer an importer script to help streamline this process.</p></answer>
+                <category>
+                    <item handle="installation">Installation</item>
+                </category>
+                <question handle="can-i-upgrade-from-version-17-to-2x">Can I upgrade from version 1.7 to 2.x?</question>
+            </entry>
+        </category>
+        <category handle="learning-the-system" value="Learning the System">
+            <entry id="33131">
+                <answer mode="formatted"><p>XSLT is the language of choice for Symphony development, so you should be prepared to learn at least a little. We&#8217;re working hard on the <a href="/learn/concepts/view/xslt">XSLT resources</a> in our documentation.</p></answer>
+                <category>
+                    <item handle="learning-the-system">Learning the System</item>
+                </category>
+                <question handle="how-much-xslt-do-i-need-to-know-in-order-to-use-symphony">How much XSLT do I need to know in order to use Symphony?</question>
+            </entry>
+        </category>
+        <category handle="symphony-techniques" value="Symphony Techniques">
+            <entry id="33365">
+                <answer mode="formatted"><p>You want to read up on Allen&#8217;s famous <a href="/learn/articles/view/html-ninja-technique">Ninja Technique</a> for manipulating HTML output.</p></answer>
+                <category>
+                    <item handle="symphony-techniques">Symphony Techniques</item>
+                </category>
+                <question handle="how-can-i-manipulate-particular-elements-in-my-source-html">How can I manipulate particular elements in my source HTML?</question>
+            </entry>
+        </category>
+        <category handle="other-questions" value="Other Questions">
+            <entry id="33135">
+                <answer mode="formatted"><p>By far the most active gathering of Symphony users is the <a href="/discuss/">forum</a> on this very site. There is also an IRC channel (symphony on irc.freenode.net), and quite a few of us are on Twitter nowadays too. An <a href="http://twitter.com/TheJester12/symphony-cms-users">unofficial Twitter list</a> is maintained by one of our community members, and the <a href="http://search.twitter.com/search?q=%23symphonycms">#symphonycms</a> hashtag is also widely used.</p></answer>
+                <category>
+                    <item handle="other-questions">Other Questions</item>
+                </category>
+                <question handle="where-can-i-talk-to-other-symphony-users">Where can I talk to other Symphony users?</question>
+            </entry>
+            <entry id="33132">
+                <answer mode="formatted"><p>Everything that was on Overture (the old Symphony community site, prior to Symphony 2) has moved to <a href="http://archive.overture21.com/">http://archive.overture21.com/</a>, including the old forum and wiki.</p></answer>
+                <category>
+                    <item handle="other-questions">Other Questions</item>
+                </category>
+                <question handle="where-can-i-find-information-from-the-old-overture-site">Where can I find information from the old Overture site?</question>
+            </entry>
+            <entry id="33136">
+                <answer mode="formatted"><p>For anything super-urgent, you can contact us using our <a href="/get-support/contact/">contact form</a>.</p></answer>
+                <category>
+                    <item handle="other-questions">Other Questions</item>
+                </category>
+                <question handle="how-can-i-get-in-touch-with-the-symphony-team">How can I get in touch with the Symphony team?</question>
+            </entry>
+        </category>
+    </learn-faqs>
+</data>

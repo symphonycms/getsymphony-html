@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-faqs>
+        <section id="65" handle="faqs">FAQs</section>
+        <category handle="about-symphony" value="About Symphony">
+            <entry id="33367">
+                <answer mode="formatted"><p>Symphony is frequently used for enterprise-class systems, from Government properties to broadcast-critical infrastructure delivering millions of large-object requests/hour.</p></answer>
+                <category>
+                    <item handle="about-symphony">About Symphony</item>
+                </category>
+                <question handle="is-symphony-viable-for-very-large-high-demand-projects">Is Symphony viable for very large, high-demand projects?</question>
+            </entry>
+        </category>
+        <category handle="installation" value="Installation">
+            <entry id="33133">
+                <answer mode="formatted"><p>On <a href="http://github.com/symphony/symphony-2/tree/master">Github</a>, of course! Make a note of the special installation instructions for installing from the git repository.</p></answer>
+                <category>
+                    <item handle="installation">Installation</item>
+                </category>
+                <question handle="where-can-i-find-the-development-version-of-symphony">Where can I find the development version of Symphony?</question>
+            </entry>
+            <entry id="33134">
+                <answer mode="formatted"><p>Unfortunately not. The database structure, and Symphony&#8217;s XML structure and XSLT implementation, have all undergone significant changes which make these two versions incompatible.</p>
+<p>If Symphony 2 offers substantial reasons for you to upgrade, it might be worthwhile creating a new website with S2 and then manually importing your old data with an SQL export. This could take a lot of work, but in future we might be able to offer an importer script to help streamline this process.</p></answer>
+                <category>
+                    <item handle="installation">Installation</item>
+                </category>
+                <question handle="can-i-upgrade-from-version-17-to-2x">Can I upgrade from version 1.7 to 2.x?</question>
+            </entry>
+        </category>
+        <category handle="other-questions" value="Other Questions">
+            <entry id="33135">
+                <answer mode="formatted"><p>By far the most active gathering of Symphony users is the <a href="/discuss/">forum</a> on this very site. There is also an IRC channel (symphony on irc.freenode.net), and quite a few of us are on Twitter nowadays too. An <a href="http://twitter.com/TheJester12/symphony-cms-users">unofficial Twitter list</a> is maintained by one of our community members, and the <a href="http://search.twitter.com/search?q=%23symphonycms">#symphonycms</a> hashtag is also widely used.</p></answer>
+                <category>
+                    <item handle="other-questions">Other Questions</item>
+                </category>
+                <question handle="where-can-i-talk-to-other-symphony-users">Where can I talk to other Symphony users?</question>
+            </entry>
+            <entry id="33132">
+                <answer mode="formatted"><p>Everything that was on Overture (the old Symphony community site, prior to Symphony 2) has moved to <a href="http://archive.overture21.com/">http://archive.overture21.com/</a>, including the old forum and wiki.</p></answer>
+                <category>
+                    <item handle="other-questions">Other Questions</item>
+                </category>
+                <question handle="where-can-i-find-information-from-the-old-overture-site">Where can I find information from the old Overture site?</question>
+            </entry>
+            <entry id="33136">
+                <answer mode="formatted"><p>For anything super-urgent, you can contact us using our <a href="/get-support/contact/">contact form</a>.</p></answer>
+                <category>
+                    <item handle="other-questions">Other Questions</item>
+                </category>
+                <question handle="how-can-i-get-in-touch-with-the-symphony-team">How can I get in touch with the Symphony team?</question>
+            </entry>
+        </category>
+        <category handle="contributing" value="Contributing">
+            <entry id="33368">
+                <answer mode="formatted"><p>Developers are encouraged to create <a rel="concept">ensembles</a> that showcase the flexibility of Symphony as a platform, build <a rel="concept">extensions</a> that bring new features to the system, and contribute to core by forking the <a href="http://github.com/symphony/symphony-2/tree/master">repository</a> from Github and helping to squash bugs from the <a href="/discuss/issues">issue tracker</a>.</p></answer>
+                <category>
+                    <item handle="contributing">Contributing</item>
+                </category>
+                <question handle="how-can-i-contribute-to-symphony">How can I contribute to Symphony?</question>
+            </entry>
+            <entry id="33366">
+                <answer mode="formatted"><p>Nope. We of course encourage developers to share their work with the community if they can, but we understand that&#8217;s not always possible. That why we adopted the ultra-permissive MIT/X11 license, so you can do whatever you want with your creations.</p></answer>
+                <category>
+                    <item handle="contributing">Contributing</item>
+                </category>
+                <question handle="does-symphony-impose-any-licensing-restrictions-on-developers">Does Symphony impose any licensing restrictions on developers?</question>
+            </entry>
+        </category>
+    </learn-faqs>
+</data>
