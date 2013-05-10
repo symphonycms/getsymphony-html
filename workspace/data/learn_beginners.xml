@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-guide>
+        <section id="63" handle="guides">Guides</section>
+        <entry id="33116">
+            <content><div class="subsection compound">
+    <h4>Welcome!</h4>
+    <p>We're thrilled that you've decided to get to know Symphony a little better. This guide will walk you through everything you need to know before you begin working on your first project. You'll get an overview of Symphony's unique approach to content management, a breakdown of how the system is structured, and a peek at some common workflows. Along the way, we'll point you in the direction of more in-depth tutorials and resources, and we'll conclude with suggestions on how to take your budding Symphony skills to the next level.</p>
+    <h4>Meet Symphony</h4>
+    <p>Symphony is a web-based content management system (CMS) that enables users to create and manage websites and web applications of <a href="/explore/showcase/">all shapes and sizes</a>&#8212;from the simplest of blogs to bustling news sites and feature-packed social networks. With Symphony, you can build just about <em>anything</em>, and that's what sets it apart from most other CMSs. Instead of making all kinds of assumptions about your content and what you'll be doing with it, Symphony gives you the tools to make those decisions for yourself.</p>
+    <p>From its very beginning, Symphony has been engineered around principles like openness, simplicity, and standards-compliance. This approach has resulted in a granular architecture that's easy to customize at every level, and a clean, minimal core that's high on efficiency and low on bloat. It's also led to the adoption of open standards like XML and XSLT, which make the system more transparent and free it from constraints common to other CMSs.</p>
+    <p>Thanks to its unique development philosophy, Symphony's been designed to ensure that you'll have complete control over all aspects of your project, from the data model to the presentation layer and everything in between.</p>
+    <ul class="further-reading">
+        <li>To learn more about the principles that guide Symphony's development, see <a rel="article" href="the-tao-of-symphony">"The Tao of Symphony"</a>.</li>
+        <li>To start experimenting with a working copy, go ahead and <a rel="tutorial" href="install-symphony">"Install Symphony"</a>.</li>
+    </ul>
+    <h4>Understanding Symphony</h4>
+    <p>Symphony, as we've seen, is engineered to be immanently flexible. It allows you to define the types of content you'll manage, the structures that will deliver that content to the front end, and the templates that will transform it into various formats for your users. Because Symphony gives you complete control over these fundamental building blocks, you could say it's as much a content management <em>framework</em> as it is a CMS. In some senses, every Symphony project is a custom CMS of its very own.</p>
+    <p>How does this work? Each layer of Symphony's content management infrastructure is comprised of distinct, fully configurable components. A project's content types are defined using <a rel="concept">sections</a> and <a rel="concept">fields</a>. Its <a rel="concept">pages</a> provide dynamic front-end interfaces for viewing and interacting with that content. <a rel="concept">Data sources</a> fetch and organize the content and deliver it to pages as XML, where <a rel="concept">page templates</a> and <a rel="concept">utilities</a> are applied to transform it into a desired format (HTML, for example). Advanced interactions, like data submission, can be enabled using <a rel="concept">events</a>.</p>
+    <p>If you're familiar with the <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Model-View-Controller</a>
+     (MVC) pattern, that can be a helpful way to think about Symphony's structure. In MVC terms, sections and fields would be the <em>model</em>, page templates and utilities would be the <em>view</em>, and pages, data sources, and events would be the <em>controller</em>. Symphony gives you all the power of an MVC framework, but with the ease-of-use and elegance of a web-based CMS.</p>
+    <ul class="further-reading">
+        <li>For a more in-depth tour of the system and how it works, see <strong>"Symphony Anatomy"</strong> (forthcoming).</li>
+        <li>To learn more about any of the system's specific components, explore the <a href="/learn/concepts/">concepts</a>
+         section.</li>
+    </ul>
+    <h4>Using Symphony</h4>
+    <p>For all its power and flexibility, using Symphony is remarkably easy. Let's walk through a fairly common use case: the blog. You'd start by creating a section called, say, "Blog Posts," and adding fields like "Title," "Body," and "Date." That quickly, you'd have modeled your first content type. After creating a test entry in Blog Posts, you'd want to be able to see it on the front end. So you'd create a page called "View Blog Post" with a URL handle of <code>post</code>, and configure it to accept a <a rel="concept" href="url-parameters">URL parameter</a> called "title." Next, you'd create a data source to fetch from Blog Posts the entry whose <code>title</code> field matched the title parameter set in the page's URL. Finally, you'd whip up a quick page template to display your data source's result. Then you could visit <code>http://yoursite.com/post/your-post-title</code> to view any Blog Post entry in the system. Pretty neat, huh? So simple and yet the possibilities are endless.</p>
+    <p>As you can imagine, though, because Symphony gives users and developers so much freedom, planning a project requires a more deliberate approach than many other CMSs. You'll need to design your own data models, thinking carefully about the structure of your content and how different types relate to one another. You'll have to draw up an architecture and URL schema for your front end. And you'll need to map out how you want your content to flow through the system.</p>
+    <p>It's quite a bit of work, but the reward is that you end up with a system that's finely-tuned to meet <em>your own specific needs</em>. The extra effort you spend now will save you countless hours in the future, since you won't be constantly fighting against the whims of a cookie-cutter system. And luckily Symphony's modular architecture lends itself to rapid prototyping and development, making it easy to start with something small and focused and then build out your project iteratively. In other words, though you're advised to plan well, Symphony is agile enough to roll with the punches whenever your plans change.</p>
+    <ul class="further-reading">
+        <li>Read more about <strong>"Planning a Symphony Project"</strong> (forthcoming)</li>
+        <li>Get a more detailed view of common <strong>"Symphony Workflows."</strong> (forthcoming)</li>
+    </ul>
+    <h4>Learning Symphony</h4>
+    <p>This guide has provided only the briefest of overviews&#8212;but it's hopefully enough that you'll feel comfortable poking around a bit. As with most software, experimentation is really the best way to learn Symphony. Our growing collection of <a href="/learn/beginners/">beginner tutorials</a>
+     is a great place to start.</p>
+    <p>Before you're ready to pursue a serious project, though, there are some additional bases you'll want to make sure you've covered:</p>
+    <ul class="further-reading">
+        <li>Get a good grasp on <strong>XSLT basics</strong> (article forthcoming) so you can write clean, elegant templates.</li> 
+        <li>Be sure you understand the various <a rel="concept">field types</a> available and how they work, so you can design a good data model.</li>
+        <li>Familiarize yourself with all the options available when creating <a rel="concept">data sources</a>, so you can be sure you're getting everything you need from your data.</li>
+        <li>Understand how <a rel="concept">parameters</a> work so you can keep your project lean and dynamic.</li>
+        <li>Know what <a href="/download/extensions/">extensions</a> are available. They can make your life a lot easier.</li>
+        <li><a href="/get-involved/member/new/">Register</a> and spend lots of time in the <a href="/discuss/">forum</a>. It's where most of your questions will get answered.</li>
+        <li>When you've got these fundamentals all figured out, learn how to go <a rel="article" href="beyond-the-basics">&#8220;Beyond the Basics&#8221;</a>.</li>
+    </ul>
+    <h4>What Next?</h4>
+    <p>The day will come when all of this information will have somehow been crammed into your brain, and you'll know Symphony so well that this Beginner's Guide will no longer be helpful. But fret not. For on that day, you'll have left the ranks of the beginners and noobs. You'll officially be a Symphony User. And, wouldn't you know it, there's a <a href="/learn/users/">guide for users</a>, too.</p>
+</div>
+<div class="subsection simple">
+    <h4>Important Concepts</h4>
+    <ul class="link-list">
+        <li><a href="/learn/concepts/view/sections/">Sections</a></li>
+        <li><a href="/learn/concepts/view/fields/">Fields</a></li>
+        <li><a href="/learn/concepts/view/data-sources/">Data Sources</a></li>
+        <li><a href="/learn/concepts/view/pages/">Pages</a></li>
+        <li><a href="/learn/concepts/view/utilities/">Utilities</a></li>
+        <li class="more-link"><a href="/learn/concepts/">All Concepts</a></li>
+    </ul>
+    <h4>Visual Overview</h4>
+    <p><a href="/workspace/assets/learn/visual-overview-1258682736.png" class="colorbox"><img src="/image/1/220/0/assets/learn/visual-overview-1258682736.png" alt="Symphony Visual Overview"/></a></p>
+</div></content>
+            <name handle="beginners-guide">Beginner's Guide</name>
+            <summary mode="formatted"><p>Everything you <strong>need to know</strong> to start building your first Symphony website.</p></summary>
+        </entry>
+    </learn-guide>
+    <learn-guides>
+        <section id="63" handle="guides">Guides</section>
+        <entry id="33116">
+            <audience>
+                <item handle="beginners">Beginners</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="beginners-guide">Beginner's Guide</name>
+        </entry>
+        <entry id="33104">
+            <audience>
+                <item handle="users">Users</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="users-guide">User's Guide</name>
+        </entry>
+        <entry id="33105">
+            <audience>
+                <item handle="developers">Developers</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="developers-guide">Developer's Guide</name>
+        </entry>
+    </learn-guides>
+</data>

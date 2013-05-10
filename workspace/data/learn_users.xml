@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-guide>
+        <section id="63" handle="guides">Guides</section>
+        <entry id="33104">
+            <content><div class="subsection compound">
+    <p><em>Note: This User's Guide, like the rest of the documentation, is a work in progress. Please be patient as we continue to polish it up and add content.</em></p>
+    <h4>Introduction</h4>
+    <p>This is a no-nonsense user's guide. There's no hand-holding, no laborious descriptions. If you're here, chances are you already know what you need to do, and you know (more or less) where to start. All you really want is a quick and easy reference, organized around the task you're trying to complete right now. And you're in luck, because here it is.</p>
+    <h4>Managing a Symphony Installation</h4>
+    <p><strong>Resources for:</strong> hosting, installing, upgrading, and migrating Symphony; installing and managing extensions; using Git and Github.</p>
+    <dl class="resource-list">
+        <dt>Concepts</dt>
+        <dd><a rel="concept">Ensembles</a> · <a rel="concept">Extensions</a> · <a rel="concept">Git</a> · <a rel="concept">Github</a> · <a rel="concept">Maintenance Mode</a> · <a rel="concept">Workspace</a></dd>
+        
+        <dt>Tutorials</dt>
+        <dd><a rel="tutorial">Install Symphony</a> · <strong>Upgrade Symphony</strong> (forthcoming) · <strong>Migrate Symphony</strong> (forthcoming)</dd>
+        
+        <dt>Helpful Extensions</dt>
+        <dd><a href="/download/extensions/view/20041/">Export Ensemble</a> · <a href="/download/extensions/view/20047/">Maintenance Mode</a> · <a href="/download/extensions/view/29645/">Localisation manager</a></dd>
+        
+        <dt>Other Resources</dt>
+        <dd><a href="/explore/compatible-hosts/">Compatible Hosts</a></dd>
+    </dl>
+    <h4>Designing Content Structures</h4>
+    <p><strong>Resources for:</strong> planning and modeling sections; designing back-end entry-publishing interface.</p>
+    <dl class="resource-list">
+        <dt>Concepts</dt>
+        <dd><a rel="concept">Sections</a> · <a rel="concept">Fields</a> · <a rel="concept">Field Types</a></dd>
+        
+        <dt>Helpful Extensions</dt>
+        <dd>Browse <a href="/download/extensions/field-types/">field type extensions</a> · Browse <a href="/download/extensions/text-formatters/">text formatter extensions</a></dd>
+    </dl>
+    <h4>Managing Content</h4>
+    <p><strong>Resources for:</strong> creating and managing entries.</p>
+    <dl class="resource-list">
+        <dt>Concepts</dt>
+        <dd><a rel="concept">Admin Interface</a> · <a rel="concept">Authors</a> · <a rel="concept">Entries</a> · <a rel="concept">Sections</a> · <a rel="concept">Navigation Groups</a></dd>
+        
+        <dt>Helpful Extensions</dt>
+        <dd><a href="/download/extensions/view/29862/">Duplicate entry</a> · <a href="/download/extensions/view/25332/">Populate Entries</a> · <a href="/download/extensions/view/23823/">Page Fields</a> · <a href="/download/extensions/view/20838/">Publish Filtering</a> · <a href="/download/extensions/view/20476/">Order Entries</a></dd>
+    </dl>
+    <h4>Working with Data</h4>
+    <p><strong>Resources for:</strong> designing data flow and interactions.</p>
+    <dl class="resource-list">
+        <dt>Concepts</dt>
+        <dd><a rel="concept">Data Sources</a> · <a rel="concept">Data Source Filters</a> · <a rel="concept">Data Source Chaining</a> · <a rel="concept">Data Source Output Parameters</a> · <a rel="concept">Parameters</a></dd>
+        
+        <dt>Helpful Extensions</dt>
+        <dd><a href="/download/extensions/view/20992/">Global Parameter Loader</a> · <a href="/download/extensions/view/20477/">Section Schemas</a></dd>
+    </dl>
+    <h4>Architecting a Front-End</h4>
+    <p><strong>Resources for:</strong> developing a front-end structure and URL schema; designing user interactions.</p>
+    <dl class="resource-list">
+        <dt>Concepts</dt>
+        <dd><a rel="concept">Pages</a> · <a rel="concept">Page Types</a> · <a rel="concept">URL Parameters</a> · <a rel="concept">Events</a> · <a rel="concept">Event Filters</a></dd>
+        
+        <dt>Helpful Extensions:</dt>
+        <dd><a href="/download/extensions/view/29632/">URL Segments</a> · <a href="/download/extensions/view/20740/">Global Resource Loader</a> · <a href="/download/extensions/view/22125/">EventEx</a> · <a href="/download/extensions/view/21129/">Session Monster</a> · <a href="/download/extensions/view/21131/">Cookie Monster</a> · <a href="/download/extensions/view/20052/">ReCAPTCHA</a> · <a href="/download/extensions/view/32606/">Sitemap Generator</a></dd>
+    </dl> 
+    <h4>Templating</h4>
+    <p><strong>Resources for:</strong> Designing an interface; creating front-end output; developing reusable code.</p>
+    <dl class="resource-list">
+        <dt>Concepts:</dt>
+        <dd><a rel="concept">Page Templates</a> · <a rel="concept">Utilities</a> · <a rel="concept">XSLT</a> · <a rel="concept">XPath</a></dd>
+        <dt>Articles</dt>
+        <dd><a rel="article">Combining Different Template Methods</a> · <a rel="article">HTML Ninja Technique</a></dd>
+        
+        <dt>Helpful Extensions</dt>
+        <dd><a href="/download/extensions/view/20046/">JIT Image Manipulation</a> · <a href="/download/extensions/view/31152/">Sass Helper</a> · <a href="/download/extensions/view/20039/">Breadcrumb</a></dd>
+    </dl>
+    <h4>Debugging, Testing, and Optimizing</h4>
+    <p><strong>Resources for:</strong> debugging and profiling.</p>
+    <dl class="resource-list">
+        <dt>Concepts:</dt>
+        <dd><a rel="concept">Devkits</a></dd>
+        <dt>Helpful Extensions</dt>
+        <dd><a href="/download/extensions/view/22543/">Firebug Profiler</a> · <a href="/download/extensions/view/26546/">A/B Split Test</a></dd>
+    </dl>
+</div>
+<div class="subsection simple">
+    <h4>Important Articles</h4>
+    <ul class="link-list">
+        <li><a rel="article">The Tao of Symphony</a></li>
+        <li>Symphony Anatomy (forthcoming)</li>
+        <li>Symphony Workflows (forthcoming)</li>
+        <li><a rel="article">Beyond the Basics</a></li>
+        <li class="more-link"><a href="/learn/articles/">All Articles</a></li>
+    </ul>
+</div></content>
+            <name handle="users-guide">User's Guide</name>
+            <summary mode="formatted"><p>The reference that magically turns newbies into <strong>seasoned Symphonists</strong>.</p></summary>
+        </entry>
+    </learn-guide>
+    <learn-guides>
+        <section id="63" handle="guides">Guides</section>
+        <entry id="33116">
+            <audience>
+                <item handle="beginners">Beginners</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="beginners-guide">Beginner's Guide</name>
+        </entry>
+        <entry id="33104">
+            <audience>
+                <item handle="users">Users</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="users-guide">User's Guide</name>
+        </entry>
+        <entry id="33105">
+            <audience>
+                <item handle="developers">Developers</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="developers-guide">Developer's Guide</name>
+        </entry>
+    </learn-guides>
+</data>

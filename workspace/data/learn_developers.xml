@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-guide>
+        <section id="63" handle="guides">Guides</section>
+        <entry id="33105">
+            <content><div class="subsection compound">
+    <p><em>Note: This Developer's Guide, like the rest of the documentation, is a work in progress. Please be patient as we continue to polish it up and add content.</em></p>
+    <h4>Welcome to the Symphony Developer Community</h4>
+    <p>Before you get started, you'll want to make sure you've reviewed Symphony's development philosophy, and are familiar with conventions and best practices.</p>
+    <dl class="resource-list">
+        
+        <dt>Articles</dt>
+        <dd><a rel="article">The Tao of Symphony</a> · <strong>Best Practices for Developers</strong> (forthcoming) · <a rel="article">Localisation in Symphony</a></dd>
+        
+    </dl>
+    <h4>Building Extensions</h4>
+    <p>More often than not, your work as a developer will go into creating and maintaining extensions. These resources should get you started.</p>
+    <dl class="resource-list">
+        <dt>Concepts</dt>
+        <dd><a rel="concept">Delegates</a> · <strong>Extension API</strong> (forthcoming) · <strong>Extension Drivers</strong> (forthcoming) · <a rel="concept">Extension File Structure</a></dd>
+    </dl>
+    <h4>Developing Custom Components</h4>
+    <p>Whether you're building an extension or simply beefing up your own Symphony project, these resources will help you craft exactly what you need.</p>
+    <dl class="resource-list">
+        <dt>Concepts</dt>
+        <dd><strong>Data Sources API</strong> (forthcoming) · <strong>Events API</strong> (forthcoming) · <strong>Fields API</strong> (forthcoming)</dd>
+    </dl>
+    <h4>Working with the Core</h4>
+    <p>Resources on contributing to the core codebase and working with and extending core classes (forthcoming).</p>
+</div></content>
+            <name handle="developers-guide">Developer's Guide</name>
+            <summary mode="formatted"><p>The path to Symphony mastery begins here.</p></summary>
+        </entry>
+    </learn-guide>
+    <learn-guides>
+        <section id="63" handle="guides">Guides</section>
+        <entry id="33116">
+            <audience>
+                <item handle="beginners">Beginners</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="beginners-guide">Beginner's Guide</name>
+        </entry>
+        <entry id="33104">
+            <audience>
+                <item handle="users">Users</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="users-guide">User's Guide</name>
+        </entry>
+        <entry id="33105">
+            <audience>
+                <item handle="developers">Developers</item>
+            </audience>
+            <core>Yes</core>
+            <name handle="developers-guide">Developer's Guide</name>
+        </entry>
+    </learn-guides>
+</data>
