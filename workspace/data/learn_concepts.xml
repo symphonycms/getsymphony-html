@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concepts>
+        <pagination total-entries="18" total-pages="1" entries-per-page="100" current-page="1" />
+        <entry id="33075">
+            <name handle="admin-interface">Admin Interface</name>
+            <summary><p>Symphony&#8217;s Admin Interface, or back end, enables authors to manage content and system settings.</p></summary>
+            <children>
+                <entry id="33151">
+                    <name handle="blueprints">Blueprints</name>
+                    <summary><p>Blueprints refers collectively to a Symphony project&#8217;s pages, components, and sections.</p></summary>
+                </entry>
+                <entry id="33098">
+                    <name handle="components">Components</name>
+                    <summary><p>Components refers collectively to a Symphony project&#8217;s events, data sources, and utilities.</p></summary>
+                </entry>
+                <entry id="33130">
+                    <name handle="maintenance-mode">Maintenance Mode</name>
+                    <summary><p>Maintenance Mode, when enabled, disallows access to a Symphony project&#8217;s front end and replaces it with a placeholder page.</p></summary>
+                </entry>
+                <entry id="33074">
+                    <name handle="navigation-groups">Navigation Groups</name>
+                    <summary><p>Navigation Groups allow Sections to be grouped together in the Symphony admin interface.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33127">
+            <name handle="authors">Authors</name>
+            <summary><p>Authors can login to the admin interface and manage a project and its content.</p></summary>
+        </entry>
+        <entry id="33067">
+            <name handle="data-sources">Data Sources</name>
+            <summary><p>Data Sources fetch, filter, and sort data and expose it as XML to pages for templating.</p></summary>
+            <children>
+                <entry id="33148">
+                    <name handle="data-source-chaining">Data Source Chaining</name>
+                    <summary><p>Data Source Chaining enables a data source to be filtered using the results provided by another data source.</p></summary>
+                </entry>
+                <entry id="33073">
+                    <name handle="data-source-filters">Data Source Filters</name>
+                    <summary><p>Data Source Filters can use parameters, advanced operators, regular expressions, and normal values to filter results.</p></summary>
+                </entry>
+                <entry id="33076">
+                    <name handle="data-source-output-parameters">Data Source Output Parameters</name>
+                    <summary><p>Data Source Output Parameters are set using the results from a data source and enable data source chaining.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33070">
+            <name handle="devkits">Devkits</name>
+            <summary><p>Devkits provide useful developer tools on the front end which facilitate debugging, profiling, and other tasks.</p></summary>
+        </entry>
+        <entry id="33155">
+            <name handle="ensembles">Ensembles</name>
+            <summary><p>Ensembles bundle an entire Symphony project, including its database and workspace files, into an installable package.</p></summary>
+        </entry>
+        <entry id="33147">
+            <name handle="entries">Entries</name>
+            <summary><p>Entries represent individual content records in a section.</p></summary>
+            <children>
+                <entry id="33214">
+                    <name handle="handles">Handles</name>
+                    <summary><p>Handles provide sanitized, URL-friendly equivalents for the values stored by many field types.</p></summary>
+                </entry>
+                <entry id="33212">
+                    <name handle="system-dates">System Dates</name>
+                    <summary><p>System Dates store creation timestamps for a Symphony project&#8217;s content entries.</p></summary>
+                </entry>
+                <entry id="33213">
+                    <name handle="system-ids">System IDs</name>
+                    <summary><p>System IDs provide unique identification numbers for a Symphony project&#8217;s content entries.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33069">
+            <name handle="events">Events</name>
+            <summary><p>Events facilitate advanced front-end interactions such as data submission.</p></summary>
+            <children>
+                <entry id="33123">
+                    <name handle="event-filters">Event Filters</name>
+                    <summary><p>Event Filters add additional conditions or actions to an event.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33071">
+            <name handle="extensions">Extensions</name>
+            <summary><p>Extensions add specialized functionality to the lean, mean Symphony core.</p></summary>
+            <children>
+                <entry id="33077">
+                    <name handle="delegates">Delegates</name>
+                    <summary><p>Delegates allow developers to manipulate input and output and perform other tasks during the generation of back-end and front-end pages.</p></summary>
+                </entry>
+                <entry id="33156">
+                    <name handle="extension-file-structure">Extension File Structure</name>
+                    <summary><p>The Extension File Structure enables Symphony to detect and load extension files automatically.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33065">
+            <name handle="fields">Fields</name>
+            <summary><p>Fields give shape to sections and their entries by defining the data they capture.</p></summary>
+            <children>
+                <entry id="33144">
+                    <name handle="field-types">Field Types</name>
+                    <summary><p>Field Types define the structure of fields and govern their behavior in capturing and outputting data.</p></summary>
+                </entry>
+                <entry id="33152">
+                    <name handle="text-formatters">Text Formatters</name>
+                    <summary><p>Text formatters can be applied to fields to transform or format their content before saving.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33158">
+            <name handle="git">Git</name>
+            <summary><p>Git version control is used to manage updates and contributions to the official Symphony codebase.</p></summary>
+            <children>
+                <entry id="33159">
+                    <name handle="github">Github</name>
+                    <summary><p>Github hosts the official Symphony repository and the repositories of most Symphony extensions.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="37481">
+            <name handle="jit-image-manipulation">JIT Image Manipulation</name>
+            <summary><p>JIT Image Manipulation provides a URL-based API for dynamically transforming images.</p></summary>
+        </entry>
+        <entry id="33066">
+            <name handle="pages">Pages</name>
+            <summary><p>Pages constitute a Symphony project&#8217;s front-end interface and determine its URL structure.</p></summary>
+            <children>
+                <entry id="33150">
+                    <name handle="page-templates">Page Templates</name>
+                    <summary><p>Page Templates transform the XML provided to a page by its data sources.</p></summary>
+                </entry>
+                <entry id="33103">
+                    <name handle="page-types">Page Types</name>
+                    <summary><p>Page Types enable special handling of pages, and are used to specify a project&#8217;s home page, error pages, etc.</p></summary>
+                </entry>
+                <entry id="33072">
+                    <name handle="url-parameters">URL Parameters</name>
+                    <summary><p>URL Parameters enable pages to capture and utilize parameters set dynamically in their URLs.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33145">
+            <name handle="parameters">Parameters</name>
+            <summary><p>Parameters channel dynamically set values through the system for use by data sources and in the templating layer.</p></summary>
+            <children>
+                <entry id="33076">
+                    <name handle="data-source-output-parameters">Data Source Output Parameters</name>
+                    <summary><p>Data Source Output Parameters are set using the results from a data source and enable data source chaining.</p></summary>
+                </entry>
+                <entry id="33072">
+                    <name handle="url-parameters">URL Parameters</name>
+                    <summary><p>URL Parameters enable pages to capture and utilize parameters set dynamically in their URLs.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33064">
+            <name handle="sections">Sections</name>
+            <summary><p>Sections model and define the types of content to be managed in a Symphony project.</p></summary>
+            <children>
+                <entry id="33144">
+                    <name handle="field-types">Field Types</name>
+                    <summary><p>Field Types define the structure of fields and govern their behavior in capturing and outputting data.</p></summary>
+                </entry>
+                <entry id="33074">
+                    <name handle="navigation-groups">Navigation Groups</name>
+                    <summary><p>Navigation Groups allow Sections to be grouped together in the Symphony admin interface.</p></summary>
+                </entry>
+            </children>
+        </entry>
+        <entry id="33129">
+            <name handle="utilities">Utilities</name>
+            <summary><p>Utilities enable the abstraction and reuse of common template functions and markup.</p></summary>
+        </entry>
+        <entry id="33157">
+            <name handle="workspace">Workspace</name>
+            <summary><p>The Workspace directory stores project-specific files like data sources, pages, utilities, and uploads.</p></summary>
+        </entry>
+        <entry id="33153">
+            <name handle="xml">XML</name>
+            <summary><p>XML powers Symphony&#8217;s data engine and is used to structure content for templating.</p></summary>
+        </entry>
+        <entry id="33121">
+            <name handle="xslt">XSLT</name>
+            <summary><p>XSLT powers Symphony&#8217;s page templates and utilities, which together comprise the templating layer.</p></summary>
+            <children>
+                <entry id="33154">
+                    <name handle="xpath">XPath</name>
+                    <summary><p>XPath is used by XSLT to address nodes and perform basic computations while traversing an XML document.</p></summary>
+                </entry>
+            </children>
+        </entry>
+    </learn-concepts>
+</data>

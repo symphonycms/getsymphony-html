@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33076" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Data Source Output Parameters are <a rel="concept">parameters</a> whose values are set dynamically by a <a rel="concept" href="data-sources">data source</a> using values from a specified <a rel="concept" href="fields">field</a> in its result entries. Most often, these parameters are then used to <a rel="concept" href="data-source-filters">filter</a> subsequent data sources, a technique known as <a rel="concept">data source chaining</a>.</p>
+<h4>Usage</h4>
+<p>Data source output parameters can be created in the <a rel="concept" href="data-sources#data-source-editor">data source editor</a>. After a Source has been chosen, select a field in the &#8220;Parameter Output&#8221; dropdown. Once the data source is saved, it will add the output parameter to the <a rel="concept" href="parameters#parameter-pool">parameter pool</a> whenever it is executed.</p>
+<p>For details on how to use a data source output parameter to filter another data source, see <a rel="concept">Data Source Chaining</a>.</p>
+<h4>Details</h4>
+<p>It&#8217;s important to understand how Symphony&#8217;s various <a rel="concept">field types</a> work in order to use data source ouput parameters effectively. Some fields will use their <a rel="concept">handles</a> to populate output parameters, while others, like <a rel="concept" href="field-types#select-box-link">Select Box Link</a>, will use the <a rel="concept" href="system-ids">IDs</a> of the <a rel="concept">entries</a> to which they&#8217;re linked.</p></description>
+            <name handle="data-source-output-parameters">Data Source Output Parameters</name>
+            <parents>
+                <item id="33145" handle="parameters" section-handle="concepts" section-name="Concepts">Parameters</item>
+                <item id="33067" handle="data-sources" section-handle="concepts" section-name="Concepts">Data Sources</item>
+            </parents>
+            <summary mode="formatted"><p>Data Source Output Parameters are set using the results from a data source and enable data source chaining.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33072" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>URL Parameters are <a rel="concept">parameters</a> whose values are set dynamically in a page’s URL, and can be accessed by its <a rel="concept" href="page-templates">template</a> and its <a rel="concept">data sources</a>. This makes pages incredibly dynamic, enabling a single page to power an endless number of views.</p>
+<p>This very page, for example, sets a parameter in the last bit of its URL (<code>url-parameters</code>), which is then used to <a rel="concept" href="data-source-filters">filter</a> a data source that fetches the appropriate entry from the &#8220;Concepts&#8221; section. Every individual Concept view on this site is thus powered by a single page.</p>
+<h4>Usage</h4>
+<p>URL Parameters are defined in the <a rel="concept">admin interface</a>, using the <a rel="concept" href="pages#page-editor">page editor</a> (<code>Blueprints &gt; Pages &gt; New</code> or <code>Blueprints &gt; Pages &gt; {Page Title}</code>). Any number of URL parameters may be entered in the &#8220;URL Parameters&#8221; field, referenced by name and separated by forward slashes:</p>
+<pre><code>
+    param1/param2/param3</code></pre>
+<p>Parameter values are set dynamically when the page is called with additional values in its URL:</p>
+<pre><code>
+    http://yoursite.com/yourpage/value1/value2/value3</code></pre>
+<p>Within the context of that page, the parameters are then available to be used like any other parameter. See <a rel="concept" href="parameters#usage">Parameters, Usage</a> for details.</p>
+<h5>GET Parameters</h5>
+<p>Symphony will add GET parameters to a page&#8217;s <a rel="concept" href="parameters#parameter-pool">parameter pool</a> as well, though they are given a prefix. Appending <code>?greeting=hello</code> to a page&#8217;s URL will add a parameter called <code>$url-greeting</code> to the parameter pool, with a value of &#8216;hello&#8217;.</p>
+<h5>Subpages</h5>
+<p>Note that subpage <a rel="concept">handles</a> will override URL parameters, so in the example above, if a subpage of <code>yourpage</code> were created and given the URL handle <code>page2</code>, Symphony would interpret <code>http://symphony.demo/yourpage/page2</code> as a request for the subpage, and not as an assignment of the string <code>page2</code> to the URL parameter <code>param1</code>.</p>
+<h4>Details</h4>
+<p>URL parameters are sanitized when they&#8217;re pulled into the system. Spaces, for instance, are replaced with plus signs (and not trimmed, so consecutive spaces will result in multiple plus signs). Also, case is preserved.</p>
+<h4>The Big Picture</h4>
+<p>URL parameters are an integral part of building dynamic interfaces with Symphony.</p></description>
+            <name handle="url-parameters">URL Parameters</name>
+            <parents>
+                <item id="33145" handle="parameters" section-handle="concepts" section-name="Concepts">Parameters</item>
+                <item id="33066" handle="pages" section-handle="concepts" section-name="Concepts">Pages</item>
+            </parents>
+            <summary mode="formatted"><p>URL Parameters enable pages to capture and utilize parameters set dynamically in their URLs.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

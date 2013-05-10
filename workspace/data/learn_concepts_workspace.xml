@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33157" tutorials="0" tutorial-steps="1" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>A Symphony project’s Workspace is a directory that contains all project-specific files. By default, the workspace will store <a rel="concept">data sources</a>, <a rel="concept">events</a>, <a rel="concept">pages</a>, <a rel="concept">utilities</a>, and any files that are uploaded via <a rel="concept">fields</a> in an entry. Often, developers will use the workspace directory to store other assets as well, such as CSS and JavaScript files or template images.</p>
+<h4>Usage</h4>
+<p>As long as the default subdirectories are left intact, users are free to create any desired directory structure within the workspace folder.</p>
+<p>A workspace&#8217;s URL is included as a system <a rel="concept" href="parameters">parameter</a> by Symphony.</p>
+<h4>Details</h4>
+<p>By default, the system will create and use four subdirectories within the workspace:</p>
+<pre><code>
+/data-sources
+/events
+/pages
+/utilities</code></pre>
+<p>Physical files representing each of the above elements are stored here and can be edited directly in lieu of using the <a rel="concept">admin interface</a>&#8217;s editors.</p>
+<p>Additional subdirectories can be created as needed. Common practices include creating directories for assets (like <code>/styles</code>, <code>/images</code>, and <code>/scripts</code>) and an <code>/uploads</code> folder to serve as a target for <a rel="concept" href="field-types#file-upload">file upload fields</a>.</p>
+<h4>The Big Picture</h4>
+<p>A Symphony project&#8217;s workspace contains all of the files that make it unique from other Symphony builds. A &#8220;clean&#8221; Symphony install contains no workspace—an empty one is generated during installation. The workspace folder is included when creating <a rel="concept">ensembles</a>.</p>
+<p>File upload fields must choose folders in <code>workspace/</code> as their target.</p></description>
+            <name handle="workspace">Workspace</name>
+            <summary mode="formatted"><p>The Workspace directory stores project-specific files like data sources, pages, utilities, and uploads.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

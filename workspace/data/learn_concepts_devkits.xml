@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33070" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="2" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Devkits, or Symphony development kits, are <a rel="concept">extensions</a> that provide additional front-end interfaces for authenticated system <a rel="concept">authors</a>. There are two core devkits—the <a rel="concept" href="#debug-devkit">debug devkit</a> and the <a rel="concept" href="#profile-devkit">profile devkit</a>—which expose helpful contextual information for a given front-end <a rel="concept" href="pages">page</a>, including its source <a rel="concept">XML</a>, its <a rel="concept" href="page-templates">page template</a>, any associated <a rel="concept">utilities</a>, the <a rel="concept">parameters</a> available to it, execution and load times, and more.</p>
+<h4>Usage</h4>
+<p>Devkits can be accessed by appending special GET parameters to the URL of a front-end page. For example, you would visit <code>http://yoursite.com/?debug</code> or <code>http://yoursite.com/?profile</code> to access your index page&#8217;s debug and profile devkits, respectively.</p>
+<p>Note that the devkit extensions must be installed and enabled in order for the devkit interfaces to be available.</p>
+<h4>Details</h4>
+<p>The devkit interface contains a link to the page editor for a given page, and additional links for each installed devkit. There are two devkit extensions included with the Symphony core:</p>
+<h5>Debug Devkit</h5>
+<p><img src="debug-devkit"/></p>
+<p>The debug devkit, accessed by appending <code>?debug</code> to a page&#8217;s URL, provides access to the following:</p>
+<ul>
+<li>the current parameter pool</li>
+<li>the page&#8217;s XML source</li>
+<li>each XSLT stylesheet applied (the page template and any utilities included)</li>
+<li>the result output</li>
+</ul>
+<h5>Profile Devkit</h5>
+<p><img src="profile-devkit"/></p>
+<p>The profile devkit, accessed by appending <code>?profile</code> to a page&#8217;s URL, provides access to a number of statistics on page execution:</p>
+<ul>
+<li><p>General Details</p>
+<ul>
+<li>Engine Initialisation</li>
+<li>Page creation process started</li>
+<li>XML Built</li>
+<li>XML Generation</li>
+<li>Page Built</li>
+<li>XSLT Transformation</li>
+<li>Page creation complete</li>
+</ul></li>
+<li><p>Datasource Execution (lists execution time for each data source)</p></li>
+<li><p>Full Page Render Statistics</p>
+<ul>
+<li>Total Database Queries</li>
+<li>Slow Queries (> 0.09s)</li>
+<li>Total Time Spent on Queries</li>
+<li>Time Triggering all Events</li>
+<li>Time Running All Data Sources</li>
+<li>XML Generation Function</li>
+<li>XSLT Generation</li>
+<li>Output Creation Time</li>
+<li>Total Memory Usage</li>
+</ul></li>
+<li><p>Memory Usage</p>
+<ul>
+<li>Engine Initialisation</li>
+<li>Page creation process started</li>
+<li>memory used to process each datasource</li>
+<li>XML Built</li>
+<li>XML Generation</li>
+<li>Page Built</li>
+<li>XSLT Transformation</li>
+<li>Page creation complete</li>
+</ul></li>
+</ul></description>
+            <name handle="devkits">Devkits</name>
+            <summary mode="formatted"><p>Devkits provide useful developer tools on the front end which facilitate debugging, profiling, and other tasks.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

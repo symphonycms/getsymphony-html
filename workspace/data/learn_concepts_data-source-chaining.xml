@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33148" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Data Source Chaining is a technique allowing you to filter the results of a <a rel="concept" href="data-sources">data source</a> using the output of a previously executed data source on the same page. Using this technique, multiple data sources can be “chained” together, each depending on the results of the one before, adding quite a bit of dynamism to your Symphony project’s <a rel="concept">pages</a>. Data source chaining is often used to return a principal entry and then fetch other entries that are related to it in some way.</p>
+<h4>Usage</h4>
+<p>Data sources can be chained in two simple steps: a primary data source is set up to have one of its fields populate a <a rel="concept" href="data-source-output-parameters">data source output parameter</a>, then a secondary data source uses that parameter in one of its <a rel="concept" href="data-source-filters">filters</a>.</p>
+<p>Data source chains can be one-to-many in either direction. Several dependent data sources can be chained to the same primary data source, and a single dependent data source can filter on results from multiple primary data sources.</p>
+<h4>The Big Picture</h4>
+<p>Data source chaining is a crucial technique even for fairly basic projects, but it is often overlooked by beginners because there are workarounds that can approximate the same functionality. It&#8217;s possible, for example, to return two full sets of entries in the <a rel="concept">XML</a> and then use <a rel="concept">XSLT</a> to perform matching and filtering. But often the most expensive aspect of front-end page generation in Symphony is the XML build time, so it&#8217;s far more efficient to return the first result set and then use data source chaining to filter the second, keeping unwanted entries out of the XML altogether.</p>
+<h4>Advanced Info</h4>
+<p>Symphony autogenerates a dependency list for data sources created using the admin interface&#8217;s data source editor. For custom data sources, however, this list may need to be manually created or edited. A custom data source called &#8220;Secondary,&#8221; for example, that was chained to a data source called &#8220;Primary,&#8221; would need to define the following In its <code>__construct()</code> function:</p>
+<pre><code> $this->_dependencies = array('$ds-primary');</code></pre></description>
+            <name handle="data-source-chaining">Data Source Chaining</name>
+            <parents>
+                <item id="33067" handle="data-sources" section-handle="concepts" section-name="Concepts">Data Sources</item>
+            </parents>
+            <summary mode="formatted"><p>Data Source Chaining enables a data source to be filtered using the results provided by another data source.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

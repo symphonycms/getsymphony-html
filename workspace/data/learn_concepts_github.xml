@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33159" tutorials="0" tutorial-steps="0" articles="2" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Github is a website that provides hosting and collaboration tools for Git repositories. The official Symphony code repository, and the repositories of most Symphony <a rel="concept">extensions</a>, are hosted on Github.</p>
+<h4>Usage</h4>
+<p>See Github&#8217;s Help Site for details on how to use Github: <a href="http://help.github.com/">http://help.github.com/</a></p></description>
+            <name handle="github">Github</name>
+            <parents>
+                <item id="33158" handle="git" section-handle="concepts" section-name="Concepts">Git</item>
+            </parents>
+            <summary mode="formatted"><p>Github hosts the official Symphony repository and the repositories of most Symphony extensions.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

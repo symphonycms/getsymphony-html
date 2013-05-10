@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33150" tutorials="1" tutorial-steps="2" articles="0" concepts="0" tasks="0" resources="3" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Page Templates are <a rel="concept">XSLT</a> stylesheets that are coupled with a Symphony project’s <a rel="concept">pages</a> and are used to transform the <a rel="concept">XML</a> provided by the page’s <a rel="concept">data sources</a>. Page templates are most often used to output XHTML, but they can also output other formats such as RSS-, Atom-, or SOAP-flavored XML, or non-XML formats like CSS and JavaScript.</p>
+<h4>Usage</h4>
+<p>Page templates are automatically generated whenever a page is created. They can be edited either using the page template editor in the <a rel="concept">admin interface</a> or by editing the XSLT stylesheet file directly.</p>
+<p>In the admin interface, the page template editor can be accessed by clicking the template&#8217;s file name in the &#8220;Templates&#8221; column of the <a rel="concept" href="pages#page-index">Pages index</a> view (<code>Blueprints &gt; Pages</code>), or directly from the corresponding page&#8217;s edit form (by clicking the blue &#8220;Edit Template&#8221; button).</p>
+<h4>Details</h4>
+<p>Page templates must be well-formed XSLT stylesheets.</p>
+<h5>Page Template Editor</h5>
+<p><img src="page-template-editor"/></p>
+<p>The page template editor is fairly basic. It consists of a single, large text area containing the whole of the XSLT stylesheet. On the right side of the editor is a list of all <a rel="concept">utilities</a> in a project. Any utilities included in the current stylesheet are highlighted (when the xsl:include tag is first added, the text area must lose focus before the highlighting will apply).</p>
+<h4>The Big Picture</h4>
+<p>Page templates can dynamically include <a rel="concept">utilities</a> by calling them at the beginning of the stylesheet, before any xsl:templates are declared:</p>
+<pre><code>
+    &lt;xsl:include href="../utilities/utility-name.xsl" /&gt;</code></pre></description>
+            <name handle="page-templates">Page Templates</name>
+            <parents>
+                <item id="33066" handle="pages" section-handle="concepts" section-name="Concepts">Pages</item>
+            </parents>
+            <summary mode="formatted"><p>Page Templates transform the XML provided to a page by its data sources.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

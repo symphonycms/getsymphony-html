@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="37481" tutorials="0" tutorial-steps="0" articles="1" concepts="0" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>JIT (Just-in-time) Image Manipulation is an extension that can dynamically transform images based on a set of parameters provided to it via specially-formed URLs. The extension is able to crop and/or resize an original image (whether internal or external to a Symphony project) and then cache and return the resulting, modified image.</p>
+<h4>Usage</h4>
+<p>JIT Image Manipulation is invoked via a specially-formed URL. The base of the URL is <strong>http://your-site.com/image/</strong>. Additional URL parameters follow, specifying the desired transformation mode, options, and file location (see below).</p>
+<p>The extension can be utilized from within Symphony&#8217;s templating layer by using this special URL in the <code>src</code> attribute of an <code>img</code> element. For example:</p>
+<p><code>&lt;img src="http://yoursite.com/image/1/200/0/images/ninja-parade.jpg"/&gt;</code></p>
+<h5>External Images</h5>
+<p>In order for the extension to be able to transform external images, the images&#8217; host domain must first be added to the whitelist of &#8220;Trusted Sites&#8221; in <code>System &gt; Preferences</code>. Trusted sites can be added one per line and should be in the following format:</p>
+<p><code>images.external-site.com*</code></p>
+<h4>Details</h4>
+<h5>Modes</h5>
+<p>JIT Image Manipulation has four modes of operation, each of which requires a slightly different URL structure. <a href="#parameters">See below</a> for details on specific parameters.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Mode</th>
+            <th>URL Structure and Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td/>
+        <td>
+            <p class="demo">/ image / <em>e</em> / <em>path</em></p>
+            <p><strong>Default: Direct display</strong> will simply display the original image as-is when no mode is provided.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>
+            <p class="demo">/ image / <strong>1</strong> / <em>w</em> / <em>h</em> / <em>e</em> / <em>path</em></p>
+            <p><strong>Mode 1: Resize</strong> will resize the original image using the <em>w</em>idth and <em>h</em>eight parameters provided. If either <em>w</em>idth or <em>h</em>eight is <code>0</code>, the extension will resize using the other value and maintain the image’s original aspect ratio.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>
+            <p class="demo">/ image / <strong>2</strong> / <em>w</em> / <em>h</em> / <em>p</em> / <em>e</em> / <em>path</em></p>
+            <p><strong>Mode 2: Crop to Fill</strong> will first use the <em>p</em>osition parameter and the <em>smaller</em> of the two dimension parameters (<em>w</em>idth and <em>h</em>eight) to resize the image while maintaining its original aspect ratio. Then it will crop the remainder of the image using the other (larger) dimension.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>
+            <p class="demo">/ image / <strong>3</strong> / <em>w</em> / <em>h</em> / <em>p</em> / <em>b</em> / <em>e</em> / <em>path</em></p>
+            <p><strong>Mode 3: Resize Canvas</strong> will resize the original image’s canvas using the <em>w</em>idth, <em>h</em>eight, and <em>p</em>osition parameters. If the resulting canvas size is smaller than the original in either dimension, the original will be cropped. If it is larger than the original in either dimension, the additional space will be filled using the <em>b</em>ackground color parameter.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h5>Parameters</h5>
+<p>Image transformation options are specified via the following parameters:</p>
+<table>
+<thead>
+<tr>
+  <th>Parameter</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Width</td>
+  <td>Number in pixels. If <code>0</code>, height must be specified and width will auto-adjust, keeping original aspect ratio.</td>
+</tr>
+<tr>
+  <td>Height</td>
+  <td>Number in pixels. If <code>0</code>, width must be specified and height will auto-adjust, keeping original aspect ratio.</td>
+</tr>
+<tr>
+  <td>Position</td>
+  <td>Number <code>1</code>–<code>9</code>, specifying region from which to crop/resize. See grid below.</td>
+</tr>
+<tr>
+  <td>Background Color</td>
+  <td>Hex color value. Supports CSS-style short hex strings (ff2233 == f23)</td>
+</tr>
+<tr>
+  <td>External</td>
+  <td>Optional. <code>0</code> or omitted for internal images. <code>1</code> for external images.</td>
+</tr>
+<tr>
+  <td>Path</td>
+  <td>Path to the original image. If the image is internal, this is a relative path from <a rel="concept" href="workspace"><code>/workspace</code></a>. If the image is external, it is a URL (excluding <code>http://</code>) .</td>
+</tr>
+</tbody>
+</table>
+<h5>Positioning Grid</h5>
+<p>When using the &#8220;Crop to Fill&#8221; or &#8220;Resize Canvas&#8221; modes, the transformation will be anchored according to a <em>p</em>osition parameter. The image below shows the possible parameter values along with their respective positions.</p>
+<p><img src="jit-positioning-grid"/></p></description>
+            <name handle="jit-image-manipulation">JIT Image Manipulation</name>
+            <summary mode="formatted"><p>JIT Image Manipulation provides a URL-based API for dynamically transforming images.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

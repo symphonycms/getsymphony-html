@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33127" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="3" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Authors are your Symphony project’s registered users. They are able to access the <a rel="concept">admin interface</a> and manage content and system settings.</p>
+<p>There are two types of authors, each representing a distinct level of system permissions. The first type, &#8220;author,&#8221; is only able to access content sections (though all authors can edit their own author entry). The second type, &#8220;developer,&#8221; has access to all elements of the system.</p>
+<h4>Usage</h4>
+<p>Authors can be created and edited in the admin interface under <code>System &gt; Authors</code>.</p>
+<p>Authors lacking developer level permissions are not able to edit their advanced login settings (see below) .</p>
+<h4>Details</h4>
+<p><img src="author-editor"/></p>
+<p>Author accounts consist of the following settings:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>First Name</td>
+  <td>Author&#8217;s first name, or given name.</td>
+</tr>
+<tr>
+  <td>Last Name</td>
+  <td>Author&#8217;s last name, or surname.</td>
+</tr>
+<tr>
+  <td>Email Address</td>
+  <td>Author&#8217;s email address (used for password reminders and by the send email <a rel="concept" href="event-filters">event filter</a>).</td>
+</tr>
+<tr>
+  <td>Username</td>
+  <td>Username used to log in to the <a rel="concept">admin interface</a>.</td>
+</tr>
+<tr>
+  <td>User Type</td>
+  <td>Either <code>Author</code> or <code>Developer</code>. Used to determine permissions.</td>
+</tr>
+<tr>
+  <td>Password</td>
+  <td>Password used to log in to the admin interface.</td>
+</tr>
+<tr>
+  <td>Allow Remote Login</td>
+  <td>Checkbox specifying whether to allow direct login without password via a special URL.</td>
+</tr>
+<tr>
+  <td>Default Section</td>
+  <td>Entry index where author is directed upon successful login.</td>
+</tr>
+</tbody>
+</table>
+<h4>The Big Picture</h4>
+<p>The options for an author field are populated using system authors.</p></description>
+            <name handle="authors">Authors</name>
+            <summary mode="formatted"><p>Authors can login to the admin interface and manage a project and its content.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

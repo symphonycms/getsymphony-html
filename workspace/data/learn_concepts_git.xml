@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33158" tutorials="0" tutorial-steps="4" articles="2" concepts="1" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Git is a distributed version control system that is used to manage the official Symphony codebase and those of most Symphony <a rel="concept">extensions</a>. It offers a convenient method for installing and updating both Symphony itself and any Git-managed extensions.</p>
+<h4>Usage</h4>
+<p>See the Git User&#8217;s Manual for details on how to set up and use Git: <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html">http://www.kernel.org/pub/software/scm/git/docs/user-manual.html</a></p></description>
+            <name handle="git">Git</name>
+            <summary mode="formatted"><p>Git version control is used to manage updates and contributions to the official Symphony codebase.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

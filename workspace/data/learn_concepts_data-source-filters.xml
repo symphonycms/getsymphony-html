@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33073" tutorials="1" tutorial-steps="1" articles="0" concepts="0" tasks="0" resources="2" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Data Source Filters are rules used by a <a rel="concept" href="data-sources">data source</a> to filter the <a rel="concept">entries</a> it fetches from a <a rel="concept" href="sections">section</a>. The rules are field-based, meaning each rule checks against the content of a single <a rel="concept" href="fields">field</a>. Data Source filters are analogous to SQL’s WHERE clauses, defining the conditions you want matched in order for an entry to be returned. If all of a data source&#8217;s filters evaluate to <code>true</code> for a given entry, it will be included in the result set.</p>
+<h4>Usage</h4>
+<p>Filters are added to a data source in the <a rel="concept" href="data-sources#data-source-editor">data source editor</a>.</p>
+<p>When adding multiple filter rules to a data source, note that <em>all</em> filters will have to return <code>true</code> in order for an entry to be included in the results. In other words, the filter rules are joined with <code>AND</code> rather than <code>OR</code>.</p>
+<p>If a filter pattern contains only a <a rel="concept" href="parameters">parameter</a>, and that parameter isn&#8217;t set when the data source is executed, the filter rule will be ignored and the data source will execute as if the filter didn&#8217;t exist.</p>
+<h4>Details</h4>
+<p>A data source filter rule consists of a field and a filter pattern against which the field&#8217;s content is matched. The field is selected from a dropdown of all fields in the current section. The pattern is entered into a text input, and can accept any combination of the following kinds of input:</p>
+<table>
+<thead>
+<tr>
+  <th>Input</th>
+  <th>Description</th>
+  <th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Literal values</td>
+  <td>Words, phrases, or numbers to be matched.</td>
+  <td><code>my-entry-title</code>, <code>2009-11-30</code></td>
+</tr>
+<tr>
+  <td>Parameters</td>
+  <td><a rel="concept">Parameters</a>, which must appear inside curly braces to signal that they need to be evaluated.</td>
+  <td><code>{$param}</code></td>
+</tr>
+<tr>
+  <td>Parameter Enumerators</td>
+  <td>Default value if a parameter is not set</td>
+  <td><code>{$color:red}</code></td>
+</tr>
+<tr>
+  <td>Union Operator</td>
+  <td>Comma to delimit items in a set of possible matching values joined by OR.</td>
+  <td><code>red, blue, green</code></td>
+</tr>
+<tr>
+  <td>Intersection Operator</td>
+  <td>Plus signs to delimit items in a set of required matching values joined by AND.</td>
+  <td><code>red+blue+green</code></td>
+</tr>
+<tr>
+  <td>Range Operators</td>
+  <td>The keyword <em>to</em>, or the key phrases <em>earlier than</em> and <em>later than</em>, used to match numbers and dates.</td>
+  <td><code>later than {$today}</code>, <code>10 to 100</code></td>
+</tr>
+<tr>
+  <td>Regular Expressions</td>
+  <td>The <em>regexp:</em> keyword followed by a MySQL regexp pattern.</td>
+  <td><code>^b</code></td>
+</tr>
+</tbody>
+</table>
+<p>The above can be mixed and matched, meaning patterns like the following are possible:</p>
+<ul>
+<li><code>{$color:black}-mens-fleece</code></li>
+<li><code>earlier than {$today}</code></li>
+<li><code>regexp: {$param}s?</code></li>
+</ul>
+<h4>The Big Picture</h4>
+<p>Data source filters and parameters are each at their most powerful when used together. The combination of the two is essential for building a dynamic Symphony project.</p></description>
+            <name handle="data-source-filters">Data Source Filters</name>
+            <parents>
+                <item id="33067" handle="data-sources" section-handle="concepts" section-name="Concepts">Data Sources</item>
+            </parents>
+            <summary mode="formatted"><p>Data Source Filters can use parameters, advanced operators, regular expressions, and normal values to filter results.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

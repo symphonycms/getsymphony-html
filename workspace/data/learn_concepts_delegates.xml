@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33077" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Delegates are functions in Symphony's core that allow <a href="http://getsymphony.com/learn/concepts/extensions/">extension</a> developers to intervene at key moments in the generation of a back-end or front-end Symphony page. The delegate will usually provide a contextually relevant PHP object (for instance a page object or an event object) that the developer can then work with and pass back to the system for further processing.</p>
+<h4>Usage</h4>
+<p>Extensions can subscribe to delegates by declaring a <code>getSubscribedDelegates()</code> function in the <a href="http://getsymphony.com/learn/concepts/view/extension-file-structure/#extensiondriverphp">extension.driver.php</a> file, like this:</p>
+<pre><code>
+    public function getSubscribedDelegates(){
+        return array(
+            array(
+                'page' =&gt; '/delegatepage/',
+                'delegate' =&gt; 'DelegateName',
+                'callback' =&gt; 'extensionFunction'
+            ),
+        );
+    }</code></pre>
+<p><code>getSubscribedDelegates()</code> is expected to return an array of subscriptions, each of which is an array consisting of three key/value pairs: <strong>page</strong>, <strong>delegate</strong>, and <strong>callback</strong>. The first two values are defined by the delegate itself (see the list below). The last value is the name of a callback function provided by the extension.</p>
+<p>During normal system processing, delegates fire <code>notifyMembers()</code> functions, which allows any subscribed extensions to intervene before processing continues.</p>
+<p>See the <a href="http://getsymphony.com/learn/api/2.3/delegates/">API Docs</a> for a full list of delegates.</p></description>
+            <name handle="delegates">Delegates</name>
+            <parents>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+            </parents>
+            <summary mode="formatted"><p>Delegates allow developers to manipulate input and output and perform other tasks during the generation of back-end and front-end pages.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

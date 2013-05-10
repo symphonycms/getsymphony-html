@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33123" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Event Filters are scripts that, when attached to an <a rel="concept" href="events">event</a>, can define additional conditions for its execution or additional actions to be performed when it is triggered. Event filters are used, for example, to send email notifications and to perform spam-filtering operations. There are three core event filters provided by Symphony; others can be bundled with extensions.</p>
+<h4>Usage</h4>
+<p>Filters can be added to an event in the event editor. Some filters require additional setup—for example, adding additional form fields to the front-end page.</p>
+<h4>Details</h4>
+<p>There are three core event filters provided by Symphony:</p>
+<table>
+<thead>
+<tr>
+  <th>Filter</th>
+  <th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Admin Only</td>
+  <td>Only allows the event be triggered by an authenticated system author.</td>
+</tr>
+<tr>
+  <td>Send Email</td>
+  <td>Sends an email to a defined system author when the event is triggered.</td>
+</tr>
+<tr>
+  <td>Allow Multiple</td>
+  <td>Allow submission of multiple entries.</td>
+</tr>
+</tbody>
+</table></description>
+            <name handle="event-filters">Event Filters</name>
+            <parents>
+                <item id="33069" handle="events" section-handle="concepts" section-name="Concepts">Events</item>
+            </parents>
+            <summary mode="formatted"><p>Event Filters add additional conditions or actions to an event.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33069" tutorials="0" tutorial-steps="0" articles="0" concepts="1" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Events are scripts that, when attached to <a rel="concept">pages</a>, will trigger and carry out an action if certain conditions are met. Symphony’s built-in event editor facilitates the creation of front-end saving events, which transmit data to a <a rel="concept" href="sections">section</a> from the front end when a form is submitted (a commenting system is a good example). It is possible, however, to write other kinds of custom events using Symphony&#8217;s <strong>events API</strong> (forthcoming).</p>
+<p>Filters can be attached to events to add additional conditions (e.g. only authors may trigger the event) or secondary actions (e.g. send an email when the event is triggered).</p>
+<h4>Usage</h4>
+<p>Events can be accessed in the <a rel="concept">Components</a> view (<code>Blueprints &gt; Components</code>).</p>
+<p>Once an event has been created, the event editor will display instructions and sample code for enabling front-end submissions.</p>
+<p>Events must be attached to pages in order to be enabled.</p>
+<h4>Details</h4>
+<h5>Event Editor</h5>
+<p><img src="event-editor"/></p>
+<p>Events are created and edited using Symphony&#8217;s event editor, a simple form with only three settings:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+  <th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Name</td>
+  <td>A custom name for the event</td>
+  <td><code>Save Comment</code></td>
+</tr>
+<tr>
+  <td>Source</td>
+  <td>The section to which the event will submit data</td>
+  <td><code>Comments</code></td>
+</tr>
+<tr>
+  <td>Filter Rules</td>
+  <td><a rel="concept">Event filters</a> to be attached to the event</td>
+  <td><code>Send Email</code></td>
+</tr>
+</tbody>
+</table>
+<h4>The Big Picture</h4>
+<p>Basic events are instrumental in enabling user interaction on the front end. Custom events have a broader scope, however, because anything scriptable in PHP can be triggered during page execution. Events can be provided by <a rel="concept">extensions</a>.</p></description>
+            <name handle="events">Events</name>
+            <summary mode="formatted"><p>Events facilitate advanced front-end interactions such as data submission.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33151" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Blueprints is a grouping in the <a rel="concept">admin interface</a> that allows you to manage <a rel="concept">pages</a>, <a rel="concept">components</a>, and <a rel="concept">sections</a>.</p>
+<h4>Usage</h4>
+<p>In the admin interface, the <code>Blueprints</code> menu item is used to manage a project&#8217;s architecture,  providing acccess to pages, components (<a rel="concept">events</a>, <a rel="concept">data sources</a>, and <a rel="concept">utilities</a>), and sections.</p></description>
+            <name handle="blueprints">Blueprints</name>
+            <parents>
+                <item id="33075" handle="admin-interface" section-handle="concepts" section-name="Concepts">Admin Interface</item>
+            </parents>
+            <summary mode="formatted"><p>Blueprints refers collectively to a Symphony project&#8217;s pages, components, and sections.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33152" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Text formatters are scripts that can be applied to certain types of <a rel="concept">fields</a> in Symphony to transform or format their content before saving. A set of Markdown text formatters is included in Symphony’s core, and additional text formatters (such as Textile or WYSIWYG editors) are available as extensions.</p>
+<h4>Usage</h4>
+<p>Text formatters are applied to fields during section creation and editing. If a field&#8217;s <a rel="concept" href="field-types">type</a> allows for text formatters to be applied, a Text Formatter field will be included in its <a rel="fields#settings-pane">settings pane</a>. <a rel="concept" href="field-types#textarea">Textarea</a> is the only default field type that allows text formatters to be applied to its content.</p>
+<h4>Details</h4>
+<p>Symphony includes three text formatters by default: Markdown, Markdown Extra, and Markdown Extra plus SmartyPants.</p></description>
+            <name handle="text-formatters">Text Formatters</name>
+            <parents>
+                <item id="33065" handle="fields" section-handle="concepts" section-name="Concepts">Fields</item>
+            </parents>
+            <summary mode="formatted"><p>Text formatters can be applied to fields to transform or format their content before saving.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

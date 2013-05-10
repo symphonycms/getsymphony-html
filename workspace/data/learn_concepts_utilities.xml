@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33129" tutorials="1" tutorial-steps="2" articles="1" concepts="0" tasks="0" resources="2" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Utilities are self-contained, reusable <a rel="concept">XSLT</a> stylesheets that can be included or imported by <a rel="concept">page templates</a> and by other utilities. They are often used to perform common formatting tasks (working with dates and times, for instance) or to render widely-used interface elements (such as a navigation or a footer).</p>
+<p>As a concept, utilities are not unique to Symphony, but are a well established XSLT technique adopted to enable users to create modular, robust templating layers for their Symphony projects.</p>
+<h4>Usage</h4>
+<p>Utilities can be managed in the <a rel="concept">Components</a> view (<code>Blueprints &gt; Components</code>), or by editing the XSLT stylesheet file directly (<code>workspace/utilities/utility-name.xsl</code>).</p>
+<p>Utilities must be explicitly included by page templates in order to be applied.</p>
+<pre><code>
+    &lt;xsl:include href="../utilities/utility-name.xsl"/&gt;</code></pre>
+<p>The <code>../utilities</code> is necessary when including a utility from a page template because the <code>pages/</code> directory is adjacent to the <code>utilities/</code> directory in the <a rel="concept">workspace</a>.</p>
+<p>Utilities can also be included by other utilities, like this:</p>
+<pre><code>
+    &lt;xsl:include href="utility-name.xsl"/&gt;</code></pre>
+<h4>Details</h4>
+<h5>Utility Editor</h5>
+<p><img src="utility-editor"/></p>
+<p>The utility editor is fairly basic. It consists of a single, large text area containing the whole of the XSLT stylesheet. On the right side of the editor is a list of all utilities in a project. Any utilities included in the current stylesheet are highlighted (when the <code>xsl:include</code> tag is first added, the text area must lose focus before the highlighting will apply).</p>
+<h4>The Big Picture</h4>
+<p>Utilities are essential to keeping front-end markup lean and efficient. Any bit of XSLT that is applied across multiple pages is a candidate for being abstracted for reuse as a utility. Symphony&#8217;s website has a growing <a href="/download/xslt-utilities">library of utilities</a> available for download.</p></description>
+            <name handle="utilities">Utilities</name>
+            <summary mode="formatted"><p>Utilities enable the abstraction and reuse of common template functions and markup.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33155" tutorials="0" tutorial-steps="1" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="developers">Developers</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Ensembles are packaged copies of a Symphony project. Created from within the <a>admin interface</a>, ensembles bundle the system—along with its database and workspace files—into an installable .Zip archive. Ensembles can be used to back up, migrate, or distribute a project. Community-contributed ensembles can be found <a href="/download/ensembles">here</a>.</p>
+<h4>Usage</h4>
+<p>Ensembles can be created by logging into the admin interface, navigating to <code>System &gt; Preferences</code>, and clicking the “Create Ensemble” button. Your server will need to have PHP's Zip module enabled.</p>
+<p>Ensembles can be installed by following the general installation instructions for Symphony (see <a href="install-symphony">"Install Symphony"</a>).</p>
+<p><strong>Note</strong> that before version 2.0 of the <a href="http://symphonyextensions.com/extensions/export_ensemble/">Export Ensemble extension</a>, ensembles did not copy custom database tables, including those created by third-party extensions. Since version 2.0, the Export Ensemble extension does include most tables, but it still do not copy all tables, since some are excluded to avoid the possibility of sharing sensitive data publicly (see the <a href="http://symphonyextensions.com/extensions/export_ensemble/">README</a> for excluded data, settings and files). It is always wise to maintain a backup of all database tables, so be sure to backup or migrate your SQL separately. To backup the entire database, consider using the <a href="http://symphonyextensions.com/extensions/dump_db/">Dump DB extension</a>.</p>
+<h4>Details</h4>
+<p>Ensembles are essentially copies of a Symphony project, and so their structure mirrors that of Symphony itself.</p>
+<h4>The Big Picture</h4>
+<p>Ensembles are a convenient way to package and share a Symphony project. Because Symphony is so open and flexible, there are many possible use cases. A developer, for example, could build a highly customized CMS or web application and package it for distribution and installation with the click of a button. An agency, on the other hand, could use ensembles to scaffold common project types for rapid deployment and development.</p></description>
+            <name handle="ensembles">Ensembles</name>
+            <summary mode="formatted"><p>Ensembles bundle an entire Symphony project, including its database and workspace files, into an installable package.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

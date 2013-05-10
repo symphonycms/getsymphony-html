@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33065" tutorials="1" tutorial-steps="1" articles="2" concepts="2" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Fields are containers that capture and store discrete pieces of content. They give structure to <a rel="concept">sections</a> and their <a rel="concept">entries</a>, and are used throughout the system to organize content and to work atomically with data. <a rel="concept">Data sources</a>, for example, use fields to <a rel="concept" href="data-source-filters">filter</a>, sort, and group result entries, and to selectively output and structure their contents.</p>
+<p>A field’s <a rel="concept" href="field-types">type</a>—e.g. <code>textarea</code> or <code>date</code>—determines how it captures data (as a form input in the entry editor), what kinds of data it can store, and how that data is handled.</p>
+<h4>Usage</h4>
+<p>A section&#8217;s fields are defined in the <a rel="concept" href="sections#section-editor">section editor</a> (<code>Blueprints &gt; Sections &gt; Create New</code> or <code>Blueprints &gt; Sections &gt; {Section Name}</code>). A field is represented in the section editor by its <strong>settings pane</strong>.</p>
+<p>Once added, fields can be edited, reordered, and deleted in place. It is important to note, however, that once a field has been added it cannot be changed from one field type to another. Sections and their field structures should be planned and tested carefully before entering much content.</p>
+<h4>Details</h4>
+<p>Each field is an instance of a generic field type which defines its behavior and the structure of its settings pane. There are eight <a rel="concept" href="field-types#core-field-types">core field types</a> in Symphony, with additional field types available as <a rel="concept">extensions</a> (one of which—<a rel="concept" href="field-types#select-box-link">Select Box Link</a>—is included by default).</p>
+<h5>Settings Pane</h5>
+<p>The structure of a field’s settings pane will vary according to its field type, but nearly all fields share a few common settings:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+  <th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Label</td>
+  <td>How the field should be labeled in forms, interface elements, and XML output.</td>
+  <td>Title, Publish Date</td>
+</tr>
+<tr>
+  <td>Placement</td>
+  <td>Where the field input should be displayed in the entry editor.</td>
+  <td>Main content, Sidebar</td>
+</tr>
+<tr>
+  <td>Show column</td>
+  <td>Whether the field should be displayed as a column when viewing entry tables in the admin interface.</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Make this a required field</td>
+  <td>Whether the field should require a value in order for entry creation/editing to succeed.</td>
+  <td>-</td>
+</tr>
+</tbody>
+</table>
+<h4>The Big Picture</h4>
+<p>Fields and field types determine both the format of a section’s entry editor and its data source output.</p>
+<p>Fields of certain types can be used to create relationships among sections (<a rel="concept" href="field-types#select-box-link">Select Box Link</a> is one example).</p>
+<p>Fields are used as an axis for <a rel="concept" href="data-source-filters">data source filtering</a> and sorting and to populate <a rel="concept">data source output parameters</a>.</p></description>
+            <name handle="fields">Fields</name>
+            <summary mode="formatted"><p>Fields give shape to sections and their entries by defining the data they capture.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33066" tutorials="1" tutorial-steps="1" articles="0" concepts="3" tasks="0" resources="2" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Pages are points of interface for the front end of a Symphony project. They template and serve the content being delivered by the system’s data sources, define the URL schemas by which that content can be accessed, and accept user input that can be channeled back into the system via events. Pages, in other words, provide dynamic environments for users to interact with a Symphony project and its components.</p>
+<p>Symphony pages are unlike “pages” in many other systems: they are not simply containers for static content and there is not a one-to-one relationship between a page and the content accessible via that page. In fact, a single Symphony page can power an entire browsing interface.</p>
+<h4>Usage</h4>
+<p>Pages can be managed at <code>Blueprints &gt; Pages</code>. Until pages are created, a Symphony project has no front end interface.</p>
+<p>Pages are coupled with <a rel="concept">page templates</a>, so creating or deleting a page creates or deletes its page template.</p>
+<h4>Details</h4>
+<h5>Page Index</h5>
+<p><img src="page-index"/></p>
+<p>The page index, located at <code>Blueprints &gt; Pages</code>, consists of five columns:</p>
+<table>
+<thead>
+<tr>
+  <th>Column</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Title</td>
+  <td>The page&#8217;s title. Clicking the link opens the page editor.</td>
+</tr>
+<tr>
+  <td>Template</td>
+  <td>The corresponding page template. Clicking opens the page template editor.</td>
+</tr>
+<tr>
+  <td>URL</td>
+  <td>The page&#8217;s front-end URL. Clicking opens the page on the front-end.</td>
+</tr>
+<tr>
+  <td>URL Parameters</td>
+  <td>The <a rel="concept">URL parameters</a> the page accepts.</td>
+</tr>
+<tr>
+  <td>Page Type</td>
+  <td>The <a rel="concept" href="page-types">page type(s)</a> assigned to the page.</td>
+</tr>
+</tbody>
+</table>
+<p>Bulk operations available: delete.</p>
+<h5>Page Editor</h5>
+<p><img src="page-editor"/></p>
+<p>The page editor, located at <code>Blueprints &gt; Pages &gt; Create New</code> or <code>Blueprints &gt; Pages &gt; {Page Title}</code>, consists of two sections: Page Settings and Page Resources.</p>
+<p>Page Settings define the page&#8217;s URL schema and attributes.</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+  <th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Title</td>
+  <td>The human-readable title of the page</td>
+  <td>Our Products</td>
+</tr>
+<tr>
+  <td>URL Handle</td>
+  <td>The handle at which the page will be accessible on the front end</td>
+  <td>products</td>
+</tr>
+<tr>
+  <td>URL Parameters</td>
+  <td><em>optional</em> Parameters that can be dynamically set in the page&#8217;s URL</td>
+  <td>department/category</td>
+</tr>
+<tr>
+  <td>Parent Page</td>
+  <td><em>optional</em> Page beneath which this page should appear</td>
+  <td>Store (making this example page available at http://yoursite.com/store/products)</td>
+</tr>
+<tr>
+  <td>Page Type</td>
+  <td><em>optional</em> Page types assigned to the page</td>
+  <td>xml (if our page served an RSS feed, for instance)</td>
+</tr>
+</tbody>
+</table>
+<p>Page Resources allow the attachment of events and data sources to the page.</p>
+<ul>
+<li>Events</li>
+<li>Data Sources</li>
+</ul>
+<h4>The Big Picture</h4>
+<p>Without pages, <a rel="concept">data sources</a>, <a rel="concept">devkits</a>, <a rel="concept">events</a>, <a rel="concept">page templates</a>, <a rel="concept">parameters</a>, and <a rel="concept">utilities</a> would essentially be rendered useless. Pages provide the environments within which all of these other elements can function and interoperate. Also, without pages, a Symphony project would have no front-end interface and would be entirely inaccessible to the public.</p></description>
+            <name handle="pages">Pages</name>
+            <summary mode="formatted"><p>Pages constitute a Symphony project&#8217;s front-end interface and determine its URL structure.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

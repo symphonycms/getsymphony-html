@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33103" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Page Types are a category of meta information that can be added to <a rel="concept">pages</a>, usually to flag them for special treatment on the front end. For example, page types are used to designate the index page (or home page) of your Symphony project, its error pages (such as a 404 page), protected admin pages, the page to be displayed when the site is in <a rel="concept">maintenance mode</a>, and so on.</p>
+<p>There are six core page types that receive special treatment from the system, but like most things in Symphony, page types are entirely open-ended. You can assign custom page types on the fly and provide special handling instructions in your templates.</p>
+<h4>Usage</h4>
+<p>Page types are assigned to pages in the <a rel="concept" href="pages#page-editor">page editor</a> (<code>Blueprints &gt; Pages &gt; New</code> or <code>Blueprints &gt; Pages &gt; {Page Title}</code>).</p>
+<p>Pages can have more than one type.</p>
+<h4>Details</h4>
+<p>There are six page types that receive special handling from the system:</p>
+<table>
+<thead>
+<tr>
+  <th>Page Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>index</code></td>
+  <td>Designates a page to be the index page for your Symphony project.</td>
+</tr>
+<tr>
+  <td><code>xml</code></td>
+  <td>Serves a page with a content type of <code>text/xml</code> instead of <code>text/html</code>.</td>
+</tr>
+<tr>
+  <td><code>admin</code></td>
+  <td>Restricts access to a page to authenticated Symphony authors.</td>
+</tr>
+<tr>
+  <td><code>404</code></td>
+  <td>Designates a page to be served as your 404 error (not found) page.</td>
+</tr>
+<tr>
+  <td><code>403</code></td>
+  <td>Designates a page to be served as your 403 error (forbidden) page.</td>
+</tr>
+<tr>
+  <td><code>maintenance</code></td>
+  <td>Designates a page to be served whenever your project is in Maintenance Mode.</td>
+</tr>
+</tbody>
+</table>
+<p>In the XML output of a system-generated navigation data source, page types appear as separate <code>&lt;type&gt;</code> nodes in a parent <code>&lt;types&gt;</code> node:</p>
+<pre><code>
+    &lt;page handle="home" id="01"&gt;
+        &lt;name&gt;Home&lt;/name&gt;
+        &lt;types&gt;
+            &lt;type&gt;hidden&lt;/type&gt;
+            &lt;type&gt;index&lt;/type&gt;
+        &lt;/types&gt;
+    &lt;/page&gt;</code></pre></description>
+            <name handle="page-types">Page Types</name>
+            <parents>
+                <item id="33066" handle="pages" section-handle="concepts" section-name="Concepts">Pages</item>
+            </parents>
+            <summary mode="formatted"><p>Page Types enable special handling of pages, and are used to specify a project&#8217;s home page, error pages, etc.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

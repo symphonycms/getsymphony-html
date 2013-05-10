@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33098" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Components is a view in the <a rel="concept">admin interface</a>, under <a rel="concept">Blueprints</a>, that allows you to manage <a rel="concept">events</a>, <a rel="concept">data sources</a>, and <a rel="concept">utilities</a>.</p>
+<h4>Usage</h4>
+<p>The Components view can be accessed in the admin interface, under <code>Blueprints &gt; Components</code>.</p>
+<h4>Details</h4>
+<p><img src="components-view"/></p>
+<p>The components view lists, in three separate columns, all of a project&#8217;s events, data sources, and utilities. The lists are sorted alphabetically.</p>
+<p>To create a component, click the green <code>Create New</code> button at the top of the appropriate list. To edit an item, simply click its name.</p></description>
+            <name handle="components">Components</name>
+            <parents>
+                <item id="33075" handle="admin-interface" section-handle="concepts" section-name="Concepts">Admin Interface</item>
+            </parents>
+            <summary mode="formatted"><p>Components refers collectively to a Symphony project&#8217;s events, data sources, and utilities.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

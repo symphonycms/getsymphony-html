@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33156" tutorials="0" tutorial-steps="0" articles="1" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>The Extension File Structure is a set of layout and naming conventions for <a rel="concept" href="extensions">extension</a> files that enables them to be automatically detected and loaded by Symphony.</p>
+<h4>Usage</h4>
+<p>When creating an extension, simply follow the conventions outlined below.</p>
+<h4>Details</h4>
+<h5>Overview</h5>
+<p>Extensions should be structured as follows. Note that the only required file is extension.driver.php. The remaining directories and files can be included as needed.</p>
+<pre><code>
+    yourextension/
+        assets/
+            sample.js
+            sample.css
+        content/
+            content.index.php
+            content.sample.php
+        data-sources/
+            datasource.sample.php
+        events/
+            event.sample.php
+        fields/
+            field.sample.php
+        lang/
+            lang.de.php
+            lang.es.php
+        lib/
+            yourphplibs.php
+        text-formatters/
+            formatter.sample.php
+        extension.driver.php
+        license
+        README</code></pre>
+<h5>assets/</h5>
+<p>Though not actually used for auto-inclusion, placing CSS, JavaScript, and image files in an assets directory is a Symphony convention</p>
+<h5>content/</h5>
+<p>The files in the content directory are autoincluded and used to render back-end pages. The file content.sample.php would render a page at <code>/symphony/extension/yourextension/sample</code>. content.index.php is viewable at <code>/symphony/extension/yourextension</code>.</p>
+<h5>data-sources/</h5>
+<p>Any <a rel="concept">data sources</a> to be provided by an extension must be placed here for auto-inclusion.</p>
+<h5>events/</h5>
+<p>Any <a rel="concept">events</a> to be provided by an extension must be placed here for auto-inclusion.</p>
+<h5>fields/</h5>
+<p>Any <a rel="concept">field types</a> to be provided by an extension must be placed here for auto-inclusion.</p>
+<h5>lang/</h5>
+<p>Any localization dictionaries to be provided by an extension must be placed here for auto-inclusion.</p>
+<h5>lib/</h5>
+<p>Like the assets folder, the lib folder is not actually used for auto-inclusion but is conventionally used to store custom library files used by the extension.</p>
+<h5>text-formatters/</h5>
+<p>Any text formatters to be provided by an extension must be placed here for auto-inclusion.</p>
+<h5>extension.driver.php</h5>
+<p>The extension driver, used to initiate, enable, uninstall, and upgrade an extension and to subscribe to <a rel="concept">delegates</a>. This file is required.</p>
+<h5>license or licence</h5>
+<p>A text file detailing the license(s) used by the extension.</p>
+<h5>README or README.markdown</h5>
+<p>The extension&#8217;s README file. Conventionally contains basic information (extension name, version, and release date), developer information (name, email, and website) and installation and usage notes.</p>
+<h4>The Big Picture</h4>
+<p>The extension file structure is an important part of Symphony&#8217;s <strong>Extension API</strong> (forthcoming).</p></description>
+            <name handle="extension-file-structure">Extension File Structure</name>
+            <parents>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+            </parents>
+            <summary mode="formatted"><p>The Extension File Structure enables Symphony to detect and load extension files automatically.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

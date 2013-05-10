@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33153" tutorials="0" tutorial-steps="0" articles="2" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>XML is the markup language used by Symphony to expose content to the templating layer, where it is transformed by XSLT. Symphony’s native use of XML makes it trivially easy to work with feeds, APIs, and other XML data sets, and encourages clean, well-structured coding.</p>
+<p>A Symphony <a rel="concept" href="pages">page</a>&#8217;s XML source is the basis for the transformations carried out by its <a rel="concept" href="page-templates">template</a> (and any included <a rel="concept">utilities</a>).</p>
+<h4>Usage</h4>
+<p>A page&#8217;s XML source is comprised of fragments provided by attached <a rel="concept">data sources</a> and <a rel="concept">events</a>. Adding data to a page&#8217;s XML source requires creating a data source to fetch it and attaching that data source to the page.</p>
+<h4>Details</h4>
+<p>The root element of a page&#8217;s XML source is always <code>&lt;data&gt;</code>. Any fragments provided by data sources or events are nested within this root element.</p>
+<p>For more details on XML itself, see: <a href="http://www.w3schools.com/xml/xml_whatis.asp">http://www.w3schools.com/xml/xml_whatis.asp</a></p>
+<h4>The Big Picture</h4>
+<p>XML is a widely-adopted open standard recommended by the W3C.</p></description>
+            <name handle="xml">XML</name>
+            <summary mode="formatted"><p>XML powers Symphony&#8217;s data engine and is used to structure content for templating.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

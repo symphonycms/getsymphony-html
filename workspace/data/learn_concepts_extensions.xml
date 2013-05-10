@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33071" tutorials="0" tutorial-steps="2" articles="6" concepts="2" tasks="1" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="developers">Developers</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Extensions are add-ons that can provide additional functionality for your Symphony project. Some more common uses for extensions include providing additional <a>field types</a> and <a>text formatters</a>, enhancing the <a>admin interface</a>, and even bundling entirely new features. Symphony’s open <strong>Extension API</strong> (forthcoming) makes it easy for developers to contribute new extensions.</p>
+<h4>Usage</h4>
+<p>Extensions must be placed in the <code>extensions/</code> folder of a Symphony installation in order to be made available to the system.</p>
+<p>They can be managed in the admin interface, under <code>System &gt; Extensions</code>. Individual or bulk management is possible by selecting extensions and using the "With Selected" dropdown to Enable, Disable, or Uninstall.</p>
+<h4>Details</h4>
+<p>There are seven default extensions:</p>
+<p>Extension Name | Description
+-------------- | -----------
+<a href="devkits#debug-devkit">Debug Devkit</a> | Provides front-end debugging interface via the ?debug param.
+Export Ensemble | Enables the creation of <a>ensembles</a> in the admin interface.
+<a href="field-types#select-box-link">Select Box Link</a> field | Field type that enables the creation of persistent relationships between section entries.
+<a>JIT Image Manipulation</a> | Enables on-the-fly manipulation of images via specially formed src URLs.
+<a>Maintenance Mode</a> | Enables maintenance mode.
+Markdown Text Formatter | Provides Markdown text formatter which can be applied to text area fields.
+<a href="devkits#profile-devkit">Profile Devkit</a> | Provides front-end profiling interface via the ?profile param.</p>
+<h4>The Big Picture</h4>
+<p>Extensions can provide all kinds of features for a Symphony project. The Symphony website hosts a <a href="/download/extensions">library of extensions</a> with far-ranging capabilities. Among other things, extensions can provide custom <a>data sources</a>, <a>events</a>, field types, text formatters, localization dictionaries, and more.</p></description>
+            <name handle="extensions">Extensions</name>
+            <summary mode="formatted"><p>Extensions add specialized functionality to the lean, mean Symphony core.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

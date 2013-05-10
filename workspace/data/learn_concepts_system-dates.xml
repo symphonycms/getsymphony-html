@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33212" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>System Dates are timestamps—representing the date and time of an entry&#8217;s creation— that are auto-generated for all content entries in a Symphony project. System dates are not visible while creating or editing <a rel="concept">entries</a>, but are available to data sources for sorting and output.</p>
+<h4>Usage</h4>
+<p>System dates are auto-generated upon entry creation and are not editable.</p>
+<p>Unlike <a rel="concept">system IDs</a>, system dates cannot be used for <a rel="concept" href="data-source-filters">data source filtering</a> and are not included in an entry&#8217;s <a rel="concept">XML</a> output. They can populate <a rel="concept">data source output parameters</a>, but their primary use is in sorting a data source&#8217;s result set.</p></description>
+            <name handle="system-dates">System Dates</name>
+            <parents>
+                <item id="33147" handle="entries" section-handle="concepts" section-name="Concepts">Entries</item>
+            </parents>
+            <summary mode="formatted"><p>System Dates store creation timestamps for a Symphony project&#8217;s content entries.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

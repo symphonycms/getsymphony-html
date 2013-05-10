@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33074" tutorials="0" tutorial-steps="1" articles="0" concepts="0" tasks="0" resources="1" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Navigation Groups are an attribute of <a rel="concept">sections</a> that define the menu item under which a section will appear in the <a rel="concept">admin interface</a>.</p>
+<p>For example, a Symphony project with sections like “Customers,” “Vendors,” “Invoices,” and “Expense Reports” might place the first two sections in a navigation group called “Contacts” and the following two in one called “Finances.” The resulting menu hierarchy would look like <a rel="figure" href="navigation-groups-example">Figure 1</a>.</p>
+<h4>Usage</h4>
+<p>When creating or editing a section, enter the name of the desired navigation group into the Navigation Group field.</p>
+<p>Sections with the same navigation group will be listed together in a submenu. If the navigation group entered does not yet exist, a menu item will be created for it.</p>
+<p>Note that if all of the sections in a navigation group are hidden, that navigation group will not appear in the menu.</p>
+<h4>The Big Picture</h4>
+<p>Navigation groups are only used to group sections in the admin interface. They do not affect the structure of sections or <a rel="concept">entries</a>, and are not reflected in any front-end output.</p></description>
+            <name handle="navigation-groups">Navigation Groups</name>
+            <parents>
+                <item id="33075" handle="admin-interface" section-handle="concepts" section-name="Concepts">Admin Interface</item>
+                <item id="33064" handle="sections" section-handle="concepts" section-name="Concepts">Sections</item>
+            </parents>
+            <summary mode="formatted"><p>Navigation Groups allow Sections to be grouped together in the Symphony admin interface.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

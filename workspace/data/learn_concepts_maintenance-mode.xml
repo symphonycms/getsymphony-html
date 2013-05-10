@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33130" tutorials="0" tutorial-steps="0" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Maintenance Mode is a system state that allows an administrator to temporarily take a Symphony project “offline,” disabling access to the front end for non-authors and replacing it with a single placeholder page.</p>
+<p>As its name suggests, maintenance mode can be very helpful when performing system maintenance or upgrades: logged-in <a rel="concept">authors</a> are able to access the front end normally for debugging and testing purposes, while other visitors are served a fully configurable placeholder <a rel="concept">page</a>.</p>
+<h4>Usage</h4>
+<h5>Enabling/Disabling Maintenance Mode</h5>
+<p>Maintenance mode can be enabled and disabled in the <a rel="concept">admin interface</a>, under <code>System &gt; Preferences</code>. Ticking or unticking the &#8220;Enable Maintenance Mode&#8221; box and clicking &#8220;Save Changes&#8221; will toggle maintenance mode on and off.</p>
+<p>Alternatively, maintenance mode can be enabled or disabled by directly editing the file at <code>manifest/config.php</code> and setting the value of <code>maintenance_mode['enabled']</code> to <code>no</code> or <code>yes</code>:</p>
+<pre><code>
+    ###### MAINTENANCE_MODE ###### 
+    'maintenance_mode' => array( 
+        'enabled' => 'no', 
+    ), 
+    ########</code></pre>
+<h5>Setting the placeholder page</h5>
+<p>By default, Symphony will display a generic system page to visitors who attempt to access a site with maintenance mode enabled. To display a custom placeholder page instead, simply create a page with a <a rel="concept">page type</a> of &#8220;maintenance&#8221;.</p>
+<p>Note that, while in maintenance mode, unauthenticated users will not be able to access any other pages. This means it&#8217;s usually a good idea when designing a maintenance page to disable any default navigation and to avoid linking to or using content provided by other pages. A maintenance page can, however, continue to utilize assets in the <a rel="concept">workspace</a> directory (images, stylesheets, or JavaScript files, for instance).</p></description>
+            <name handle="maintenance-mode">Maintenance Mode</name>
+            <parents>
+                <item id="33075" handle="admin-interface" section-handle="concepts" section-name="Concepts">Admin Interface</item>
+            </parents>
+            <summary mode="formatted"><p>Maintenance Mode, when enabled, disallows access to a Symphony project&#8217;s front end and replaces it with a placeholder page.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

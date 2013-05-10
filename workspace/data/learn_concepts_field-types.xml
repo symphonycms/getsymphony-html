@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33144" tutorials="1" tutorial-steps="2" articles="0" concepts="0" tasks="0" resources="0" issues="0">
+            <audiences>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Field Types are definitions governing the structure and behavior of fields in Symphony. They determine how <a rel="concept">fields</a> are rendered in the <a rel="concept">admin interface</a>, what types of data a field can accept, how that data is captured and stored, and how it is formatted and output for use on the front end. Symphony has eight core field types; additional field types are available as extensions.</p>
+<h4>Usage</h4>
+<p>Field types determine the structure of a field&#8217;s settings pane when it is added to a <a rel="concept" href="sections">section</a> in the <a rel="concept" href="sections#section-editor">section editor</a>.</p>
+<h4>Details</h4>
+<p>The are eight core field types in Symphony, and a ninth, Select Box Link, is provided by a default extension.</p>
+<h5>Author</h5>
+<p>The author field type is represented by a <code>select</code> input populated with system authors. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Allow multiple</td>
+  <td>Checkbox specifying whether to allow the selection of multiple authors.</td>
+</tr>
+<tr>
+  <td>Select current</td>
+  <td>Checkbox specifying whether the author editing the entry should be selected by default.</td>
+</tr>
+</tbody>
+</table>
+<h5>Checkbox</h5>
+<p>The checkbox field type is represented by a basic <code>checkbox</code> input. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Long Description</td>
+  <td>Text to be displayed alongside the checkbox in lieu of a label.</td>
+</tr>
+<tr>
+  <td>Checked by default</td>
+  <td>Checkbox specifying whether the field should default to checked.</td>
+</tr>
+</tbody>
+</table>
+<h5>Date</h5>
+<p>The date field type is represented by a basic text input. The format expected by the field is determined by the configuration settings created during installation and found in /manifest.config.php. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Pre-populate</td>
+  <td>Checkbox specifying whether the current date should be auto-entered into the field upon entry creation.</td>
+</tr>
+</tbody>
+</table>
+<h5>File Upload</h5>
+<p>The file upload field type is represented by a <code>file</code> input. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Destination Directory</td>
+  <td>Where files uploaded with this field will be stored. Select input populated by a list of all the directories under workspace/. Directory must be writeable.</td>
+</tr>
+<tr>
+  <td>Validation Rule</td>
+  <td>Regular expressions pattern used to validate the file name.</td>
+</tr>
+</tbody>
+</table>
+<h5>Select Box</h5>
+<p>The select box field type is represented by a <code>select</code> input that can be populated with static values, dynamic values, or both. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Static Options</td>
+  <td>A comma-delimited list of values to include in the field&#8217;s options.</td>
+</tr>
+<tr>
+  <td>Dynamic Options</td>
+  <td>List of fields, organized by section, whose content can be used to populate this field&#8217;s options.</td>
+</tr>
+<tr>
+  <td>Allow multiple</td>
+  <td>Checkbox specifying whether or not to allow multiple items to be selected.</td>
+</tr>
+</tbody>
+</table>
+<h5>Select Box Link</h5>
+<p>The Select Box Link field type is represented by a <code>select</code> input that is populated by entries in a linked section and creates a persistent relationship with the linked entry(ies). Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Options</td>
+  <td>List of fields, organized by section, whose content can be used to populate this field&#8217;s options.</td>
+</tr>
+<tr>
+  <td>Limit</td>
+  <td>How many of the most recent entries to show as options.</td>
+</tr>
+<tr>
+  <td>Allow multiple</td>
+  <td>Checkbox specifying whether or not to allow multiple items to be selected.</td>
+</tr>
+</tbody>
+</table>
+<h5>Tag List</h5>
+<p>The tag list field type is represented by a text input that accepts a comma-delimited list of values. It is followed by a dynamically-populated suggestion list. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Suggestion List</td>
+  <td>Source of suggested items. Can be content from another field in the system, or values from this field from other entries in the section.</td>
+</tr>
+<tr>
+  <td>Validation Rule</td>
+  <td>Regular expressions pattern used to validate the items.</td>
+</tr>
+</tbody>
+</table>
+<h5>Textarea</h5>
+<p>The textarea field type is represented by a <code>textarea</code> input that can apply text formatters to its content. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Rows</td>
+  <td>Height of the textarea in rows.</td>
+</tr>
+<tr>
+  <td>Text Formatter</td>
+  <td><a rel="concept" href="text-formatters">Text formatter</a> to be applied to the field&#8217;s content.</td>
+</tr>
+</tbody>
+</table>
+<h5>Text Input</h5>
+<p>The text input field type is represented by a basic <code>text</code> input. Its settings pane provides the following options:</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Global settings</em></td>
+  <td>See <a rel="concept" href="fields#settings-pane">breakdown</a>.</td>
+</tr>
+<tr>
+  <td>Validation Rule</td>
+  <td>Regular expressions pattern used to validate the input.</td>
+</tr>
+</tbody>
+</table></description>
+            <name handle="field-types">Field Types</name>
+            <parents>
+                <item id="33065" handle="fields" section-handle="concepts" section-name="Concepts">Fields</item>
+                <item id="33064" handle="sections" section-handle="concepts" section-name="Concepts">Sections</item>
+            </parents>
+            <summary mode="formatted"><p>Field Types define the structure of fields and govern their behavior in capturing and outputting data.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

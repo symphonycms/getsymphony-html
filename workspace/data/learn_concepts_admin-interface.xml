@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33075" tutorials="0" tutorial-steps="1" articles="0" concepts="4" tasks="0" resources="3" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>The admin interface, often referred to as the &#8220;back end,&#8221; is a Symphony project&#8217;s primary control panel. Once logged in, <a rel="concept">authors</a> can use the admin interface to set up and configure a project, manage its structure and content, install <a rel="concept">extensions</a>, and perform other tasks.</p>
+<h4>Usage</h4>
+<p>Registered authors can log into the admin interface at <code>http://yoursite.com/symphony</code>.</p>
+<h4>Details</h4>
+<p><img src="admin-interface"/></p>
+<p>Symphony&#8217;s UI is designed to be clean and functional. A title bar (1) identifies the project. A simple, horizontal menu (2) allows you to navigate through the back end. The main content area (3) is used to display edit forms, entry tables, and the like. Finally, the footer (4) includes links to some basic account utilities.</p>
+<p>Functionally speaking, the admin interface provides access to three basic areas:</p>
+<p>The first items in a Symphony project&#8217;s menu enable management of content <a rel="concept">entries</a>. The names of these menu items are determined by a project&#8217;s visible <a rel="concept">sections</a>, and by the <a rel="concept">navigation groups</a> to which those sections belong.</p>
+<p>These are followed in the menu by a <strong>Blueprints</strong> item (<a rel="figure" href="blueprints-menu">Figure 2</a>), where a project&#8217;s architecture—namely, its <a rel="concept">pages</a>, <a rel="concept">events</a>, <a rel="concept">data sources</a>, <a rel="concept">utilities</a>, and <a rel="concept">sections</a>—can be defined and configured.</p>
+<p>Finally, a <strong>System</strong> menu item (<a rel="figure" href="system-menu">Figure 3</a>) enables administration of <a rel="concept">authors</a>, system preferences, and <a rel="concept">extensions</a>.</p>
+<p>Note that <a rel="concept">extensions</a> can add to or alter this default navigation schema. Only authors with a user type of &#8220;developer&#8221; will have access to the Blueprints and System areas.</p></description>
+            <name handle="admin-interface">Admin Interface</name>
+            <summary mode="formatted"><p>Symphony&#8217;s Admin Interface, or back end, enables authors to manage content and system settings.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>

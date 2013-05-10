@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-concept-view>
+        <section id="58" handle="concepts">Concepts</section>
+        <entry id="33064" tutorials="0" tutorial-steps="2" articles="0" concepts="2" tasks="0" resources="3" issues="0">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <description mode="formatted"><h4>Overview</h4>
+<p>Sections are a Symphony project’s most fundamental building blocks, because they define the types of content that it will manage. Each section provides a model for the content <a rel="concept">entries</a> it will contain, determining their structure by defining the <a rel="concept">fields</a> that will comprise them.</p>
+<p>Unlike many content management systems, Symphony doesn’t make any assumptions about what kinds of content it will be managing or what their structure will be, so creating and defining sections is a completely open-ended process.</p>
+<h4>Usage</h4>
+<p>Sections are managed in the <a rel="concept">admin interface</a>, under <code>Blueprints &gt; Sections</code>. Once a section is created and its sructure defined, content entries can be created in that section.</p>
+<h4>Details</h4>
+<p>Sections are comprised of a name along with one or more fields of data. A section’s fields give structure to its entries and capture their content. A “Book Reviews” section, for instance, might have fields for “Title,” “Reviewer,” and “Date.”</p>
+<h5>Section Index</h5>
+<p><img src="section-index"/></p>
+<p>The section index, located at <code>Blueprints &gt; Sections</code>, consists of three columns:</p>
+<table>
+<thead>
+<tr>
+  <th>Column</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Name</td>
+  <td>The section&#8217;s name. Clicking the link opens the section editor.</td>
+</tr>
+<tr>
+  <td>Entries</td>
+  <td>The number of entries in the section. Clicking the link takes you to the section&#8217;s entry index.</td>
+</tr>
+<tr>
+  <td>Navigation Group</td>
+  <td>The name of the navigation group to which the section belongs.</td>
+</tr>
+</tbody>
+</table>
+<p>Bulk operations available: delete, delete entries.</p>
+<h5>Section Editor</h5>
+<p><img src="section-editor"/></p>
+<p>The section editor, located at <code>Blueprints &gt; Sections &gt; Create New</code> or <code>Blueprints &gt; Sections &gt; {Section Name}</code>, consists of two parts: Essentials and Fields.</p>
+<p>Essentials define how the section is identified and organized within the system.</p>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Description</th>
+  <th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Name</td>
+  <td>The section&#8217;s name</td>
+  <td>Projects</td>
+</tr>
+<tr>
+  <td>Navigation Group</td>
+  <td>Back-end menu item within which the section will appear</td>
+  <td>Portfolio</td>
+</tr>
+<tr>
+  <td>Hide this section&#8230;</td>
+  <td>Checkbox allowing a section to be hidden from the back-end menu</td>
+  <td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Fields allows fields to be added to the section. See <a rel="concept">Fields</a> and <a rel="concept">Field Types</a> for more details.</p>
+<h4>The Big Picture</h4>
+<p>Sections are a major organizing axis in Symphony, most notably for <a rel="concept">data sources</a> (which fetch, <a rel="concept" href="data-source-filters">filter</a>, and sort data by section) and for <a rel="concept">events</a> (which enable the creation and editing of a section’s entries from the frontend).</p></description>
+            <name handle="sections">Sections</name>
+            <summary mode="formatted"><p>Sections model and define the types of content to be managed in a Symphony project.</p></summary>
+        </entry>
+    </learn-concept-view>
+</data>
