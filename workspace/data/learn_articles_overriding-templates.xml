@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="34167">
+            <audiences>
+                <item handle="users">Users</item>
+            </audiences>
+            <author>
+                <item id="2101">Allen</item>
+            </author>
+            <body mode="formatted"><p>For simple websites, master templates are usually quite a simple affair but when working on more complex websites, things can get messy quickly.</p>
+<h3>The basic</h3>
+<p>Let&#8217;s start by looking at a basic master template.</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="xml" 
+    doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" 
+    doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+    omit-xml-declaration="yes"
+    encoding="UTF-8" 
+    indent="yes"/&gt;
+    &lt;xsl:template match="/"&gt;
+        &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;
+                    &lt;xsl:value-of select="$website-name"/&gt;
+                    &lt;xsl:text&gt;: &lt;/xsl:text&gt;
+                    &lt;xsl:value-of select="$page-title"/&gt;
+                &lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;xsl:apply-templates/&gt;
+            &lt;/body&gt;
+        &lt;/html&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+<p>For conciseness, I usually like to write multiple <code>&lt;xsl:value-of&gt;</code> lines out like this:</p>
+<pre><code>&lt;title&gt;
+    &lt;xsl:value-of select="concat($website-name, ': ', $page-title)"/&gt;
+&lt;/title&gt;
+</code></pre>
+<h3>Extending the basic</h3>
+<p>On some pages, the title needs to be more specific, so the common practise is to do the following:</p>
+<pre><code>&lt;title&gt;
+    &lt;xsl:value-of select="concat($website-name, ': ', $page-title)"/&gt;
+    &lt;xsl:if test="$current-page = 'blog' and not($handle = '')"&gt;
+        &lt;xsl:value-of select="path/to/blog/title"/&gt;
+    &lt;/xsl:if&gt;
+&lt;/title&gt;
+</code></pre>
+<p>The logic says, if the current page is called &#8216;blog&#8217; and the <code>$handle</code> URL parameter is not empty, then display the blog title. This of course has the ramifications of growing in size when more pages require their own specific titling requirements.</p>
+<p>The natural approach is to abstract the page title logic to a named template:</p>
+<pre><code>&lt;xsl:template name="page-title"&gt;
+    &lt;xsl:value-of select="concat($website-name, ': ', $page-title)"/&gt;
+    &lt;xsl:if test="$current-page = 'blog' and not($handle = '')"&gt;
+        &lt;xsl:value-of select="path/to/blog/title"/&gt;
+    &lt;/xsl:if&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<h3>Extending the extended basic</h3>
+<p>However all the above code has done is to move the mess to a separate area. Something more needs to be done to make this more elegant. There are two approaches to this:</p>
+<ol>
+<li>Named template override</li>
+<li>Matching template override</li>
+</ol>
+<p>Both methods are identical in approach but the syntax and logic is slightly different. Before we get to the good part, we need to first establish the environment. In Symphony, <em>master</em> templates are a standalone XSLT document that is either imported or included to the <em>page</em> template. This is not an XSLT mandate but simply a good development practise in Symphony. You&#8217;ll need to understand the importance of template hierarchy before reading on.</p>
+<h3>Named template override</h3>
+<p>We&#8217;ll start with named template override technique first:</p>
+<p>On master.xsl we have:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="xml" 
+    doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" 
+    doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+    omit-xml-declaration="yes"
+    encoding="UTF-8" 
+    indent="yes"/&gt;
+    &lt;xsl:template match="/"&gt;
+        &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;
+                    &lt;xsl:call-template name="page-title"/&gt;
+                &lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;xsl:apply-templates/&gt;
+            &lt;/body&gt;
+        &lt;/html&gt;
+    &lt;/xsl:template&gt;
+    &lt;xsl:template name="page-title"&gt;
+        &lt;xsl:value-of select="concat($website-name, ': ', $page-title)"/&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+<p>On the blog page (<code>blog.xsl</code>), we have:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+    &lt;xsl:import href="../utilities/master.xsl"/&gt;
+    &lt;xsl:template match="data"&gt;
+        ...
+    &lt;/xsl:template&gt;
+    &lt;xsl:template name="page-title"&gt;
+        &lt;xsl:if test="not($handle = '')"&gt;
+            &lt;xsl:value-of select="path/to/blog/title"/&gt;
+        &lt;/xsl:if&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+<p>Because we are using the <code>&lt;xsl:import&gt;</code> instruction, we are allowed to override the named template on master. Remember, <code>blog.xsl</code> imports <code>master.xsl</code>, so <code>blog.xsl</code> takes precedence.</p>
+<p>Another very useful technique involving template override is the ability to override with an empty template:</p>
+<pre><code>&lt;xsl:template name="page-title"/&gt;
+</code></pre>
+<p>This isn&#8217;t very useful in our case, but useful when you want the default behaviour to output something but in rare situations to output nothing.</p>
+<h3>Matching template override</h3>
+<p>Matching template override is quite similar to named template override:</p>
+<p>On master.xsl we have:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="xml" 
+    doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" 
+    doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+    omit-xml-declaration="yes"
+    encoding="UTF-8" 
+    indent="yes"/&gt;
+    &lt;xsl:template match="/"&gt;
+        &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;
+                    &lt;xsl:apply-templates select="data" mode="page-title"/&gt;
+                &lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;xsl:apply-templates/&gt;
+            &lt;/body&gt;
+        &lt;/html&gt;
+    &lt;/xsl:template&gt;
+    &lt;xsl:template match="data" mode="page-title"&gt;
+        &lt;xsl:value-of select="concat($website-name, ': ', $page-title)"/&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+<p>On the blog page (<code>blog.xsl</code>), we have:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+    &lt;xsl:include href="../utilities/master.xsl"/&gt;
+    &lt;xsl:template match="data"&gt;
+        ...
+    &lt;/xsl:template&gt;
+    &lt;xsl:template match="data" mode="page-title"&gt;
+        &lt;xsl:if test="not($handle = '')"&gt;
+            &lt;xsl:value-of select="path/to/blog/title"/&gt;
+        &lt;/xsl:if&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+<p>The way this works is by applying the same context node multiple times but using different modes to target code execution. Logically, matching template override is not much different to named template override with one exception. Notice that this time, I&#8217;ve used <code>&lt;xsl:include&gt;</code> rather than <code>&lt;xsl:import&gt;</code>. Matching templates are inherently capable of overriding without causing XSLT &#8220;redefinition&#8221; conflicts. In fact, you can give matching templates a <code>@priority</code> to denote its level of importance:</p>
+<pre><code>&lt;xsl:template match="blog/entry" priority="10"&gt;
+    ...
+&lt;/xsl:template&gt;
+</code></pre>
+<p>Similar to CSS, priority resolution is in order of specificity. The more specific the matching pattern the higher its inherent priority. Matching template overrides are useful when you still need to execute lower priority templates on your page and not completely replace a template.</p></body>
+            <concepts>
+                <item id="33121" handle="xslt" section-handle="concepts" section-name="Concepts">XSLT</item>
+            </concepts>
+            <date-modified time="21:02" weekday="6">2009-11-28</date-modified>
+            <date-published time="02:00" weekday="6">2008-11-08</date-published>
+            <title handle="overriding-templates">Overriding Templates</title>
+        </entry>
+    </learn-article-view>
+</data>

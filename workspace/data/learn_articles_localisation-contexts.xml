@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="94494">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="4601">eKoeS</item>
+            </author>
+            <body mode="formatted"><h3>A bit of history</h3>
+<p>Before Symphony 2.3, it was only possible to translate a string in a global fashion. No matter the place the string was shown, the same translation was used everywhere, over and over again. This system worked for quite a long time, but there were some flaws:</p>
+<ul>
+<li><p>Unlike English, there are languages that base more heavily on noun genders. For instance, while it's perfectly acceptable in English to have "<em>Create New</em>" implicitly refer to both "<em>Sections</em>" and "<em>Events</em>", Italian have two versions of "<em>New</em>" -- one for female nouns like "<em>Sezione</em>" ("<em>Section</em>" in English) and one for male ones like "<em>Evento</em>" (or "<em>Event</em>").</p></li>
+<li><p>It might happen that the same string is used in two different pages to mean different things. For instance, there was a bug in Symphony 2.2.x where "<em>Send Email</em>" was employed to mean both a Filter Option for an event and a button label in the Password Recovery page.</p></li>
+</ul>
+<p>One might argue there are many cheap ways to workaround these issues without changing the codebase. Although true, Symphony developers always stressed a concept that quickly become a selling point for the platform: UX has to meet development. It's unpleasant when a localised version of the backend or an extension contains gender mismatches between pronouns and nouns. Moreover, changing a string in one page because it's being used somewhere else -- especially when the old one worked well and meshed with the UI -- it's symptom of bad design.</p>
+<p>At some point in the development of Symphony, it was then clear that the current localisation system had become obsolete and didn't take into account languages and rules foreign to the English user. Under these circumstances, enriching the old system with something new seemed legitimate. We were looking for a way to give translators a more flexbile tool on one hand, while maintaining the old language files compatible with Symphony on the other.</p>
+<h3>Contexts in short</h3>
+<p>Contexts are really simple to understand. In short, a context is a string which identifies a group of pages in the backend. We wanted to make the concept damn simple to grasp and we struggled to name values in a way that was both easy to remember and even guess. We couldn't be more happy when we raised our eyes and found the page URL to be the perfect guy for the job.</p>
+<p>As of now, a context looks like a relative path in a filesystem, but it's easier to think of it as <code>/group/subgroup</code> or simply <code>/group</code>. In Symphony 2.3 you'll find the following to be valid contexts:</p>
+<ul>
+<li><code>/login</code> means the Login and Password Recovery pages.</li>
+<li><code>/publish</code> means the Entry Index and Editor pages.</li>
+<li><code>/blueprints/pages</code> means the Page Index and Editor pages.</li>
+<li><code>/blueprints/sections</code> means the Section Index and Editor pages.</li>
+<li><code>/blueprints/datasources</code> means the Data Source Index and Editor pages.</li>
+<li><code>/blueprints/events</code> means the Event Index and Editor pages.</li>
+<li><code>/blueprints/utilities</code> means the Utility Index and Editor pages.</li>
+<li><code>/system/authors</code> means the Author Index and Editor pages.</li>
+<li><code>/system/preferences</code> means the Preferences page.</li>
+<li><code>/system/extensions</code> means the Extensions page.</li>
+</ul>
+<p>It's pretty easy to guess the context by looking at the page URL right above you. Contexts look like paths just for this reason.</p>
+<p>Having contexts designed this way means we are now supporting both gender- and page-aware translations. For instance:</p>
+<ul>
+<li>If "<em>Create New</em>" is shown in the <code>/blueprints/sections</code> context, it can be translated so that the implicit gender is female (e.g. "<em>Crea nuov<strong>a</strong></em>" in Italian), while for <code>/blueprints/events</code> we would supply a different translation that takes care of the implicit male noun (e.g. "<em>Crea nuov<strong>o</strong></em>").</li>
+<li>If "<em>Send Email</em>" appears in the Password Recovery page then the context is <code>/login</code>, while the Event Editor (and so the Filter Option) is part of the <code>/blueprints/events</code> context. As a result, the same string can be used in both places.</li>
+</ul>
+<p>As you can see, having a single context match with a bunch of pages turned out to be a perfectly valid assumption.</p>
+<p>Now that we all familiar with this concept, it's time to explain what changes for developers and translators. That was our next big question many moons ago. You'll be surprise to see that the syntax for defining and creating context-aware translations is pretty intuitive... sometimes even invisible.</p>
+<h4>What changed for developers</h4>
+<p>Quick answer: nothing. Every time you define a translatable string by wrapping it into the double-underscore function <code>__()</code> you are telling Symphony to automatically detect the right context. Symphony does it just like you -- that is, by looking at the URL.</p>
+<p>Technically, <code>__()</code> is just an alias for <code>Lang::translate()</code> which takes care of the real search &amp; replace stuff. For no reasons use the latter in your extensions: it's verbose and since it's being used internally its signature might and will change over time.</p>
+<p>It's worth mentioning that you are not allowed to define your own contexts and pass them to the <code>__()</code> function. While this might seem unnecessarily strict, you'll be surprised to see that having a context match a group of pages is already covering many cases, more than you can probably imagine. </p>
+<p>Actually, <code>Lang::translate()</code> does accept an optional <code>$context</code> parameter and should be used in place of <code>__()</code> only in one case: every time you want to pass translated strings from PHP to JavaScript, Symphony uses ad-hoc backend pages with their own URLs (e.g. <code>/ajax/translate/</code>). Without a dedicated parameter there would be a new context for each <code>AJAXPage</code> being requested and our efforts to create a logic classification of pages would fade out.</p>
+<p>To sum it up, in 99% of cases you won't need to use <code>Lang::translate()</code>. Just stick to <code>__()</code> and Symphony will do all the rest.</p>
+<h4>What changed for translators</h4>
+<p>The purpose of contexts is to help translators deploy better localised versions of Symphony and its extensions. For this very reason, while contexts don't have almost any impact on developers, they are very likely to affect a translator's workflow. Let's see how.</p>
+<p>As you probably know, a language file is made of two arrays:</p>
+<ol>
+<li><code>$dictionary</code>, which contains pairs following the pattern <code>'English string' =&gt; 'Translation'</code>:</li>
+<li><p><code>$transliterations</code>, which contains special symbols that must be replaced with underscores or dashes wherever a handle is needed (e.g. in the URL).</p>
+<pre><code>$dictionary = array(
+    'Create New' =&gt; 'Crea nuovo',
+    'With Selected...' =&gt; 'Oggetti selezionati...',
+    'Apply' =&gt; 'Applica'
+);
+</code></pre></li>
+</ol>
+<p>With the addition of contexts, <code>$dictionary</code> accepts:</p>
+<ol>
+<li>Pairs following the pattern <code>'English string' =&gt; 'Translation'</code></li>
+<li><p>Arrays indexed by a valid context string (e.g. <code>/system/authors</code>), whose pairs follow the pattern <code>'English string in the context' =&gt; 'Translation in the context'</code>.</p>
+<pre><code>$dictionary = array(
+    'Create New' =&gt; 'Crea nuovo',
+    'With Selected...' =&gt; 'Oggetti selezionati...',
+    'Apply' =&gt; 'Applica',
+    '/blueprints/datasources' =&gt; array(
+        'Create New' =&gt; 'Crea nuova',
+    ),
+);
+</code></pre></li>
+</ol>
+<p>If you look very closely at the example, you can see that "<em>Create New</em>" is translated according to the context, that is the backend page being visited by the user. Every time you want to overwrite a translation by using a context, you must define the respective <em>context array</em>. If a pair doesn't belong to any context array (e.g. "<em>Apply</em>"), it's considered part of an implicit global context.</p>
+<p>The algorithm that Symphony uses for translating a string in the backend is as follows: </p>
+<ol>
+<li>For every page, Symphony detects the context.</li>
+<li>Once the context is known, for each string in the page Symphony tries to find a context-aware translation. This is done by looking at the <code>$dictionary</code> array of a given language file.</li>
+<li>If no translations are provided for that context, Symphony climbs the array looking for a context-less version -- that is, a translation in the global context.</li>
+<li>If no matches are found, Symphony returns the original string.</li>
+</ol>
+<p>In the above example, the string "<em>Crea nuova</em>" would be used every time the <code>/blueprints/datasources</code> is visited (step 2 of the algorithm). In all the other cases, Symphony would just pick "<em>Crea nuovo</em>" once it ascertains there are no translations in the context (step 3).</p>
+<p>A few important things that are worth mentioning:</p>
+<ul>
+<li>If you are not going to make use of contexts then you don't have to change anything in your language file. Every translation would just be considered in a global fashion, which doesn't hurt in most cases.</li>
+<li>Make sure you don't have any further array inside a context array: this is not allowed (contexts are not hierarchical) and Symphony would not appreciate that degree of complexity.</li>
+<li>If you don't need a context, you don't have to define the respective context array. This is another reason why previous language files are perfectly valid in Symphony 2.3: only use the context arrays that you need!</li>
+</ul>
+<h4>The Good and the Evil</h4>
+<p>Now that you are feisty and fond of this great new addition, you should be probably warned about this simple thing: it makes sense to exploit contexts as much as it makes sense to avoid them. It really changes on a per-string basis.</p>
+<p>There are cases where the same string requires the same translation everywhere. This is especially true when talking about copy that acts as UI. You don't want a thing to be called "<em>Datasources</em>" in one page and then "<em>Pieces of awesome XML</em>" in another: predictability and coherence play a very important role when it comes down to Usability and User Experience, so bear this in mind every time you are tempted to evoke a context.</p>
+<p>On the other hand, we already showed examples where contexts made the difference. As a general rule of thumb, use contexts when a string causes either gender or meaning conflicts across pages. It's likely for any other case to be handled in a simpler way.</p>
+<p>If you are a developer, don't even care about choosing strings that are context-friendly. Just pick the one that works best for you and your users and focus on the important things. Extensions development and translation are two different processes that must be kept separate: with this design in mind, translators can always use contexts where necessary without a developer's intervention.</p>
+<h3>Bonus track: Localisation Manager 2.0</h3>
+<p>With the arrival of Symphony 2.3 Localisation Manager has been updated to support localisation contexts. If you already use this tool you can probably skip this paragraph, otherwise I encourage you reading the following lines.</p>
+<p>Once installed, the extension adds a new item to the <code>System</code> menu called <code>Localisations</code>. On that page you are shown a list of extensions (plus the backend core itself, which is called <code>Symphony Core</code>), along with a list of supported languages and the option to create a new language file.</p>
+<p>If you mean to update an existing localisation (<code>Export</code> mode), just click on the desired language in the <code>Export dictionary</code> column. Localisation Manager will generate a language file including a list of working, obsolete and missing translations.</p>
+<ul>
+<li>A working translation is a pair <code>'English string' =&gt; 'Translation'</code> that is still valid for the latest version of the extension. You don't have to change it unless you want to deploy a better translation for that string.</li>
+<li>An obsolete translation is a pair <code>'English string' =&gt; 'Translation'</code> that is no longer used in the extension. You might want to remove it, but if you mean to support older versions you better keep it as it is.</li>
+<li>A missing translation is a pair <code>'English string' =&gt; false</code>, where <code>English string</code> didn't exist in previous versions and has been introduced since your last update to the language file. If you mean to support the latest version of an extension you should provide a translation for it.</li>
+</ul>
+<p>Localisation Manager is also able to generate new language files from scratch (<code>Create</code> mode): just click on <code>Add language</code> in the <code>Create dictionary</code> column and you'll be given a virgin dictionary to play on.</p>
+<p>It's worth mentioning that every time you start a new localisation, you lose the ability to support previous versions of that extension: in other words, Localisation Manager is not able to detect obsolete strings unless it's fed with a previous version of a language file.</p>
+<p>As far as contexts are concerned, Localisation Manager behaves as follows:</p>
+<ul>
+<li>In <code>Export</code> mode, the existing context arrays remain untouched: if a string in a context array is obsolete, it's marked as such; if it's not in the global context (and is not obsolete), a global version is created as well.</li>
+<li>In <code>Create</code> mode, context arrays are never created because it's a translator's responsibility.</li>
+</ul>
+<p>This concludes our journey through localisation contexts. Happy translating!</p></body>
+            <date-modified time="05:30" weekday="2">2012-11-06</date-modified>
+            <date-published time="05:30" weekday="2">2012-11-06</date-published>
+            <title handle="understanding-localisation-contexts">Understanding Localisation Contexts</title>
+        </entry>
+    </learn-article-view>
+</data>

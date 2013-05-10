@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="94493">
+            <audiences>
+                <item handle="developers">Developers</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <author>
+                <item id="9732">brendo</item>
+            </author>
+            <body mode="formatted"><p>The XML Importer extension is widely used to help users import XML content into their Symphony sections. Developers enter a URL that returns XML and then write XPath to map values to their corresponding fields, but sometimes this results in a field not receiving a value, an incorrect value, or the XML Importer failing to import anything.</p>
+<p>While not always the case, sometimes the XPath could be wrong, namespaces weren't added or you've discovered a bug (<a href="https://github.com/symphonists/xmlimporter/issues">log it</a>, but it can also be because a Field doesn't know how take the value you've given it and save it. This short article will explain how you can ensure that your field is compatible with the XML Importer, thanks to the <code>prepareImportValue</code> function.</p>
+<h3>Why is it needed?</h3>
+<p>Fields in Symphony have two existing function's, <a href="http://symphony-cms.com/learn/api/2.2.5/toolkit/field/#checkPostFieldData"><code>checkPostFieldData</code></a> and <a href="http://symphony-cms.com/learn/api/2.2.5/toolkit/field/#processRawFieldData"><code>processRawFieldData</code></a> which are designed to ensure that the incoming <code>$data</code> is valid, and then to process <code>$data</code> (which may be an array, string or <code>null</code>) into an associative array. The resulting array is used by the <code>EntryManager</code> to save the values in the field's database table (where each key is a column name and the value is the value of that column).</p>
+<p>Let's look at the core Input field as a simple example as to what <code>$data</code> may be. An Input field called <code>Title</code>, will be represented on the Publish form as one <code>&lt;input /&gt;</code>, created with a name of <code>fields[title]</code> (where <code>title</code> is now referred to as `field-handle). </p>
+<p><img src="http://dl.dropbox.com/u/15042164/symphony/symphony-input-inspector.png" alt="Input Inspector" /></p>
+<p>When the form is submitted, the data is sent via <code>$_POST</code> to Symphony and each field is iterated over, passing <code>$_POST['fields']['field-handle']</code> to their relevant <code>processRawFieldData</code> functions. The Input field's <a href="https://github.com/symphonycms/symphony-2/blob/master/symphony/lib/toolkit/fields/field.input.php#L150-162"><code>processRawFieldData</code> function</a> expects <code>$data</code> to be a string, and the resulting array returned is simply <code>array('value' =&gt; 'My Article Title')</code>. Easy.</p>
+<p>Looking at a more complicated field, such as the Map Location field, you'll quickly notice that it's markup on the Publish page reveals many fields such as <code>fields[field-handle][coordinates]</code>, <code>fields[field-handle][centre]</code> and <code>fields[field-handle][zoom]</code>. </p>
+<p><img src="http://dl.dropbox.com/u/15042164/symphony/symphony-maplocation-inspector.png" alt="Map Location Inspector" /></p>
+<p>The <a href="https://github.com/nickdunn/maplocationfield/blob/master/fields/field.maplocation.php#L180-206"><code>processRawFieldData</code> function</a> for this field is more complex, it expects an array of <code>$data</code> and manipulates it to match the field's database table.</p>
+<p>The XPath in your XML Importer will always return a single string which will mean importing an Input field will work fine, but importing into a Map Location field will not. The Map Location field expects an array of <code>$data</code>, but as it will only get a string so it's impossible for <code>processRawFieldData</code> to return the correctly process the <code>$data</code> and return a valid array.</p>
+<p>The <code>prepareImportValue</code> function is designed to take a single value and return an array that <code>processRawFieldData</code> expects and the best thing is that's it's really simple to implement!</p>
+<h3>How do I implement <code>prepareImportValue</code>?</h3>
+<pre><code>public function prepareImportValue($value, $entry_id = null)
+</code></pre>
+<p>The <code>prepareImportValue</code> function lives in your <code>Field</code> class and accepts two parameters, <code>$value</code> and <code>$entry_id</code>, where <code>$value</code> will be the value from the XPath expression, and <code>$entry_id</code> will be the ID of the entry that is being edited (or <code>null</code> if this is a new entry). The function should return an array which is expected by <code>checkPostFieldData</code> and <code>processRawFieldData</code>.</p>
+<p>Really, that's all it takes.</p>
+<h3>What about the XML Importer PHP helpers?</h3>
+<p>As well as XPath, the XML Importer gives you an option to run a PHP function over the evaluated XPath. Technically you can use this feature to make your helper return the required array for <code>processRawFieldData</code>, which can be helpful if there is a field that doesn't import correctly and has not implemented the <code>prepareImportValue</code> function.</p>
+<p>If you go down this road, I recommend that you open up a pull request to the extension developer that implements your helper as their field's <code>prepareImportValue</code> function. Consider it an act of good karma of your pioneering ways as I'm sure the community and future you will be grateful that they don't have to discover this the hard way like you did :)</p>
+<h3>Bonus</h3>
+<p>The <code>processRawFieldData</code> function has a somewhat mysterious parameter called <code>$simulate</code>. In normal Symphony use, this parameter is almost always <code>false</code>, because when the function is run, you want it to complete the task and return the correct array. However, in some cases, you might want to 'dry run' the function, for example uploading a file, where the processing should go as far as possible before actually putting the file on the filesystem to try and predict if there will be an error.</p>
+<p>The XML Importer sets the <code>$simulate</code> parameter to <code>true</code> and by doing so, this allows values to be written in the Upload field. If <code>$simulate</code> is <code>true</code> and it is a new entry, the Upload field will return an array that treats the value of <code>$data</code> as the path to the file. Be warned that these files must exist already otherwise the field will throw an error.</p>
+<p>The Upload Field aside, remembering about <code>$simulate</code> may prove helpful if you're doing something particularly complicated within your field.</p>
+<p>I hope this article helps describe the <code>prepareImportValue</code> function, the benefits and how you can implement it in your extensions!</p></body>
+            <concepts>
+                <item id="33153" handle="xml" section-handle="concepts" section-name="Concepts">XML</item>
+            </concepts>
+            <date-modified time="05:28" weekday="2">2012-11-06</date-modified>
+            <date-published time="20:23" weekday="3">2012-04-11</date-published>
+            <title handle="introducing-the-xml-importers">Introducing the XML Importers</title>
+        </entry>
+    </learn-article-view>
+</data>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="54413">
+            <audiences>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="2581">buzzomatic</item>
+            </author>
+            <body mode="formatted"><p><a href="http://wiki.nginx.org/Main">Nginx</a> is a powerful, lightweight web server. Today I’ll show you how to rewrite your URLs for a typical Symphony installation.</p>
+<p>First, create a new <code>location</code> rule in your Nginx configuration. This can be in the main server configuration or in an included configuration file in your web folder. If you didn’t configure Nginx yourself, then your hosting provider may provide more detailed instructions on what file to edit.</p>
+<p>I’m assuming that your Symphony installation is in a subfolder in your web space, such as <code>symphony/2.1.2</code>. If it isn’t, don’t worry, because I cover that later.</p>
+<p>Add this line to your configuration:</p>
+<pre><code>location ~ ^(?&lt;path&gt;/symphony/2.1.2)/(?&lt;admin&gt;symphony)?(?&lt;page&gt;.*)$ {
+</code></pre>
+<p>Looks a little confusing, I know, so here’s a quick breakdown:</p>
+<ul><li><code>location ~</code> Create a new location that matches this expression</li>
+<li><code>^(?&lt;path&gt;/symphony…)/</code> Match any URL that starts with /symphony/2.1.0 and assign it to the variable <code>$path</code></li>
+<li><code>(?&lt;admin&gt;symphony)?</code> Optionally match symphony and assign it to the variable <code>$admin</code></li>
+<li><code>(?&lt;page&gt;.*)$</code> Match anything until the end of the URL and assign it to the variable <code>$page</code></li>
+</ul><p>Essentially, this matches the basic structure of any Symphony URL and lets us run more tests on <code>$path</code>, <code>$admin</code> and <code>$page</code>.</p>
+<h4>Ignore files</h4>
+<p>Next, prevent Nginx from rewriting files that actually exist in your Symphony installation.  If you don’t do this step,  you won’t be able to load any images, stylesheets or scripts on your website:</p>
+<pre><code># Allow access to files:
+if (-f $request_filename) {
+    break;
+}
+</code></pre>
+<p>This tells Nginx to stop <code>(break)</code> rewriting when the current URL matches a file that exists on the file system (-f).</p>
+<h4>Image Manipulation</h4>
+<p>If you use <a href="http://symphony-cms.com/download/extensions/view/20046/">Alistair’s JIT Image Manipulation extension</a>, then you should add the following rule:</p>
+<pre><code># Just In Time Image Manipulation:
+if ($page ~ ^image/(.+.(jpg|gif|jpeg|png|bmp))$) {
+    rewrite . $path/extensions/jit_image_manipulation/lib/image.php?param=$1 last;
+}
+</code></pre>
+<h4>Trailing slashes</h4>
+<p>Some people prefer to force trailing slashes on the and of their URLs, so if you visited <code>http://yourhost.com/symphony/2.1.2/about</code> it would automatically send you to <code>about/</code>. This is easy enough to do:</p>
+<pre><code># Add trailing slashes:
+if ($request_filename !~ "/$") {
+    rewrite ^(.*)$ $1/ redirect;
+}
+</code></pre>
+<p>However, if you want to remove trailing slashes, then things get a little more interesting.  Because Nginx doesn’t support nested if statements, or allow testing two conditions in one if statement, we find ourselves doing this:</p>
+<pre><code># Remove trailing slashes:
+set $test "";
+if ($request_filename ~ "/$") {
+    set $test "${test}o";
+}
+if (!-d $request_filename) {
+    set $test "${test}k";
+}
+if ($test = "ok") {
+    rewrite ^(.*)/$ $1 redirect;
+}
+</code></pre>
+<p>What does this do?</p>
+<ol><li>Check to see if the current URL has a trailing slash, if it does, then add “<code>o</code>” to <code>$test</code>,</li>
+<li>Check to see if the current URL is not a directory, then add “<code>k</code>” to <code>$test</code>,</li>
+<li>Check to make sure <code>$test</code> is equal to “<code>ok</code>”, in which case, redirect to the current URL without a trailing slash.</li>
+</ol><h4>Deny access</h4>
+<p>Symphony stores some potentially sensitive files in the <code>manifest</code> folder, and you don’t want anything inside of it to be publicly visible:</p>
+<pre><code># Block access to manifest:
+if ($page ~ "^manifest/") {
+    return 403;
+}
+</code></pre>
+<p>Yes, that matches <code>$path</code> when it starts with <code>manifest/</code> and returns a 403 Forbidden message to the browser.</p>
+<h4>The main rewrite</h4>
+<p>Now all that’s left to do is send <code>$page</code> to Symphony:</p>
+<pre><code># Access Symphony backend:
+if ($admin) {
+    rewrite . $path/index.php?mode=administration&amp;symphony-page=$page last;
+}
+# Access Symphony frontend:
+if ($page) {
+    rewrite . $path/index.php?symphony-page=$page last;
+}
+</code></pre>
+<p>In these two rewrites, we don’t actually care about matching anything, as all of the information we need is in the <code>$path</code>, <code>$admin</code> and <code>$page</code> varables.</p>
+<p>So, what does the entire <code>location</code> look like?</p>
+<pre><code>location ~ ^(?&lt;path&gt;/symphony/2.1.2)/(?&lt;admin&gt;symphony)?(?&lt;page&gt;.*)$ {
+    # Allow access to files:
+    if (-f $request_filename) {
+        break;
+    }
+    # Just In Time Image Manipulation:
+    if ($page ~ ^image/(.+.(jpg|gif|jpeg|png|bmp))$) {
+        rewrite . $path/extensions/jit_image_manipulation/lib/image.php?param=$1 last;
+    }
+    # Add trailing slashes:
+    if ($request_filename !~ "/$") {
+        rewrite ^(.*)$ $1/ redirect;
+    }
+    # Block access to manifest:
+    if ($page ~ "^manifest/") {
+        return 403;
+    }
+    # Access Symphony backend:
+    if ($admin) {
+        rewrite . $path/index.php?mode=administration&amp;symphony-page=$page last;
+    }
+    # Access Symphony frontend:
+    if ($page) {
+        rewrite . $path/index.php?symphony-page=$page last;
+    }
+}
+</code></pre>
+<p>Again, the above only works for a Symphony installation in the <code>/symphony/2.1.2</code> folder of your web server, if your installation is in the root folder, then change the first line to read:</p>
+<pre><code>location ~ ^(?&lt;path&gt;)/(?&lt;admin&gt;symphony)?(?&lt;page&gt;.*)$ {
+</code></pre>
+<p>Yep, it’s that simple!</p></body>
+            <concepts>
+                <item id="37481" handle="jit-image-manipulation" section-handle="concepts" section-name="Concepts">JIT Image Manipulation</item>
+            </concepts>
+            <date-modified time="08:15" weekday="2">2010-11-09</date-modified>
+            <date-published time="08:15" weekday="2">2010-11-09</date-published>
+            <title handle="combining-symphony-with-nginx">Combining Symphony with Nginx</title>
+        </entry>
+    </learn-article-view>
+</data>

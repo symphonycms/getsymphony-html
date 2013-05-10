@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="33079">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="2101">Allen</item>
+                <item id="5061">czheng</item>
+            </author>
+            <body mode="formatted"><p>It&#8217;s the little things that matter. This is as true of software as it is of life. The experience of it, how it flows and where it takes you, comes not from some grand design but from little things&#8212;from a symphony of tiny, everyday decisions.</p>
+<blockquote>
+<p>&#8220;Plan the difficult while it is still easy, do the great while it is still small.&#8221;<br />
+<cite>Laozi, <em>Dao De Jing</em>, Chapter 63</cite></p>
+</blockquote>
+<p>When you develop software, especially open source software, you juggle lots of competing demands. There are always improvements to be made, problems to be solved, features to be built. As a project and its community grow, these mounting pressures can quickly send development spiraling toward inconsistency and bloat, and toward a future hampered by conflicting goals and unweidly code.</p>
+<p>For us, every bugfix, every line of code, involves decisions. And we believe that every one of those decisions is an important one. Following a coherent development philosophy has made most of our decisions easy, and has kept the small problems from ever becoming big ones.</p>
+<p>This is philosophy with a small <em>p</em>, by the way. Not a set of grand proclamations, just a way of thinking about everyday problems. And for us, it comes down to five straightforward principles:</p>
+<h4>Granularity</h4>
+<p><em>Don&#8217;t make large and unweildy what can be kept small and agile.</em> Just supply the instruments, and let the user decide how their solution should be composed.</p>
+<p>In Symphony, this means that when users design a data structure, for example, they begin with the most basic unit of data&#8212;the <a rel="concept" href="fields">field</a>. This approach also applies to the system as a whole. All of Symphony&#8217;s building blocks are discrete, configurable components, from the data layer to the templating layer and everything in between.</p>
+<h4>Transparency</h4>
+<p><em>For users, clarity is more helpful than magic.</em> There&#8217;s a fine line between convenience and obstruction, and often the &#8220;coolest&#8221; features turn out to be the most troublesome. Users should be able to see, understand, and control the workings of their system.</p>
+<p>Sometimes this means exposing a bit more complexity than users are used to. But it also means giving them more power and more flexibility. In the templating layer, for instance, knowledge of <a rel="concept">XSLT</a> is required, but with that knowledge comes all of the capabilities of the language, and in the end not one bit of markup is rendered that isn&#8217;t user-defined.</p>
+<h4>Simplicity</h4>
+<p><em>The simplest answer is almost always right</em>, because it has the greatest number of other answers behind it. Opting for simplicity makes it just as easy to turn back or change direction as it is to keep going.</p>
+<p>This is most obvious in the commitment to keep Symphony&#8217;s core as lean as possible, with most non-essential features split out as <a rel="concept">extensions</a>. This makes it easier for core functions to improve and evolve over time, and for development focus to be more fluid and responsive.</p>
+<h4>Standards</h4>
+<p><em>Embrace the best solution, even when it&#8217;s not yours.</em> The reward for users will be twofold: a better, more open system and a more valuable skillset.</p>
+<p>Symphony is passionate about standards&#8212;technologies that are open, widely used, and future-proof. For us and for our users, the benefits are countless. Adopting <a rel="concept">XML</a> and <a rel="concept">XSLT</a> as core languages, for example, means that the knowledge our users gain when using the system is widely transferable. It also means that Symphony is inherently interoperable with tons of XML-based technologies, like RSS, Atom, SOAP, and so on.</p>
+<h4>Evolution</h4>
+<p><em>Look ahead, not back.</em> Though maintaining compatibility is important, legacy support should not hinder technological progress. Users benefit more from improvement than they do from stability.</p>
+<p>Symphony 2, for example, broke backward compatibility with Symphony 1, but resulted in a more elegant, more intelligent system. Symphony 3 will likely someday follow suit. Though such transformations are never easy, they undoubtedly improve the software and grow the community&#8212;both things that users can be happy about.</p>
+<h4>Conclusion</h4>
+<p>Symphony is certainly not a perfect reflection of these principles, but in the end, it doesn&#8217;t have to be. Our attempt to follow this simple development philosophy has given the system an identity, kept it elegant and true to its purpose, and inspired loyalty and commitment from a community full of talented developers. Sometimes it&#8217;s nice how the little things add up.</p></body>
+            <concepts>
+                <item id="33153" handle="xml" section-handle="concepts" section-name="Concepts">XML</item>
+                <item id="33121" handle="xslt" section-handle="concepts" section-name="Concepts">XSLT</item>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+                <item id="33065" handle="fields" section-handle="concepts" section-name="Concepts">Fields</item>
+            </concepts>
+            <date-modified time="21:18" weekday="7">2009-11-22</date-modified>
+            <date-published time="21:18" weekday="7">2009-11-22</date-published>
+            <title handle="the-tao-of-symphony">The Tao of Symphony</title>
+        </entry>
+    </learn-article-view>
+</data>

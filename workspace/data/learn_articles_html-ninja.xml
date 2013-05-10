@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="33140">
+            <audiences>
+                <item handle="users">Users</item>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="2101">Allen</item>
+            </author>
+            <body mode="formatted"><p>It has been known in the Symphony universe that when you want to output your content in XSLT, you do so with the <code>&lt;xsl:copy-of&gt;</code> instruction. For the most part, it serves the public well, but for those who crave power, fame and fortune would do well to learn the ninja technique I&#8217;m about to show you.</p>
+<h3>The limitations of xsl:copy</h3>
+<p>The problem with <code>&lt;xsl:copy&gt;</code> and <code>&lt;xsl:copy-of&gt;</code> is that it&#8217;s useful only if you don&#8217;t need to modify its content. Let&#8217;s take a look at a sample XML that will be used throughout this article:</p>
+<pre><code>&lt;body&gt;
+    &lt;h3 id="tips"&gt;Ninja 101&lt;/h3&gt;
+    &lt;p&gt;Ninjas are &lt;em&gt;not&lt;/em&gt; about killing, it's about devotion.&lt;/p&gt;
+    &lt;p&gt;You will do well to heed to the following. Learn to:&lt;/p&gt;
+    &lt;ul class="skills"&gt;
+        &lt;li&gt;Conceal&lt;/li&gt;
+        &lt;li&gt;Strafe&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tango"&gt;Tango&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;Only a true ninja can summon the courage to sing karaoke in public.&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Using <code>&lt;xsl:copy-of select="body/*"/&gt;</code> will display the above verbatim to your output and this leaves no room to modify the source. So, we need a fresh approach to this problem.</p>
+<h3>Something more &#8220;applicable&#8221;</h3>
+<p>Here are a few things we know:</p>
+<ul>
+<li>XSLT is naturally good at matching nodes. Thankfully valid XHTML elements are just that; nodes.</li>
+<li>Nodes may include either text and/or other elements.</li>
+<li>Nodes may have one or more attributes.</li>
+</ul>
+<p>With that in mind, let&#8217;s set out to produce code <em>alpha</em>.</p>
+<p>Firstly we need to change from using <code>&lt;xsl:copy-of/&gt;</code> to the new and improved way: <code>&lt;xsl:apply-templates select="body"/&gt;</code>. This will begin the apply process starting from <code>&lt;body&gt;</code>. The corresponding matching code for this would be:</p>
+<pre><code>&lt;xsl:template match="body/*"&gt;
+    &lt;xsl:element name="{name()}"/&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>This rule says, match all children elements of <code>&lt;body&gt;</code>. The <code>element</code> instruction is used to reproduce the element in context. This is what the output looks like:</p>
+<pre><code>&lt;h3/&gt;
+&lt;p/&gt;
+&lt;p/&gt;
+&lt;ul/&gt;
+&lt;p/&gt;
+</code></pre>
+<p>Well, it&#8217;s a good start. So far we&#8217;ve managed to output all the top level elements. Next step is to grab the text elements in each of the nodes in code <em>beta</em>:</p>
+<pre><code>&lt;xsl:template match="body/*"&gt;
+    &lt;xsl:element name="{name()}"&gt;
+        &lt;xsl:apply-templates/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The instruction, <code>&lt;xsl:apply-templates/&gt;</code> serves a purpose and this will be evident soon. But before that, let&#8217;s take a look at the result:</p>
+<pre><code>&lt;h3&gt;Ninja 101&lt;/h3&gt;
+&lt;p&gt;Ninjas are not about killing, it's about devotion.&lt;/p&gt;
+&lt;p&gt;You will do well to heed to the following. Learn to:&lt;/p&gt;
+&lt;ul&gt;
+    Conceal
+    Strafe
+    Tango
+&lt;/ul&gt;
+&lt;p&gt;Only a true ninja can summon the courage to sing karaoke in public.&lt;/p&gt;
+</code></pre>
+<p>It&#8217;s now looking pretty good. Next up, we will tackle elements embedded inside another element. We will need to figure out a way so the template will be perpetually applied. Luckily, it was good foresight that we used <code>&lt;xsl:apply-templates/&gt;</code>. Let&#8217;s take a look at code <em>charlie</em>.</p>
+<pre><code>&lt;xsl:template match="body//*"&gt;
+    &lt;xsl:element name="{name()}"&gt;
+        &lt;xsl:apply-templates/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The changed line here is <code>body//*</code>. The <code>&lt;xsl:apply-templates/&gt;</code> instruction is already doing the hard work for us, all we needed to do was to change the template&#8217;s pattern to encompass <em>all</em> children nodes of <code>&lt;body&gt;</code>. Check out the sizzling result:</p>
+<pre><code>&lt;h3&gt;Ninja 101&lt;/h3&gt;
+&lt;p&gt;Ninjas are &lt;em&gt;not&lt;/em&gt; about killing, it's about devotion.&lt;/p&gt;
+&lt;p&gt;You will do well to heed to the following. Learn to:&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Conceal&lt;/li&gt;
+    &lt;li&gt;Strafe&lt;/li&gt;
+    &lt;li&gt;&lt;a&gt;Tango&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Only a true ninja can summon the courage to sing karaoke in public.&lt;/p&gt;
+</code></pre>
+<p>Now, if you&#8217;re not excited by now, then you must be a robot&#8211;a cold, evil robot&#8211;and robots can&#8217;t be ninjas.</p>
+<p>The only things missing are attributes. Let&#8217;s add those now to code <em>delta</em>:</p>
+<pre><code>&lt;xsl:template match="body//*"&gt;
+    &lt;xsl:element name="{name()}"&gt;
+        &lt;xsl:apply-templates select="@*"/&gt;
+        &lt;xsl:apply-templates/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template match="body//@*"&gt;
+    &lt;xsl:attribute name="{name(.)}"&gt;
+        &lt;xsl:value-of select="."/&gt;
+    &lt;/xsl:attribute&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>We&#8217;ve added a new line in the first template: <code>&lt;apply-templates select="@*"/&gt;</code>. The same logic for multiple nested elements also applies to attributes so it&#8217;s important to use <code>apply-templates</code> in this case to match all the attribute nodes.</p>
+<p>Here&#8217;s the final result:</p>
+<pre><code>&lt;body&gt;
+    &lt;h3 id="tips"&gt;Ninja 101&lt;/h3&gt;
+    &lt;p&gt;Ninjas are &lt;em&gt;not&lt;/em&gt; about killing, it's about devotion.&lt;/p&gt;
+    &lt;p&gt;You will do well to heed to the following. Learn to:&lt;/p&gt;
+    &lt;ul class="skills"&gt;
+        &lt;li&gt;Conceal&lt;/li&gt;
+        &lt;li&gt;Strafe&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tango"&gt;Tango&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;Only a true ninja can summon the courage to sing karaoke in public.&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<h3>More elegant XSLT</h3>
+<p>The code now works great but the apply template rule can be abbreviated:</p>
+<pre><code>&lt;xsl:template match="body//*"&gt;
+    &lt;xsl:element name="{name()}"&gt;
+        &lt;xsl:apply-templates select="* | @* | text()"/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template match="body//@*"&gt;
+    &lt;xsl:attribute name="{name(.)}"&gt;
+        &lt;xsl:value-of select="."/&gt;
+    &lt;/xsl:attribute&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>Through the power of the union (<code>|</code>) operator, we can combine the instructions into a single one.</p>
+<p>So&#8230;great, we&#8217;ve managed to achieve exactly what <code>&lt;xsl:copy-of/&gt;</code> could&#8217;ve done in one line. Yawn-fest I hear people say. Fear not, the good bit is coming.</p>
+<h3>Exercise for the body and mind</h3>
+<p>Now that we have the basics. It&#8217;s really now just a matter of doing some template rule overriding to manipulate the content. Templates have an attribute called &#8220;priority&#8221; which you can set so a template matching the same element can take precedence over another. It&#8217;s kind of like using the <code>!important</code> rule in CSS.</p>
+<pre><code>&lt;xsl:template match="h3" priority="1"&gt;
+    &lt;xsl:element name="h4"&gt;
+        &lt;xsl:apply-templates select="* | @* | text()"/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>As you can see this is conceptually the same as the rule we used to match all elements inside <code>&lt;body&gt;</code>, except the match is more specific and a priority value of 1 is given (the default is 0). And that&#8217;s it! This additional template was the only thing needed to change the source <code>&lt;h3&gt;</code> into <code>&lt;h4&gt;</code>! In fact, it&#8217;s not actually necessary to explicitly set the priority in our case. Similar to CSS, the more specific the matching rule is, the higher a priority of a template will be.</p>
+<p>Now that you know how to display your body content the <em>ninja</em> way, I encourage everyone who&#8217;s read this article to assassinate <code>&lt;xsl:copy-of/&gt;</code> and embrace the shuriken that is <code>&lt;apply-templates/&gt;</code>.</p></body>
+            <concepts>
+                <item id="33129" handle="utilities" section-handle="concepts" section-name="Concepts">Utilities</item>
+                <item id="33121" handle="xslt" section-handle="concepts" section-name="Concepts">XSLT</item>
+            </concepts>
+            <date-modified time="06:53" weekday="4">2009-09-17</date-modified>
+            <date-published time="07:00" weekday="2">2009-05-26</date-published>
+            <title handle="html-ninja-technique">HTML Ninja Technique</title>
+        </entry>
+    </learn-article-view>
+</data>

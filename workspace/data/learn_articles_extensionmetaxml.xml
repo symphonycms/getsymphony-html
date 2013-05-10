@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="94489">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="6922">nickdunn</item>
+            </author>
+            <body mode="formatted"><h2>Background</h2>
+<p>Until now, developers have documented their Symphony extensions in two ways. Firstly, every <code>extension.driver.php</code> must include an <code>about()</code> method which returns an array of metadata including the extension name, description, version, release date and author. This information is used to render the Extensions page in Symphony itself.</p>
+<p>Secondly, it has become convention to include a README file in the root of the extension folder as well. Traditionally this has been plain text, but with Github's markdown support so popular, the majority are written with Markdown and include additional information such as dependencies, installation instructions, usage examples and a changelog.</p>
+<p>The problem with these methods is that there is a lot of duplication. Every time a developer issues a new version of an extension he must update the version number and release date in both files. Equally, there is often information buried in the body of the README which would be useful for Symphony to parse and understand (dependencies and compatibility, I'm lookin' at you).</p>
+<p>The idea of storing additional metadata in the <code>about()</code> function has been around for a long time, but never gained much attention. We have decided to merge all of the useful, structured metadata about extensions and their developers into a single XML file: <code>extension.meta.xml</code>.</p>
+<h2>Specification</h2>
+<p>The specification was discussed and refined in <a href="http://symphony-cms.com/discuss/thread/34727/">forum thread "Extension compatibility"</a> and <a href="https://github.com/symphonycms/symphony-2/issues/767">Github issue #767 "Improve Extension Metadata"</a>. Read them if you dare. Or simply refer to the final specification:</p>
+<p><strong><a href="http://symphonyextensions.com/schemas/extension/1.0/">Symphony Extension Metadata Schema v1.0</a></strong></p>
+<p>Most importantly, if your extension already exists on the Symphony CMS website, then I have created <a href="http://symphonyextensions.com/generate/">a generator tool</a> to grab your extension details and build an XML file to get you started. Easy.</p>
+<p>From the specification document:</p>
+<blockquote>
+  <p>There are two tools to make generating the XML files easier:</p>
+  
+  <p>The <a href="http://symphonyextensions.com/generate/">generator tool</a> will create a basic XML file based on information found on the extension's page on the main Symphony website. Use this as a starting point, but please double check the data is correct before pushing to your repository.</p>
+  
+  <p>The <a href="http://symphonyextensions.com/lint/">lint tool</a> validates your XML against the formal XSD schema. This will return any errors such as basic XML validation, as well as missing required fields or bad values.</p>
+</blockquote>
+<p>So developers, go forth and write XML and get your extensions onto this site. It will take a few minutes now, but will save hours later.</p></body>
+            <concepts>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+            </concepts>
+            <date-modified time="05:15" weekday="2">2012-11-06</date-modified>
+            <date-published time="00:16" weekday="1">2011-10-10</date-published>
+            <title handle="introducing-extensionmetaxml">Introducing extension.meta.xml</title>
+        </entry>
+    </learn-article-view>
+</data>

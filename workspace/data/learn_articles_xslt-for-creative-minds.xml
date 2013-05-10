@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="33115">
+            <audiences>
+                <item handle="users">Users</item>
+            </audiences>
+            <author>
+                <item id="2101">Allen</item>
+            </author>
+            <body mode="formatted"><p>Chaotic Pattern for me is a great place to pour all my pent-up creativity that doesn&#8217;t get released. It is a haven where I can freely roam in the limitless wonders of the digital web. You might think that I&#8217;m talking about graphic and layout design but you would only be partially correct. The most satisfying creative form for me is coming up with unique features.</p>
+<h3>What is The Wordfest?</h3>
+<p>Wordfest is a word game that I came up with back in 2003. The concept is quite simple. A visitor must simply write their message following all the rules set for a wordfest entry. The rules are all based on word constriction. An example rule would be, &#8220;Comment must use the word &#8216;peacock&#8217; somewhere, or &#8220;Must be 13 words or fewer&#8221;. Generally each wordfest will have 3 different rules that a participant must abide.</p>
+<p>Before the Symphony Age and just after the Stone Age, each wordfest entry was assessed manually by a pack of wild chimps. However with today&#8217;s modern technology intermingled with some creative XSLT, <em>Wordfest 2.0 EZ Pro Platinum Edition</em> is back, with a vengeance.</p>
+<p>Wordfest is now built into every article published as an optional exercise for commenters. To keep the logic simple, wordfests now follow 3 types of rule:</p>
+<ul>
+<li>Word inclusion</li>
+<li>Starting phrase</li>
+<li>Character number limit</li>
+</ul>
+<p>Based on whether a commenter has chosen to participate, XSLT will assess the comment against the 3 rules. For each rule passed, an award icon is presented against their name. With the premise set out, let&#8217;s cross over from dream world to reality.</p>
+<h3>Inside the XSLT hole</h3>
+<p>The first task is to determine if a commenter is participating in wordfest. My solution is to ask participants to prefix their comments with <code>[wordfest]</code>. The alternate solution is to create a checkbox on the comment form and create a campfire service to save the checkbox value against the comment. Since Chaotic Pattern readers are all beautiful, young and smart individuals with <code>|33t haxxor</code> skills, I&#8217;ve opted for the pure XSLT way.</p>
+<p>To test if a comment is participating, something like this will work:</p>
+<pre><code>&lt;xsl:variable name="participant" select="starts-with(message/p, '[wordfest]')"/&gt;
+</code></pre>
+<p>The Xpath, <code>message/p</code> selects the first <code>p</code> element that is a child of <code>message</code>. There are actually 3 ways you can write the Xpath and all of them are valid:</p>
+<ol>
+<li>message/p[position() = 1]</li>
+<li>message/p[1]</li>
+<li>message/p</li>
+</ol>
+<p>The first method is the most verbose and it is also the most versatile since it allows for more complex logic such as <em>less than</em> and <em>greater and equal to</em>. The second method is a shortcut of the first and allows for only a single node selection. The third method, the one we&#8217;ve used here capitalises on the rule in Xpath that <em>if multiple instances of a node is found, return the first occurrence</em>. Be aware that this is not always the case and it is dependant on context. For example, <code>&lt;xsl:apply-templates select="message/p"/&gt;</code> will select all <code>p</code> elements inside <code>message</code> iterating a template rule for each occurrence.</p>
+<p>The result of the variable <code>$participant</code> will be a <code>Boolean</code> (either <em>true</em> or <em>false</em>) and with this code, you can now easily test if a comment is participating in wordfest:</p>
+<pre><code>&lt;xsl:if test="$participant"&gt;...&lt;/xsl:if&gt;
+</code></pre>
+<p>Simply put, the above states, <em>if true, then execute the instructions inside</em>.</p>
+<h3>Jack in to the wordfest</h3>
+<p>Before we take a look at how we assess the rules, we&#8217;ll need to make sure the message is formatted in a way that is easy for the XSLT to read. Firstly, we need to make sure <code>[wordfest]</code> is removed from the message and all the html elements are stripped out so it doesn&#8217;t confuse the XSLT when assessing legitimate English words:</p>
+<pre><code>&lt;xsl:variable name="message" select="normalize-space(message)"/&gt;
+</code></pre>
+<p>When you select a <code>node-set</code> (a node that contains other nodes), XSLT 1.0 will grab all the text nodes and throw away the element nodes then turn the lot into a string. <code>normalize-space()</code> is used to get rid of any tab or duplicate space characters. Now that we&#8217;ve turned the message node-set into a flat string, it&#8217;s time to yank out the <code>[wordfest]</code> prefix:</p>
+<pre><code>&lt;xsl:variable name="message" select="substring-after(normalize-space(message), '[wordfest] ')"/&gt;
+</code></pre>
+<p>We&#8217;ve made some additions to our variable. We first string-ify the message, then cut out the prefix.</p>
+<p>Our new message variable is looking great. Now, it&#8217;s time to learn to wield the rules.</p>
+<h3>There is no spoon</h3>
+<p>The first consistent rule in Wordfest is to check if a designated word is used in the comment. Checking it is easy:</p>
+<pre><code>&lt;xsl:variable name="word-included" select="contains($message, $word)"/&gt;
+</code></pre>
+<p>The first argument in the <code>contains()</code> function asks for the source string and the second argument asks for the string to check against. The result of the variable is again a Boolean.</p>
+<p>There are still two other rules yet to be discussed. However, I will leave the others as a personal exercise. A word of warning, the rule for checking character limits require recursion which can be quite challenging if you haven&#8217;t done them before.</p>
+<p>To wrap up, we&#8217;ll put what we&#8217;ve made into some context.</p>
+<h3>Returning to Zion</h3>
+<p>For our HTML output, we&#8217;ll display an image if the rule is deemed <code>true</code>.</p>
+<pre><code>&lt;xsl:if test="$word-included"&gt;&lt;img src="/images/grats.gif" alt="You win!"/&gt;&lt;/xsl:if&gt;
+</code></pre>
+<p>The condition says, if <code>$word-included</code> is <code>true</code>, output the <code>img</code> element.</p></body>
+            <concepts>
+                <item id="33121" handle="xslt" section-handle="concepts" section-name="Concepts">XSLT</item>
+            </concepts>
+            <date-modified time="15:14" weekday="4">2007-05-31</date-modified>
+            <date-published time="15:14" weekday="4">2007-05-31</date-published>
+            <title handle="xslt-for-creative-minds">XSLT for Creative Minds</title>
+        </entry>
+    </learn-article-view>
+</data>

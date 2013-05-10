@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="94495">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="9732">brendo</item>
+            </author>
+            <body mode="formatted"><p>Providers is a concept that was introduced with Symphony 2.3 which allows extensions to natively provide new Data Source types. This allowed for a more seamless experience for users and opened up a world of possibilities for extension developers. The upcoming Symphony 2.3.1 release brings Providers to Events as well, allowing developers to provide new event types selectable from the native Event editor.</p>
+<h3>For Users</h3>
+<p>For users, the benefits are more flexible and powerful DataSources and Events that can start to do things that previously required custom code. Extensions such as Cacheable DataSource, Union DataSource and Remote DataSource all bring powerful functionality to the fingertips of every Symphony ninja (and those in training). The addition of Events means that we can now create extensions that abstract common API's (such as Github) to read and write information without any knowledge of the underlying API.</p>
+<h3>For Developers</h3>
+<p>In this article I'll explain the basics of creating a Provider type, using a basic extension that uses this new feature to interact with Github as a reference.</p>
+<h4>Extension Structure</h4>
+<p>The <code>extension.driver.php</code> needs to implement the <a href="https://github.com/symphonycms/symphony-2/blob/integration/symphony/lib/interface/interface.provider.php"><code>iProvidable</code></a> interface, and include it's single method, <code>providerOf(string $type)</code> to make your Provider classes visible to Symphony. The <a href="https://github.com/symphonycms/symphony-2/blob/integration/symphony/lib/interface/interface.provider.php#L17-32"><code>providerOf</code></a> function takes an optional parameter, a string <code>$type</code> (or <code>null</code>), and should return all the providers this extension has filtered by <code>$type</code> as an array where the key's are the class names, and the values are human readable. At this stage, <code>event</code> and <code>data-sources</code> are the only two valid types, as implied by the <code>iProvider</code> constants, <code>DATASOURCE</code> and <code>EVENT</code>.</p>
+<p>In my example, I'm using another function, [<code>registerProviders</code>], which is used privately to build an associative array of providable objects. It's up to you if you want to abstract this or just include it as part of <code>providerOf</code>.</p>
+<p>Your <code>extension.driver.php</code> is responsible for loading your provider classes, giving you the freedom to place the classes where ever you think works best. I've chosen to create two folders, <code>data-sources</code> and <code>events</code>, which contain a single class each as this follows usual Symphony convention.</p>
+<h4>Interfaces</h4>
+<p>The Data Source and Event classes have their own interface classes, <a href="https://github.com/symphonycms/symphony-2/blob/integration/symphony/lib/interface/interface.datasource.php"><code>iDataSource</code></a> and <a href="https://github.com/symphonycms/symphony-2/blob/integration/symphony/lib/interface/interface.event.php"><code>iEvent</code></a>, which specify the minimum functions that your extension needs to implement to create a new provider.</p>
+<h4>Basic Data Source and Event Providers</h4>
+<p>There are a couple of basic functions that are common to the DataSource and Event classes which we will quickly go over. <code>getName</code> returns a human readable name for your Provider. This will be displayed in the Sources drop down on the Editor pages in Symphony.</p>
+<p><code>getSource</code> returns an identifier that allows the Event or Datasource editor to know that the submitted form needs to be handled by providers. Both Events and DataSources usually set their source to be the Section ID or in some cases, a string (used by Static XML, Navigation, Author and Dynamic XML datasources). Your provider should return something that is not numeric, I'm using the classname in this extension.</p>
+<p>The DataSource and Event Editors work by saving a new file into the your Symphony <code>/workspace</code> which contains the settings entered in the Editor, saved into a format specified by a template. You may want to look at the default templates for <a href="https://github.com/symphonycms/symphony-2/blob/integration/symphony/template/blueprints.datasource.tpl">DataSources</a> and <a href="https://github.com/symphonycms/symphony-2/blob/integration/symphony/template/blueprints.event.tpl">Events</a> to give you an idea of the default, and then compare it to Github API extension. Our providable objects will have their own templates and the <code>getTemplate</code> function returns the file path to this class's template.</p>
+<p>After an Event or DataSource is saved it appears in the relevant index table. The <code>getSourceColumn(string $handle)</code> method is optional, but allows you to populate this column with whatever information you would like. The function is passed the <code>$handle</code> of your Event/DataSource. If this function is not implemented, Symphony will simply use the value of <code>getSource</code> function to populate this column.</p>
+<h4>Editors</h4>
+<p>There are four methods required to make the magic happen for the Symphony Editors, <code>settings</code>, <code>buildEditor</code>, <code>validate</code> and <code>prepare</code>.</p>
+<h6><code>settings(): array</code></h6>
+<p>This function allows your Datasource or Event to have any default settings. These will be applied when creating a new DataSource or Event and will be passed to the <code>buildEditor</code> function.</p>
+<h6><code>buildEditor(XMLElement $wrapper, array &amp;$errors = array(), array $settings = null, $handle = null</code>)`</h6>
+<p>The <code>buildEditor</code> function returns nothing, but should populate <code>$wrapper</code> with the desired markup (using <code>XMLElement</code>) to create an editor for your providable object. This function should be responsible for:</p>
+<ul>
+<li>Providing the interface for users to configure your Datasource or Event type</li>
+<li>Handle any default settings, or remembering user input (these values as provided by Symphony as the <code>$settings</code> parameter). This is an associative array of all the values saved from the Editor. To keep your specific settings abstracted from the Symphony default settings, I'd recommend nesting the settings under a common key.</li>
+<li>Error handling, any errors are passed through <code>$errors</code> in the same format as <code>$settings</code>.</li>
+</ul>
+<p>If the user is editing a Datasource/Event rather than creating a new one, <code>$handle</code> will be populated with the object's handle so that you can create an instance if required, or do some alternative logic.</p>
+<h6><code>validate(array &amp;$settings, array &amp;$errors): boolean</code></h6>
+<p>The <code>validate</code> function allows you to ensure that users have filled in the settings correctly. This function should populate the <code>$errors</code> variable if an error has occurred and then return <code>false</code>. If there are no errors, return <code>true</code> allows the Editor to continue. Remember that your <code>buildEditor</code> function needs to handle displaying these errors to users!</p>
+<h6><code>prepare(array $settings, array $params, $template): string</code></h6>
+<p>Finally, this function passes the <code>$settings</code> array, Symphony set <code>$params</code> as an array and your <code>$template</code> as a string. Here you prepare the <code>$template</code> for saving by populating any placeholders with the required settings. In the Github API example, the template uses placeholders suitable for <code>sprintf</code>.</p>
+<h4>Execution</h4>
+<p>Datasources and Events both do the bulk of their work in the <code>execute</code> function. It is expected that this function return an <code>XMLElement</code> of the results of the DataSource or Event which will be appended to the Page's XML so that it can be accessed in XSLT.</p>
+<p>The DataSource is also passed the current parameter pool by reference which can be populated or accessed. This will contain all the parameters that have been added by DataSources that have been executed before this DataSource. </p>
+<p>Page level parameters, for Events and DataSources, can be accessed using <code>Frontend::instance()-&gt;Page()-&gt;Params()</code>. Events can set page params, but setting them directly via <code>Frontend::instance()-&gt;Page()-&gt;_param</code>. It is likely that this variable will be changed in future, so keep an eye out of that.</p>
+<h4>Event Providers</h4>
+<h5>Events and <code>load()</code>.</h5>
+<p>Before an Event is executed, the <code>load()</code> function is called which checks to see if the event should be executed (or <code>__trigger</code> in the old days). The default is usually detecting if the form action matches this event's action or not, eg. <code>isset($_POST['action']['event-handle'])</code>. This means that if an Event is attached to a page, the <code>load()</code> function is always executed, so be mindful of what you put in here. If the Event's <code>load()</code> function returns true, the Event's <code>execute</code> function should be called to actually fire the event.</p>
+<h5>Documentation</h5>
+<p>All event's have a magical <code>documentation()</code> function. In the scenario of a default Symphony event, saving the editor will generate the markup needed on the frontend to populate entries of this section. This markup is generated by the fields in the Event's section using their <code>getExampleFormMarkup</code> function (oh that's what that does I hear some of you say!) and save the HTML string inside this <code>documentation()</code> function. When the event is viewed again in the editor, this markup is displayed to the user.</p>
+<p>You can also take advantage of this in your Provider events by doing the same thing :) If you don't want to display markup at all, just return <code>false</code>.</p>
+<h3>Conclusion</h3>
+<p>There we have it. Hopefully this short guide gives you an insight into how you can create your own extensions that add new Data source or Event types to Symphony. Happy coding!</p></body>
+            <concepts>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+                <item id="33067" handle="data-sources" section-handle="concepts" section-name="Concepts">Data Sources</item>
+            </concepts>
+            <date-modified time="05:34" weekday="2">2012-11-06</date-modified>
+            <date-published time="05:34" weekday="2">2012-11-06</date-published>
+            <title handle="providers-an-introduction">Providers: An Introduction</title>
+        </entry>
+    </learn-article-view>
+</data>

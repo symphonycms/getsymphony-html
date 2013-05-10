@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="34166">
+            <audiences>
+                <item handle="beginners">Beginners</item>
+                <item handle="users">Users</item>
+            </audiences>
+            <author>
+                <item id="2101">Allen</item>
+            </author>
+            <body mode="formatted"><blockquote>
+  <p>Seven years in Tibet taught Allen the true act of selflessness. He teaches the template unification technique with grace and humility. During Allen&#8217;s 7 year training as a civilian monk at the Commercial Celestial Academy: Tibet Branch (CCATB), he learned the indispensible XSLT technique of unifying matching templates with named templates.</p>
+</blockquote>
+<p>In XSLT, there are two styles of templates: <em>matched</em> and <em>named</em>. Matched templates are rule-based methods similar to CSS. These templates apply a set of instructions based on a specified criteria. In <code>CSS</code>, the rule <code>body #content &gt; p</code> is akin to the XPath <code>body/content/p</code> in <code>XSLT</code>.</p>
+<p>Matched templates have two advantages: they have knowledge of the context node so you can draw some assumptions with <code>XPath</code>, and they are automatically invoked when a criterion is met.</p>
+<p>Named templates are function call methods. The benefit of such methods is that the template can be explicitly called wherever your code dictates it, rather than to rely on the structure of the XML.</p>
+<p>Now, I will show you how to combine them.</p>
+<h3>The Monktastic Problem</h3>
+<p>Here is an example of the two methods put to good use.</p>
+<p><strong>Problem:</strong> Produce a list of successive pages based on the <code>current-page</code> attribute.</p>
+<pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;data&gt;
+    &lt;pagination-info total-entries="45" total-pages="9" entries-per-page="5" current-page="1" /&gt;
+&lt;/data&gt;
+</code></pre>
+<p>For example, if the current page is &#8220;1&#8221;, XSLT will produce &#8220;2, 3, 4, 5, 6, 7, 8, 9&#8221; as links. If the current page is &#8220;6&#8221;, XSLT will produce &#8220;7, 8, 9&#8221;.</p>
+<h3>Monktastic Exercise Level 1</h3>
+<p>The solution will require recursion. If you are unfamiliar with the concept, I urge you to watch the <a href="http://overture21.com/wiki/getting-started/tutorials-and-screencasts">Understanding Recursion</a> screencast on the Overture wiki.</p>
+<pre><code>&lt;xsl:template match="/"&gt;
+    &lt;xsl:apply-templates select="data/pagination-info"/&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template match="pagination-info"&gt;
+    &lt;xsl:call-template name="pages"&gt;
+        &lt;xsl:with-param name="context-page" select="@current-page + 1"/&gt;
+    &lt;/xsl:call-template&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template name="pages"&gt;
+    &lt;xsl:param name="context-page"/&gt;
+    &lt;xsl:value-of select="$context-page"/&gt;
+    &lt;xsl:if test="$context-page &amp;lt; @total-pages"&gt;
+        &lt;xsl:text&gt;, &lt;/xsl:text&gt;
+        &lt;xsl:call-template name="pages"&gt;
+            &lt;xsl:with-param name="context-page" select="$context-page + 1"/&gt;
+        &lt;/xsl:call-template&gt;
+    &lt;/xsl:if&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The result looks like this:</p>
+<pre><code>2, 3, 4, 5, 6, 7, 8, 9
+</code></pre>
+<p>This is a fairly straight-foward recursive template. Upon matching the <code>pagination-info</code> element, the matched template calls the &#8220;pages&#8221; template where it recursively generate the pages based on the <code>$context-page</code>. Some of you might think the matched template is redundant as it&#8217;s possible to simply call the <code>pages</code> template directly. The only catch is that you wouldn&#8217;t be able to assume the location of the <code>@current-page</code> attribute which is a benefit of using matched templates.</p>
+<h3>Monktastic Exercise Level 2</h3>
+<p>So far, I have been touting this unification of template methods but have yet to really explain what it is. Simply put, the XSLT specification states that it is possible to have both a <code>match</code> and a <code>name</code> attribute in a <code>template</code> instruction. Because of this, we can simplify the code to this:</p>
+<pre><code>&lt;xsl:template match="pagination-info" name="pages"&gt;
+    &lt;xsl:param name="context-page" select="@current-page"/&gt;
+    &lt;a href="/entries/page/{$context-page}/"&gt;
+        &lt;xsl:value-of select="$context-page"/&gt;
+    &lt;/a&gt;
+    &lt;xsl:if test="$context-page &amp;lt; @total-pages"&gt;
+        &lt;xsl:text&gt;, &lt;/xsl:text&gt;
+        &lt;xsl:call-template name="pages"&gt;
+            &lt;xsl:with-param name="context-page" select="$context-page + 1"/&gt;
+        &lt;/xsl:call-template&gt;
+    &lt;/xsl:if&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>This new template has the perks of both matched and named methods - it has inherent knowledge of the context node and also the ability to be recursive.</p>
+<h3>A road to self discovery and enlightenment</h3>
+<p>Another really good use of this unification technique is the date utility found in the default theme in Symphony. The date template can be invoked in 2 ways, either when the <code>date</code> element is matched in the XML or when explicitly called. The effect of this is that all dates are automatically formatted, but in the event that there is an ISO date elsewhere that isn&#8217;t a date element, the template can still be explicitly called to format the date.</p>
+<p>Now that you know you can combine template methods, have a go and see what all the fuss is about.</p>
+<p><em>This is a public service announcement:</em> Any person looking to be a certified monk, please call the CCATB hotline.
+<em>Disclaimer:</em> This certification does not certify the certificate holder is a certified monk.</p></body>
+            <concepts>
+                <item id="33121" handle="xslt" section-handle="concepts" section-name="Concepts">XSLT</item>
+            </concepts>
+            <date-modified time="18:45" weekday="6">2009-11-28</date-modified>
+            <date-published time="07:00" weekday="3">2007-10-03</date-published>
+            <title handle="combining-different-template-methods">Combining Different Template Methods</title>
+        </entry>
+    </learn-article-view>
+</data>

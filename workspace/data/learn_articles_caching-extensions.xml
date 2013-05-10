@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="94490">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="6922">nickdunn</item>
+            </author>
+            <body mode="formatted"><p>There are many types of caching that will improve website performance. Here are just five:</p>
+<h3>MySQL query caching</h3>
+<p>Every read query that Symphony executes is cached by MySQL. It is important to understand that this is not the result of the query, but the SQL statement itself. MySQL retains a pool of these statements so that they are quicker to execute in the future. This is pretty standard, and you  can use it in your own applications too by using <code>SELECT SQL_CACHE</code> for your read queries.</p>
+<h3>Object caching</h3>
+<p>Once the database has been queried, the results are used to build objects (pages, data sources, sections, field, entries etc.). These objects are alive only for the lifespan of each page, and are destroyed at the end of each request. Systems such as Wordpress allow these objects to be cached and persisted between each page request (using APC, Memcache, flat files or MySQL), thereby shared between all users. Symphony doesn't do this, but it really should.</p>
+<h3>Fragment caching</h3>
+<p>If you have one piece of a page that seldom changes — page body text; a list of contact details;  latest products this week — then these don't have to be built for every page load. Fragment caching is the method of caching just individual portions or fragments of a page. We can do this with Symphony by using the <a href="http://symphonyextensions.com/extensions/cacheabledatasource/">Cacheable Data Source</a> extension — the XML of specific data sources can be cached, thereby reducing trips to your database. Fragment caching is useful if you have parts of a page that need to remain dynamic such as a shopping basket, member login status, or blog comments, meaning you cannot use full output caching.</p>
+<h3>Output caching</h3>
+<p>If you don't have content that needs to remain dynamic, then you can cache the entire rendered output of a page. The <a href="http://symphonyextensions.com/extensions/cachelite/">CacheLite</a> extension serves this purpose, caching Symphony page HTML on first visit and serving it to subsequent visitors. This essentially creates a static, flat version of your site, and bypasses most database queries, and the entire XML/XSLT transformation process.</p>
+<h3>Network/proxy caching</h3>
+<p>Similar to output caching, but performed at a higher level either by running your own proxy caching server such <a href="http://www.squid-cache.org/">Squid</a>/<a href="https://www.varnish-cache.org/">Varnish</a>, or a distributed network cache such as <a href="http://www.akamai.com/">Akamai</a>. These systems cache the output of your page and server it to users before the request even reaches your web server. Services like Akamai can distribute this geographically so that visitors are served cached content from servers near them, making it faster still.</p>
+<p>There are Symphony extensions for fragment and output caching. Here is how they can be used:</p>
+<h2>Cacheable Data Source</h2>
+<p><strong>Note:</strong> these instructions are accurate for v1.1 which requires Symphony 2.3. If you're running an older version of Symphony you'll need v0.6 and be sure to follow the README instructions.</p>
+<p><a href="https://github.com/nickdunn/cacheabledatasource/zipball/master">Download the extension</a> and install it. When you edit a data source you will now see a <strong>Caching</strong> section in the editor into which you specify the lifespan of the cache in seconds. This adds a <code>dsParamCACHE</code> property to the saved data source class, so you can add this manually to your custom data sources and still take advantage of caching.</p>
+<p>When a data source runs the output will include information on whether the result is fresh from the database:</p>
+<pre><code>&lt;my-data-source cache-age="fresh"&gt;...
+</code></pre>
+<p>Or the current age of the cache:</p>
+<pre><code>&lt;my-data-source cache-age="30s"&gt;...
+</code></pre>
+<p>Each unique combination of data source sorting/filters is cached. So if your data source allows pagination and sorting by various fields, then each combination of these will be cached separately.</p>
+<p>The cache is purged either when the lifespan expires, or if the cache files are removed from <code>/manifest/cache/datasources</code>.</p>
+<h2>CacheLite</h2>
+<p>The <a href="https://pear.php.net/package/Cache_Lite">CacheLite library</a> is a generic library used in output caching plugins and extensions for many content management systems. Max Wheeler packaged this up into a Symphony extension, and others have added new functionality.</p>
+<p><a href="https://github.com/symphonists/cachelite/zipball/master">Download the extension</a> and install it. On the Preferences page you will see options to:</p>
+<ul>
+<li>specify the cache age</li>
+<li>exclude pages from caching (by default all pages are cached)</li>
+<li>an option to append the cache age to output HTML, useful for debugging</li>
+<li>an option to purge the cache when entry content changes in Symphony</li>
+</ul>
+<p>This final option is arguably the most important since it allows you very fine control over how to purge the cache. By enabling this, you can set a very long cache lifespan (say, a week, or 518400 seconds), but know that if you create or edit entries in Symphony, the cache of pages showing these entries will be purged and visitors will see your updated content.</p>
+<p>The extension also provides event filters for purging content in the same way. If you have a blog and need the blog post page cache to expire when a new comment is submitted (so all users see the new content) then you can enable an event filter option to do this, either by:</p>
+<ul>
+<li>purging the cache for all pages that show the entry (<code>id</code>) being sent via the event</li>
+<li>purging the cache for all pages that show content from the same section as the entry (<code>id</code>) being sent</li>
+<li>purging the cache for the URL passed as <code>cachelite[flush-url]</code></li>
+</ul>
+<h2>Conclusion</h2>
+<p>Once you have decided which type of caching you need, install one or both of these extensions. They make it <em>really</em> easy for you to add caching to your Symphony projects. I guarantee your client, your visitors, and Google, will thank you for it.</p></body>
+            <concepts>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+            </concepts>
+            <date-modified time="05:18" weekday="2">2012-11-06</date-modified>
+            <date-published time="16:58" weekday="2">2011-10-18</date-published>
+            <title handle="a-guide-to-caching-extensions">A guide to caching extensions</title>
+        </entry>
+    </learn-article-view>
+</data>

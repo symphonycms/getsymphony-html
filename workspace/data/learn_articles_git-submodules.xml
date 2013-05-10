@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="94491">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="21879">phoque</item>
+            </author>
+            <body mode="formatted"><h3>What Submodules Are</h3>
+<blockquote>
+  <p>Submodules are repositories inside another repository.</p>
+</blockquote>
+<p>The use case is pretty obvious: You are working on a Symphony project and need a few special extensions to implement a certain feature. Luckily, the official Symphony 2 repository has taught us how to deal with it: Simply add the repository-URL to our project as a submodule and we end up with a fresh copy of the newest version of that extension:</p>
+<pre><code>&gt; git submodule add git://github.com/nilshoerrmann/subsectionmanager.git extensions/subsectionmanager
+  Cloning into extensions/subsectionmanager...
+  ...
+&gt; git submodule update --init
+  Submodule 'extensions/subsectionmanager' (git://github.com/nilshoerrmann/subsectionmanager.git) registered for path 'extensions/subsectionmanager'
+</code></pre>
+<p>But what's happening behind the curtains?</p>
+<p>Git does three things:</p>
+<ol>
+<li>It creates the directory you've specified</li>
+<li>Clones that repository into that directory</li>
+<li>Finally, it appends the just added URL and path to the <code>.gitmodules</code> file</li>
+</ol>
+<p>Yes, it's doing a full clone with all the usual stuff: the <code>.git</code> folder, its full history, a workspace, branches and even a remote called <code>origin</code>. But everything is kept entirely separate from our own superproject.</p>
+<p>And because it's a proper repository itself you can execute all the usual commands <em>in the submodule</em> as well: <code>pull</code>ing, <code>push</code>ing, <code>checkout</code>s etc.</p>
+<p>To see what I mean go into the submodule and compare the log to the one of your superproject:</p>
+<pre><code>&gt; git log
+&gt; cd extensions/subsectionmanager
+&gt; git log
+</code></pre>
+<h3>What <code>submodule update</code> Does</h3>
+<p>Now that we have added and committed the submodule to our project one particular question arises: What happens when one of my teammates pulls the changes I just made? What if the submodule has been updated in the meantime, will she get the newer version?</p>
+<p>The answer lies in the commit diff in wich we've added the submodule:</p>
+<pre><code>+Subproject commit f5e13a069e3533fae5b7b5781ab1b545bb0183cb
+</code></pre>
+<p>That looks strikingly familiar: It looks like a commit-ID. But oddly enough none from your own project. Instead, it comes from the submodule: Apparently, Git not only adds the URL and path to <code>.gitmodules</code> but also <em>remembers what commit has been checked out in the submodule during the commit</em>.</p>
+<p>Knowing that makes it obvious to understand what Git has to do if one of your teammates wants to enable the submodule you've just committed:</p>
+<p>For each new or changed submodule</p>
+<ol>
+<li>Create the path, if necessary</li>
+<li>Clone the repository there, if necessary</li>
+<li>Checkout that specific commit in the submodule</li>
+</ol>
+<p>Number 3 is the important part here. <strong>Once somebody on your team has decided what revision of a submodule you want for your project all of your teammates will end up with that exact same revision</strong>.</p>
+<p>To do all that, you only have to use one single command Git provides:</p>
+<pre><code> &gt; git submodule update --init
+</code></pre>
+<p>The annoying part is that Git won't do it automatically after you did a <code>pull</code>. You have to do it manually.</p>
+<h3>What <code>submodule update</code> Doesn't Do</h3>
+<blockquote>
+  <p><strong>Wait, <code>update</code>?</strong> Doesn't that update all my submodules to the newest version?</p>
+</blockquote>
+<p>No, no, <em>no!</em> Let go of that thought. In fact, <code>git submodule update</code> does quite the contrary: It iterates through all submodules and <code>checkout</code>s the revision it thinks they should be at.</p>
+<p><strong>It makes sure none of your submodules is too old or too new.</strong></p>
+<h3>How To Update Submodules</h3>
+<p>So, <code>git submodule update</code> does not update my submodules but reverts changes made in them. How do we update submodules then?</p>
+<p>Simple: Since all of your submodules are fully functional repositories themselves you can do a <code>git pull origin master</code> there:</p>
+<pre><code>&gt; cd extensions/subsectionmanager
+&gt; git pull origin master
+&gt; cd ../..
+</code></pre>
+<p>You'll note though that after doing that your submodule and your project are kind of out of sync:</p>
+<pre><code>&gt; git diff
+  ...
+ -Subproject commit f5e13a069e3533fae5b7b5781ab1b545bb0183cb
+ +Subproject commit 63cf99ac7854c4e80c1dd18ec84461f5fc1eef14
+</code></pre>
+<p>Your project thinks the extension should be at <code>f5e13a0...</code> while in reality it is at a newer version <code>63cf99a...</code>. This behaviour is correct and intended.</p>
+<p>After updating the extension you'll naturally have to do some testing and maybe some more updates. Only if you've decided the new extension is worth an update you go ahead and "tell the project" by committing the new submodule-version:</p>
+<pre><code>&gt; git add extensions/subsectionmanager
+&gt; git commit -m "Newest version of SSM"
+</code></pre>
+<p>So, updating extensions is a deliberate and very precise process and doesn't happen at random.</p>
+<p>If you now think "updating all 100 extensions will take ages!" here is a gem for you:</p>
+<pre><code>&gt; git submodule foreach git pull origin master
+</code></pre>
+<p>This will do do exactly what it sounds like: It will iterate through each and everyone of your extensions and run <code>git pull origin master</code> there. Be warned though: sideeffects may occur. :-)</p>
+<p>But if at one point you're not sure you really want to update all those extensions you can simply shove all submodules back into in rank and file using</p>
+<pre><code>&gt; git submodule update --init
+</code></pre>
+<h3>Problems You May Encounter</h3>
+<p>The most common problem you may have to face is the fact that <strong>all submodule remotes must be accessible and readable by everyone in your team</strong>.</p>
+<h4>Read-Only Access</h4>
+<p>For example you may be using a submodule that you've written yourself. When you add that submodule to the project, you have to pay attention that you use an URL that's accessible by everyone on the project:</p>
+<pre><code>&gt; git submodule add git@github.com/nils-werner/dump_db.git extensions/dump_db
+</code></pre>
+<p>will add the extension just as you'd expect it. It will work perfectly fine to the point until somebody else has to work on it. In most cases you're the only person able to read from that URL, your teammates will get permission denied errors.</p>
+<p>The correct one would've been the public read-only version: <code>git://github.com/nils-werner/dump_db.git</code>.</p>
+<h4>Disappearing Users</h4>
+<p>Other problems may be beyond your control though: Sometimes people leave the community and delete their accounts on GitHub. Or you may have used somebody's fork of an extension on GitHub; a fork that has been deleted in the meantime.</p>
+<p>You may be able to find another fork of that extension (obviously one that also has the commit you're interest in) but how do you tell your project and your teammates?</p>
+<p>The solution is pretty easy but requires some work by hand:</p>
+<ol>
+<li>Edit the entry in <code>.gitmodules</code>, replacing the outdated URL by the new one</li>
+<li>Synchronize all your submodule-remotes with the URLs in <code>.gitmodules</code></li>
+<li>Commit the change</li>
+</ol>
+<p><span></span></p>
+<pre><code>&gt; git submodule sync
+&gt; git commit -m "Tracking working repository for Subsection Manager"
+</code></pre>
+<h4>Disappearing Code</h4>
+<p>You're in a bit more trouble if not only the URL of a repo has changed but if you can't find a working fork of that extension at all. It appears you'll be hitting a roadblock and might have to stop using that extension altogether.</p>
+<p>But luckily, you're wrong. You do in fact know at least one fork of that extension: The submodule itself, on your machine. That submodule is a perfect clone of the repository you're looking for!</p>
+<p>All you need to do is create a repository on say GitHub, then change into the submodule-folder, add the GitHub-repository to its remotes and push it.</p>
+<pre><code>&gt; cd extensions/subsectionmanager
+&gt; git remote add myown git@github.com/nils-werner/subsectionmanager.git
+&gt; git push myown master
+</code></pre>
+<p>Afterwards, update the URL in <code>.gitmodules</code> and run <code>git submodule sync</code> as described before. Easy.</p>
+<h4>Deleting Submodules</h4>
+<p>Oh the pain when you've accidentally added a submodule to a wrong folder or you've found out you won't be needing it in your project. There is no <code>git submodule rm</code> command and Git will be quite annoying if you removed the folder by hand. One could be tempted to start all over again if that happens.</p>
+<p>While the solution might be a bit more uncomfortable than a <code>submodule rm</code> command the solution is actually pretty simple too:</p>
+<p>First, we have to remove the following from <code>.git/config</code>:</p>
+<pre><code>[submodule "extensions/subsectionmanager"]
+        url = git://github.com/nilshoerrmann/subsectionmanager.git
+</code></pre>
+<p>then a pretty similar block from <code>.gitmodules</code>:</p>
+<pre><code>[submodule "extensions/subsectionmanager"]
+        path = extensions/subsectionmanager
+        url = git://github.com/nilshoerrmann/subsectionmanager.git
+</code></pre>
+<p>Afterwards we delete the folder and commit the changes:</p>
+<pre><code>&gt; rm -rf extensions/subsectionmanager
+&gt; git add -u
+&gt; git commit -m "Subsection Manager removed"
+</code></pre>
+<h3>Conclusion</h3>
+<p>As you can see, handling submodules is a pretty straightforward process if you treat them like the things they are: Two entirely separate repositories, both with their own workspace, log and remotes.</p>
+<p>You can do all the usual commands in both of them without disturbing the other. The only difference is: <strong>Your project always tracks what revision your submodules are at and asks you to commit the new state after you've updated one of them.</strong></p></body>
+            <concepts>
+                <item id="33158" handle="git" section-handle="concepts" section-name="Concepts">Git</item>
+            </concepts>
+            <date-modified time="05:20" weekday="2">2012-11-06</date-modified>
+            <date-published time="18:25" weekday="2">2012-01-17</date-published>
+            <title handle="on-git-submodules">On Git Submodules</title>
+        </entry>
+    </learn-article-view>
+</data>

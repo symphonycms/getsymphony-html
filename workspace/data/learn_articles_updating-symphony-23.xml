@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <learn-article-view>
+        <section id="61" handle="articles">Articles</section>
+        <entry id="94492">
+            <audiences>
+                <item handle="developers">Developers</item>
+            </audiences>
+            <author>
+                <item id="6922">nickdunn</item>
+            </author>
+            <body mode="formatted"><p>Although this is a minor release following 2.2.5, there are a large number of breaking changes that developers must be aware of. The core team, along with the wonderful contributors, have been fixing, improving and tidying. The codebase is now neater, so that your extensions will be neater too.</p>
+<p>Brendan has written a <a href="https://github.com/symphonycms/symphony-2/wiki/Migration-Guide-for-2.3-for-Extension-Developers">Migration Guide for 2.3 for Extension Developers</a> which should list every core that that might affect your extensions. However this list is pretty long, so here is my summary. These are the steps I have followed for each extension to quickly fix the most common bugs.</p>
+<h3><code>extension.meta.xml</code> files replace the <code>about()</code> function</h3>
+<p>Although not mandatory in 2.3, they are highly recommended. Add this file to the repo and remove the <code>about()</code> function from your <code>extension.driver.php</code>. Be sure that your XML file has the correct namespace!</p>
+<pre><code>&lt;extension id="..." status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0"&gt;
+</code></pre>
+<h3><code>Delete</code> delegate is no more</h3>
+<p>Search your source for <code>Delete</code> (note the case) to see if you subscribe to this delegate. It has changed to <code>EntryPreDelete</code>.</p>
+<h3>Accessing <code>sym_pages</code> or <code>sym_sections</code> directly?</h3>
+<p>If your extension queries these tables directly, then please stop. There is a good chance they will not exist in the future, in favour of other storage means. You must use the new <code>PageManager</code> class or existing <code>SectionManager</code> class as accessors. If you are modifying these tables by adding new columns, then this is very risky and you should store these in the config file instead. Don't say I didn't warn you.</p>
+<h3><code>displayDatasourceFilterPanel</code> markup change</h3>
+<p>If your field provides a <code>displayDatasourceFilterPanel</code> method, the markup it provides has changed. It should now be:</p>
+<pre><code>&lt;header&gt;
+    &lt;h4&gt;Label&lt;/h4&gt;
+    &lt;span&gt;Name&lt;/span&gt;
+&lt;/header&gt;
+</code></pre>
+<p>So you can replace your code with:</p>
+<pre><code>$header = new XMLElement('header');
+$header-&gt;appendChild(new XMLElement('h4', $this-&gt;get('label')));
+$header-&gt;appendChild(new XMLElement('span', $this-&gt;name()));
+$wrapper-&gt;appendChild($header);
+</code></pre>
+<h3><code>processRawFieldData</code> arguments changed</h3>
+<p>The third argument for this method in your fields is now a <code>$message</code> string and not <code>$simulate</code> boolean. Be sure to add this new third argument (now five arguments, not four).</p>
+<pre><code>public function processRawFieldData($data, &amp;$status, &amp;$message=null, $simulate=false, $entry_id=null) {
+</code></pre>
+<h3><code>buildDSRetrivalSQL</code> is deprecated</h3>
+<p>Spot the typo? The <code>buildDSRetrivalSQL</code> method in your fields is deprecated and should be renamed <code>buildDSRetrievalSQL</code>.</p>
+<h3>Delegate <code>$context</code> no longer contains <code>parent</code></h3>
+<p>In delegate callbacks, especially those that add CSS/JavaScript from the <code>InitaliseAdminPageHead</code> delegate, the chances are you access the current page and check its context. Search for:</p>
+<pre><code>$context['parent']-&gt;Page
+</code></pre>
+<p>This no longer exists and you should use:</p>
+<pre><code>Administration::instance()-&gt;Page;
+</code></pre>
+<p>Equally, you should not request the <code>_context</code> method on a page. Instead use the new <code>getContext()</code> method:</p>
+<pre><code>// old
+$page = $context['parent']-&gt;page;
+$page_context = $page-&gt;_context['...'];
+// new
+$page = Administration::instance()-&gt;Page;
+$context = $page-&gt;getContext();
+$page_context = $context['...'];
+</code></pre>
+<h3>Navigation groups can be aligned left or right</h3>
+<p>Symphony's navigation is now split left (<code>content</code>) and right (<code>structure</code>). If your extension adds a group to the navigation, be sure to specify which <code>type</code>. For example:</p>
+<pre><code>array(
+    'name' =&gt; __('...'),
+    'type' =&gt; 'content',
+    'children' =&gt; array(...)
+</code></pre>
+<h3>Managers are now static, <code>_Parent</code> is no more</h3>
+<p>All managers are now static. You <em>can</em> leave them as they are, but we recommend using the new syntax since sharing the same manager instance can improve performance. Look familiar?</p>
+<pre><code>$sm = new SectionManager(Administration::instance());
+$section = $sm-&gt;fetch(1);
+</code></pre>
+<p>Rewrite as:</p>
+<pre><code>$section = SectionManager::fetch(1);
+</code></pre>
+<p>This applies to <code>SectionManager</code>, <code>FieldManager</code>, <code>EntryManager</code> as well as the others. You should search your code for <code>_Parent</code> or <code>_engine</code> for <em>really</em> old legacy code.</p>
+<h3><code>Database</code> and <code>Configuration</code> accessors</h3>
+<p>The best way to get to the database and configuration objects is directly through the <code>Symphony</code> class:</p>
+<pre><code>Symphony::Database()
+Symphony::Configuration()
+</code></pre>
+<h3>No need to pass <code>$parent</code> to constructors</h3>
+<p>Most fields seem to have this passed in their constructors.</p>
+<pre><code>public function __construct(&amp;$parent) {
+    ...
+    parent::__construct($parent);
+}
+</code></pre>
+<p>It's unnecessary and will throw an error:</p>
+<blockquote>
+  <p>Missing argument 1 for YourClass::__construct()</p>
+</blockquote>
+<p>They can be removed.</p>
+<h3><code>Widget</code> values must be strings</h3>
+<p>Symphony is now more strict when it comes to building HTML form elements using the <code>Widget</code> class. If your widget shows numbers, be sure to cast these as strings first:</p>
+<pre><code>$my_cache_value = 10;
+Widget::Input('cache', (string)$my_cache_value);
+</code></pre>
+<p>Otherwise you'll get:</p>
+<blockquote>
+  <p>Symphony Fatal Error: Argument $value is not of type string, given integer.</p>
+</blockquote>
+<h3>Created tables must set <code>charset</code> and <code>collate</code></h3>
+<p>This is really important for multilingual compatibility. When creating new tables you must explicitly set the <code>charset</code> and <code>collate</code>, otherwise incorrect values might be inherited from MySQL's poor defaults. Search your code for <code>create table</code>, and be sure you have something like:</p>
+<pre><code>ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+</code></pre>
+<h3>Don't hard code <code>/symphony</code> in URLs</h3>
+<p>Future versions of Symphony will allow developers to change the backend URL from <code>/symphony</code> to their own choosing. When constructing URLs use the <code>SYMPHONY_URL</code> constant:</p>
+<pre><code>$url = URL . '/symphony/...'; # bad
+$url = SYMPHONY_URL . '/...'; # good
+</code></pre>
+<h3>My own process</h3>
+<p>I rarely keep a single set of my extensions locally, since they all live remotely on Github. So to test them all against a new release I perform a mass-clone:</p>
+<ol>
+<li>Visit <code>http://symphonyextensions.com/export/ssh/:username</code> and copy the list of clone commands (replace <code>ssh</code> with <code>git</code> for read-only clone URLs, or <code>submodule</code> for submodule commands instead)</li>
+<li>Navigate to your extensions directory e.g. <code>cd ~/Sites/symphony-2/extensions</code></li>
+<li>Paste the clone commands and wait for all extensions to download</li>
+</ol>
+<p>I then run through my list above performing a search across all files for various known terms (e.g. <code>_Parent</code> to remove old accessors, <code>new SectionManager</code> to find non-static SectionManager instances etc.)</p>
+<p>This short term pain will have long term benefits for the whole community. So please, join me in updating our extensions for the best Symphony yet.</p></body>
+            <concepts>
+                <item id="33071" handle="extensions" section-handle="concepts" section-name="Concepts">Extensions</item>
+            </concepts>
+            <date-modified time="05:26" weekday="2">2012-11-06</date-modified>
+            <date-published time="06:12" weekday="1">2012-03-26</date-published>
+            <title handle="updating-extensions-for-symphony-23">Updating Extensions for Symphony 2.3</title>
+        </entry>
+    </learn-article-view>
+</data>
