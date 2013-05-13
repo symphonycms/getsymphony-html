@@ -29,7 +29,8 @@
 </xsl:template>
 
 <xsl:template match="network/site">
-  <a href="{$root}/{@handle}/">
+  <!-- <a href="{$root}/{@handle}/"> -->
+  <a href="#">
     <xsl:if test="@handle = $site/@handle">
       <xsl:attribute name="class">active</xsl:attribute>
     </xsl:if>
