@@ -11,32 +11,10 @@ xsltproc -v -o ../README.md utilities/readme.xsl data/_pages.xml;
 # These commands will process HTML files with XSLT when you run `./build` inside the `workspace` directory.
 # This list is dynamically generated as you add more pages to the `data/_pages.xml` file.
 
-xsltproc -v -o ../network/index.html pages/network.xsl data/network.xml;
 xsltproc -v -o ../index.html pages/index.xsl data/index.xml;
-xsltproc -v -o ../stream/index.html pages/stream.xsl data/stream.xml;
-xsltproc -v -o ../discussions/index.html pages/discussions.xsl data/discussions.xml;
-xsltproc -v -o ../discussions/post/index.html pages/discussions_post.xsl data/discussions_post.xml;
-xsltproc -v -o ../questions/index.html pages/questions.xsl data/questions.xml;
-xsltproc -v -o ../blog/index.html pages/blog.xsl data/blog.xml;
-xsltproc -v -o ../showcase/index.html pages/showcase.xsl data/showcase.xml;
-xsltproc -v -o ../events/index.html pages/events.xsl data/events.xml;
-xsltproc -v -o ../about/index.html pages/about.xsl data/about.xml;
-xsltproc -v -o ../docs/index.html pages/docs.xsl data/docs.xml;
-xsltproc -v -o ../docs/guides/index.html pages/docs_guides.xsl data/docs_guides.xml;
-xsltproc -v -o ../docs/tutorials/index.html pages/docs_tutorials.xsl data/docs_tutorials.xml;
-xsltproc -v -o ../docs/articles/index.html pages/docs_articles.xsl data/docs_articles.xml;
-xsltproc -v -o ../docs/concepts/index.html pages/docs_concepts.xsl data/docs_concepts.xml;
-xsltproc -v -o ../docs/faq/index.html pages/docs_faq.xsl data/docs_faq.xml;
-xsltproc -v -o ../docs/api/index.html pages/docs_api.xsl data/docs_api.xml;
-xsltproc -v -o ../ext/index.html pages/ext.xsl data/ext.xml;
-xsltproc -v -o ../ext/extensions/index.html pages/ext_extensions.xsl data/ext_extensions.xml;
-xsltproc -v -o ../ext/matrix/index.html pages/ext_matrix.xsl data/ext_matrix.xml;
-xsltproc -v -o ../ninjas/index.html pages/ninjas.xsl data/ninjas.xml;
-xsltproc -v -o ../ninjas/interviews/index.html pages/ninjas_interviews.xsl data/ninjas_interviews.xml;
-xsltproc -v -o ../ninjas/directory/index.html pages/ninjas_directory.xsl data/ninjas_directory.xml;
-xsltproc -v -o ../ninjas/about/index.html pages/ninjas_about.xsl data/ninjas_about.xml;
-xsltproc -v -o ../xpathr/index.html pages/xpathr.xsl data/xpathr.xml;
-xsltproc -v -o ../xpathr/popular/index.html pages/xpathr_popular.xsl data/xpathr_popular.xml;
-xsltproc -v -o ../xpathr/recent/index.html pages/xpathr_recent.xsl data/xpathr_recent.xml;
-xsltproc -v -o ../xpathr/categories/index.html pages/xpathr_categories.xsl data/xpathr_categories.xml;
-xsltproc -v -o ../xpathr/contributors/index.html pages/xpathr_contributors.xsl data/xpathr_contributors.xml;
+xsltproc -v -o ../guides/index.html pages/docs_guides.xsl data/docs_guides.xml;
+xsltproc -v -o ../tutorials/index.html pages/docs_tutorials.xsl data/docs_tutorials.xml;
+xsltproc -v -o ../articles/index.html pages/docs_articles.xsl data/docs_articles.xml;
+xsltproc -v -o ../concepts/index.html pages/docs_concepts.xsl data/docs_concepts.xml;
+xsltproc -v -o ../faq/index.html pages/docs_faq.xsl data/docs_faq.xml;
+xsltproc -v -o ../api/index.html pages/docs_api.xsl data/docs_api.xml;
