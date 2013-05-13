@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <site handle="docs">Documentation</site>
+    <page-title>Documentation</page-title>
+    <current-page>docs</current-page>
+    <root>..</root>
+  </params>
+  <content>
+    <section class="field">
+      <div class="column sidebar infobox">
+        <h3>Browse Features</h3>
+        <ul>
+          <li>
+            <a href="#">Sound Principles</a>
+          </li>
+          <li>
+            <a href="#">Open Architecture</a>
+          </li>
+          <li>
+            <a href="#">Flexible Templating</a>
+          </li>
+          <li>
+            <a href="#">Elegant Interface</a>
+          </li>
+          <li>
+            <a href="#">Vibrant Support System</a>
+          </li>
+        </ul>       
+      </div>
+      <div class="column content">
+        <h2>Symphony Documentation</h2>
+        <p class="content-introduction">Symphony is an XSLT-powered open source content management system. Symphony's features strike a perfect balance: the power to do <strong>everything you need</strong>, the intelligence to do <strong>only what you need</strong>. Here is where you can discover how to effectively harness that power and build what you need.</p>
+
+        <h3>Elegant</h3>
+        <p>Approaches content management with the underlying goals of <strong>simplicity</strong> and <strong>openness</strong>, so you can build anything.</p>
+
+        <h3>Flexible</h3>
+        <p>Gives designers and developers <strong>complete control</strong> over data structures, <abbr title="Uniform Resource Locator">URL</abbr> schemas, and <em>every bit</em> of markup.</p>
+
+        <h3>Powerful</h3>
+        <p>Puts the Web's <strong>most exciting <abbr title="Application Programming Interface">API</abbr>s</strong> at your fingertips with an easy-to-use, <abbr title="eXtensible Markup Language">XML</abbr>-centric data engine.</p>
+
+        <h3>Extensible</h3>
+        <p>Provides a lean, flexible core complemented by a rapidly growing <strong>extensions library</strong>.</p>
+
+      </div>
+    </section>
+  </content>
+</data>

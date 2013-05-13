@@ -35,7 +35,7 @@
       <xsl:attribute name="class">active</xsl:attribute>
     </xsl:if>
     <xsl:if test="@type = 'primary'">
-      <xsl:attribute name="href"><xsl:value-of select="concat($root, '/')" /></xsl:attribute>
+      <xsl:attribute name="href"><xsl:value-of select="concat($root, '/', @handle, '/')" /></xsl:attribute>
     </xsl:if>
     <xsl:value-of select="name" />
   </a>

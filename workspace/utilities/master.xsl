@@ -24,6 +24,7 @@
 <xsl:param name="parent-page" select="/data/params/parent-page" />
 <xsl:param name="section-page" select="/data/params/section-page" />
 <xsl:param name="subsection-page" select="/data/params/subsection-page" />
+<xsl:param name="network-navigation" select="/data/params/network-navigation" />
 <xsl:param name="root-page">
   <xsl:choose>
     <xsl:when test="/data/params/root-page">

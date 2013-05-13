@@ -4,6 +4,9 @@
     <page output="index.html" xslt="pages/index.xsl" data-source="data/index.xml">
       <title>Documentation</title>
     </page>
+    <page output="docs/index.html" xslt="pages/index.xsl" data-source="data/docs.xml">
+      <title>Documentation</title>
+    </page>
     <page output="guides/index.html" xslt="pages/docs_guides.xsl" data-source="data/docs_guides.xml">
       <title>Guides</title>
     </page>

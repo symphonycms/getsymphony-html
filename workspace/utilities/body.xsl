@@ -10,7 +10,12 @@
 <xsl:template match="/" mode="body">
   <body>
     <!-- Symphony Network -->
-    <xsl:call-template name="network" />
+    <xsl:choose>
+      <xsl:when test="$network-navigation = 'none'"></xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="network" />
+      </xsl:otherwise>
+    </xsl:choose>
     <!-- Current page -->
     <div id="site">
       <xsl:call-template name="header" />

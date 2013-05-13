@@ -4,6 +4,9 @@
 
 <xsl:template name="header">
   <header class="site-header centered">
+    <xsl:if test="$network-navigation = 'none'">
+      <xsl:attribute name="class">site-header centered navigation-none</xsl:attribute>
+    </xsl:if>
     <h1>
       <span>Symphony</span>
       <xsl:if test="$site != 'Community'">
@@ -11,7 +14,12 @@
         <xsl:value-of select="$site" />
       </xsl:if>
     </h1>
-    <xsl:apply-templates select="$navigation/data" mode="navigation" />
+    <xsl:choose>
+      <xsl:when test="$network-navigation = 'none'"></xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="$navigation/data" mode="navigation" />
+      </xsl:otherwise>
+    </xsl:choose>
   </header>
 </xsl:template>
 
