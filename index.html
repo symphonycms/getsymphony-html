@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./workspace/factory/css/codemirror.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./workspace/factory/css/factory.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./workspace/factory/docs/css/factory.docs.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./workspace/assets/css/styles.css" />
     <script type="text/javascript" src="./workspace/factory/js/jquery.js"></script>
     <script type="text/javascript" src="./workspace/factory/js/modernizr.js"></script>
     <script type="text/javascript" src="./workspace/factory/js/codemirror.js"></script>
@@ -23,149 +24,55 @@
     <script type="text/javascript" src="./workspace/factory/js/factory.grid.js"></script>
   </head>
   <body>
-    <aside id="network">
-      <header class="network-toolbar collapsed">
-        <div class="field">
-          <h1 class="network-logo column one">
-            <a href="./">Symphony Network</a>
-          </h1>
-          <nav class="network-nav column">
-            <a href="#">Community</a>
-            <a href="./" class="active">Documentation</a>
-            <a href="#">Extensions</a>
-            <a href="#">Ninjas</a>
-            <a href="#">xpathr</a>
-          </nav>
-          <div id="user" class="network-user">
-            <a href="http://getsymphony.com/get-involved/member/Allen/">
-              <img src="./workspace/factory/img/user.png" width="35" height="35" alt="Allen Chang" />
-            </a>
-            <p><a href="http://getsymphony.com/get-involved/currently-online/" class="network-visitors">15</a> + <a class="network-username">Allen Chang</a></p>
-          </div>
-        </div>
-      </header>
-      <div class="field network-profile">
-        <form>
-          <div class="network-gravatar column one">
-            <img src="./workspace/factory/img/user.png" width="174" height="174" alt="Allen Chang" />
-            <p>Change your avatar at <a href="http://gravatar.com">Gravatar</a>.</p>
-          </div>
-          <fieldset class="column one large-two">
-            <label for="profile-username" class="restricted">Username</label>
-            <input id="profile-username" type="text" name="fields[username]" value="Allen" readonly="readonly" />
-            <label for="profile-name">Name</label>
-            <input id="profile-name" type="text" name="fields[name]" value="Allen Chang" />
-            <label for="profile-email-address">Email (Private)</label>
-            <input id="profile-email-address" type="text" name="fields[email-address]" value="team@getsymphony.com" />
-            <label for="profile-city">Location</label>
-            <input id="profile-city" type="text" name="fields[location]" value="Symphony Land" />
-          </fieldset>
-          <fieldset class="column two small-one">
-            <label for="profile-website">Website</label>
-            <input id="profile-website" type="text" name="fields[website]" value="http://getsymphony.com" />
-            <label for="profile-bio">Bio</label>
-            <textarea rows="7" name="fields[bio]">Cras mattis consectetur purus sit amet fermentum.</textarea>
-            <div class="profile-controls">
-              <button id="submit-profile" class="button-save" type="submit" name="action[members-edit]">Save Profile</button>
-              <a class="button-cancel" href="../../member/Nils/">Cancel</a>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-      <div class="field network-drawer">
-        <div class="column three medium-two">
-          <h2>About Symphony</h2>
-          <p>Symphony is an open source content management system for your websites and webapps. It makes complex things simple.</p>
-          <div class="get-symphony">
-            <a href="https://github.com/symphonycms/symphony-2">Get Symphony 2.3.0</a>
-            <a href="https://github.com/symphonycms/symphony-2" class="icon-fork">Fork<span class="medium-hide"> on Github</span></a>
-            <a href="https://github.com/symphonycms/symphony-2/archive/master.zip" class="icon-download"><span class="medium-hide">Download </span>ZIP</a>
-          </div>
-        </div>
-        <div class="column one small-two">
-          <h2>Regions</h2>
-          <ul>
-            <li>
-              <a href="#">Germany</a>
-            </li>
-            <li>
-              <a href="#">Italy</a>
-            </li>
-            <li>
-              <a href="#">Romania</a>
-            </li>
-            <li>
-              <a href="#">United Kingdom</a>
-            </li>
-          </ul>
-        </div>
-        <div class="column one">
-          <h2>Services</h2>
-          <ul>
-            <li>
-              <a href="#">Github</a>
-            </li>
-            <li>
-              <a href="#">Twitter</a>
-            </li>
-            <li>
-              <a href="#">Vimeo</a>
-            </li>
-            <li>
-              <a href="#">Flickr</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </aside>
     <div id="site">
-      <header class="site-header centered">
+      <header class="site-header centered navigation-none">
         <h1><span>Symphony</span> Documentation</h1>
-        <nav>
-          <a href="./guides/">Guides</a>
-          <a href="./tutorials/">Tutorials</a>
-          <a href="./articles/">Articles</a>
-          <a href="./concepts/">Concepts</a>
-          <a href="./faq/">FAQ</a>
-          <a href="./api/">API</a>
-        </nav>
       </header>
       <section class="field">
       <div class="column sidebar infobox">
         <h3>Browse Features</h3>
         <ul>
           <li>
-            <a href="#">Sound Principles</a>
+            <a href="http://www.getsymphony.com/explore/sound-principles/">Sound Principles</a>
           </li>
           <li>
-            <a href="#">Open Architecture</a>
+            <a href="http://www.getsymphony.com/explore/open-architecture/">Open Architecture</a>
           </li>
           <li>
-            <a href="#">Flexible Templating</a>
+            <a href="http://www.getsymphony.com/explore/flexible-templating/">Flexible Templating</a>
           </li>
           <li>
-            <a href="#">Elegant Interface</a>
+            <a href="http://www.getsymphony.com/explore/elegant-interface/">Elegant Interface</a>
           </li>
           <li>
-            <a href="#">Vibrant Support System</a>
+            <a href="http://www.getsymphony.com/explore/vibrant-support-system/">Vibrant Support System</a>
           </li>
         </ul>       
       </div>
       <div class="column content">
         <h2>Symphony Documentation</h2>
-        <p class="content-introduction">Symphony is an XSLT-powered open source content management system. Symphony's features strike a perfect balance: the power to do <strong>everything you need</strong>, the intelligence to do <strong>only what you need</strong>. Here is where you can discover how to effectively harness that power and build what you need.</p>
+        <p class="content-introduction"><a href="http://getsymphony.com">Symphony</a> is an XSLT-powered open source content management system. We are building a new documentation site. Until it is finished, please refer to our <strong>existing documentation:</strong></p>
 
-        <h3>Elegant</h3>
+        <h3><a href="http://www.getsymphony.com/explore/">Explore Symphony's Features</a></h3>
         <p>Approaches content management with the underlying goals of <strong>simplicity</strong> and <strong>openness</strong>, so you can build anything.</p>
 
-        <h3>Flexible</h3>
-        <p>Gives designers and developers <strong>complete control</strong> over data structures, <abbr title="Uniform Resource Locator">URL</abbr> schemas, and <em>every bit</em> of markup.</p>
+        <h3><a href="http://www.getsymphony.com/guides/">Guides</a></h3>
+        <p>Everything you need to know to start building your first Symphony website.</p>
 
-        <h3>Powerful</h3>
-        <p>Puts the Web's <strong>most exciting <abbr title="Application Programming Interface">API</abbr>s</strong> at your fingertips with an easy-to-use, <abbr title="eXtensible Markup Language">XML</abbr>-centric data engine.</p>
+        <h3><a href="http://www.getsymphony.com/learn/tutorials/">Tutorials</a></h3>
+        <p><strong>The Road to Mastery.</strong> Our tutorials are like typing <strong>“become a web development ninja”</strong> into Google Maps and clicking “Get Directions”</p>
 
-        <h3>Extensible</h3>
-        <p>Provides a lean, flexible core complemented by a rapidly growing <strong>extensions library</strong>.</p>
+        <h3><a href="http://www.getsymphony.com/learn/articles/">Articles</a></h3>
+        <p><strong>Get your thinking cap on.</strong> And it better be waterproof. These articles will shower you with hot Symphony knowledge.</p>
+
+        <h3><a href="http://www.getsymphony.com/learn/concepts/">Concepts</a></h3>
+        <p><strong>A Symphony-pedia.</strong> The ultimate reference for all things Symphony.</p>
+
+        <h3><a href="http://www.getsymphony.com/learn/faq/">FAQ</a></h3>
+        <p><strong>Are We There Yet?</strong> Answers to the most frequently asked questions.</p>
+
+        <h3><a href="http://www.getsymphony.com/learn/api/">API</a></h3>
+        <p><strong>API Reference.</strong> All classes, functions, <a href="http://www.getsymphony.com/learn/api/2.3.2/deprecated/">deprecated code</a> and <a href="http://www.getsymphony.com/learn/api/2.3.2/delegates/">delegates</a> in Symphony.</p>
 
       </div>
     </section>

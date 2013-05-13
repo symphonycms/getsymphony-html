@@ -17,6 +17,7 @@ To process individual files, open the `workspace/build` file and find the xsltpr
 The page layouts can be viewed in a browser at the following URLs: 
 
 * http://symphonycms.github.com/getsymphony-html/
+* http://symphonycms.github.com/getsymphony-html/docs/
 * http://symphonycms.github.com/getsymphony-html/guides/
 * http://symphonycms.github.com/getsymphony-html/tutorials/
 * http://symphonycms.github.com/getsymphony-html/articles/
