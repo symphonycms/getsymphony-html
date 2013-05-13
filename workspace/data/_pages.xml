@@ -1,92 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <pages>
-    <page output="network/index.html" xslt="pages/network.xsl" data-source="data/network.xml">
-      <title>Network</title>
-    </page>
     <page output="index.html" xslt="pages/index.xsl" data-source="data/index.xml">
-      <title>Community</title>
-    </page>
-    <page output="stream/index.html" xslt="pages/stream.xsl" data-source="data/stream.xml">
-      <title>Stream</title>
-    </page>
-    <page output="discussions/index.html" xslt="pages/discussions.xsl" data-source="data/discussions.xml">
-      <title>Discussions</title>
-    </page>
-    <page output="discussions/post/index.html" xslt="pages/discussions_post.xsl" data-source="data/discussions_post.xml">
-      <title>Discussion</title>
-    </page>
-    <page output="questions/index.html" xslt="pages/questions.xsl" data-source="data/questions.xml">
-      <title>Questions</title>
-    </page>
-    <page output="blog/index.html" xslt="pages/blog.xsl" data-source="data/blog.xml">
-      <title>Blog</title>
-    </page>
-    <page output="showcase/index.html" xslt="pages/showcase.xsl" data-source="data/showcase.xml">
-      <title>Showcase</title>
-    </page>
-    <page output="events/index.html" xslt="pages/events.xsl" data-source="data/events.xml">
-      <title>Events</title>
-    </page>
-    <page output="about/index.html" xslt="pages/about.xsl" data-source="data/about.xml">
-      <title>About</title>
-    </page>
-    <page output="docs/index.html" xslt="pages/docs.xsl" data-source="data/docs.xml">
       <title>Documentation</title>
     </page>
-    <page output="docs/guides/index.html" xslt="pages/docs_guides.xsl" data-source="data/docs_guides.xml">
+    <page output="guides/index.html" xslt="pages/docs_guides.xsl" data-source="data/docs_guides.xml">
       <title>Guides</title>
     </page>
-    <page output="docs/tutorials/index.html" xslt="pages/docs_tutorials.xsl" data-source="data/docs_tutorials.xml">
+    <page output="tutorials/index.html" xslt="pages/docs_tutorials.xsl" data-source="data/docs_tutorials.xml">
       <title>Tutorials</title>
     </page>
-    <page output="docs/articles/index.html" xslt="pages/docs_articles.xsl" data-source="data/docs_articles.xml">
+    <page output="articles/index.html" xslt="pages/docs_articles.xsl" data-source="data/docs_articles.xml">
       <title>Articles</title>
     </page>
-    <page output="docs/concepts/index.html" xslt="pages/docs_concepts.xsl" data-source="data/docs_concepts.xml">
+    <page output="concepts/index.html" xslt="pages/docs_concepts.xsl" data-source="data/docs_concepts.xml">
       <title>Concepts</title>
     </page>
-    <page output="docs/faq/index.html" xslt="pages/docs_faq.xsl" data-source="data/docs_faq.xml">
+    <page output="faq/index.html" xslt="pages/docs_faq.xsl" data-source="data/docs_faq.xml">
       <title>FAQ</title>
     </page>
-    <page output="docs/api/index.html" xslt="pages/docs_api.xsl" data-source="data/docs_api.xml">
+    <page output="api/index.html" xslt="pages/docs_api.xsl" data-source="data/docs_api.xml">
       <title>API</title>
-    </page>
-    <page output="ext/index.html" xslt="pages/ext.xsl" data-source="data/ext.xml">
-      <title>Extensions</title>
-    </page>
-    <page output="ext/extensions/index.html" xslt="pages/ext_extensions.xsl" data-source="data/ext_extensions.xml">
-      <title>Browse Extensions</title>
-    </page>
-    <page output="ext/matrix/index.html" xslt="pages/ext_matrix.xsl" data-source="data/ext_matrix.xml">
-      <title>Compatibility Matrix</title>
-    </page>
-    <page output="ninjas/index.html" xslt="pages/ninjas.xsl" data-source="data/ninjas.xml">
-      <title>Ninjas</title>
-    </page>
-    <page output="ninjas/interviews/index.html" xslt="pages/ninjas_interviews.xsl" data-source="data/ninjas_interviews.xml">
-      <title>Interviews</title>
-    </page>
-    <page output="ninjas/directory/index.html" xslt="pages/ninjas_directory.xsl" data-source="data/ninjas_directory.xml">
-      <title>Directory</title>
-    </page>
-    <page output="ninjas/about/index.html" xslt="pages/ninjas_about.xsl" data-source="data/ninjas_about.xml">
-      <title>Learn More</title>
-    </page>
-    <page output="xpathr/index.html" xslt="pages/xpathr.xsl" data-source="data/xpathr.xml">
-      <title>xpathr</title>
-    </page>
-    <page output="xpathr/popular/index.html" xslt="pages/xpathr_popular.xsl" data-source="data/xpathr_popular.xml">
-      <title>Popular</title>
-    </page>
-    <page output="xpathr/recent/index.html" xslt="pages/xpathr_recent.xsl" data-source="data/xpathr_recent.xml">
-      <title>Recent</title>
-    </page>
-    <page output="xpathr/categories/index.html" xslt="pages/xpathr_categories.xsl" data-source="data/xpathr_categories.xml">
-      <title>Categories</title>
-    </page>
-    <page output="xpathr/contributors/index.html" xslt="pages/xpathr_contributors.xsl" data-source="data/xpathr_contributors.xml">
-      <title>Contributors</title>
     </page>
   </pages>
 </data>
