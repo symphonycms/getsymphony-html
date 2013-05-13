@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
   <network>
-    <site handle="community" domain="getsymphony.com" type="primary">
+    <site handle="community" domain="getsymphony.com">
       <name>Community</name>
     </site>
-    <site handle="docs" domain="docs.getsymphony.com">
+    <site handle="docs" domain="docs.getsymphony.com" type="primary">
       <name>Documentation</name>
     </site>
     <site handle="ext" domain="ext.getsymphony.com">
