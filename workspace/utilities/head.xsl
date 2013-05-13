@@ -28,6 +28,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="{$theme}/css/codemirror.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="{$theme}/css/factory.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="{$theme}/docs/css/factory.docs.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="{$workspace}/assets/css/styles.css" />
   <!--
   <link rel="stylesheet" type="text/css" media="screen" href="{$css}screen.css" />
   <xsl:comment><![CDATA[[if IE]> <link href="]]><xsl:value-of select="$css" /><![CDATA[ie.css" media="screen, projection" rel="stylesheet" type="text/css" /> <![endif]]]></xsl:comment>
