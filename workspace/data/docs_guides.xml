@@ -4,7 +4,6 @@
     <site handle="docs">Documentation</site>
     <page-title>Guides</page-title>
     <current-page>guides</current-page>
-    <root-page>docs</root-page>
-    <root>../..</root>
+    <root>..</root>
   </params>
 </data>
