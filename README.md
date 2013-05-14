@@ -12,15 +12,4 @@ To process HTML, run the `./build` script in the same directory as this README f
 
 To process individual files, open the `workspace/build` file and find the xsltproc command referring to the HTML file you would like to process and run the command.
 
-### Design Templates
 
-The page layouts can be viewed in a browser at the following URLs: 
-
-* http://docs.getsymphony.com/
-* http://docs.getsymphony.com/docs/
-* http://docs.getsymphony.com/guides/
-* http://docs.getsymphony.com/tutorials/
-* http://docs.getsymphony.com/articles/
-* http://docs.getsymphony.com/concepts/
-* http://docs.getsymphony.com/faq/
-* http://docs.getsymphony.com/api/

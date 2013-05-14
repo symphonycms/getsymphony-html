@@ -22,12 +22,17 @@ To process HTML, run the `./build` script in the same directory as this README f
 
 To process individual files, open the `workspace/build` file and find the xsltproc command referring to the HTML file you would like to process and run the command.
 
+<!--
 ### Design Templates
 
 The page layouts can be viewed in a browser at the following URLs: 
-
+-->
 </xsl:text>
+
+<!--
 <xsl:apply-templates select="data/pages/page" />
+-->
+
 </xsl:template>
 
 <xsl:template match="page">
@@ -35,5 +40,6 @@ The page layouts can be viewed in a browser at the following URLs:
   <xsl:value-of select="substring-before(@output, 'index.html')" />
   <xsl:text>&#10;</xsl:text>
 </xsl:template>
+
 
 </xsl:stylesheet>
