@@ -31,7 +31,7 @@ The page layouts can be viewed in a browser at the following URLs:
 </xsl:template>
 
 <xsl:template match="page">
-  <xsl:text>* http://symphonycms.github.com/getsymphony-html/</xsl:text>
+  <xsl:text>* http://docs.getsymphony.com/</xsl:text>
   <xsl:value-of select="substring-before(@output, 'index.html')" />
   <xsl:text>&#10;</xsl:text>
 </xsl:template>
