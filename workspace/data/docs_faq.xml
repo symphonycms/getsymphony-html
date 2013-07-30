@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<data>
-  <params>
-    <site handle="docs">Documentation</site>
-    <page-title>FAQ</page-title>
-    <current-page>faq</current-page>
-    <root>..</root>
-  </params>
-</data>
