@@ -7,20 +7,17 @@
     <page output="docs/index.html" xslt="pages/index.xsl" data-source="data/docs.xml">
       <title>Documentation</title>
     </page>
-    <page output="guides/index.html" xslt="pages/docs_guides.xsl" data-source="data/docs_guides.xml">
-      <title>Guides</title>
-    </page>
-    <page output="tutorials/index.html" xslt="pages/docs_tutorials.xsl" data-source="data/docs_tutorials.xml">
-      <title>Tutorials</title>
-    </page>
-    <page output="articles/index.html" xslt="pages/docs_articles.xsl" data-source="data/docs_articles.xml">
-      <title>Articles</title>
+    <page output="intro/index.html" xslt="pages/docs_intro.xsl" data-source="data/docs_intro.xml">
+      <title>Introduction</title>
     </page>
     <page output="concepts/index.html" xslt="pages/docs_concepts.xsl" data-source="data/docs_concepts.xml">
       <title>Concepts</title>
     </page>
-    <page output="faq/index.html" xslt="pages/docs_faq.xsl" data-source="data/docs_faq.xml">
-      <title>FAQ</title>
+    <page output="workflows/index.html" xslt="pages/docs_workflows.xsl" data-source="data/docs_workflows.xml">
+      <title>Workflows</title>
+    </page>
+    <page output="projects/index.html" xslt="pages/docs_projects.xsl" data-source="data/docs_projects.xml">
+      <title>Projects</title>
     </page>
     <page output="api/index.html" xslt="pages/docs_api.xsl" data-source="data/docs_api.xml">
       <title>API</title>

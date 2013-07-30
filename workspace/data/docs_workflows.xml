@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <site handle="docs">Documentation</site>
+    <page-title>Workflows</page-title>
+    <current-page>workflows</current-page>
+    <root>..</root>
+  </params>
+</data>

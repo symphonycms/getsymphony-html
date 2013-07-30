@@ -27,20 +27,17 @@
     </page>
   </navigation>
   <navigation site="docs" type="primary">
-    <page handle="guides">
-      <name>Guides</name>
-    </page>
-    <page handle="tutorials">
-      <name>Tutorials</name>
-    </page>
-    <page handle="articles">
-      <name>Articles</name>
+    <page handle="intro">
+      <name>Introduction</name>
     </page>
     <page handle="concepts">
       <name>Concepts</name>
     </page>
-    <page handle="faq">
-      <name>FAQ</name>
+    <page handle="workflows">
+      <name>Workflows</name>
+    </page>
+    <page handle="projects">
+      <name>Projects</name>
     </page>
     <page handle="api">
       <name>API</name>

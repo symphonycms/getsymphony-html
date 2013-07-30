@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <params>
+    <site handle="docs">Documentation</site>
+    <page-title>Introduction</page-title>
+    <current-page>intro</current-page>
+    <root>..</root>
+  </params>
+</data>
