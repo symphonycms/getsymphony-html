@@ -28,16 +28,19 @@
   </navigation>
   <navigation site="docs" type="primary">
     <page handle="intro">
-      <name>Introduction</name>
+      <name>Intro</name>
     </page>
-    <page handle="concepts">
-      <name>Concepts</name>
+    <page handle="fundamentals">
+      <name>Fundamentals</name>
     </page>
     <page handle="workflows">
       <name>Workflows</name>
     </page>
     <page handle="projects">
       <name>Projects</name>
+    </page>
+    <page handle="concepts">
+      <name>Concepts</name>
     </page>
     <page handle="api">
       <name>API</name>

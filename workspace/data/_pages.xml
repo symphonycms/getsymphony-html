@@ -8,16 +8,19 @@
       <title>Documentation</title>
     </page>
     <page output="intro/index.html" xslt="pages/docs_intro.xsl" data-source="data/docs_intro.xml">
-      <title>Introduction</title>
+      <title>Intro</title>
     </page>
-    <page output="concepts/index.html" xslt="pages/docs_concepts.xsl" data-source="data/docs_concepts.xml">
-      <title>Concepts</title>
+    <page output="fundamentals/index.html" xslt="pages/docs_fundamentals.xsl" data-source="data/docs_fundamentals.xml">
+      <title>Fundamentals</title>
     </page>
     <page output="workflows/index.html" xslt="pages/docs_workflows.xsl" data-source="data/docs_workflows.xml">
       <title>Workflows</title>
     </page>
     <page output="projects/index.html" xslt="pages/docs_projects.xsl" data-source="data/docs_projects.xml">
       <title>Projects</title>
+    </page>
+    <page output="concepts/index.html" xslt="pages/docs_concepts.xsl" data-source="data/docs_concepts.xml">
+      <title>Concepts</title>
     </page>
     <page output="api/index.html" xslt="pages/docs_api.xsl" data-source="data/docs_api.xml">
       <title>API</title>
