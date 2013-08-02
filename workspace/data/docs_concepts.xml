@@ -6,4 +6,355 @@
     <current-page>concepts</current-page>
     <root>..</root>
   </params>
+  <content>
+    <section class="field">
+      <div class="column sidebar infobox">
+        <h3>Concepts</h3>
+        <ul>
+          <li>
+            <a href="#">Admin Interface</a>
+          </li>
+          <li>
+            <a href="#">Authors</a>
+          </li>
+          <li>
+            <a href="#">Data Sources</a>
+          </li>
+          <li>
+            <a href="#">Devkits</a>
+          </li>
+          <li>
+            <a href="#">Ensembles</a>
+          </li>
+          <li>
+            <a href="#">Entries</a>
+          </li>
+          <li>
+            <a href="#">Events</a>
+          </li>
+          <li>
+            <a href="#">Extensions</a>
+          </li>
+          <li>
+            <a href="#">Fields</a>
+          </li>
+          <li>
+            <a href="#">Git</a>
+          </li>
+          <li>
+            <a href="#">JIT Image Manipulation</a>
+          </li>
+          <li>
+            <a href="#">Pages</a>
+          </li>
+          <li>
+            <a href="#">Parameters</a>
+          </li>
+          <li>
+            <a href="#">Sections</a>
+          </li>
+          <li>
+            <a href="#">Utilities</a>
+          </li>
+          <li>
+            <a href="#">Workspace</a>
+          </li>
+          <li>
+            <a href="#">XML</a>
+          </li>
+          <li>
+            <a href="#">XSLT</a>
+          </li>
+        </ul>
+        <h3>Documentation</h3>
+        <ul>
+          <li>
+            <a href="../docs/#tableofcontents">Table of Contents</a>
+          </li>
+        </ul>       
+      </div>
+      <div class="column content">
+
+        <h1 id="symphonyconcepts">Symphony Concepts</h1>
+
+        <ul class="listings-flat">
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/admin-interface/">Admin Interface</a>
+            </h3>
+            <p>Symphony’s Admin Interface, or back end, enables authors to manage content and system settings.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/blueprints/">Blueprints</a>
+                </h5>
+                <p>Blueprints refers collectively to a Symphony project’s pages, components, and sections.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/components/">Components</a>
+                </h5>
+                <p>Components refers collectively to a Symphony project’s events, data sources, and utilities.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/maintenance-mode/">Maintenance Mode</a>
+                </h5>
+                <p>Maintenance Mode, when enabled, disallows access to a Symphony project’s front end and replaces it with a placeholder page.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/navigation-groups/">Navigation Groups</a>
+                </h5>
+                <p>Navigation Groups allow Sections to be grouped together in the Symphony admin interface.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/authors/">Authors</a>
+            </h3>
+            <p>Authors can login to the admin interface and manage a project and its content.</p>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/data-sources/">Data Sources</a>
+            </h3>
+            <p>Data Sources fetch, filter, and sort data and expose it as XML to pages for templating.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/data-source-chaining/">Data Source Chaining</a>
+                </h5>
+                <p>Data Source Chaining enables a data source to be filtered using the results provided by another data source.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/data-source-filters/">Data Source Filters</a>
+                </h5>
+                <p>Data Source Filters can use parameters, advanced operators, regular expressions, and normal values to filter results.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/data-source-output-parameters/">Data Source Output Parameters</a>
+                </h5>
+                <p>Data Source Output Parameters are set using the results from a data source and enable data source chaining.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/devkits/">Devkits</a>
+            </h3>
+            <p>Devkits provide useful developer tools on the front end which facilitate debugging, profiling, and other tasks.</p>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/ensembles/">Ensembles</a>
+            </h3>
+            <p>Ensembles bundle an entire Symphony project, including its database and workspace files, into an installable package.</p>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/entries/">Entries</a>
+            </h3>
+            <p>Entries represent individual content records in a section.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/handles/">Handles</a>
+                </h5>
+                <p>Handles provide sanitized, URL-friendly equivalents for the values stored by many field types.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/system-dates/">System Dates</a>
+                </h5>
+                <p>System Dates store creation timestamps for a Symphony project’s content entries.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/system-ids/">System IDs</a>
+                </h5>
+                <p>System IDs provide unique identification numbers for a Symphony project’s content entries.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/events/">Events</a>
+            </h3>
+            <p>Events facilitate advanced front-end interactions such as data submission.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/event-filters/">Event Filters</a>
+                </h5>
+                <p>Event Filters add additional conditions or actions to an event.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/extensions/">Extensions</a>
+            </h3>
+            <p>Extensions add specialized functionality to the lean, mean Symphony core.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/delegates/">Delegates</a>
+                </h5>
+                <p>Delegates allow developers to manipulate input and output and perform other tasks during the generation of back-end and front-end pages.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/extension-file-structure/">Extension File Structure</a>
+                </h5>
+                <p>The Extension File Structure enables Symphony to detect and load extension files automatically.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/fields/">Fields</a>
+            </h3>
+            <p>Fields give shape to sections and their entries by defining the data they capture.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/field-types/">Field Types</a>
+                </h5>
+                <p>Field Types define the structure of fields and govern their behavior in capturing and outputting data.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/text-formatters/">Text Formatters</a>
+                </h5>
+                <p>Text formatters can be applied to fields to transform or format their content before saving.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/git/">Git</a>
+            </h3>
+            <p>Git version control is used to manage updates and contributions to the official Symphony codebase.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/github/">Github</a>
+                </h5>
+                <p>Github hosts the official Symphony repository and the repositories of most Symphony extensions.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/jit-image-manipulation/">JIT Image Manipulation</a>
+            </h3>
+            <p>JIT Image Manipulation provides a URL-based API for dynamically transforming images.</p>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/pages/">Pages</a>
+            </h3>
+            <p>Pages constitute a Symphony project’s front-end interface and determine its URL structure.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/page-templates/">Page Templates</a>
+                </h5>
+                <p>Page Templates transform the XML provided to a page by its data sources.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/page-types/">Page Types</a>
+                </h5>
+                <p>Page Types enable special handling of pages, and are used to specify a project’s home page, error pages, etc.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/url-parameters/">URL Parameters</a>
+                </h5>
+                <p>URL Parameters enable pages to capture and utilize parameters set dynamically in their URLs.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/parameters/">Parameters</a>
+            </h3>
+            <p>Parameters channel dynamically set values through the system for use by data sources and in the templating layer.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/data-source-output-parameters/">Data Source Output Parameters</a>
+                </h5>
+                <p>Data Source Output Parameters are set using the results from a data source and enable data source chaining.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/url-parameters/">URL Parameters</a>
+                </h5>
+                <p>URL Parameters enable pages to capture and utilize parameters set dynamically in their URLs.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/sections/">Sections</a>
+            </h3>
+            <p>Sections model and define the types of content to be managed in a Symphony project.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/field-types/">Field Types</a>
+                </h5>
+                <p>Field Types define the structure of fields and govern their behavior in capturing and outputting data.</p>
+              </li>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/navigation-groups/">Navigation Groups</a>
+                </h5>
+                <p>Navigation Groups allow Sections to be grouped together in the Symphony admin interface.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/utilities/">Utilities</a>
+            </h3>
+            <p>Utilities enable the abstraction and reuse of common template functions and markup.</p>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/workspace/">Workspace</a>
+            </h3>
+            <p>The Workspace directory stores project-specific files like data sources, pages, utilities, and uploads.</p>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/xml/">XML</a>
+            </h3>
+            <p>XML powers Symphony’s data engine and is used to structure content for templating.</p>
+          </li>
+          <li>
+            <h3>
+              <a href="http://www.getsymphony.com/learn/concepts/view/xslt/">XSLT</a>
+            </h3>
+            <p>XSLT powers Symphony’s page templates and utilities, which together comprise the templating layer.</p>
+            <ul>
+              <li>
+                <h5>
+                  <a href="http://www.getsymphony.com/learn/concepts/view/xpath/">XPath</a>
+                </h5>
+                <p>XPath is used by XSLT to address nodes and perform basic computations while traversing an XML document.</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+  </content>
 </data>
